@@ -1,0 +1,22 @@
+{
+    "name" : "R-studio on Github",
+    "build" : {
+        "dockerfile" : "DOCKERFILE"
+        },
+
+    "customizations": {
+        "vscode": {
+            "extensions": ["GitHub.copilot"]
+        }
+    },
+
+    "forwardPorts": [8787],
+	"portsAttributes": {
+		"8787": {
+			"label": "Rstudio"
+		}
+	},
+
+    "postAttachCommand": "sudo rstudio-server start"
+}
+

@@ -1,0 +1,16 @@
+FROM rocker/rstudio:latest
+
+#rocker/rstudio's workdir is /home/rstudio
+
+# expose port 8787 for RStudio
+EXPOSE 8787
+
+# set environment variables for RStudio, will require sudo otherwise
+ENV USER rstudio
+
+# install git
+RUN apt-get update && apt-get upgrade -y
+RUN apt-get install -y git
+
+# run bash
+CMD ["/bin/bash"]
