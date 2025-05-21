@@ -16,7 +16,7 @@
 			"label": "Rstudio"
 		}
 	},
-
+    "postCreateCommand": "sudo rm -rf /home/rstudio && sudo ln -s \"$(pwd)\" /home/rstudio;",
     "postAttachCommand": "sudo rstudio-server start"
 }
 
