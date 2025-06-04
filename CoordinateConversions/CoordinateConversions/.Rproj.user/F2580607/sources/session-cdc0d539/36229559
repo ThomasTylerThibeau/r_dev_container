@@ -1,24 +1,26 @@
 {
-    "id": "AABB112E",
+    "id": "36229559",
     "path": "~/r_code.r",
     "project_path": null,
     "type": "r_source",
     "hash": "0",
     "contents": "",
     "dirty": false,
-    "created": 1747865137802.0,
+    "created": 1749071475901.0,
     "source_on_save": false,
-    "relative_order": 1,
+    "relative_order": 2,
     "properties": {
         "source_window_id": "",
-        "Source": "Source"
+        "Source": "Source",
+        "cursorPosition": "11,0",
+        "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1747864977,
+    "lastKnownWriteTime": 1749071493,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1747864977,
+    "last_content_update": 1749071493037,
     "read_only": false,
     "read_only_alternatives": []
 }

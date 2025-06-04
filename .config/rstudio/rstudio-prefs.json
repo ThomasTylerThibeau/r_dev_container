@@ -1,1 +1,6 @@
-{}
+{
+    "default_project_location": "~/CoordinateConversions",
+    "show_terminal_tab": false,
+    "jobs_tab_visibility": "shown",
+    "source_with_echo": true
+}
