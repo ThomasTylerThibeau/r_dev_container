@@ -133,3 +133,8 @@
 1749073854238:install.packages("roxygen2","devtools")
 1749073881892:install.packages("roxygen2")
 1749073905197:install.packages("devtools")
+1749165933838:install.packages("roxygen2")
+1749166072587:sphereToRec(3,4,2)
+1749166180185:library('roxygen2')
+1749166183972:library()
+1749166224250:install.packages("CoordinateConversions")
