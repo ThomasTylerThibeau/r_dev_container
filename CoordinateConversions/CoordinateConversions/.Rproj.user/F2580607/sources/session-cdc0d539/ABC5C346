@@ -1,0 +1,27 @@
+{
+    "id": "ABC5C346",
+    "path": "~/CoordinateConversions/CoordinateConversions/R/cylToSphere.R",
+    "project_path": "R/cylToSphere.R",
+    "type": "r_source",
+    "hash": "1539082392",
+    "contents": "",
+    "dirty": false,
+    "created": 1749081817277.0,
+    "source_on_save": false,
+    "relative_order": 10,
+    "properties": {
+        "tempName": "Untitled1",
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "6,10",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1749083542,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1749083542658,
+    "read_only": false,
+    "read_only_alternatives": []
+}

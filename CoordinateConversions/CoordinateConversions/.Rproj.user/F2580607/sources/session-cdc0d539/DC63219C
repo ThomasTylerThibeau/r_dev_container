@@ -1,0 +1,27 @@
+{
+    "id": "DC63219C",
+    "path": "~/CoordinateConversions/CoordinateConversions/R/recToPolar.R",
+    "project_path": "R/recToPolar.R",
+    "type": "r_source",
+    "hash": "1891834431",
+    "contents": "",
+    "dirty": false,
+    "created": 1749077164370.0,
+    "source_on_save": false,
+    "relative_order": 4,
+    "properties": {
+        "tempName": "Untitled1",
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "20,0",
+        "scrollLine": "7"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1749083733,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1749083733555,
+    "read_only": false,
+    "read_only_alternatives": []
+}

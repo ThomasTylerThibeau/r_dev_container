@@ -1,16 +1,18 @@
 Package: CoordinateConversions
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Coordinate Systems Conversion
+Date: 4 June 2025
 Version: 0.1.0
-Authors@R: c(
-    person(
-      "Jane", "Doe",
-      email = "jane@example.com",
-      role = c("aut", "cre")
-    )
-  )
-Description: More about what it does (maybe more than one line).
-    Continuation lines should be indented.
-License: What license is it under?
+Author: T. Tyler Thibeau <thomas.thibeau@maine.edu>
+Maintainer: T. Tyler Thibeau <thomas.thibeau@maine.edu>
+Description: This library provides the requisite functions to translate an 
+              object from one coordinate system to another. It works in 
+              Cartesian, Polar, Spherical, Cylindrical, and whatever 3D  
+              would be. There is a conversion from each to each other, assuming 
+              they contain the same number of dimensions. It will also find the 
+              slope of a line when given one or two points (using the origin as
+              needed).
+License: NAC (Not A Clue) yours to use freely
 Encoding: UTF-8
 LazyData: true
+

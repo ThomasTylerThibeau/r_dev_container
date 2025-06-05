@@ -1,0 +1,17 @@
+Package: CoordinateConversions
+Type: Package
+Title: Coordinate Systems Conversion
+Date: 4 June 2025
+Version: 0.1.0
+Author: T. Tyler Thibeau <thomas.thibeau@maine.edu>
+Description: This library provides the requisite functions to translate an 
+              object from one coordinate system to another. It works in 
+              Cartesian, Polar, Spherical, Cylindrical, and whatever 3D  
+              would be. There is a conversion from each to each other, assuming 
+              they contain the same number of dimensions. It will also find the 
+              slope of a line when given one or two points (using the origin as
+              needed).
+License: NAC (Not A Clue) yours to use freely
+Encoding: UTF-8
+NeedsCompilation: no
+Packaged: 2025-06-04 22:15:03 UTC; rstudio
