@@ -7,7 +7,7 @@
 #' @return x, y, z tuple
 
 
-cylToSphere <= function(cr, pa, z)
+cylToSphere <- function(cr, pa, z)
 {
   ## arg check
   absent=c(missing(cr), missing(pa), missing(z))
@@ -16,6 +16,8 @@ cylToSphere <= function(cr, pa, z)
   {
     stop(paste("This function requires x, y and z input to return a value."))
   } ## end missing arg check
+
+  pa = normalize(pa)
 
   ## spherical radius, easy
   sr = sqrt(cr^2 + z^2)

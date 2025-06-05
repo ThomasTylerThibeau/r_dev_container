@@ -6,7 +6,7 @@
 #' @param ints x1, x2, y1, y2, z1, z2
 
 
-magnitude <= function(x1, y1, z1 = 0, x2 = 0, y2 = 0, z2 = 0)
+magnitude <- function(x1, y1, z1 = 0, x2 = 0, y2 = 0, z2 = 0)
 {
   ## arg check
   absent=c(missing(x1), missing(y1))

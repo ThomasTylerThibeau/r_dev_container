@@ -7,7 +7,7 @@
 #' @return x, y, z tuple
 
 
-cylToRec <= function(cr, pa, z = 0)
+cylToRec <- function(cr, pa, z = 0)
 {
   ## arg check
   absent=c(missing(pa), missing(cr))
@@ -16,6 +16,8 @@ cylToRec <= function(cr, pa, z = 0)
   {
     stop(paste("This function requires at least theta & radius input to return a value."))
   } ## end missing arg check
+
+  pa = normalize(pa)
 
   ## I already did most of this, right? eh, but it's so easy...
   return (c(cr * cos(pa), cr * sin(pa), z))

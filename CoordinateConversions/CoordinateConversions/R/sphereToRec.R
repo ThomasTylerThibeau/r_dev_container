@@ -7,7 +7,7 @@
 #' @return x, y, z tuple
 
 
-sphereToRec <= function(sr, pa, aa)
+sphereToRec <- function(sr, pa, aa)
 {
   ## arg check
   absent=c(missing(sr), missing(pa), missing(aa))
@@ -16,6 +16,9 @@ sphereToRec <= function(sr, pa, aa)
   {
     stop(paste("This function requires radius, polar angle and azimuthal angle input to return a value."))
   } ## end missing arg check
+
+  pa = normalize(pa)
+  aa = normalize(aa)
 
   ## glad I gave up before starting and looked this up (thank you google)
   x = sr * sin(aa) * cos(pa)

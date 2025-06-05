@@ -6,7 +6,7 @@
 #' @keywords slope
 
 
-slope <= function(x1, y1, x2 = 0, y2 = 0)
+slope <- function(x1, y1, x2 = 0, y2 = 0)
 {
   ## arg check
   absent=c(missing(x1), missing(y1))

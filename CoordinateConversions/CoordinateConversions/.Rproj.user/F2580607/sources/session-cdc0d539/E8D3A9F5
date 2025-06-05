@@ -3,7 +3,7 @@
     "path": "~/CoordinateConversions/CoordinateConversions/R/magnitude.R",
     "project_path": "R/magnitude.R",
     "type": "r_source",
-    "hash": "2057558425",
+    "hash": "3324156368",
     "contents": "",
     "dirty": false,
     "created": 1749076695019.0,
@@ -13,15 +13,15 @@
         "tempName": "Untitled1",
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "3,20",
+        "cursorPosition": "8,12",
         "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1749083733,
+    "lastKnownWriteTime": 1749165865,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1749083733467,
+    "last_content_update": 1749165865102,
     "read_only": false,
     "read_only_alternatives": []
 }

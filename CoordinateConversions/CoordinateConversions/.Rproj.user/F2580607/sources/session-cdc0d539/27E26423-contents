@@ -9,7 +9,7 @@
 #' { polarToRec( (2 * pi)/3 , 4 )}
 
 
-polarToRec(cr, pa)
+polarToRec <- function(cr, pa)
 {
   paste("This message is to ensure that theta is in radians.
         \nIf not, run again using radians = (degrees * pi)/180")
@@ -19,6 +19,8 @@ polarToRec(cr, pa)
   {
     stop(paste("This function requires radius and theta to work"))
   } ## end missing arg check
+
+  pa = normalize(pa)
 
   x = cr * cos(pa)
   y = cr * sin(pa)

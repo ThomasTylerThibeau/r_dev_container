@@ -8,7 +8,7 @@
 #' @examples \dontrun
 #' { recToCyl(1,2,3)}
 
-recToCyl <= function(x, y, z = 0)
+recToCyl <- function(x, y, z = 0)
 {
   ## arg check
   absent=c(missing(x), missing(y))

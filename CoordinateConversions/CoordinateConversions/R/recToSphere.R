@@ -7,7 +7,7 @@
 #' @return spherical-radius, polar-angle, azimuthal-angle tuple
 
 
-recToSphere <= function(x, y, z)
+recToSphere <- function(x, y, z)
 {
   ## arg check
   absent=c(missing(x), missing(y), missing(z))

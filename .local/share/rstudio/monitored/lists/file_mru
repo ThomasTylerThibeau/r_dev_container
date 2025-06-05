@@ -1,3 +1,5 @@
+~/CoordinateConversions/CoordinateConversions/R/normalize.R
+~/CoordinateConversions/CoordinateConversions/R/ccTESTCALLS.R
 ~/CoordinateConversions/CoordinateConversions/R/sphereToCyl.R
 ~/CoordinateConversions/CoordinateConversions/R/cylToSphere.R
 ~/CoordinateConversions/CoordinateConversions/R/sphereToRec.R
@@ -11,5 +13,3 @@
 ~/CoordinateConversions/CoordinateConversions/R/helpMe.R
 ~/CoordinateConversions/CoordinateConversions/R/slope.R
 ~/CoordinateConversions/CoordinateConversions/R/ccHeader.R
-~/CoordinateConversions/CoordinateConversions/man/hello.Rd
-~/CoordinateConversions/CoordinateConversions/.Rbuildignore

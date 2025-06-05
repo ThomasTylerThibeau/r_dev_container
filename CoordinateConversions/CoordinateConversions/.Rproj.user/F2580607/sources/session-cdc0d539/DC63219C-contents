@@ -9,7 +9,7 @@
 #' { recToPolar(3,4)}
 
 
-recToPolar(x, y)
+recToPolar <- function(x, y)
 {
   ## arg check
   absent=c(missing(x), missing(y))

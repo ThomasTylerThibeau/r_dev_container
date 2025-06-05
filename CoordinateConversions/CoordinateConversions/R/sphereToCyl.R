@@ -7,7 +7,7 @@
 #' @return cylindrical radius, polar angle, z tuple
 
 
-sphereToCyle <= function(sr, pa, aa)
+sphereToCyl <- function(sr, pa, aa)
 {
   ## arg check
   absent=c(missing(sr), missing(pa), missing(aa))
@@ -16,6 +16,9 @@ sphereToCyle <= function(sr, pa, aa)
   {
     stop(paste("This function requires radius, polar angle and azimuthal angle input to return a value."))
   } ## end missing arg check
+
+  pa = normalize(pa)
+  aa = normalize(aa)
 
   ## not nearly as bad as I thought it'd be...
   cr = sr * sin(aa)
