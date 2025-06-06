@@ -16,12 +16,13 @@ normalize <- function(a)
 
   if(a > 2 * pi || a < 0)
   {
-    print("Please ensure that angle is in RADIANS.
-          \n
-          If necessary, use yourAngleHere*pi/180 and run again.")
+    print("Please ensure that angle is in RADIANS.")
+    print("If necessary, run again using:")
+    print("    ( (degree measure) * pi / 180 )")
 
-    a = (a %% 2 * pi)
+    a = (a %% (2 * pi))
   }
 
   return (a)
 }
+

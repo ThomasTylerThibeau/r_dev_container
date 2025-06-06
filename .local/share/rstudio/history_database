@@ -138,3 +138,66 @@
 1749166180185:library('roxygen2')
 1749166183972:library()
 1749166224250:install.packages("CoordinateConversions")
+1749166775499:recToPolar(3,4)
+1749166965451:polarToRec(5, 0.9272952)
+1749167006091:recToCyl(4,3,8)
+1749167050220:cylToRec(5,.6435011, 8)
+1749167104608:recToSphere(9,2,11)
+1749167113012:recToSphere(9,2,11)
+1749167182630:recToSphere(9,2,11)
+1749167245965:sphereToRec(14.3527001,0.2186689,0.6539187)
+1749167276417:recToSphere(3,4,5)
+1749167297853:sphereToRec(7.0710678, 0.9272952, 0.6154797)
+1749167333184:cylToSphere(5,2,7)
+1749167375472:spheretoCyl(8.6023253,2,0.6202495)
+1749167392399:sphereToCyl(8.6023253,2,0.6202495)
+1749167439869:normalize(3)
+1749167458082:normalize(7)
+1749167531144:normalize(23)
+1749167546225:normalize <- function(a)
+1749167546225:{
+1749167546225:if(a > 2 * pi || a < 0)
+1749167546225:{
+1749167546225:print("Please ensure that angle is in RADIANS. /n
+1749167546225:If necessary, use yourAngleHere*pi/180 and run again.")
+1749167546226:a = (a %% 2 * pi)
+1749167546226:}
+1749167546226:return (a)
+1749167546226:}
+1749167546228:normalize(33)
+1749167585798:normalize <- function(a)
+1749167585798:{
+1749167585798:if(a > 2 * pi || a < 0)
+1749167585798:{
+1749167585798:print("Please ensure that angle is in RADIANS.")
+1749167585798:print("If necessary, use:")
+1749167585799:print("yourAngleHere*pi/180 and run again.")
+1749167585799:a = (a %% 2 * pi)
+1749167585799:}
+1749167585799:return (a)
+1749167585799:}
+1749167585800:normalize(33)
+1749167689637:normalize <- function(a)
+1749167689637:{
+1749167689637:if(a > 2 * pi || a < 0)
+1749167689637:{
+1749167689637:print("Please ensure that angle is in RADIANS.")
+1749167689637:print("If necessary, run again using:")
+1749167689637:print("    ( (degree measure) * pi / 180 )")
+1749167689637:a = (a %% 2 * pi)
+1749167689638:}
+1749167689638:return (a)
+1749167689638:}
+1749167689639:normalize(7)
+1749167836665:normalize <- function(a)
+1749167836665:{
+1749167836665:if(a > 2 * pi || a < 0)
+1749167836665:{
+1749167836665:print("Please ensure that angle is in RADIANS.")
+1749167836665:print("If necessary, run again using:")
+1749167836665:print("    ( (degree measure) * pi / 180 )")
+1749167836665:a = (a %% (2 * pi))
+1749167836666:}
+1749167836666:return (a)
+1749167836666:}
+1749167836666:normalize(7)
