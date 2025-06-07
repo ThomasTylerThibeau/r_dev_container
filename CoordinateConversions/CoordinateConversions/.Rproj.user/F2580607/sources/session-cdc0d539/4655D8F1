@@ -3,9 +3,9 @@
     "path": "~/Data Files/dataLoader.R",
     "project_path": null,
     "type": "r_source",
-    "hash": "1653323519",
+    "hash": "0",
     "contents": "",
-    "dirty": false,
+    "dirty": true,
     "created": 1749323163395.0,
     "source_on_save": false,
     "relative_order": 1,
@@ -13,15 +13,15 @@
         "tempName": "Untitled1",
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "32,0",
-        "scrollLine": "11"
+        "cursorPosition": "19,11",
+        "scrollLine": "8"
     },
     "folds": "",
     "lastKnownWriteTime": 1749332929,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1749332929628,
+    "last_content_update": 1749334102773,
     "read_only": false,
     "read_only_alternatives": []
 }

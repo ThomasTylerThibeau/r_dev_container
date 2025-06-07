@@ -6,27 +6,19 @@
 # Large = read.csv(file.choose(), header = TRUE)
 # Government = read.csv(file.c//hoose(), header = TRUE)
 # TicketToRide = read.csv(file.choose(), header = TRUE)
-
+#"Select Fname, Lname#From Shipping#Where Mname != ''#And#Weight In#(Select Weight#From Shipping#Where Weight > 100000)"
 ## surface area
-sa = "2 * Height * Width + 2 * Length * Width * 2 * Height * Length"
+#sa = "2 * Height * Width + 2 * Length * Width * 2 * Height * Length"
 ## volume
-v = "Height * Length * Width"
+#v = "Height * Length * Width"
 ## density
-d = "Mass / Volume"
+#d = "Mass / Volume"
 
 query =
 "
-Select Fname, Lname
-From Shipping
-Where Mname != ''
-And
-Weight In
-(
-Select Weight
-From Shipping
-Where Weight > 100000
-)
-
+select Person1.Name, Person2.Name
+From Person As Person1, Person As Person2
+Where Person1.Person != Person2.Person
 "
 
 sqldf(query)

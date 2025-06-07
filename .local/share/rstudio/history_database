@@ -1676,3 +1676,25 @@
 1749332921444:)
 1749332921445:"
 1749332921445:sqldf(query)
+1749334106431:# nfl = read.csv(file.choose(), header = TRUE)
+1749334106431:# Shipping = read.csv(file.choose(), header = TRUE)
+1749334106431:# Person = read.csv(file.choose(), header = TRUE)
+1749334106431:# Parent = read.csv(file.choose(), header = TRUE)
+1749334106431:# Spouse = read.csv(file.choose(), header = TRUE)
+1749334106431:# Large = read.csv(file.choose(), header = TRUE)
+1749334106431:# Government = read.csv(file.c//hoose(), header = TRUE)
+1749334106432:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749334106432:#"Select Fname, Lname#From Shipping#Where Mname != ''#And#Weight In#(Select Weight#From Shipping#Where Weight > 100000)"
+1749334106432:## surface area
+1749334106432:#sa = "2 * Height * Width + 2 * Length * Width * 2 * Height * Length"
+1749334106432:## volume
+1749334106432:#v = "Height * Length * Width"
+1749334106432:## density
+1749334106432:#d = "Mass / Volume"
+1749334106432:query =
+1749334106432:"
+1749334106432:select Person1.Name, Person2.Name
+1749334106432:From Person As Person1, Person As Person2
+1749334106433:Where Person1.Person != Person2.Person
+1749334106433:"
+1749334106433:sqldf(query)
