@@ -591,3 +591,18 @@
 1749329759019:where w between 7 and 9
 1749329759019:"
 1749329759019:sqldf(query)
+1749330147863:# nfl = read.csv(file.choose(), header = TRUE)
+1749330147863:# Shipping = read.csv(file.choose(), header = TRUE)
+1749330147863:# Person = read.csv(file.choose(), header = TRUE)
+1749330147863:# Parent = read.csv(file.choose(), header = TRUE)
+1749330147863:# Spouse = read.csv(file.choose(), header = TRUE)
+1749330147863:# Large = read.csv(file.choose(), header = TRUE)
+1749330147863:# Government = read.csv(file.choose(), header = TRUE)
+1749330147863:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749330147863:query ="
+1749330147864:select *
+1749330147864:from Shipping
+1749330147864:where values not null
+1749330147864:"
+1749330147864:sqldf(query)
+1749330322005:names(Shipping)
