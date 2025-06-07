@@ -2767,3 +2767,13 @@
 1749338853161:order by state
 1749338853161:"
 1749338853162:sqldf(lowercaseNotCapital)
+1749339732161:install.packages("sqldf")
+1749339740184:libary(sqldf)
+1749339746794:library('sqldf')
+1749339785527:locations = read.csv(file.select(), header=T)
+1749339797087:locations = read.csv(file.choose(), header=T)
+1749339828484:customers = read.csv(file.choose(),header=T)
+1749339858977:flavors = read.csv(file.choose(),header=T)
+1749339879137:orders = read.csv(file.choose(),header=T)
+1749339905997:toppings = read.csv(fild.choose(),header=T)
+1749339912408:toppings = read.csv(file.choose(),header=T)
