@@ -8,9 +8,9 @@
 # TicketToRide = read.csv(file.choose(), header = TRUE)
 
 query ="
-SELECT *
+select city, team, w , l
 FROM nfl
-WHERE conference = 'A'
+where w between 7 and 9
 "
 
 sqldf(query)

@@ -227,3 +227,367 @@
 1749328443639:WHERE conference = 'A'
 1749328443639:"
 1749328443639:sqldf(query)
+1749328516175:library(sqldf)
+1749328528014:# nfl = read.csv(file.choose(), header = TRUE)
+1749328528015:# Shipping = read.csv(file.choose(), header = TRUE)
+1749328528015:# Person = read.csv(file.choose(), header = TRUE)
+1749328528015:# Parent = read.csv(file.choose(), header = TRUE)
+1749328528015:# Spouse = read.csv(file.choose(), header = TRUE)
+1749328528015:# Large = read.csv(file.choose(), header = TRUE)
+1749328528015:# Government = read.csv(file.choose(), header = TRUE)
+1749328528015:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749328528015:query ="
+1749328528015:SELECT *
+1749328528015:FROM nfl
+1749328528016:WHERE conference = 'A'
+1749328528016:"
+1749328528016:sqldf(query)
+1749328661213:# nfl = read.csv(file.choose(), header = TRUE)
+1749328661214:# Shipping = read.csv(file.choose(), header = TRUE)
+1749328661214:# Person = read.csv(file.choose(), header = TRUE)
+1749328661214:# Parent = read.csv(file.choose(), header = TRUE)
+1749328661214:# Spouse = read.csv(file.choose(), header = TRUE)
+1749328661214:# Large = read.csv(file.choose(), header = TRUE)
+1749328661214:# Government = read.csv(file.choose(), header = TRUE)
+1749328661214:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749328661215:query ="
+1749328661215:SELECT team
+1749328661215:FROM nfl
+1749328661215:WHERE city = 'Los Angeles'
+1749328661215:"
+1749328661215:sqldf(query)
+1749328788606:# nfl = read.csv(file.choose(), header = TRUE)
+1749328788606:# Shipping = read.csv(file.choose(), header = TRUE)
+1749328788606:# Person = read.csv(file.choose(), header = TRUE)
+1749328788606:# Parent = read.csv(file.choose(), header = TRUE)
+1749328788606:# Spouse = read.csv(file.choose(), header = TRUE)
+1749328788606:# Large = read.csv(file.choose(), header = TRUE)
+1749328788606:# Government = read.csv(file.choose(), header = TRUE)
+1749328788606:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749328788606:query ="
+1749328788607:SELECT city, team
+1749328788607:FROM nfl
+1749328788607:WHERE W > L
+1749328788607:"
+1749328788608:sqldf(query)
+1749328830313:# nfl = read.csv(file.choose(), header = TRUE)
+1749328830313:# Shipping = read.csv(file.choose(), header = TRUE)
+1749328830313:# Person = read.csv(file.choose(), header = TRUE)
+1749328830313:# Parent = read.csv(file.choose(), header = TRUE)
+1749328830313:# Spouse = read.csv(file.choose(), header = TRUE)
+1749328830313:# Large = read.csv(file.choose(), header = TRUE)
+1749328830313:# Government = read.csv(file.choose(), header = TRUE)
+1749328830314:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749328830314:query ="
+1749328830314:SELECT city, team
+1749328830314:FROM nfl
+1749328830314:WHERE W > 8
+1749328830314:"
+1749328830314:sqldf(query)
+1749328871326:# nfl = read.csv(file.choose(), header = TRUE)
+1749328871326:# Shipping = read.csv(file.choose(), header = TRUE)
+1749328871326:# Person = read.csv(file.choose(), header = TRUE)
+1749328871326:# Parent = read.csv(file.choose(), header = TRUE)
+1749328871326:# Spouse = read.csv(file.choose(), header = TRUE)
+1749328871326:# Large = read.csv(file.choose(), header = TRUE)
+1749328871326:# Government = read.csv(file.choose(), header = TRUE)
+1749328871327:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749328871327:query ="
+1749328871327:SELECT city, team
+1749328871328:FROM nfl
+1749328871328:WHERE W > L
+1749328871328:"
+1749328871328:queryTwo ="
+1749328871328:SELECT city, team
+1749328871328:FROM nfl
+1749328871329:WHERE W > 8
+1749328871329:"
+1749328871329:sqldf(query)
+1749328871349:sqldf(queryTwo)
+1749328969830:# nfl = read.csv(file.choose(), header = TRUE)
+1749328969830:# Shipping = read.csv(file.choose(), header = TRUE)
+1749328969830:# Person = read.csv(file.choose(), header = TRUE)
+1749328969830:# Parent = read.csv(file.choose(), header = TRUE)
+1749328969830:# Spouse = read.csv(file.choose(), header = TRUE)
+1749328969831:# Large = read.csv(file.choose(), header = TRUE)
+1749328969831:# Government = read.csv(file.choose(), header = TRUE)
+1749328969831:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749328969831:query ="
+1749328969831:SELECT city, team
+1749328969831:FROM nfl
+1749328969831:WHERE conference = 'A' AND division = 'E'
+1749328969832:"
+1749328969832:sqldf(query)
+1749328998502:# nfl = read.csv(file.choose(), header = TRUE)
+1749328998502:# Shipping = read.csv(file.choose(), header = TRUE)
+1749328998502:# Person = read.csv(file.choose(), header = TRUE)
+1749328998502:# Parent = read.csv(file.choose(), header = TRUE)
+1749328998502:# Spouse = read.csv(file.choose(), header = TRUE)
+1749328998502:# Large = read.csv(file.choose(), header = TRUE)
+1749328998502:# Government = read.csv(file.choose(), header = TRUE)
+1749328998503:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749328998503:query ="
+1749328998503:SELECT city, team, divW, divL, divT
+1749328998503:FROM nfl
+1749328998503:WHERE conference = 'A' AND division = 'E'
+1749328998504:"
+1749328998504:sqldf(query)
+1749329027306:# nfl = read.csv(file.choose(), header = TRUE)
+1749329027306:# Shipping = read.csv(file.choose(), header = TRUE)
+1749329027306:# Person = read.csv(file.choose(), header = TRUE)
+1749329027306:# Parent = read.csv(file.choose(), header = TRUE)
+1749329027306:# Spouse = read.csv(file.choose(), header = TRUE)
+1749329027307:# Large = read.csv(file.choose(), header = TRUE)
+1749329027307:# Government = read.csv(file.choose(), header = TRUE)
+1749329027307:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749329027308:query ="
+1749329027308:SELECT city, team, divW, divL, divT, W, L, T
+1749329027308:FROM nfl
+1749329027309:WHERE conference = 'A' AND division = 'E'
+1749329027309:"
+1749329027309:sqldf(query)
+1749329083702:# nfl = read.csv(file.choose(), header = TRUE)
+1749329083702:# Shipping = read.csv(file.choose(), header = TRUE)
+1749329083702:# Person = read.csv(file.choose(), header = TRUE)
+1749329083702:# Parent = read.csv(file.choose(), header = TRUE)
+1749329083702:# Spouse = read.csv(file.choose(), header = TRUE)
+1749329083702:# Large = read.csv(file.choose(), header = TRUE)
+1749329083702:# Government = read.csv(file.choose(), header = TRUE)
+1749329083702:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749329083703:query ="
+1749329083703:SELECT city, team, W, L, T
+1749329083703:FROM nfl
+1749329083703:WHERE homeW > homeL OR roadW > roadL
+1749329083703:"
+1749329083703:sqldf(query)
+1749329094165:# nfl = read.csv(file.choose(), header = TRUE)
+1749329094165:# Shipping = read.csv(file.choose(), header = TRUE)
+1749329094165:# Person = read.csv(file.choose(), header = TRUE)
+1749329094165:# Parent = read.csv(file.choose(), header = TRUE)
+1749329094165:# Spouse = read.csv(file.choose(), header = TRUE)
+1749329094165:# Large = read.csv(file.choose(), header = TRUE)
+1749329094165:# Government = read.csv(file.choose(), header = TRUE)
+1749329094165:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749329094166:query ="
+1749329094166:SELECT city, team, W, L, T
+1749329094166:FROM nfl
+1749329094166:WHERE homeW > homeL or roadW > roadL
+1749329094166:"
+1749329094166:sqldf(query)
+1749329131859:# nfl = read.csv(file.choose(), header = TRUE)
+1749329131859:# Shipping = read.csv(file.choose(), header = TRUE)
+1749329131859:# Person = read.csv(file.choose(), header = TRUE)
+1749329131859:# Parent = read.csv(file.choose(), header = TRUE)
+1749329131860:# Spouse = read.csv(file.choose(), header = TRUE)
+1749329131860:# Large = read.csv(file.choose(), header = TRUE)
+1749329131860:# Government = read.csv(file.choose(), header = TRUE)
+1749329131860:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749329131860:query ="
+1749329131860:select team from nfl where not(city = 'New England')
+1749329131860:"
+1749329131861:sqldf(query)
+1749329139792:query ="
+1749329139792:select team from nfl where not(city = 'New EnGLand')
+1749329139792:"
+1749329143521:# nfl = read.csv(file.choose(), header = TRUE)
+1749329143521:# Shipping = read.csv(file.choose(), header = TRUE)
+1749329143521:# Person = read.csv(file.choose(), header = TRUE)
+1749329143521:# Parent = read.csv(file.choose(), header = TRUE)
+1749329143521:# Spouse = read.csv(file.choose(), header = TRUE)
+1749329143522:# Large = read.csv(file.choose(), header = TRUE)
+1749329143522:# Government = read.csv(file.choose(), header = TRUE)
+1749329143522:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749329143523:query ="
+1749329143523:select team from nfl where not(city = 'New EnGLand')
+1749329143523:"
+1749329143524:sqldf(query)
+1749329169555:# nfl = read.csv(file.choose(), header = TRUE)
+1749329169555:# Shipping = read.csv(file.choose(), header = TRUE)
+1749329169555:# Person = read.csv(file.choose(), header = TRUE)
+1749329169555:# Parent = read.csv(file.choose(), header = TRUE)
+1749329169555:# Spouse = read.csv(file.choose(), header = TRUE)
+1749329169555:# Large = read.csv(file.choose(), header = TRUE)
+1749329169555:# Government = read.csv(file.choose(), header = TRUE)
+1749329169556:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749329169556:query ="
+1749329169556:select team from nfl where not(city = 'New England')
+1749329169556:"
+1749329169557:sqldf(query)
+1749329322884:# nfl = read.csv(file.choose(), header = TRUE)
+1749329322884:# Shipping = read.csv(file.choose(), header = TRUE)
+1749329322884:# Person = read.csv(file.choose(), header = TRUE)
+1749329322885:# Parent = read.csv(file.choose(), header = TRUE)
+1749329322885:# Spouse = read.csv(file.choose(), header = TRUE)
+1749329322885:# Large = read.csv(file.choose(), header = TRUE)
+1749329322885:# Government = read.csv(file.choose(), header = TRUE)
+1749329322885:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749329322885:query ="
+1749329322885:select distinct converence, division
+1749329322885:"
+1749329322885:sqldf(query)
+1749329329729:# nfl = read.csv(file.choose(), header = TRUE)
+1749329329729:# Shipping = read.csv(file.choose(), header = TRUE)
+1749329329729:# Person = read.csv(file.choose(), header = TRUE)
+1749329329729:# Parent = read.csv(file.choose(), header = TRUE)
+1749329329729:# Spouse = read.csv(file.choose(), header = TRUE)
+1749329329729:# Large = read.csv(file.choose(), header = TRUE)
+1749329329729:# Government = read.csv(file.choose(), header = TRUE)
+1749329329729:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749329329730:query ="
+1749329329730:select distinct conference, division
+1749329329730:"
+1749329329730:sqldf(query)
+1749329369396:names(nfl)
+1749329377282:# nfl = read.csv(file.choose(), header = TRUE)
+1749329377282:# Shipping = read.csv(file.choose(), header = TRUE)
+1749329377282:# Person = read.csv(file.choose(), header = TRUE)
+1749329377283:# Parent = read.csv(file.choose(), header = TRUE)
+1749329377283:# Spouse = read.csv(file.choose(), header = TRUE)
+1749329377283:# Large = read.csv(file.choose(), header = TRUE)
+1749329377283:# Government = read.csv(file.choose(), header = TRUE)
+1749329377283:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749329377283:query ="
+1749329377283:select distinct Conference, division
+1749329377283:"
+1749329377283:sqldf(query)
+1749329409355:query ="
+1749329409355:select distinct conference, division
+1749329409355:"
+1749329419885:# nfl = read.csv(file.choose(), header = TRUE)
+1749329419885:# Shipping = read.csv(file.choose(), header = TRUE)
+1749329419885:# Person = read.csv(file.choose(), header = TRUE)
+1749329419885:# Parent = read.csv(file.choose(), header = TRUE)
+1749329419885:# Spouse = read.csv(file.choose(), header = TRUE)
+1749329419885:# Large = read.csv(file.choose(), header = TRUE)
+1749329419885:# Government = read.csv(file.choose(), header = TRUE)
+1749329419885:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749329419886:query ="
+1749329419886:select distinct conference, division
+1749329419886:FROM nfl
+1749329419886:"
+1749329419887:sqldf(query)
+1749329445590:# nfl = read.csv(file.choose(), header = TRUE)
+1749329445590:# Shipping = read.csv(file.choose(), header = TRUE)
+1749329445590:# Person = read.csv(file.choose(), header = TRUE)
+1749329445591:# Parent = read.csv(file.choose(), header = TRUE)
+1749329445591:# Spouse = read.csv(file.choose(), header = TRUE)
+1749329445591:# Large = read.csv(file.choose(), header = TRUE)
+1749329445591:# Government = read.csv(file.choose(), header = TRUE)
+1749329445591:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749329445591:query ="
+1749329445591:select  conference, division
+1749329445591:FROM nfl
+1749329445592:"
+1749329445592:sqldf(query)
+1749329496746:# nfl = read.csv(file.choose(), header = TRUE)
+1749329496746:# Shipping = read.csv(file.choose(), header = TRUE)
+1749329496746:# Person = read.csv(file.choose(), header = TRUE)
+1749329496746:# Parent = read.csv(file.choose(), header = TRUE)
+1749329496746:# Spouse = read.csv(file.choose(), header = TRUE)
+1749329496746:# Large = read.csv(file.choose(), header = TRUE)
+1749329496747:# Government = read.csv(file.choose(), header = TRUE)
+1749329496747:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749329496747:query ="
+1749329496747:select city
+1749329496748:FROM nfl
+1749329496748:where city like 'W%'
+1749329496748:"
+1749329496748:sqldf(query)
+1749329555002:# nfl = read.csv(file.choose(), header = TRUE)
+1749329555002:# Shipping = read.csv(file.choose(), header = TRUE)
+1749329555002:# Person = read.csv(file.choose(), header = TRUE)
+1749329555002:# Parent = read.csv(file.choose(), header = TRUE)
+1749329555002:# Spouse = read.csv(file.choose(), header = TRUE)
+1749329555002:# Large = read.csv(file.choose(), header = TRUE)
+1749329555002:# Government = read.csv(file.choose(), header = TRUE)
+1749329555002:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749329555002:query ="
+1749329555002:select city
+1749329555003:FROM nfl
+1749329555003:where city like '%s'
+1749329555003:"
+1749329555003:sqldf(query)
+1749329610615:# nfl = read.csv(file.choose(), header = TRUE)
+1749329610615:# Shipping = read.csv(file.choose(), header = TRUE)
+1749329610615:# Person = read.csv(file.choose(), header = TRUE)
+1749329610615:# Parent = read.csv(file.choose(), header = TRUE)
+1749329610616:# Spouse = read.csv(file.choose(), header = TRUE)
+1749329610616:# Large = read.csv(file.choose(), header = TRUE)
+1749329610616:# Government = read.csv(file.choose(), header = TRUE)
+1749329610616:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749329610616:query ="
+1749329610616:select city
+1749329610616:FROM nfl
+1749329610616:where city like '%ee%'
+1749329610616:"
+1749329610618:sqldf(query)
+1749329626823:# nfl = read.csv(file.choose(), header = TRUE)
+1749329626823:# Shipping = read.csv(file.choose(), header = TRUE)
+1749329626823:# Person = read.csv(file.choose(), header = TRUE)
+1749329626823:# Parent = read.csv(file.choose(), header = TRUE)
+1749329626823:# Spouse = read.csv(file.choose(), header = TRUE)
+1749329626823:# Large = read.csv(file.choose(), header = TRUE)
+1749329626823:# Government = read.csv(file.choose(), header = TRUE)
+1749329626823:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749329626824:query ="
+1749329626824:select city
+1749329626824:FROM nfl
+1749329626824:where team like '%ee%'
+1749329626824:"
+1749329626824:sqldf(query)
+1749329648573:# nfl = read.csv(file.choose(), header = TRUE)
+1749329648573:# Shipping = read.csv(file.choose(), header = TRUE)
+1749329648573:# Person = read.csv(file.choose(), header = TRUE)
+1749329648573:# Parent = read.csv(file.choose(), header = TRUE)
+1749329648574:# Spouse = read.csv(file.choose(), header = TRUE)
+1749329648574:# Large = read.csv(file.choose(), header = TRUE)
+1749329648574:# Government = read.csv(file.choose(), header = TRUE)
+1749329648574:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749329648574:query ="
+1749329648574:select city
+1749329648574:FROM nfl
+1749329648574:where team like '_ets'
+1749329648574:"
+1749329648575:sqldf(query)
+1749329657685:# nfl = read.csv(file.choose(), header = TRUE)
+1749329657685:# Shipping = read.csv(file.choose(), header = TRUE)
+1749329657685:# Person = read.csv(file.choose(), header = TRUE)
+1749329657685:# Parent = read.csv(file.choose(), header = TRUE)
+1749329657685:# Spouse = read.csv(file.choose(), header = TRUE)
+1749329657685:# Large = read.csv(file.choose(), header = TRUE)
+1749329657686:# Government = read.csv(file.choose(), header = TRUE)
+1749329657686:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749329657686:query ="
+1749329657686:select city, team
+1749329657686:FROM nfl
+1749329657686:where team like '_ets'
+1749329657686:"
+1749329657687:sqldf(query)
+1749329735343:# nfl = read.csv(file.choose(), header = TRUE)
+1749329735343:# Shipping = read.csv(file.choose(), header = TRUE)
+1749329735343:# Person = read.csv(file.choose(), header = TRUE)
+1749329735343:# Parent = read.csv(file.choose(), header = TRUE)
+1749329735343:# Spouse = read.csv(file.choose(), header = TRUE)
+1749329735343:# Large = read.csv(file.choose(), header = TRUE)
+1749329735343:# Government = read.csv(file.choose(), header = TRUE)
+1749329735343:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749329735344:query ="
+1749329735344:select city, team
+1749329735344:FROM nfl
+1749329735344:where w between 7 and 9
+1749329735344:"
+1749329735345:sqldf(query)
+1749329759018:# nfl = read.csv(file.choose(), header = TRUE)
+1749329759018:# Shipping = read.csv(file.choose(), header = TRUE)
+1749329759018:# Person = read.csv(file.choose(), header = TRUE)
+1749329759018:# Parent = read.csv(file.choose(), header = TRUE)
+1749329759018:# Spouse = read.csv(file.choose(), header = TRUE)
+1749329759018:# Large = read.csv(file.choose(), header = TRUE)
+1749329759019:# Government = read.csv(file.choose(), header = TRUE)
+1749329759019:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749329759019:query ="
+1749329759019:select city, team, w , l
+1749329759019:FROM nfl
+1749329759019:where w between 7 and 9
+1749329759019:"
+1749329759019:sqldf(query)
