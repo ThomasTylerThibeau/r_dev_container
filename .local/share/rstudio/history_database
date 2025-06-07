@@ -2777,3 +2777,68 @@
 1749339879137:orders = read.csv(file.choose(),header=T)
 1749339905997:toppings = read.csv(fild.choose(),header=T)
 1749339912408:toppings = read.csv(file.choose(),header=T)
+1749340252218:## confirm all 500 orders have a first scoop
+1749340252219:fiveHunFirstScoop =
+1749340252219:"
+1749340252219:select count(Scoop1)
+1749340252219:from orders
+1749340252219:"
+1749340252219:sqldf(fiveHunFirstScoop)
+1749340474729:## 2.) site names by sales, descending
+1749340474729:mostSales =
+1749340474729:"
+1749340474729:select City
+1749340474729:from locations
+1749340474729:order by count(Site) in orders
+1749340474729:"
+1749340474730:sqldf(mostSales)
+1749340530711:## 2.) site names by sales, descending
+1749340530711:mostSales =
+1749340530711:"
+1749340530711:select count(Site)
+1749340530712:from orders
+1749340530712:order by DESC
+1749340530712:"
+1749340530712:sqldf(mostSales)
+1749340547651:## 2.) site names by sales, descending
+1749340547651:mostSales =
+1749340547651:"
+1749340547651:select count(Site)
+1749340547652:from orders
+1749340547652:order desc
+1749340547652:"
+1749340547652:sqldf(mostSales)
+1749340568503:te names by sales, descending
+1749340576942:## 2.) site names by sales, descending
+1749340576943:mostSales =
+1749340576943:"
+1749340576943:select count(Site)
+1749340576943:from orders
+1749340576943:order by count DESC
+1749340576943:"
+1749340576943:sqldf(mostSales)
+1749340588753:mostSales =
+1749340588753:"
+1749340588753:select count(Site)
+1749340588753:from orders
+1749340588754:"
+1749340588754:sqldf(mostSales)
+1749340628467:mostSales =
+1749340628467:"
+1749340628467:select distinct count(Site)
+1749340628467:from orders
+1749340628467:"
+1749340628467:sqldf(mostSales)
+1749340641031:mostSales =
+1749340641031:"
+1749340641031:select distinct Site
+1749340641031:from orders
+1749340641031:"
+1749340641031:sqldf(mostSales)
+1749340725090:mostSales =
+1749340725091:"
+1749340725091:Select distinct Site as spot
+1749340725091:From orders
+1749340725091:order by Count(spot)
+1749340725091:"
+1749340725091:sqldf(mostSales)
