@@ -1,0 +1,36 @@
+State,City,Tickets,Country
+MA,Boston,5,US
+PQ,Montreal,6,Canada
+NY,New York City,8,US
+PA,Pittsburgh,3,US
+DC,Washington,4,US
+ON,Toronto,2,Canada
+ON,Sault Saint Marie,4,Canada
+IL,Chicago,8,US
+TN,Nashville,4,US
+GA,Atlanta,6,US
+NC,Raleigh,1,US
+MO,Saint Louis,2,US
+FL,Miami,6,US
+SC,Charleston,1,US
+LA,New Orleans,4,US
+TX,Houston,5,US
+TX,Dallas,3,US
+OK,Oklahoma City,3,US
+MO,Kansas City,3,US
+NE,Omaha,2,US
+MN,Duluth,4,US
+MB,Winnipeg,4,Canada
+AB,Calgary,4,Canada
+MT,Helena,1,US
+UT,Salt Lake City,3,US
+CO,Denver,4,US
+TX,El Paso,2,US
+AZ,Phoenix,3,US
+NM,Santa Fe,3,US
+CA,Los Angeles,8,US
+NV,Las Vegas,3,US
+CA,San Francisco,3,US
+OR,Portland,5,US
+WA,Seattle,4,US
+BC,Vancouver,5,Canada

@@ -1,0 +1,64 @@
+State,Capital,Governor,LowerHouse,UpperHouse,Country
+AK,Juneau,R,,R,US
+AL,Montgomery,R,R,R,US
+AR,Little Rock,R,R,R,US
+AZ,Phoenix,R,R,R,US
+CA,Sacramento,D,D,D,US
+CO,Denver,D,D,D,US
+CT,Hartford,D,D,D,US
+DE,Dover,D,D,D,US
+FL,Tallahassee,R,R,R,US
+GA,Atlanta,R,R,R,US
+HI,Honolulu,D,D,D,US
+IA,Des Moines,R,R,R,US
+ID,Boise,R,R,R,US
+IL,Springfield,D,D,D,US
+IN,Indianapolis,R,R,R,US
+KS,Topeka,D,R,R,US
+KY,Frankfort,R,R,R,US
+LA,Baton Rouge,D,R,R,US
+MA,Boston,R,D,D,US
+MD,Annapolis,R,D,D,US
+ME,Augusta,D,D,D,US
+MI,Lansing,D,R,R,US
+MN,Saint Paul,D,D,R,US
+MO,Jefferson City,R,R,R,US
+MS,Jackson,R,R,R,US
+MT,Helena,D,R,R,US
+NC,Raleigh,D,R,R,US
+ND,Bismark,R,R,R,US
+NE,Lincoln,R,,R,US
+NH,Concord,R,D,D,US
+NJ,Trenton,D,D,D,US
+NM,Santa Fe,D,D,D,US
+NV,Carson City,D,D,D,US
+NY,Albany,D,D,D,US
+OH,Columbus,R,R,R,US
+OK,Oklahoma City,R,R,R,US
+OR,Salem,D,D,D,US
+PA,Harrisburg,D,R,R,US
+RI,Providence,D,D,D,US
+SC,Columbia,R,R,R,US
+SD,Pierre,R,R,R,US
+TN,Nashville,R,R,R,US
+TX,Austin,R,R,R,US
+UT,Salt Lake City,R,R,R,US
+VA,Richmond,D,R,R,US
+VT,Montpelier,R,D,D,US
+WA,Olympia,D,D,D,US
+WI,Madison,D,R,R,US
+WV,Charleston,R,R,R,US
+WY,Cheyenne,R,R,R,US
+YT,Whitehorse,,,,Canada
+NT,Yellowknife,,,,Canada
+NU,Iqaluit,,,,Canada
+BC,Victoria,,,,Canada
+AB,Edmonton,,,,Canada
+MB,Winnipeg,,,,Canada
+SK,Regina,,,,Canada
+ON,Toronto,,,,Canada
+PQ,Quebec City,,,,Canada
+PE,Charlottetown,,,,Canada
+NS,Halifax,,,,Canada
+NB,Fredericton,,,,Canada
+NL,Saint John's,,,,Canada

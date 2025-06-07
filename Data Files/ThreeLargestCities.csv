@@ -1,0 +1,64 @@
+State,FirstCity,SecondCity,ThirdCity,Country
+AL,Birmingham,Montgomery,Mobile,US
+AK,Anchorage,Fairbanks,Juneau,US
+AZ,Phoenix,Tucson,Mesa,US
+AR,Little Rock,Fort Smith,Fayetteville,US
+CA,Los Angeles,San Diego,San Jose,US
+CO,Denver,Colorado Springs,Aurora,US
+CT,Bridgeport,New Haven,Hartford,US
+DE,Wilmington,Dover,Newark,US
+FL,Jacksonville,Miami,Tampa,US
+GA,Atlanta,Augusta,Columbus,US
+HA,Honolulu,Hilo,Kailua,US
+ID,Boise,Nampa,Idaho Falls,US
+IL,Chicago,Aurora,Rockford,US
+IN,Indianapolis,Fort Wayne,Evansville,US
+IA,Des Moines,Cedar Rapids,Davenport,US
+KS,Wichita,Overland Park,Kansas City,US
+KY,Louisville,Lexington,Bowling Green,US
+LA,New Orleans,Shreveport,Baton Rouge,US
+ME,Portland,Lewiston,Bangor,US
+MD,Baltimore,Frederick,Gaithersburg,US
+MA,Boston,Worcester,Springfield,US
+MI,Detroit,Grand Rapids,Warren,US
+MN,Minneapolis,Saint Paul,Rochester,US
+MS,Jackson,Gulfport,Biloxi,US
+MO,Kansas City,Saint Louis,Springfield,US
+MT,Billings,Missoula,Great Falls,US
+NE,Omaha,Lincoln,Bellevue,US
+NV,Las Vegas,Reno,Henderson,US
+NH,Manchester,Nashua,Concord,US
+NJ,Newark,Jersey City,Paterson,US
+NM,Albuquerque,Las Cruces,Rio Rancho,US
+NY,New York City,Buffalo,Rochester,US
+NC,Charlotte,Raleigh,Greensboro,US
+ND,Fargo,Bismarck,Grand Forks,US
+OH,Columbus,Cleveland,Cincinnati,US
+OK,Oklahoma City,Tulsa,Norman,US
+OR,Portland,Salem,Eugene,US
+PA,Philadelphia,Pittsburgh,Allentown,US
+RI,Providence,Warwick,Cranston,US
+SC,Charleston,Columbia,North Charleston,US
+SD,Sioux Falls,Rapid City,Aberdeen,US
+TN,Memphis,Nashville,Knoxville,US
+TX,Houston,San Antonio,Dallas,US
+UT,Salt Lake City,West Valley City,Provo,US
+VT,Burlington,South Burlington,Rutland,US
+VA,Virginia Beach,Norfolk,Chesapeake,US
+WA,Seattle,Spokane,Tacoma,US
+WV,Charleston,Huntington,Parkersburg,US
+WI,Milwaukee,Madison,Green Bay,US
+WY,Cheyenne,Casper,Laramie,US
+YT,Whitehorse,Dawson,Watson Lake,Canada
+NT,Yellowknife,Hay River,Inuvik,Canada
+NU,Iqaluit,Arviat,Rankin Inlet,Canada
+BC,Vancouver,Surrey,Burnaby,Canada
+AB,Calgary,Edmonton,Red Deer,Canada
+SK,Saskatoon,Regina,Prince Albert,Canada
+MB,Winnipeg,Brandon,Steinbach,Canada
+ON,Toronto,Ottawa,Mississauga,Canada
+PQ,Montreal,Quebec City,Laval,Canada
+PE,Charlottetown,Summerside,Startford,Canada
+NB,Saint John,Moncton,Fredericton,Canada
+NS,Halifax,Cape Breton,Lunenburg,Canada
+NL,Saint John's,Conception Bay South,Mount Pearl,Canada
