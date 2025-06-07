@@ -203,3 +203,27 @@
 1749167836666:normalize(7)
 1749323234324:install.packages('sqldf')
 1749323247410:library(sqldf)
+1749328081174:install.packages("sqldf")
+1749328132489:nfl = read.csv(choose.file(), header = TRUE)
+1749328163339:nfl = read.csv(file.choose(), header = TRUE)
+1749328226132:Shipping = read.csv(file.choose(), header = TRUE)
+1749328239000:Person = read.csv(file.choose(), header = TRUE)
+1749328256008:Parent = read.csv(file.choose(), header = TRUE)
+1749328271160:Spouse = read.csv(file.choose(), header = TRUE)
+1749328283265:Large = read.csv(file.choose(), header = TRUE)
+1749328294175:Government = read.csv(file.choose(), header = TRUE)
+1749328312613:TicketToRide = read.csv(file.choose(), header = TRUE)
+1749328443637:# nfl = read.csv(file.choose(), header = TRUE)
+1749328443637:# Shipping = read.csv(file.choose(), header = TRUE)
+1749328443637:# Person = read.csv(file.choose(), header = TRUE)
+1749328443637:# Parent = read.csv(file.choose(), header = TRUE)
+1749328443637:# Spouse = read.csv(file.choose(), header = TRUE)
+1749328443638:# Large = read.csv(file.choose(), header = TRUE)
+1749328443638:# Government = read.csv(file.choose(), header = TRUE)
+1749328443638:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749328443638:query ="
+1749328443638:SELECT *
+1749328443639:FROM nfl
+1749328443639:WHERE conference = 'A'
+1749328443639:"
+1749328443639:sqldf(query)
