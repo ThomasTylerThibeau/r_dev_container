@@ -1,3 +1,5 @@
+~/Data Files/unionedSQL.R
+~/Data Files/confusingSQL.R
 ~/Data Files/dataLoader.R
 ~/CoordinateConversions/CoordinateConversions/R/sphereToRec.R
 /workspaces/r_dev_container/CoordinateConversions/CoordinateConversions/R/ccTESTCALLS.R
@@ -11,5 +13,3 @@
 ~/CoordinateConversions/CoordinateConversions/R/polarToRec.R
 ~/.Rhistory
 ~/CoordinateConversions/CoordinateConversions/R/recToPolar.R
-~/CoordinateConversions/CoordinateConversions/R/magnitude.R
-~/CoordinateConversions/CoordinateConversions/R/helpMe.R

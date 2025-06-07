@@ -16,9 +16,7 @@
 
 query =
 "
-select Person1.Name, Person2.Name
-From Person As Person1, Person As Person2
-Where Person1.Person != Person2.Person
+
 "
 
 sqldf(query)

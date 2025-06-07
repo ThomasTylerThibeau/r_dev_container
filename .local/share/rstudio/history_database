@@ -1698,3 +1698,800 @@
 1749334106433:Where Person1.Person != Person2.Person
 1749334106433:"
 1749334106433:sqldf(query)
+1749334474382:# nfl = read.csv(file.choose(), header = TRUE)
+1749334474383:# Shipping = read.csv(file.choose(), header = TRUE)
+1749334474383:# Person = read.csv(file.choose(), header = TRUE)
+1749334474383:# Parent = read.csv(file.choose(), header = TRUE)
+1749334474383:# Spouse = read.csv(file.choose(), header = TRUE)
+1749334474383:# Large = read.csv(file.choose(), header = TRUE)
+1749334474384:# Government = read.csv(file.c//hoose(), header = TRUE)
+1749334474384:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749334474384:#"Select Fname, Lname#From Shipping#Where Mname != ''#And#Weight In#(Select Weight#From Shipping#Where Weight > 100000)"
+1749334474384:## surface area
+1749334474384:#sa = "2 * Height * Width + 2 * Length * Width * 2 * Height * Length"
+1749334474384:## volume
+1749334474385:#v = "Height * Length * Width"
+1749334474385:## density
+1749334474385:#d = "Mass / Volume"
+1749334474385:query =
+1749334474385:"
+1749334474385:SELECT Parent1.Parent, Parent2.Parent
+1749334474385:From Parent as Parent1
+1749334474385:Inner Join
+1749334474385:Parent as Parent2
+1749334474385:On Parent1.Person = Paren2.Person
+1749334474385:Where Parent1.Parent != Parent2.Parent
+1749334474386:"
+1749334474386:sqldf(query)
+1749334484730:# nfl = read.csv(file.choose(), header = TRUE)
+1749334484730:# Shipping = read.csv(file.choose(), header = TRUE)
+1749334484730:# Person = read.csv(file.choose(), header = TRUE)
+1749334484730:# Parent = read.csv(file.choose(), header = TRUE)
+1749334484730:# Spouse = read.csv(file.choose(), header = TRUE)
+1749334484730:# Large = read.csv(file.choose(), header = TRUE)
+1749334484730:# Government = read.csv(file.c//hoose(), header = TRUE)
+1749334484730:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749334484731:#"Select Fname, Lname#From Shipping#Where Mname != ''#And#Weight In#(Select Weight#From Shipping#Where Weight > 100000)"
+1749334484731:## surface area
+1749334484732:#sa = "2 * Height * Width + 2 * Length * Width * 2 * Height * Length"
+1749334484732:## volume
+1749334484732:#v = "Height * Length * Width"
+1749334484732:## density
+1749334484732:#d = "Mass / Volume"
+1749334484732:query =
+1749334484732:"
+1749334484732:SELECT Parent1.Parent, Parent2.Parent
+1749334484732:From Parent as Parent1
+1749334484733:Inner Join
+1749334484733:Parent as Parent2
+1749334484733:On Parent1.Person = Parent2.Person
+1749334484733:Where Parent1.Parent != Parent2.Parent
+1749334484733:"
+1749334484733:sqldf(query)
+1749334505587:# nfl = read.csv(file.choose(), header = TRUE)
+1749334505587:# Shipping = read.csv(file.choose(), header = TRUE)
+1749334505587:# Person = read.csv(file.choose(), header = TRUE)
+1749334505587:# Parent = read.csv(file.choose(), header = TRUE)
+1749334505587:# Spouse = read.csv(file.choose(), header = TRUE)
+1749334505587:# Large = read.csv(file.choose(), header = TRUE)
+1749334505587:# Government = read.csv(file.c//hoose(), header = TRUE)
+1749334505587:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749334505587:#"Select Fname, Lname#From Shipping#Where Mname != ''#And#Weight In#(Select Weight#From Shipping#Where Weight > 100000)"
+1749334505587:## surface area
+1749334505588:#sa = "2 * Height * Width + 2 * Length * Width * 2 * Height * Length"
+1749334505588:## volume
+1749334505588:#v = "Height * Length * Width"
+1749334505588:## density
+1749334505589:#d = "Mass / Volume"
+1749334505590:query =
+1749334505590:"
+1749334505590:SELECT Parent1.Parent, Parent2.Parent, name
+1749334505590:From Parent as Parent1
+1749334505590:Inner Join
+1749334505590:Parent as Parent2
+1749334505590:On Parent1.Person = Parent2.Person
+1749334505590:Where Parent1.Parent != Parent2.Parent
+1749334505590:"
+1749334505590:sqldf(query)
+1749334541524:# nfl = read.csv(file.choose(), header = TRUE)
+1749334541525:# Shipping = read.csv(file.choose(), header = TRUE)
+1749334541525:# Person = read.csv(file.choose(), header = TRUE)
+1749334541525:# Parent = read.csv(file.choose(), header = TRUE)
+1749334541525:# Spouse = read.csv(file.choose(), header = TRUE)
+1749334541525:# Large = read.csv(file.choose(), header = TRUE)
+1749334541525:# Government = read.csv(file.c//hoose(), header = TRUE)
+1749334541525:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749334541525:#"Select Fname, Lname#From Shipping#Where Mname != ''#And#Weight In#(Select Weight#From Shipping#Where Weight > 100000)"
+1749334541525:## surface area
+1749334541525:#sa = "2 * Height * Width + 2 * Length * Width * 2 * Height * Length"
+1749334541525:## volume
+1749334541525:#v = "Height * Length * Width"
+1749334541526:## density
+1749334541526:#d = "Mass / Volume"
+1749334541526:query =
+1749334541526:"
+1749334541526:SELECT Parent1.Parent, Parent2.Parent, Person.Name
+1749334541526:From Parent as Parent1
+1749334541527:Inner Join
+1749334541527:Parent as Parent2
+1749334541527:On Parent1.Person = Parent2.Person
+1749334541527:Where Parent1.Parent != Parent2.Parent
+1749334541527:"
+1749334541528:sqldf(query)
+1749334556913:# nfl = read.csv(file.choose(), header = TRUE)
+1749334556913:# Shipping = read.csv(file.choose(), header = TRUE)
+1749334556913:# Person = read.csv(file.choose(), header = TRUE)
+1749334556914:# Parent = read.csv(file.choose(), header = TRUE)
+1749334556914:# Spouse = read.csv(file.choose(), header = TRUE)
+1749334556914:# Large = read.csv(file.choose(), header = TRUE)
+1749334556914:# Government = read.csv(file.c//hoose(), header = TRUE)
+1749334556914:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749334556914:#"Select Fname, Lname#From Shipping#Where Mname != ''#And#Weight In#(Select Weight#From Shipping#Where Weight > 100000)"
+1749334556914:## surface area
+1749334556915:#sa = "2 * Height * Width + 2 * Length * Width * 2 * Height * Length"
+1749334556915:## volume
+1749334556915:#v = "Height * Length * Width"
+1749334556915:## density
+1749334556915:#d = "Mass / Volume"
+1749334556915:query =
+1749334556915:"
+1749334556915:SELECT Parent1.Parent, Parent2.Parent, Name.Person
+1749334556916:From Parent as Parent1
+1749334556916:Inner Join
+1749334556916:Parent as Parent2
+1749334556916:On Parent1.Person = Parent2.Person
+1749334556916:Where Parent1.Parent != Parent2.Parent
+1749334556916:"
+1749334556916:sqldf(query)
+1749334570355:# nfl = read.csv(file.choose(), header = TRUE)
+1749334570355:# Shipping = read.csv(file.choose(), header = TRUE)
+1749334570355:# Person = read.csv(file.choose(), header = TRUE)
+1749334570356:# Parent = read.csv(file.choose(), header = TRUE)
+1749334570356:# Spouse = read.csv(file.choose(), header = TRUE)
+1749334570356:# Large = read.csv(file.choose(), header = TRUE)
+1749334570356:# Government = read.csv(file.c//hoose(), header = TRUE)
+1749334570356:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749334570356:#"Select Fname, Lname#From Shipping#Where Mname != ''#And#Weight In#(Select Weight#From Shipping#Where Weight > 100000)"
+1749334570356:## surface area
+1749334570356:#sa = "2 * Height * Width + 2 * Length * Width * 2 * Height * Length"
+1749334570356:## volume
+1749334570356:#v = "Height * Length * Width"
+1749334570356:## density
+1749334570357:#d = "Mass / Volume"
+1749334570357:query =
+1749334570357:"
+1749334570357:SELECT Parent1.Parent, Parent2.Parent, Name
+1749334570357:From Parent as Parent1, Person
+1749334570357:Inner Join
+1749334570357:Parent as Parent2
+1749334570358:On Parent1.Person = Parent2.Person
+1749334570358:Where Parent1.Parent != Parent2.Parent
+1749334570358:"
+1749334570359:sqldf(query)
+1749334620954:# nfl = read.csv(file.choose(), header = TRUE)
+1749334620954:# Shipping = read.csv(file.choose(), header = TRUE)
+1749334620955:# Person = read.csv(file.choose(), header = TRUE)
+1749334620955:# Parent = read.csv(file.choose(), header = TRUE)
+1749334620955:# Spouse = read.csv(file.choose(), header = TRUE)
+1749334620955:# Large = read.csv(file.choose(), header = TRUE)
+1749334620955:# Government = read.csv(file.c//hoose(), header = TRUE)
+1749334620955:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749334620955:#"Select Fname, Lname#From Shipping#Where Mname != ''#And#Weight In#(Select Weight#From Shipping#Where Weight > 100000)"
+1749334620955:## surface area
+1749334620955:#sa = "2 * Height * Width + 2 * Length * Width * 2 * Height * Length"
+1749334620955:## volume
+1749334620955:#v = "Height * Length * Width"
+1749334620955:## density
+1749334620956:#d = "Mass / Volume"
+1749334620956:query =
+1749334620956:"
+1749334620957:SELECT Parent1.Parent, Name, Parent2.Parent, Name, Name
+1749334620957:From Parent as Parent1, Person
+1749334620957:Inner Join
+1749334620957:Parent as Parent2
+1749334620957:On Parent1.Person = Parent2.Person
+1749334620958:Where Parent1.Parent != Parent2.Parent
+1749334620958:"
+1749334620958:sqldf(query)
+1749334644440:# nfl = read.csv(file.choose(), header = TRUE)
+1749334644441:# Shipping = read.csv(file.choose(), header = TRUE)
+1749334644441:# Person = read.csv(file.choose(), header = TRUE)
+1749334644441:# Parent = read.csv(file.choose(), header = TRUE)
+1749334644441:# Spouse = read.csv(file.choose(), header = TRUE)
+1749334644441:# Large = read.csv(file.choose(), header = TRUE)
+1749334644442:# Government = read.csv(file.c//hoose(), header = TRUE)
+1749334644442:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749334644442:#"Select Fname, Lname#From Shipping#Where Mname != ''#And#Weight In#(Select Weight#From Shipping#Where Weight > 100000)"
+1749334644442:## surface area
+1749334644443:#sa = "2 * Height * Width + 2 * Length * Width * 2 * Height * Length"
+1749334644443:## volume
+1749334644443:#v = "Height * Length * Width"
+1749334644443:## density
+1749334644443:#d = "Mass / Volume"
+1749334644443:query =
+1749334644443:"
+1749334644444:SELECT Parent1.Parent, Parent2.Parent
+1749334644444:From Parent as Parent1, Person, Parent
+1749334644444:Inner Join
+1749334644444:Parent as Parent2
+1749334644444:On Parent1.Person = Parent2.Person
+1749334644444:Where Parent1.Parent != Parent2.Parent
+1749334644444:"
+1749334644445:sqldf(query)
+1749334653843:# nfl = read.csv(file.choose(), header = TRUE)
+1749334653843:# Shipping = read.csv(file.choose(), header = TRUE)
+1749334653844:# Person = read.csv(file.choose(), header = TRUE)
+1749334653844:# Parent = read.csv(file.choose(), header = TRUE)
+1749334653844:# Spouse = read.csv(file.choose(), header = TRUE)
+1749334653844:# Large = read.csv(file.choose(), header = TRUE)
+1749334653844:# Government = read.csv(file.c//hoose(), header = TRUE)
+1749334653844:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749334653844:#"Select Fname, Lname#From Shipping#Where Mname != ''#And#Weight In#(Select Weight#From Shipping#Where Weight > 100000)"
+1749334653844:## surface area
+1749334653844:#sa = "2 * Height * Width + 2 * Length * Width * 2 * Height * Length"
+1749334653844:## volume
+1749334653845:#v = "Height * Length * Width"
+1749334653845:## density
+1749334653845:#d = "Mass / Volume"
+1749334653845:query =
+1749334653845:"
+1749334653845:SELECT Parent1.Parent, Parent2.Parent
+1749334653845:From Parent as Parent1
+1749334653845:Inner Join
+1749334653846:Parent as Parent2
+1749334653846:On Parent1.Person = Parent2.Person
+1749334653846:Where Parent1.Parent != Parent2.Parent
+1749334653846:"
+1749334653846:sqldf(query)
+1749334713137:# nfl = read.csv(file.choose(), header = TRUE)
+1749334713137:# Shipping = read.csv(file.choose(), header = TRUE)
+1749334713137:# Person = read.csv(file.choose(), header = TRUE)
+1749334713137:# Parent = read.csv(file.choose(), header = TRUE)
+1749334713137:# Spouse = read.csv(file.choose(), header = TRUE)
+1749334713137:# Large = read.csv(file.choose(), header = TRUE)
+1749334713137:# Government = read.csv(file.c//hoose(), header = TRUE)
+1749334713138:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749334713138:#"Select Fname, Lname#From Shipping#Where Mname != ''#And#Weight In#(Select Weight#From Shipping#Where Weight > 100000)"
+1749334713138:## surface area
+1749334713138:#sa = "2 * Height * Width + 2 * Length * Width * 2 * Height * Length"
+1749334713138:## volume
+1749334713138:#v = "Height * Length * Width"
+1749334713138:## density
+1749334713138:#d = "Mass / Volume"
+1749334713138:query =
+1749334713138:"
+1749334713139:SELECT Distinct Parent1.Parent, Parent2.Parent
+1749334713139:From Parent as Parent1
+1749334713139:Inner Join
+1749334713139:Parent as Parent2
+1749334713139:On Parent1.Person = Parent2.Person
+1749334713139:Where Parent1.Parent != Parent2.Parent
+1749334713139:"
+1749334713140:sqldf(query)
+1749335194921:# nfl = read.csv(file.choose(), header = TRUE)
+1749335194921:# Shipping = read.csv(file.choose(), header = TRUE)
+1749335194921:# Person = read.csv(file.choose(), header = TRUE)
+1749335194921:# Parent = read.csv(file.choose(), header = TRUE)
+1749335194921:# Spouse = read.csv(file.choose(), header = TRUE)
+1749335194921:# Large = read.csv(file.choose(), header = TRUE)
+1749335194921:# Government = read.csv(file.c//hoose(), header = TRUE)
+1749335194921:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749335194921:#"Select Fname, Lname#From Shipping#Where Mname != ''#And#Weight In#(Select Weight#From Shipping#Where Weight > 100000)"
+1749335194922:## surface area
+1749335194922:#sa = "2 * Height * Width + 2 * Length * Width * 2 * Height * Length"
+1749335194923:## volume
+1749335194923:#v = "Height * Length * Width"
+1749335194923:## density
+1749335194923:#d = "Mass / Volume"
+1749335194924:query =
+1749335194924:"
+1749335194924:SELECT Distinct Parent1.Parent, Parent2.Parent
+1749335194924:From Parent as Parent1
+1749335194924:Inner Join
+1749335194924:Parent as Parent2
+1749335194924:On (Parent1.Person = Parent2.Person)
+1749335194924:Inner Join
+1749335194925:Person as Person1
+1749335194925:On
+1749335194925:(Parent1.Parent = Person1.Person)
+1749335194925:Inner Joine Person as Person2
+1749335194925:On
+1749335194925:(Parent2.Parent = Person2.Person)
+1749335194925:Where Parent1.Parent != Parent2.Parent
+1749335194925:And
+1749335194925:Person1.Sex = 'F'
+1749335194926:And
+1749335194926:Person2.Sex = 'M'
+1749335194926:"
+1749335194926:sqldf(query)
+1749335228720:# nfl = read.csv(file.choose(), header = TRUE)
+1749335228720:# Shipping = read.csv(file.choose(), header = TRUE)
+1749335228720:# Person = read.csv(file.choose(), header = TRUE)
+1749335228720:# Parent = read.csv(file.choose(), header = TRUE)
+1749335228721:# Spouse = read.csv(file.choose(), header = TRUE)
+1749335228721:# Large = read.csv(file.choose(), header = TRUE)
+1749335228721:# Government = read.csv(file.c//hoose(), header = TRUE)
+1749335228721:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749335228721:#"Select Fname, Lname#From Shipping#Where Mname != ''#And#Weight In#(Select Weight#From Shipping#Where Weight > 100000)"
+1749335228721:## surface area
+1749335228721:#sa = "2 * Height * Width + 2 * Length * Width * 2 * Height * Length"
+1749335228721:## volume
+1749335228721:#v = "Height * Length * Width"
+1749335228721:## density
+1749335228721:#d = "Mass / Volume"
+1749335228722:query =
+1749335228722:"
+1749335228722:SELECT Distinct Parent1.Parent, Parent2.Parent
+1749335228722:From Parent AS Parent1
+1749335228722:Inner Join
+1749335228722:Parent AS Parent2
+1749335228723:On (Parent1.Person = Parent2.Person)
+1749335228723:Inner Join
+1749335228723:Person AS Person1
+1749335228723:On
+1749335228723:(Parent1.Parent = Person1.Person)
+1749335228723:Inner Joine Person AS Person2
+1749335228724:On
+1749335228724:(Parent2.Parent = Person2.Person)
+1749335228724:Where Parent1.Parent != Parent2.Parent
+1749335228724:And
+1749335228724:Person1.Sex = 'F'
+1749335228724:And
+1749335228725:Person2.Sex = 'M'
+1749335228725:"
+1749335228725:sqldf(query)
+1749335251240:# nfl = read.csv(file.choose(), header = TRUE)
+1749335251240:# Shipping = read.csv(file.choose(), header = TRUE)
+1749335251240:# Person = read.csv(file.choose(), header = TRUE)
+1749335251240:# Parent = read.csv(file.choose(), header = TRUE)
+1749335251240:# Spouse = read.csv(file.choose(), header = TRUE)
+1749335251240:# Large = read.csv(file.choose(), header = TRUE)
+1749335251240:# Government = read.csv(file.c//hoose(), header = TRUE)
+1749335251240:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749335251241:#"Select Fname, Lname#From Shipping#Where Mname != ''#And#Weight In#(Select Weight#From Shipping#Where Weight > 100000)"
+1749335251241:## surface area
+1749335251241:#sa = "2 * Height * Width + 2 * Length * Width * 2 * Height * Length"
+1749335251241:## volume
+1749335251241:#v = "Height * Length * Width"
+1749335251241:## density
+1749335251241:#d = "Mass / Volume"
+1749335251242:query =
+1749335251242:"
+1749335251242:SELECT Distinct Parent1.Parent, Parent2.Parent
+1749335251243:From Parent as Parent1
+1749335251243:Inner Join
+1749335251243:Parent as Parent2
+1749335251243:On (Parent1.Person = Parent2.Person)
+1749335251243:Inner Join
+1749335251244:Person as Person1
+1749335251244:On
+1749335251244:(Parent1.Parent = Person1.Person)
+1749335251244:Inner Join Person as Person2
+1749335251244:On
+1749335251245:(Parent2.Parent = Person2.Person)
+1749335251245:Where Parent1.Parent != Parent2.Parent
+1749335251245:And
+1749335251245:Person1.Sex = 'F'
+1749335251245:And
+1749335251246:Person2.Sex = 'M'
+1749335251246:"
+1749335251246:sqldf(query)
+1749335347004:## confusing as fuck
+1749335347004:query =
+1749335347004:"
+1749335347004:SELECT Distinct Person1.Name, Person2.Name
+1749335347004:From Parent as Parent1
+1749335347004:Inner Join
+1749335347004:Parent as Parent2
+1749335347004:On (Parent1.Person = Parent2.Person)
+1749335347004:Inner Join
+1749335347005:Person as Person1
+1749335347005:On
+1749335347005:(Parent1.Parent = Person1.Person)
+1749335347005:Inner Join Person as Person2
+1749335347005:On
+1749335347005:(Parent2.Parent = Person2.Person)
+1749335347006:Where Parent1.Parent != Parent2.Parent
+1749335347006:And
+1749335347006:Person1.Sex = 'F'
+1749335347006:And
+1749335347006:Person2.Sex = 'M'
+1749335347007:"
+1749335347007:sqldf(query)
+1749335675111:# nfl = read.csv(file.choose(), header = TRUE)
+1749335675112:# Shipping = read.csv(file.choose(), header = TRUE)
+1749335675112:# Person = read.csv(file.choose(), header = TRUE)
+1749335675112:# Parent = read.csv(file.choose(), header = TRUE)
+1749335675113:# Spouse = read.csv(file.choose(), header = TRUE)
+1749335675113:# Large = read.csv(file.choose(), header = TRUE)
+1749335675113:# Government = read.csv(file.c//hoose(), header = TRUE)
+1749335675113:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749335675113:#"Select Fname, Lname#From Shipping#Where Mname != ''#And#Weight In#(Select Weight#From Shipping#Where Weight > 100000)"
+1749335675114:## surface area
+1749335675114:#sa = "2 * Height * Width + 2 * Length * Width * 2 * Height * Length"
+1749335675114:## volume
+1749335675114:#v = "Height * Length * Width"
+1749335675115:## density
+1749335675115:#d = "Mass / Volume"
+1749335675115:query =
+1749335675115:"
+1749335675115:select person1.name, person2.name
+1749335675116:from person as person1
+1749335675116:left outer join
+1749335675116:parent
+1749335675116:on (person1.person = parent.parent)
+1749335675116:left outer join
+1749335675116:person as person2
+1749335675116:on
+1749335675116:(parent.person = person2.person)
+1749335675116:where person1.sex = 'f'
+1749335675117:order by person1.person
+1749335675117:"
+1749335675117:sqldf(query)
+1749335683977:# nfl = read.csv(file.choose(), header = TRUE)
+1749335683977:# Shipping = read.csv(file.choose(), header = TRUE)
+1749335683977:# Person = read.csv(file.choose(), header = TRUE)
+1749335683977:# Parent = read.csv(file.choose(), header = TRUE)
+1749335683977:# Spouse = read.csv(file.choose(), header = TRUE)
+1749335683977:# Large = read.csv(file.choose(), header = TRUE)
+1749335683978:# Government = read.csv(file.c//hoose(), header = TRUE)
+1749335683978:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749335683978:#"Select Fname, Lname#From Shipping#Where Mname != ''#And#Weight In#(Select Weight#From Shipping#Where Weight > 100000)"
+1749335683978:## surface area
+1749335683978:#sa = "2 * Height * Width + 2 * Length * Width * 2 * Height * Length"
+1749335683978:## volume
+1749335683978:#v = "Height * Length * Width"
+1749335683978:## density
+1749335683979:#d = "Mass / Volume"
+1749335683979:query =
+1749335683979:"
+1749335683979:select person1.name, person2.name
+1749335683979:from Person as person1
+1749335683979:left outer join
+1749335683979:parent
+1749335683979:on (person1.person = parent.parent)
+1749335683980:left outer join
+1749335683980:person as person2
+1749335683980:on
+1749335683980:(parent.person = person2.person)
+1749335683980:where person1.sex = 'f'
+1749335683980:order by person1.person
+1749335683980:"
+1749335683981:sqldf(query)
+1749335880116:# nfl = read.csv(file.choose(), header = TRUE)
+1749335880116:# Shipping = read.csv(file.choose(), header = TRUE)
+1749335880116:# Person = read.csv(file.choose(), header = TRUE)
+1749335880116:# Parent = read.csv(file.choose(), header = TRUE)
+1749335880116:# Spouse = read.csv(file.choose(), header = TRUE)
+1749335880116:# Large = read.csv(file.choose(), header = TRUE)
+1749335880116:# Government = read.csv(file.c//hoose(), header = TRUE)
+1749335880116:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749335880117:#"Select Fname, Lname#From Shipping#Where Mname != ''#And#Weight In#(Select Weight#From Shipping#Where Weight > 100000)"
+1749335880117:## surface area
+1749335880117:#sa = "2 * Height * Width + 2 * Length * Width * 2 * Height * Length"
+1749335880117:## volume
+1749335880117:#v = "Height * Length * Width"
+1749335880117:## density
+1749335880117:#d = "Mass / Volume"
+1749335880117:query =
+1749335880117:"
+1749335880118:select person1.name, person2.name
+1749335880118:from Person as person1
+1749335880118:left outer join
+1749335880118:Parent
+1749335880118:on (person1.person = parent.parent)
+1749335880118:left outer join
+1749335880118:person as person2
+1749335880118:on
+1749335880118:(parent.person = person2.person)
+1749335880118:where person1.sex = 'f'
+1749335880119:order by person1.person
+1749335880119:"
+1749335880119:sqldf(query)
+1749335937129:# nfl = read.csv(file.choose(), header = TRUE)
+1749335937129:# Shipping = read.csv(file.choose(), header = TRUE)
+1749335937129:# Person = read.csv(file.choose(), header = TRUE)
+1749335937129:# Parent = read.csv(file.choose(), header = TRUE)
+1749335937129:# Spouse = read.csv(file.choose(), header = TRUE)
+1749335937129:# Large = read.csv(file.choose(), header = TRUE)
+1749335937129:# Government = read.csv(file.c//hoose(), header = TRUE)
+1749335937129:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749335937129:#"Select Fname, Lname#From Shipping#Where Mname != ''#And#Weight In#(Select Weight#From Shipping#Where Weight > 100000)"
+1749335937129:## surface area
+1749335937130:#sa = "2 * Height * Width + 2 * Length * Width * 2 * Height * Length"
+1749335937130:## volume
+1749335937130:#v = "Height * Length * Width"
+1749335937130:## density
+1749335937131:#d = "Mass / Volume"
+1749335937131:query =
+1749335937132:"
+1749335937132:select person1.name, person2.name
+1749335937132:from Person as Person1
+1749335937132:left outer join
+1749335937132:Parent
+1749335937132:on (Person1.Person = Parent.Parent)
+1749335937133:left outer join
+1749335937133:Person as Person2
+1749335937133:on
+1749335937133:(Parent.Person = Person2.Person)
+1749335937134:where Person1.sex = 'f'
+1749335937134:order by Person1.Person
+1749335937134:"
+1749335937134:sqldf(query)
+1749336091193:# nfl = read.csv(file.choose(), header = TRUE)
+1749336091193:# Shipping = read.csv(file.choose(), header = TRUE)
+1749336091193:# Person = read.csv(file.choose(), header = TRUE)
+1749336091193:# Parent = read.csv(file.choose(), header = TRUE)
+1749336091193:# Spouse = read.csv(file.choose(), header = TRUE)
+1749336091193:# Large = read.csv(file.choose(), header = TRUE)
+1749336091193:# Government = read.csv(file.c//hoose(), header = TRUE)
+1749336091193:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749336091194:#"Select Fname, Lname#From Shipping#Where Mname != ''#And#Weight In#(Select Weight#From Shipping#Where Weight > 100000)"
+1749336091194:## surface area
+1749336091194:#sa = "2 * Height * Width + 2 * Length * Width * 2 * Height * Length"
+1749336091194:## volume
+1749336091194:#v = "Height * Length * Width"
+1749336091194:## density
+1749336091194:#d = "Mass / Volume"
+1749336091195:query =
+1749336091195:"
+1749336091195:SELECT Person1.Name, Person2.Name
+1749336091196:FROM Person AS Person1 LEFT OUTER JOIN Parent ON
+1749336091196:(Person1.Person = Parent.Parent) LEFT OUTER JOIN
+1749336091196:Person AS Person2 ON(Parent.Person = Person2.Person)
+1749336091196:WHERE Person1.Sex = 'F'
+1749336091196:ORDER BY Person1.Person
+1749336091196:"
+1749336091197:sqldf(query)
+1749336288415:# nfl = read.csv(file.choose(), header = TRUE)
+1749336288415:# Shipping = read.csv(file.choose(), header = TRUE)
+1749336288415:# Person = read.csv(file.choose(), header = TRUE)
+1749336288415:# Parent = read.csv(file.choose(), header = TRUE)
+1749336288415:# Spouse = read.csv(file.choose(), header = TRUE)
+1749336288415:# Large = read.csv(file.choose(), header = TRUE)
+1749336288415:# Government = read.csv(file.c//hoose(), header = TRUE)
+1749336288416:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749336288416:#"Select Fname, Lname#From Shipping#Where Mname != ''#And#Weight In#(Select Weight#From Shipping#Where Weight > 100000)"
+1749336288416:## surface area
+1749336288416:#sa = "2 * Height * Width + 2 * Length * Width * 2 * Height * Length"
+1749336288416:## volume
+1749336288416:#v = "Height * Length * Width"
+1749336288417:## density
+1749336288417:#d = "Mass / Volume"
+1749336288417:query =
+1749336288417:"
+1749336288417:SELECT Spouse.Spouse1, Parent.*
+1749336288417:FROM Spouse
+1749336288417:RIGHT OUTER JOIN
+1749336288417:Parent ON Spouse.Spouse2 = Parent.Parent
+1749336288418:INNER JOIN
+1749336288418:Person ON Parent.Parent = Person.Person
+1749336288418:WHERE Person1.Sex = 'F'
+1749336288418:ORDER BY Person1.Person
+1749336288418:"
+1749336288418:sqldf(query)
+1749336299897:# nfl = read.csv(file.choose(), header = TRUE)
+1749336299897:# Shipping = read.csv(file.choose(), header = TRUE)
+1749336299897:# Person = read.csv(file.choose(), header = TRUE)
+1749336299897:# Parent = read.csv(file.choose(), header = TRUE)
+1749336299897:# Spouse = read.csv(file.choose(), header = TRUE)
+1749336299897:# Large = read.csv(file.choose(), header = TRUE)
+1749336299897:# Government = read.csv(file.c//hoose(), header = TRUE)
+1749336299897:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749336299897:#"Select Fname, Lname#From Shipping#Where Mname != ''#And#Weight In#(Select Weight#From Shipping#Where Weight > 100000)"
+1749336299898:## surface area
+1749336299898:#sa = "2 * Height * Width + 2 * Length * Width * 2 * Height * Length"
+1749336299898:## volume
+1749336299898:#v = "Height * Length * Width"
+1749336299898:## density
+1749336299898:#d = "Mass / Volume"
+1749336299899:query =
+1749336299899:"
+1749336299899:SELECT Spouse.Spouse1, Parent.*
+1749336299899:FROM Spouse
+1749336299899:RIGHT OUTER JOIN
+1749336299900:Parent ON Spouse.Spouse2 = Parent.Parent
+1749336299900:INNER JOIN
+1749336299900:Person ON Parent.Parent = Person.Person
+1749336299900:WHERE Person.Sex = 'F'
+1749336299901:ORDER BY Person1.Person
+1749336299901:"
+1749336299901:sqldf(query)
+1749336310944:# nfl = read.csv(file.choose(), header = TRUE)
+1749336310944:# Shipping = read.csv(file.choose(), header = TRUE)
+1749336310944:# Person = read.csv(file.choose(), header = TRUE)
+1749336310944:# Parent = read.csv(file.choose(), header = TRUE)
+1749336310944:# Spouse = read.csv(file.choose(), header = TRUE)
+1749336310944:# Large = read.csv(file.choose(), header = TRUE)
+1749336310944:# Government = read.csv(file.c//hoose(), header = TRUE)
+1749336310944:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749336310944:#"Select Fname, Lname#From Shipping#Where Mname != ''#And#Weight In#(Select Weight#From Shipping#Where Weight > 100000)"
+1749336310945:## surface area
+1749336310945:#sa = "2 * Height * Width + 2 * Length * Width * 2 * Height * Length"
+1749336310945:## volume
+1749336310945:#v = "Height * Length * Width"
+1749336310945:## density
+1749336310945:#d = "Mass / Volume"
+1749336310945:query =
+1749336310945:"
+1749336310945:SELECT Spouse.Spouse1, Parent.*
+1749336310945:FROM Spouse
+1749336310945:RIGHT OUTER JOIN
+1749336310946:Parent ON Spouse.Spouse2 = Parent.Parent
+1749336310946:INNER JOIN
+1749336310946:Person ON Parent.Parent = Person.Person
+1749336310946:WHERE Person.Sex = 'F'
+1749336310947:"
+1749336310947:sqldf(query)
+1749336601924:# nfl = read.csv(file.choose(), header = TRUE)
+1749336601924:# Shipping = read.csv(file.choose(), header = TRUE)
+1749336601924:# Person = read.csv(file.choose(), header = TRUE)
+1749336601925:# Parent = read.csv(file.choose(), header = TRUE)
+1749336601925:# Spouse = read.csv(file.choose(), header = TRUE)
+1749336601925:# Large = read.csv(file.choose(), header = TRUE)
+1749336601925:# Government = read.csv(file.c//hoose(), header = TRUE)
+1749336601925:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749336601925:#"Select Fname, Lname#From Shipping#Where Mname != ''#And#Weight In#(Select Weight#From Shipping#Where Weight > 100000)"
+1749336601925:## surface area
+1749336601925:#sa = "2 * Height * Width + 2 * Length * Width * 2 * Height * Length"
+1749336601926:## volume
+1749336601926:#v = "Height * Length * Width"
+1749336601926:## density
+1749336601926:#d = "Mass / Volume"
+1749336601926:query =
+1749336601926:"
+1749336601926:Select Person.Name
+1749336601926:From Person
+1749336601926:Where Sex = 'M'
+1749336601927:And Exists
+1749336601927:(
+1749336601927:Select Parent.Parent
+1749336601927:From Parent
+1749336601927:Where Person.Person = Parent.Parent
+1749336601927:)
+1749336601927:"
+1749336601927:sqldf(query)
+1749336671163:# nfl = read.csv(file.choose(), header = TRUE)
+1749336671164:# Shipping = read.csv(file.choose(), header = TRUE)
+1749336671164:# Person = read.csv(file.choose(), header = TRUE)
+1749336671164:# Parent = read.csv(file.choose(), header = TRUE)
+1749336671164:# Spouse = read.csv(file.choose(), header = TRUE)
+1749336671164:# Large = read.csv(file.choose(), header = TRUE)
+1749336671164:# Government = read.csv(file.c//hoose(), header = TRUE)
+1749336671164:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749336671164:#"Select Fname, Lname#From Shipping#Where Mname != ''#And#Weight In#(Select Weight#From Shipping#Where Weight > 100000)"
+1749336671164:## surface area
+1749336671165:#sa = "2 * Height * Width + 2 * Length * Width * 2 * Height * Length"
+1749336671165:## volume
+1749336671165:#v = "Height * Length * Width"
+1749336671165:## density
+1749336671165:#d = "Mass / Volume"
+1749336671165:query =
+1749336671165:"
+1749336671166:Select Person.Name
+1749336671166:From Person
+1749336671166:Where Sex = 'F'
+1749336671166:And Exists
+1749336671166:(
+1749336671166:Select Parent.Parent
+1749336671166:From Parent
+1749336671166:Where Person.Person = Parent.Parent
+1749336671166:)
+1749336671166:"
+1749336671167:sqldf(query)
+1749336814903:# nfl = read.csv(file.choose(), header = TRUE)
+1749336814903:# Shipping = read.csv(file.choose(), header = TRUE)
+1749336814903:# Person = read.csv(file.choose(), header = TRUE)
+1749336814904:# Parent = read.csv(file.choose(), header = TRUE)
+1749336814904:# Spouse = read.csv(file.choose(), header = TRUE)
+1749336814904:# Large = read.csv(file.choose(), header = TRUE)
+1749336814904:# Government = read.csv(file.c//hoose(), header = TRUE)
+1749336814904:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749336814904:#"Select Fname, Lname#From Shipping#Where Mname != ''#And#Weight In#(Select Weight#From Shipping#Where Weight > 100000)"
+1749336814904:## surface area
+1749336814904:#sa = "2 * Height * Width + 2 * Length * Width * 2 * Height * Length"
+1749336814904:## volume
+1749336814904:#v = "Height * Length * Width"
+1749336814904:## density
+1749336814905:#d = "Mass / Volume"
+1749336814905:query =
+1749336814905:"
+1749336814905:Select Person.Name
+1749336814905:From Person
+1749336814905:Where Sex = 'F'
+1749336814905:And Note Exists
+1749336814905:(
+1749336814906:Select Spouse.Spouse1
+1749336814906:From Spouse
+1749336814906:Where Person.Person = Spouse.Spouse1
+1749336814906:)
+1749336814906:"
+1749336814906:sqldf(query)
+1749336827798:# nfl = read.csv(file.choose(), header = TRUE)
+1749336827799:# Shipping = read.csv(file.choose(), header = TRUE)
+1749336827799:# Person = read.csv(file.choose(), header = TRUE)
+1749336827799:# Parent = read.csv(file.choose(), header = TRUE)
+1749336827799:# Spouse = read.csv(file.choose(), header = TRUE)
+1749336827799:# Large = read.csv(file.choose(), header = TRUE)
+1749336827799:# Government = read.csv(file.c//hoose(), header = TRUE)
+1749336827799:# TicketToRide = read.csv(file.choose(), header = TRUE)
+1749336827799:#"Select Fname, Lname#From Shipping#Where Mname != ''#And#Weight In#(Select Weight#From Shipping#Where Weight > 100000)"
+1749336827799:## surface area
+1749336827799:#sa = "2 * Height * Width + 2 * Length * Width * 2 * Height * Length"
+1749336827800:## volume
+1749336827800:#v = "Height * Length * Width"
+1749336827800:## density
+1749336827800:#d = "Mass / Volume"
+1749336827800:query =
+1749336827800:"
+1749336827801:Select Person.Name
+1749336827801:From Person
+1749336827801:Where Sex = 'F'
+1749336827801:And Not Exists
+1749336827801:(
+1749336827802:Select Spouse.Spouse1
+1749336827802:From Spouse
+1749336827802:Where Person.Person = Spouse.Spouse1
+1749336827802:)
+1749336827802:"
+1749336827803:sqldf(query)
+1749337220723:names(Largest)
+1749337236112:names(Large)
+1749337419038:script =
+1749337419038:"
+1749337419039:select
+1749337419039:*
+1749337419039:from
+1749337419039:Large, Government, TicketToRide
+1749337419039:where
+1749337419039:Like %
+1749337419039:"
+1749337419039:sqldf(script)
+1749337428929:script =
+1749337428930:"
+1749337428930:select
+1749337428930:*
+1749337428930:from
+1749337428930:Large, Government, TicketToRide
+1749337428930:where
+1749337428930:Like '%'
+1749337428930:"
+1749337428930:sqldf(script)
+1749337439496:script =
+1749337439496:"
+1749337439496:select
+1749337439496:*
+1749337439496:from
+1749337439496:Large, Government, TicketToRide
+1749337439496:where
+1749337439497:Like '%s%'
+1749337439497:"
+1749337439497:sqldf(script)
+1749337628015:script =
+1749337628015:"
+1749337628015:Select State, FirstCity, County As City, 1 as RankInState
+1749337628015:From Large
+1749337628015:Union
+1749337628015:Select State, SecondCity, Country, 2
+1749337628016:From Large
+1749337628016:Union
+1749337628017:Select State, ThirdCity, County, 3
+1749337628018:From Large
+1749337628018:"
+1749337628019:sqldf(script)
+1749337635833:script =
+1749337635833:"
+1749337635833:Select State, FirstCity, County As City, 1 as RankInState
+1749337635833:From Large
+1749337635833:Union
+1749337635833:Select State, SecondCity, Country, 2
+1749337635833:From Large
+1749337635833:Union
+1749337635834:Select State, ThirdCity, Country, 3
+1749337635834:From Large
+1749337635834:"
+1749337635834:sqldf(script)
+1749337642266:script =
+1749337642267:"
+1749337642267:Select State, FirstCity, Country As City, 1 as RankInState
+1749337642267:From Large
+1749337642267:Union
+1749337642267:Select State, SecondCity, Country, 2
+1749337642267:From Large
+1749337642267:Union
+1749337642267:Select State, ThirdCity, Country, 3
+1749337642267:From Large
+1749337642268:"
+1749337642268:sqldf(script)
+1749337696221:script =
+1749337696221:"
+1749337696221:Select State, FirstCity As City, Country, 1 as RankInState
+1749337696221:From Large
+1749337696221:Union
+1749337696221:Select State, SecondCity, Country, 2
+1749337696221:From Large
+1749337696222:Union
+1749337696222:Select State, ThirdCity, Country, 3
+1749337696222:From Large
+1749337696223:"
+1749337696223:sqldf(script)
