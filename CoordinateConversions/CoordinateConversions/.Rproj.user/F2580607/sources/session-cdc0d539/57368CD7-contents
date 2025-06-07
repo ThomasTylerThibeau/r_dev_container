@@ -1,4 +1,4 @@
-script =
+Rowify =
   "
   Select State, FirstCity As City, Country, 1 as RankInState
   From Large
@@ -14,5 +14,20 @@ script =
   From Large
 
   "
+CapitalAndLargest =
+  "
+  Select Capital, State, 'Capital' As Designation
+  From Government
+  Where Country = 'US'
 
-sqldf(script)
+  Union
+
+  Select FirstCity, State, 'Largest' As Designation
+  From Large
+  Where Country = 'US'
+
+  Order by State
+  "
+
+
+sqldf(CapitalAndLargest)

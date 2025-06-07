@@ -2495,3 +2495,60 @@
 1749337696222:From Large
 1749337696223:"
 1749337696223:sqldf(script)
+1749337980685:CapitalAndLargest =
+1749337980685:"
+1749337980685:Select City, State, 'Capital' As Designation
+1749337980685:From Government
+1749337980686:Where Country = 'US'
+1749337980686:Union
+1749337980687:Select FirstCity, State, 'Largest' As Designation
+1749337980687:From Large
+1749337980687:Where Country = 'US'
+1749337980687:"
+1749337980688:sqldf(CapitalAndLargest)
+1749337996184:names(Government)
+1749338009335:Rowify =
+1749338009335:"
+1749338009336:Select State, FirstCity As City, Country, 1 as RankInState
+1749338009336:From Large
+1749338009336:Union
+1749338009336:Select State, SecondCity, Country, 2
+1749338009336:From Large
+1749338009336:Union
+1749338009337:Select State, ThirdCity, Country, 3
+1749338009337:From Large
+1749338009337:"
+1749338009337:CapitalAndLargest =
+1749338009337:"
+1749338009337:Select Capital, State, 'Capital' As Designation
+1749338009337:From Government
+1749338009338:Where Country = 'US'
+1749338009338:Union
+1749338009338:Select FirstCity, State, 'Largest' As Designation
+1749338009338:From Large
+1749338009338:Where Country = 'US'
+1749338009338:"
+1749338009339:sqldf(CapitalAndLargest)
+1749338032835:Rowify =
+1749338032835:"
+1749338032835:Select State, FirstCity As City, Country, 1 as RankInState
+1749338032835:From Large
+1749338032835:Union
+1749338032835:Select State, SecondCity, Country, 2
+1749338032835:From Large
+1749338032836:Union
+1749338032836:Select State, ThirdCity, Country, 3
+1749338032836:From Large
+1749338032836:"
+1749338032836:CapitalAndLargest =
+1749338032836:"
+1749338032836:Select Capital, State, 'Capital' As Designation
+1749338032836:From Government
+1749338032836:Where Country = 'US'
+1749338032837:Union
+1749338032837:Select FirstCity, State, 'Largest' As Designation
+1749338032837:From Large
+1749338032837:Where Country = 'US'
+1749338032837:Order by State
+1749338032838:"
+1749338032838:sqldf(CapitalAndLargest)

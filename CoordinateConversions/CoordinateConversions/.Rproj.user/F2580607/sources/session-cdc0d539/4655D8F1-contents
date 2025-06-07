@@ -16,7 +16,7 @@
 
 query =
 "
-
+shitfuck
 "
 
 sqldf(query)
