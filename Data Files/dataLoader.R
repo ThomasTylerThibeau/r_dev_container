@@ -14,10 +14,19 @@ v = "Height * Length * Width"
 ## density
 d = "Mass / Volume"
 
-query ="
-select *
-from Shipping
-where values not null
+query =
+"
+Select Fname, Lname
+From Shipping
+Where Mname != ''
+And
+Weight In
+(
+Select Weight
+From Shipping
+Where Weight > 100000
+)
+
 "
 
 sqldf(query)
