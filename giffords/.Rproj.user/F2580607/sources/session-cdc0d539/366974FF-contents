@@ -1,11 +1,11 @@
 ## 1.) confirm all 500 orders have a first scoop
 fiveHunFirstScoop =
   "
-    Select 
+    SELECT 
       count(Scoop1)
     
-    From 
-      orders
+    FROM 
+      orders o
   "
 
 sqldf(fiveHunFirstScoop)
@@ -14,18 +14,18 @@ sqldf(fiveHunFirstScoop)
 ## 2.) site names by sales, descending
 mostSales =
   "
-    Select 
-      locations.City,
-      Count(orders.ID) as TotalOrders
+    SELECT 
+      l.City,
+      Count(o.ID) as TotalOrders
     
     From 
-      orders
+      orders o
     
     Join 
-        locations On orders.Site = locations.ID
+        locations l On o.Site = l.ID
     
     Group By 
-        locations.City
+        l.City
     
     Order By 
         TotalOrders Desc
@@ -42,19 +42,36 @@ timesVisited =
       c.Fname,
       c.Lname,
       COUNT(o.ID) AS visits
+    
     FROM
       orders o
+    
     JOIN
       customers c ON o.Customer = c.ID
+    
     GROUP BY
       o.Customer, c.Fname, c.Lname
+    
     ORDER BY
       visits DESC
   "
 
-
 sqldf(timesVisited)
 
 
+## 4.) which ice creams &/ toppings contain nuts
+nutty = 
+  "
+    SELECT ID, Flavor AS Name, 'Flavor' AS Type
+    FROM flavors
+    WHERE Nuts = 'Y'
+    
+    UNION
+    
+    SELECT ID, Name, 'Topping' AS Type
+    FROM toppings
+    WHERE Nuts = 'Y';
+  "
 
 
+sqldf(nutty)
