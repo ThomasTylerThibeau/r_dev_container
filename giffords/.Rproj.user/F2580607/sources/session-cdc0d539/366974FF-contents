@@ -10,12 +10,17 @@ sqldf(fiveHunFirstScoop)
 ## 2.) site names by sales, descending
 mostSales =
   "
-  Select distinct Site as spot
-
-  From orders
-
-  order by Count(spot)
-
+  SELECT 
+    locations.City,
+    COUNT(orders.ID) AS TotalOrders
+  FROM 
+      orders orders
+  JOIN 
+      locations locations ON orders.Site = locations.ID
+  GROUP BY 
+      locations.City
+  ORDER BY 
+      TotalOrders DESC;
   "
 
 sqldf(mostSales)

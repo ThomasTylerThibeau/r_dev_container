@@ -2842,3 +2842,215 @@
 1749340725091:order by Count(spot)
 1749340725091:"
 1749340725091:sqldf(mostSales)
+1749475877438:install.packages('sqldf')
+1749475892759:library('sqldf')
+1749475959677:locations = read.csv(file.choose(), header=T)
+1749475964910:customers = read.csv(file.choose(),header=T)
+1749475969861:flavors = read.csv(file.choose(),header=T)
+1749475974389:orders = read.csv(file.choose(),header=T)
+1749475976092:toppings = read.csv(file.choose(),header=T)
+1749475993391:names(locations)
+1749476037233:names(customers)
+1749476061722:names(flavors)
+1749476082174:names(orders)
+1749476105260:names(toppings)
+1749476304245:## 2.) site names by sales, descending
+1749476304245:mostSales =
+1749476304245:"
+1749476304245:Select 1.location,
+1749476304245:Count(o.ID) as TotalSales
+1749476304245:From orders o
+1749476304245:Join locations 1 On o.Site = 1.ID
+1749476304245:Order By TotalSales DESC
+1749476304246:"
+1749476304246:sqldf(mostSales)
+1749476384223:## 2.) site names by sales, descending
+1749476384224:mostSales =
+1749476384224:"
+1749476384224:Select l.location,
+1749476384224:Count(o.ID) as TotalSales
+1749476384224:From orders o
+1749476384224:Join locations l On o.Site = l.ID
+1749476384224:Order By TotalSales DESC
+1749476384225:"
+1749476384225:sqldf(mostSales)
+1749476403696:## 2.) site names by sales, descending
+1749476403696:mostSales =
+1749476403696:"
+1749476403696:Select location,
+1749476403696:Count(ID) as TotalSales
+1749476403697:From orders o
+1749476403697:Join locations On Site = ID
+1749476403697:Order By TotalSales DESC
+1749476403697:"
+1749476403698:sqldf(mostSales)
+1749476576065:## 2.) site names by sales, descending
+1749476576065:mostSales =
+1749476576065:"
+1749476576065:select distinct count(sales)
+1749476576065:from orders
+1749476576066:"
+1749476576066:sqldf(mostSales)
+1749476593758:names(sales)
+1749476606613:names(orders)
+1749476627234:## 2.) site names by sales, descending
+1749476627234:mostSales =
+1749476627234:"
+1749476627234:select distinct ID count(ID)
+1749476627234:from orders
+1749476627234:"
+1749476627235:sqldf(mostSales)
+1749476641986:mostSales =
+1749476641986:"
+1749476641986:select distinct ID count(ID)
+1749476641986:from orders
+1749476641987:"
+1749476641987:sqldf(mostSales)
+1749476661491:3-3
+1749476670445:mostSales =
+1749476670445:"
+1749476670445:select distinct ID count(ID)
+1749476670445:from orders
+1749476670445:"
+1749476670446:sqldf(mostSales)
+1749476687281:mostSales =
+1749476687281:"
+1749476687281:select distinct ID count(ID)
+1749476687282:from orders
+1749476687282:"
+1749476687282:sqldf(mostSales)
+1749476708560:fiveHunFirstScoop =
+1749476708560:"
+1749476708560:Select count(Scoop1)
+1749476708560:From orders
+1749476708560:"
+1749476708560:sqldf(fiveHunFirstScoop)
+1749476719850:## 2.) site names by sales, descending
+1749476719851:mostSales =
+1749476719851:"
+1749476719851:select distinct ID count(ID)
+1749476719851:from orders
+1749476719851:"
+1749476719851:sqldf(mostSales)
+1749476767876:sqldf(mostSales)
+1749476783708:sqldf(mostSales)
+1749476788611:sqldf(mostSales)
+1749476815851:mostSales =
+1749476815852:"
+1749476815852:select distinct(ID) count(ID)
+1749476815852:from orders
+1749476815852:"
+1749476815852:sqldf(mostSales)
+1749476875719:mostSales =
+1749476875719:"
+1749476875719:select count(ID) as orderCount
+1749476875719:from orders
+1749476875719:"
+1749476875720:sqldf(mostSales)
+1749476900654:mostSales =
+1749476900655:"
+1749476900655:select count(distinct ID) as orderCount
+1749476900655:from orders
+1749476900655:"
+1749476900655:sqldf(mostSales)
+1749476915309:names(orders)
+1749476925264:mostSales =
+1749476925264:"
+1749476925264:select count(distinct Site) as orderCount
+1749476925265:from orders
+1749476925265:"
+1749476925265:sqldf(mostSales)
+1749476935312:mostSales =
+1749476935312:"
+1749476935312:select count(Site) as orderCount
+1749476935312:from orders
+1749476935312:"
+1749476935313:sqldf(mostSales)
+1749476960578:locations
+1749477025038:mostSales =
+1749477025038:"
+1749477025039:select
+1749477025039:count(Site == 1) as SkowCount
+1749477025039:count(Site == 2) as FarmCount
+1749477025039:count(Site == 3) as AubCount
+1749477025039:count(Site == 4) as BgrCount
+1749477025039:count(Site == 5) as WtrCount
+1749477025039:from orders
+1749477025039:"
+1749477025041:sqldf(mostSales)
+1749477607737:mostSales =
+1749477607738:"
+1749477607738:SELECT
+1749477607738:l.Location,
+1749477607738:COUNT(o.ID) AS TotalOrders
+1749477607738:FROM
+1749477607738:orders o
+1749477607738:JOIN
+1749477607738:locations l ON o.Site = l.ID
+1749477607739:GROUP BY
+1749477607739:l.Location
+1749477607739:ORDER BY
+1749477607739:TotalOrders DESC;
+1749477607739:"
+1749477607739:sqldf(mostSales)
+1749477673677:names(locations)
+1749477704999:mostSales =
+1749477704999:"
+1749477704999:SELECT
+1749477704999:l.City,
+1749477704999:COUNT(o.ID) AS TotalOrders
+1749477704999:FROM
+1749477704999:orders o
+1749477704999:JOIN
+1749477705000:locations l ON o.Site = l.ID
+1749477705000:GROUP BY
+1749477705000:l.City
+1749477705000:ORDER BY
+1749477705000:TotalOrders DESC;
+1749477705000:"
+1749477705001:sqldf(mostSales)
+1749477802347:mostSales =
+1749477802347:"
+1749477802347:SELECT
+1749477802347:locations.City,
+1749477802347:COUNT(orders.ID) AS TotalOrders
+1749477802347:FROM
+1749477802348:orders orders
+1749477802348:JOIN
+1749477802348:locations locations ON order.Site = location.ID
+1749477802348:GROUP BY
+1749477802349:location.City
+1749477802349:ORDER BY
+1749477802349:TotalOrders DESC;
+1749477802349:"
+1749477802349:sqldf(mostSales)
+1749477812298:mostSales =
+1749477812298:"
+1749477812298:SELECT
+1749477812298:locations.City,
+1749477812299:COUNT(orders.ID) AS TotalOrders
+1749477812299:FROM
+1749477812299:orders orders
+1749477812299:JOIN
+1749477812299:locations locations ON orders.Site = location.ID
+1749477812299:GROUP BY
+1749477812299:location.City
+1749477812300:ORDER BY
+1749477812300:TotalOrders DESC;
+1749477812300:"
+1749477812300:sqldf(mostSales)
+1749477826430:mostSales =
+1749477826430:"
+1749477826431:SELECT
+1749477826431:locations.City,
+1749477826431:COUNT(orders.ID) AS TotalOrders
+1749477826431:FROM
+1749477826432:orders orders
+1749477826432:JOIN
+1749477826432:locations locations ON orders.Site = locations.ID
+1749477826432:GROUP BY
+1749477826432:locations.City
+1749477826432:ORDER BY
+1749477826432:TotalOrders DESC;
+1749477826432:"
+1749477826433:sqldf(mostSales)
