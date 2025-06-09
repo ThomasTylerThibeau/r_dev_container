@@ -1,26 +1,60 @@
 ## 1.) confirm all 500 orders have a first scoop
 fiveHunFirstScoop =
   "
-  Select count(Scoop1)
-  From orders
+    Select 
+      count(Scoop1)
+    
+    From 
+      orders
   "
 
 sqldf(fiveHunFirstScoop)
 
+
 ## 2.) site names by sales, descending
 mostSales =
   "
-  SELECT 
-    locations.City,
-    COUNT(orders.ID) AS TotalOrders
-  FROM 
-      orders orders
-  JOIN 
-      locations locations ON orders.Site = locations.ID
-  GROUP BY 
-      locations.City
-  ORDER BY 
-      TotalOrders DESC;
+    Select 
+      locations.City,
+      Count(orders.ID) as TotalOrders
+    
+    From 
+      orders
+    
+    Join 
+        locations On orders.Site = locations.ID
+    
+    Group By 
+        locations.City
+    
+    Order By 
+        TotalOrders Desc
   "
 
 sqldf(mostSales)
+
+
+## 3.) number of each customer's purchases, by name not number
+timesVisited = 
+  "
+    SELECT
+      o.Customer,
+      c.Fname,
+      c.Lname,
+      COUNT(o.ID) AS visits
+    FROM
+      orders o
+    JOIN
+      customers c ON o.Customer = c.ID
+    GROUP BY
+      o.Customer, c.Fname, c.Lname
+    ORDER BY
+      visits DESC
+  "
+
+
+sqldf(timesVisited)
+
+
+
+
