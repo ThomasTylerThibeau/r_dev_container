@@ -1,10 +1,10 @@
 ## 1.) confirm all 500 orders have a first scoop
 fiveHunFirstScoop =
   "
-    SELECT 
+    SELECT
       count(Scoop1)
-    
-    FROM 
+
+    FROM
       orders o
   "
 
@@ -14,20 +14,20 @@ sqldf(fiveHunFirstScoop)
 ## 2.) site names by sales, descending
 mostSales =
   "
-    SELECT 
+    SELECT
       l.City,
       Count(o.ID) as TotalOrders
-    
-    From 
+
+    From
       orders o
-    
-    Join 
+
+    Join
         locations l On o.Site = l.ID
-    
-    Group By 
+
+    Group By
         l.City
-    
-    Order By 
+
+    Order By
         TotalOrders Desc
   "
 
@@ -35,23 +35,23 @@ sqldf(mostSales)
 
 
 ## 3.) number of each customer's purchases, by name not number
-timesVisited = 
+timesVisited =
   "
     SELECT
       o.Customer,
       c.Fname,
       c.Lname,
       COUNT(o.ID) AS visits
-    
+
     FROM
       orders o
-    
+
     JOIN
       customers c ON o.Customer = c.ID
-    
+
     GROUP BY
       o.Customer, c.Fname, c.Lname
-    
+
     ORDER BY
       visits DESC
   "
@@ -60,29 +60,29 @@ sqldf(timesVisited)
 
 
 ## 4.) which ice creams &/ toppings contain nuts
-nutty = 
+nutty =
   "
-    SELECT 
-      f.Flavor AS Name, 
+    SELECT
+      f.Flavor AS Name,
       'Flavor' AS Type
-      
-    FROM 
+
+    FROM
       flavors f
-    
-    WHERE 
+
+    WHERE
       Nuts = 'Y'
-    
+
     UNION
-    
-    SELECT 
-      t.Name, 
+
+    SELECT
+      t.Name,
       'Topping' AS Type
-      
-    FROM 
+
+    FROM
       toppings t
-    
+
     WHERE Nuts = 'Y'
-    
+
     ORDER BY Type
   "
 
@@ -91,7 +91,7 @@ sqldf(nutty)
 
 
 ## 5.) find every order with at least one topping
-sunnyDays = 
+sunnyDays =
   "
     SELECT
       f1.Flavor AS Scoop1_Flavor,
@@ -125,16 +125,16 @@ sqldf(sunnyDays)
 
 
 ## 6.) all the customers (by name) not from Maine or New Hampshire
-southies = 
+southies =
   "
     SELECT
       c.Fname,
       c.Lname,
       c.State
-      
+
     FROM
       customers c
-    
+
     WHERE
       State != 'ME' and State != 'NH'
   "
@@ -142,15 +142,15 @@ southies =
 sqldf(southies)  ## yay! I did one (well, 1 and 6) without AI help!
 
 ## 7.) how types of dessert and how many of each
-desserts = 
+desserts =
   "
     SELECT
       Type,
       COUNT(*) AS NumberOfFlavors
-    
+
     FROM
       flavors
-    
+
     GROUP BY
       Type
   "
@@ -160,14 +160,14 @@ sqldf(desserts)
 ## 8.) list out all of the possible orders of one, two, or three scoops.
 ## I'm going to take some leeway here and assume that chocolate chocolate chocolate == chocolate chocolate == chocolate
 ## all constitute the same order, that cherry vanilla chocolate == vanilla cherry chocolate
-icecreams = 
+icecreams =
   "
     SELECT
       f.Flavor
-      
+
     FROM
       flavors f
-      
+
     WHERE
       Type = 'I'
   "
@@ -194,51 +194,68 @@ for (first in flvrs)
 
 
 ## 9.) find most common flavor
-topFlavors = 
+topFlavors =
   "
     SELECT
       f.Flavor,
       COUNT(*) AS Count
-    
-    FROM 
+
+    FROM
       orders o
-    
-    JOIN 
+
+    JOIN
       flavors f ON o.Scoop1 = f.ID OR o.Scoop2 = f.ID OR o.Scoop3 = f.ID
-    
-    GROUP BY 
+
+    GROUP BY
       f.Flavor
-    
-    ORDER BY 
+
+    ORDER BY
       Count DESC
-    
+
     LIMIT 10
   "
 
 sqldf(topFlavors)
-    
-topPings = 
+
+topPings =
   "
-    SELECT 
-      t.Name AS Topping, 
+    SELECT
+      t.Name AS Topping,
       COUNT(*) AS Count
-    
-    FROM 
+
+    FROM
       orders o
-    
-    JOIN 
+
+    JOIN
       toppings t ON o.Topping1 = t.ID OR o.Topping2 = t.ID OR o.Topping3 = t.ID
-    
-    GROUP BY 
+
+    GROUP BY
       t.Name
-    
-    ORDER BY 
+
+    ORDER BY
       Count DESC
-    
+
     LIMIT 10
   "
 
 sqldf(topPings)
 
 
+## 10.) find all the places people came from that do not have ice cream stands
+towns =
+  "
+    SELECT
+      DISTINCT c.City
 
+    FROM
+      customers c
+
+    WHERE
+      c.City NOT IN
+      (
+        SELECT
+          l.City FROM locations l
+      )
+  "
+
+sqldf(towns)
