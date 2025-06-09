@@ -193,3 +193,52 @@ for (first in flvrs)
 }
 
 
+## 9.) find most common flavor
+topFlavors = 
+  "
+    SELECT
+      f.Flavor,
+      COUNT(*) AS Count
+    
+    FROM 
+      orders o
+    
+    JOIN 
+      flavors f ON o.Scoop1 = f.ID OR o.Scoop2 = f.ID OR o.Scoop3 = f.ID
+    
+    GROUP BY 
+      f.Flavor
+    
+    ORDER BY 
+      Count DESC
+    
+    LIMIT 10
+  "
+
+sqldf(topFlavors)
+    
+topPings = 
+  "
+    SELECT 
+      t.Name AS Topping, 
+      COUNT(*) AS Count
+    
+    FROM 
+      orders o
+    
+    JOIN 
+      toppings t ON o.Topping1 = t.ID OR o.Topping2 = t.ID OR o.Topping3 = t.ID
+    
+    GROUP BY 
+      t.Name
+    
+    ORDER BY 
+      Count DESC
+    
+    LIMIT 10
+  "
+
+sqldf(topPings)
+
+
+
