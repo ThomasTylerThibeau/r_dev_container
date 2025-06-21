@@ -4206,3 +4206,108 @@
 1750528870228:names(mms)
 1750528883143:colors
 1750528902049:options # unique types
+1750548451488:getwd()
+1750548479459:setwd("/workspaces/r_dev_container/MnM5")
+1750548526247:mnm = read.csv("mms.csv")
+1750548535925:name(mnm)
+1750548554294:names(mnm)
+1750548579244:colors = unique(mnm$color)
+1750548579244:colors
+1750548598011:types = unique(mnm$type)
+1750548845941:for(type in types)
+1750548845942:{
+1750548845942:mean(mnm$mass)
+1750548845942:mean(mnm$diameter)
+1750548845942:for(clr in colors)
+1750548845942:{
+1750548845942:mean(mnm$mass)
+1750548845942:mean(mnm$diameter)
+1750548845942:}
+1750548845942:}
+1750549026484:for(type in types)
+1750549026484:{
+1750549026484:cat(type, mean(mnm$mass[mnm$types = type]))
+1750549060899:for(type in types)
+1750549060899:{
+1750549060899:cat(type, mean(mnm$mass[mnm$types == type]))
+1750549060899:cat(type, mean(mnm$diameter[mnm$types == type]))
+1750549060899:for(clr in colors)
+1750549060899:{
+1750549060900:cat(type, color, mean(mnm$mass[mnm$types == type && mnm$colors == clr]))
+1750549060900:cat(type, color, mean(mnm$diameter[mnm$types == type && mnm$colors == clr]))
+1750549060900:}
+1750549060900:}
+1750549077181:for(type in types)
+1750549077182:{
+1750549077182:cat(type, mean(mnm$mass[mnm$types == type]))
+1750549077182:cat(type, mean(mnm$diameter[mnm$types == type]))
+1750549077182:for(clr in colors)
+1750549077182:{
+1750549077182:cat(type, clr, mean(mnm$mass[mnm$types == type && mnm$colors == clr]))
+1750549077182:cat(type, clr, mean(mnm$diameter[mnm$types == type && mnm$colors == clr]))
+1750549077182:}
+1750549077182:}
+1750549133050:x = mean(mnm$mass)
+1750549133050:x
+1750549275865:pnut.mean = mean(mnm$mass[mnm$type == "peanut butter"])
+1750549291048:pnut.mean
+1750549433712:for(kind in types)
+1750549433712:{
+1750549433712:avg <- mean(mnm$mass[mnm$type == kind])
+1750549433712:cat(kind, avg, "\n")
+1750549433712:}
+1750549460127:for(kind in types)
+1750549460127:{
+1750549460127:avg <- mean(mnm$mass[mnm$type == kind])
+1750549460127:cat(kind, "mean is:", avg, "\n")
+1750549460128:}
+1750549469719:cat(kind, "mean is:\t", avg, "\n")
+1750549474652:for(kind in types)
+1750549474652:{
+1750549474652:avg <- mean(mnm$mass[mnm$type == kind])
+1750549474652:cat(kind, "mean is:\t", avg, "\n")
+1750549474652:}
+1750549583784:for(kind in types)
+1750549583784:{
+1750549583784:avgw <- mean(mnm$mass[mnm$type == kind])
+1750549583785:avgs <- mean(mnm$diameter[mnm$type == kind])
+1750549583785:cat(kind, ":\nmean weight is:\t", avgw, "\n", "mean size is:\t", avgs, "\n\n")
+1750549583786:}
+1750549605423:for(kind in types)
+1750549605423:{
+1750549605423:avgw <- mean(mnm$mass[mnm$type == kind])
+1750549605423:avgs <- mean(mnm$diameter[mnm$type == kind])
+1750549605423:cat(kind, ":\nmean weight is:\t", avgw, "\nmean size is:\t", avgs, "\n\n")
+1750549605424:}
+1750549621638:for(kind in types)
+1750549621638:{
+1750549621638:avgw <- mean(mnm$mass[mnm$type == kind])
+1750549621638:avgs <- mean(mnm$diameter[mnm$type == kind])
+1750549621638:cat(kind + ":\nmean weight is:\t", avgw, "\nmean size is:\t", avgs, "\n\n")
+1750549621638:}
+1750549784006:for(kind in types)
+1750549784006:{
+1750549784006:avgw <- mean(mnm$mass[mnm$type == kind])
+1750549784006:avgs <- mean(mnm$diameter[mnm$type == kind])
+1750549784007:cat(kind, "\nmean weight is:\t", avgw, "\nmean size is:\t", avgs, "\n\n")
+1750549784008:cat(kind)
+1750549784008:for(clr in colors)
+1750549784008:{
+1750549784009:tcw <- mean(mnm$mass[mnm$type == kind && mnm$color == clr])
+1750549784009:tcs <- mean(mnm$diameter[mnm$type == kind && mnm$color == clr])
+1750549784009:cat(clr, "\nmean weight is:\t", avgw, "\nmean size is:\t", avgs, "\n\n")
+1750549784009:}
+1750549784010:}
+1750549817218:for(kind in types)
+1750549817218:{
+1750549817219:avgw <- mean(mnm$mass[mnm$type == kind])
+1750549817219:avgs <- mean(mnm$diameter[mnm$type == kind])
+1750549817219:cat(kind, "\nmean weight is:\t", avgw, "\nmean size is:\t", avgs, "\n\n")
+1750549817219:cat(kind)
+1750549817219:for(clr in colors)
+1750549817219:{
+1750549817219:tcw <- mean(mnm$mass[mnm$type == kind, mnm$color == clr])
+1750549817219:tcs <- mean(mnm$diameter[mnm$type == kind, mnm$color == clr])
+1750549817220:cat(clr, "\nmean weight is:\t", avgw, "\nmean size is:\t", avgs, "\n\n")
+1750549817220:}
+1750549817221:}
