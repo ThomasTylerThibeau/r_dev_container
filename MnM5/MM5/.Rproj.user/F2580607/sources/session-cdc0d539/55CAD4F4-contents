@@ -1,7 +1,10 @@
-data=read.csv(file.choose(),header=TRUE)
-
+mms=read.csv("mms.csv") ## I'm ashamed at how long it took me to do this without the file.choose()... (15ish min)
+ 
 ## 1.	What is the mean and standard deviation of the following cross sections of data for both diameter and mass: (20 points)
 ##  a.	Type
 ##  b.	Type+Color
-
+colors <- unique(mms$color)
+options <- unique(mms$type)
+colors 
+options
 

@@ -4145,3 +4145,45 @@
 1750527778567:##  a.	Type
 1750527778568:##  b.	Type+Color
 1750527778568:data[color].unique
+1750527892974:colors <- unique(data$color)
+1750527892975:colors
+1750527955995:mms=read.csv(file.choose(),header=TRUE)
+1750527971813:mms=read.csv(mms.csv,header=TRUE)
+1750527987684:mms=read.csv(mMnM5/ms.csv,header=TRUE)
+1750527988940:mms=read.csv(mMnM5/ms.csv,header=TRUE)
+1750528000494:mms=read.csv(file.choose(),header=TRUE)
+1750528007507:## 1.	What is the mean and standard deviation of the following cross sections of data for both diameter and mass: (20 points)
+1750528007507:##  a.	Type
+1750528007508:##  b.	Type+Color
+1750528007508:colors <- unique(mms$color)
+1750528007508:colors
+1750528007508:options <- unique(mms$type)
+1750528083675:data=read.csv(file.choose(),header=TRUE)
+1750528095529:getwd(mms)
+1750528103468:options
+1750528110173:getwd(mms.csv)
+1750528116156:getwd("mms.csv")
+1750528122446:getwd()
+1750528169551:mm=read.csv('mms.csv')
+1750528205352:mm = read.csv("./mms.csv")
+1750528371218:data <- read.csv("mms.csv")
+1750528414555:data <- read.csv("mms.csv")
+1750528452582:getwd()
+1750528484020:list.files()
+1750528526846:setwd("/workspaces/r_dev_container/MnM5")
+1750528537110:data <- read.csv("mms.csv")
+1750528612768:mms=read.csv("mms.csv") ## I'm ashamed at how long it took me to do this without the file.choose()... (15ish min)
+1750528612771:## 1.	What is the mean and standard deviation of the following cross sections of data for both diameter and mass: (20 points)
+1750528612771:##  a.	Type
+1750528612771:##  b.	Type+Color
+1750528612771:colors <- unique(mms$color)
+1750528612771:options <- unique(mms$type)
+1750528612771:color
+1750528621758:mms=read.csv("mms.csv") ## I'm ashamed at how long it took me to do this without the file.choose()... (15ish min)
+1750528621761:## 1.	What is the mean and standard deviation of the following cross sections of data for both diameter and mass: (20 points)
+1750528621761:##  a.	Type
+1750528621761:##  b.	Type+Color
+1750528621761:colors <- unique(mms$color)
+1750528621761:options <- unique(mms$type)
+1750528621762:colors
+1750528621762:options
