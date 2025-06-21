@@ -4187,3 +4187,22 @@
 1750528621761:options <- unique(mms$type)
 1750528621762:colors
 1750528621762:options
+1750528718595:mms=read.csv("mms.csv") ## I'm ashamed at how long it took me to do this without the file.choose()... (15ish min)
+1750528718598:## 1.	What is the mean and standard deviation of the following cross sections of data for both diameter and mass: (20 points)
+1750528718598:##  a.	Type
+1750528718598:##  b.	Type+Color
+1750528718599:colors <- unique(mms$color)
+1750528718599:options <- unique(mms$type)
+1750528718599:colors
+1750528718600:options
+1750528738368:mms=read.csv("mms.csv") ## I'm ashamed at how long it took me to do this without the file.choose()... (15ish min)
+1750528738373:## 1.	What is the mean and standard deviation of the following cross sections of data for both diameter and mass: (20 points)
+1750528738373:##  a.	Type
+1750528738373:##  b.	Type+Color
+1750528738373:colors <- unique(mms$color)
+1750528738374:options <- unique(mms$type)
+1750528738374:colors
+1750528738374:options
+1750528870228:names(mms)
+1750528883143:colors
+1750528902049:options # unique types

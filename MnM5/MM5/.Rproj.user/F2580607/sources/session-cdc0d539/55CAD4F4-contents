@@ -8,3 +8,5 @@ options <- unique(mms$type)
 colors 
 options
 
+pbMean
+
