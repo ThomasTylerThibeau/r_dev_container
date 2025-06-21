@@ -4133,3 +4133,15 @@
 1749485285694:FROM customers c
 1749485285694:WHERE c.City NOT IN (SELECT l.City FROM locations l);"
 1749485285694:sqldf(towns)
+1750526976990:3+4
+1750527542029:data=read.csv(file.choose(),header=TRUE)
+1750527549705:data=read.csv(file.choose(),header=TRUE)
+1750527727824:names(data)
+1750527764340:## 1.	What is the mean and standard deviation of the following cross sections of data for both diameter and mass: (20 points)
+1750527764340:##  a.	Type
+1750527764340:##  b.	Type+Color
+1750527764341:data.color
+1750527778567:## 1.	What is the mean and standard deviation of the following cross sections of data for both diameter and mass: (20 points)
+1750527778567:##  a.	Type
+1750527778568:##  b.	Type+Color
+1750527778568:data[color].unique

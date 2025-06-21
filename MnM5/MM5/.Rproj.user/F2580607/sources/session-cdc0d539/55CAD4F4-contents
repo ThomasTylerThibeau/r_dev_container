@@ -1,0 +1,7 @@
+data=read.csv(file.choose(),header=TRUE)
+
+## 1.	What is the mean and standard deviation of the following cross sections of data for both diameter and mass: (20 points)
+##  a.	Type
+##  b.	Type+Color
+
+

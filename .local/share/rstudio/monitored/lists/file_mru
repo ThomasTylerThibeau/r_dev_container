@@ -1,3 +1,5 @@
+~/MnM5/A5.R
+/workspaces/r_dev_container/CoordinateConversions/ThibeauA5(M&M)/A5.R
 /workspaces/r_dev_container/giffords/questions.R
 /workspaces/r_dev_container/giffords/loadFiles.R
 ~/Data Files/intersect.R
@@ -11,5 +13,3 @@
 ~/CoordinateConversions/CoordinateConversions/R/sphereToCyl.R
 ~/CoordinateConversions/CoordinateConversions/R/cylToSphere.R
 ~/CoordinateConversions/CoordinateConversions/R/recToSphere.R
-~/CoordinateConversions/CoordinateConversions/R/cylToRec.R
-~/CoordinateConversions/CoordinateConversions/R/recToCyl.R
