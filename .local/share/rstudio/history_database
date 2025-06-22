@@ -5457,3 +5457,82 @@
 1750605703966:makeOver(pcw, colors, 369.9)
 1750605703980:makeOver(pncw, colors, 369.9)
 1750605703982:makeOver(pbcw, colors, 360)
+1750606005053:## wait a minute... but the color distribution isn't flat...
+1750606005054:makeOver <- function(weightVector, colorOrder, targetWeight)
+1750606005054:{
+1750606005054:## initialize weight, blank color tally, total tally (redundant but easy and inexpensive)
+1750606005054:weight <- 0
+1750606005054:colorDist <- rep(0, 6)
+1750606005054:total <- 0
+1750606005054:## repeat while under, this should execute once more bringing it over
+1750606005054:while(weight < targetWeight)
+1750606005054:{
+1750606005054:m <- sample(1:6, 1)
+1750606005054:weight <- weight + weightVector[m]
+1750606005055:colorDist[m] <- colorDist[m] + 1
+1750606005055:total <- total + 1
+1750606005056:}
+1750606005056:cat(total, "M&M's for a weight of", weight, "\n")
+1750606005056:for(x in 1:6)
+1750606005056:{
+1750606005056:cat("Color", colorOrder[x], "was picked", colorDist[x], "times\n")
+1750606005056:}
+1750606005057:}
+1750606005057:makeOver(pcw, colors, 369.9)
+1750606005069:makeOver(pncw, colors, 369.9)
+1750606005072:makeOver(pbcw, colors, 360)
+1750606047784:makeUnder <- function(weightVector, colorOrder, targetWeight)
+1750606047784:{
+1750606047784:## initialize weight, blank color tally, total tally (redundant but easy and inexpensive)
+1750606047784:weight <- 0
+1750606047784:colorDist <- rep(0, 6)
+1750606047784:total <- 0
+1750606047784:## repeat while under,...
+1750606047785:repeat
+1750606047785:{
+1750606047785:m <- sample(1:6, 1)
+1750606047785:addedWeight <- weight + weightVector[m]
+1750606047786:if(weight < targetWeight)
+1750606047786:{
+1750606047786:weight <- weight + addedWeight
+1750606047787:}
+1750606047787:else break
+1750606047788:colorDist[m] <- colorDist[m] + 1
+1750606047788:total <- total + 1
+1750606047788:}
+1750606047789:cat(total, "M&M's for a weight of", weight, "\n")
+1750606047789:for(x in 1:6)
+1750606047789:{
+1750606047790:cat("Color", colorOrder[x], "was picked", colorDist[x], "times\n")
+1750606047790:}
+1750606047790:}
+1750606047791:makeUnder(pcw, colors, 369.9)
+1750606047802:makeUnder(pncw, colors, 369.9)
+1750606047804:makeUnder(pbcw, colors, 360)
+1750606209028:makeUnder <- function(weightVector, colorOrder, targetWeight)
+1750606209028:{
+1750606209028:## initialize weight, blank color tally, total tally (redundant but easy and inexpensive)
+1750606209028:weight <- 0
+1750606209028:colorDist <- rep(0, 6)
+1750606209028:total <- 0
+1750606209028:## repeat while under,...
+1750606209028:repeat
+1750606209028:{
+1750606209028:m <- sample(1:6, 1)
+1750606209029:## sentinel value
+1750606209029:if(weight + weightVector[m] > targetWeight)
+1750606209030:{break}
+1750606209031:## didn't break, add weight, add color tally and total
+1750606209031:weight <- weight + weightVector[m]
+1750606209032:colorDist[m] <- colorDist[m] + 1
+1750606209032:total <- total + 1
+1750606209032:}
+1750606209033:cat(total, "M&M's for a weight of", weight, "\n")
+1750606209034:for(x in 1:6)
+1750606209034:{
+1750606209034:cat("Color", colorOrder[x], "was picked", colorDist[x], "times\n")
+1750606209034:}
+1750606209034:}
+1750606209035:makeUnder(pcw, colors, 369.9)
+1750606209049:makeUnder(pncw, colors, 369.9)
+1750606209051:makeUnder(pbcw, colors, 360)

@@ -236,14 +236,14 @@ pncw <- c(2.57593, 2.57130, 2.68074, 2.57035, 2.62650, 2.56704)
 pbcw <- c(1.85250, 1.80310, 1.92029, 1.73000, 1.47048, 1.73962)
 
 ## wait a minute... but the color distribution isn't flat...
-makeOver <- function(weightVector, colorOrder, weight)
+makeOver <- function(weightVector, colorOrder, targetWeight)
 {
   ## initialize weight, blank color tally, total tally (redundant but easy and inexpensive)
   weight <- 0
   colorDist <- rep(0, 6)
   total <- 0
   ## repeat while under, this should execute once more bringing it over
-  while(weight < 369.9)
+  while(weight < targetWeight)
   {
     m <- sample(1:6, 1)
     weight <- weight + weightVector[m]
@@ -261,16 +261,22 @@ makeOver(pcw, colors, 369.9)
 makeOver(pncw, colors, 369.9)
 makeOver(pbcw, colors, 360)
 
-makeUnder <- function(weightVector, colorOrder, weight)
+
+makeUnder <- function(weightVector, colorOrder, targetWeight)
 {
   ## initialize weight, blank color tally, total tally (redundant but easy and inexpensive)
   weight <- 0
   colorDist <- rep(0, 6)
   total <- 0
-  ## repeat while under, this should execute once more bringing it over
-  while(weight < 369.9)
+  ## repeat while under,...
+  repeat
   {
     m <- sample(1:6, 1)
+
+    ## sentinel value
+    if(weight + weightVector[m] > targetWeight)
+    {break}
+    ## didn't break, add weight, add color tally and total
     weight <- weight + weightVector[m]
     colorDist[m] <- colorDist[m] + 1
     total <- total + 1
@@ -282,3 +288,11 @@ makeUnder <- function(weightVector, colorOrder, weight)
     cat("Color", colorOrder[x], "was picked", colorDist[x], "times\n")
   }
 }
+
+
+makeUnder(pcw, colors, 369.9)
+makeUnder(pncw, colors, 369.9)
+makeUnder(pbcw, colors, 360)
+
+
+## #9
