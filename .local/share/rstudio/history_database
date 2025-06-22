@@ -4884,3 +4884,25 @@
 1750602150367:.74 + .73 + .73 + .72 + .76
 1750602184062:3.98 / 5
 1750602256189:.8 + .8 + .8 + .79 + .79
+1750602581844:for(kind in types)
+1750602581844:{
+1750602581844:avgw <- mean(mnm$mass[mnm$type == kind])
+1750602581844:avgs <- mean(mnm$diameter[mnm$type == kind])
+1750602581844:stdw <- sd(mnm$mass[mnm$type == kind])
+1750602581844:stds <- sd(mnm$diameter[mnm$type == kind])
+1750602581845:cat(kind, "\nmean weight:\t", avgw, "\nmean size:\t", avgs,
+1750602581845:"\nstd weight:", stdw, "\nstd size:", stds,"\n")
+1750602581845:cat("\n\n",kind,"color breakdown:\n")
+1750602581846:for(clr in colors)
+1750602581846:{
+1750602581846:tcaw <- mean(mnm$mass[mnm$type == kind & mnm$color == clr])
+1750602581846:tcas <- mean(mnm$diameter[mnm$type == kind & mnm$color == clr])
+1750602581846:tcstdw <- sd(mnm$mass[mnm$type == kind & mnm$color == clr])
+1750602581846:tcstds <- sd(mnm$diameter[mnm$type == kind & mnm$color == clr])
+1750602581847:cat(clr, "\nmean weight is:\t", tcaw, "\nmean size is:\t", tcas,
+1750602581847:"\nstd weight:", tcstdw,"\nstd size:", tcstds,"\n\n")
+1750602581848:}
+1750602581848:}
+1750603000464:colors
+1750603022970:colors <- sort(colors)
+1750603022970:colors

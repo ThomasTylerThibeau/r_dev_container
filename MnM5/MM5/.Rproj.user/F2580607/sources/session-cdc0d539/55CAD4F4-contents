@@ -211,4 +211,20 @@ x
 
 
 ## #8
+## Now we are going to revise the procedure:  color matters.  As you add M&Ms
+## to the bag, you must first generate their color randomly and then use the
+## parameters from that color (calculated in Step 1 B) to specify the values
+## for weight and diameter randomly using a distribution.  Use the same
+## assumptions for your previous bag samples. (20 points)
+
+## plain / peanut / peanut butter weights
+## blue       brown       green       orange      red         yellow
+## 0.86023    0.87058     0.86989     0.86480     0.85448     0.86547
+## 2.57593    2.57130     2.68074     2.57035     2.62650     2.56704
+## 1.85250    1.80310     1.92029     1.73000     1.47048     1.73962
+
+colors <- sort(colors)
+colors
+
+
 

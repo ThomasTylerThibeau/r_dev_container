@@ -194,6 +194,37 @@ if (!is.null(result_combination)) {
 
 ## the smallest we can make is .72, (2) .73, .74, (2) .76
 plain
-plainOver <- 399.55 - 369.9 # (29.65, wow, over an ounce extra!)d
+plainOver <- 399.55 - 369.9 # (29.65, wow, over an ounce extra!)
+## okay... well, I say we just add up a bunch from the vectors and make it even
+
+x = sum(plain[1:419])
+x
+369.9 - x ## 3.98 (3.98 / 5 = .796)
+.8 + .8 + .8 + .79 + .79
+
+## SOLUTION TO PLAIN ##
+## sort them by weight, descending. Take the first 419 M&Ms then numbers 430-434
+## AND VIOLA, you have EXACT Weight. Don't worry about the profits or the customer...
+
+## and since this is actually a cheap question that I've over-killed to not even find the desired solutions for
+## (one answer that covers 2, and an algorithm that I didn't write which could solve all of them) I'm moving on
+
+
+## #8
+## Now we are going to revise the procedure:  color matters.  As you add M&Ms
+## to the bag, you must first generate their color randomly and then use the
+## parameters from that color (calculated in Step 1 B) to specify the values
+## for weight and diameter randomly using a distribution.  Use the same
+## assumptions for your previous bag samples. (20 points)
+
+## plain / peanut / peanut butter weights
+## blue       brown       green       orange      red         yellow
+## 0.86023    0.87058     0.86989     0.86480     0.85448     0.86547
+## 2.57593    2.57130     2.68074     2.57035     2.62650     2.56704
+## 1.85250    1.80310     1.92029     1.73000     1.47048     1.73962
+
+colors <- sort(colors)
+colors
+
 
 
