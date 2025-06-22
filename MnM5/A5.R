@@ -1,0 +1,82 @@
+setwd("/workspaces/r_dev_container/MnM5")
+mnm <- read.csv("mms.csv")
+
+colors <- unique(mnm$color)
+colors
+
+types <- unique(mnm$type)
+
+## #1
+## find the mean and standard deviation for diameter and mass using
+## type, type+color
+
+for(kind in types)
+{
+  avgw <- mean(mnm$mass[mnm$type == kind])
+  avgs <- mean(mnm$diameter[mnm$type == kind])
+  cat(kind, "\nmean weight is:\t", avgw, "\nmean size is:\t", avgs, "\n\n")
+
+  cat(kind)
+  for(clr in colors)
+  {
+    tcw <- mean(mnm$mass[mnm$type == kind & mnm$color == clr])
+    tcs <- mean(mnm$diameter[mnm$type == kind & mnm$color == clr])
+    cat(clr, "\nmean weight is:\t", avgw, "\nmean size is:\t", avgs, "\n\n")
+  }
+
+}
+
+## #2
+## proportion of each type of color
+
+## I don't need to subtract for the header, right?
+mnm
+## nope.. okay
+total = nrow(mnm)
+total
+
+for(clr in colors)
+{
+  clrcnt = sum(mnm$color == clr)
+  cat(clr, "appears",100 * clrcnt/total, "% of the time. (", clrcnt, "/", total, ")\n")
+}
+
+
+## #3 bar chart of #2
+
+## some extra fuckery to get the height to accept it
+counts <- numeric(length(colors))
+
+## could have just gone back and modified 2, sure...
+
+for(i in seq_along(colors))
+{
+  clr <- colors[i]
+  counts[i] <- sum(mnm$color == clr)
+}
+
+barplot(counts, names.arg = colors, main = "Count of Colors", xlab = "Colors", ylab = "Counts", col = "darkorange")
+## orange because it's the only color that doesn't get spelled out, so it seems fair...
+
+## #4
+## no, they're not. Oh, you want more... okay.. shit (where's tableau when I need it?!) [kidding, of course]
+
+## type-color-count (interesting that numeric sets it to a vector...)
+
+for(kind in types)
+{
+  i = 1
+  for(clr in colors)
+  {
+    ## set the (row)column-vector to hold, reusing counts
+    counts[i] <- sum(mnm$color == clr & mnm$type == kind)
+    i <- i + 1 ## really, for all R has, it doesn't have ++ or +=?
+  }
+  barplot(counts, names.arg = colors, main = "Colors on Types", xlab = "Colors", ylab = "Counts", col = "pink")
+}
+
+## as I suspected, no... (I had an 18-bar plot, but, the counts on the different sizes fucked it up and the labeling
+## was too difficult for me to figure out)
+
+
+## #5

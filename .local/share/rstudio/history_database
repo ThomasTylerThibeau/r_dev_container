@@ -4393,3 +4393,146 @@
 1750551209801:}
 1750551209808:# Create a bar plot
 1750551209808:barplot(counts, names.arg = colors, main = "Count of Each Color", xlab = "Colors", ylab = "Counts", col = "lightblue")
+1750551306996:counts <- c(colors)
+1750551306996:counts
+1750551306997:## could have just gone back and modified 2, sure...
+1750551306997:for(i in seq_along(colors))
+1750551306997:{
+1750551306997:clr <- colors[i]
+1750551306997:counts[i] <- sum(mnm$color == clr)
+1750551306997:}
+1750551307003:# Create a bar plot
+1750551307003:barplot(counts, names.arg = colors, main = "Count of Colors", xlab = "Colors", ylab = "Counts", col = "hotpink")
+1750551339319:# Assuming colors is a character vector containing the unique colors
+1750551339319:colors <- c("blue", "brown", "orange", "yellow", "green", "red")
+1750551339319:# Initialize counts as a numeric vector of the same length as colors
+1750551339319:counts <- numeric(length(colors))
+1750551339319:# Loop through each color and count occurrences
+1750551339320:for(i in seq_along(colors)) {
+1750551339320:clr <- colors[i]
+1750551339320:counts[i] <- sum(mnm$color == clr)
+1750551339320:}
+1750551339326:# Create a bar plot
+1750551339326:barplot(counts, names.arg = colors, main = "Count of Each Color", xlab = "Colors", ylab = "Counts", col = "hotpink")
+1750551387338:## some extra fuckery to get the height to accept it
+1750551387339:counts <-numeric(length(colors))
+1750551387339:## could have just gone back and modified 2, sure...
+1750551387339:for(i in seq_along(colors))
+1750551387339:{
+1750551387339:clr <- colors[i]
+1750551387339:counts[i] <- sum(mnm$color == clr)
+1750551387340:}
+1750551387347:# Create a bar plot
+1750551387347:barplot(counts, names.arg = colors, main = "Count of Colors", xlab = "Colors", ylab = "Counts", col = "hotpink")
+1750551407180:## some extra fuckery to get the height to accept it
+1750551407180:counts <-numeric(length(colors))
+1750551407180:## could have just gone back and modified 2, sure...
+1750551407180:for(i in seq_along(colors))
+1750551407180:{
+1750551407180:clr <- colors[i]
+1750551407180:counts[i] <- sum(mnm$color == clr)
+1750551407181:}
+1750551407188:barplot(counts, names.arg = colors, main = "Count of Colors", xlab = "Colors", ylab = "Counts", col = "hotpink")
+1750551407200:12+39
+1750551419991:## some extra fuckery to get the height to accept it
+1750551419991:counts <-numeric(length(colors))
+1750551419991:## could have just gone back and modified 2, sure...
+1750551419991:for(i in seq_along(colors))
+1750551419991:{
+1750551419991:clr <- colors[i]
+1750551419992:counts[i] <- sum(mnm$color == clr)
+1750551419992:}
+1750551420000:barplot(counts, names.arg = colors, main = "Count of Colors", xlab = "Colors", ylab = "Counts", col = "darkorange")
+1750552407561:for(clr in colors)
+1750552407562:{
+1750552407562:for(kind in types)
+1750552407562:{
+1750552407562:#tcc[i] <-
+1750552407562:i <- + 1 ## really, for all R has, it doesn't have ++ or +=?
+1750552407562:cat(i)
+1750552407562:}
+1750552407562:}
+1750552419313:for(clr in colors)
+1750552419314:{
+1750552419314:for(kind in types)
+1750552419314:{
+1750552419314:#tcc[i] <-
+1750552419314:i <- i + 1 ## really, for all R has, it doesn't have ++ or +=?
+1750552419314:}
+1750552419314:}
+1750552432408:for(clr in colors)
+1750552432409:{
+1750552432409:for(kind in types)
+1750552432409:{
+1750552432409:#tcc[i] <-
+1750552432409:i <- i + 1 ## really, for all R has, it doesn't have ++ or +=?
+1750552432409:cat(i)
+1750552432409:}
+1750552432409:}
+1750552445604:i = 1
+1750552445605:for(clr in colors)
+1750552445605:{
+1750552445605:for(kind in types)
+1750552445605:{
+1750552445605:#tcc[i] <-
+1750552445606:i <- i + 1 ## really, for all R has, it doesn't have ++ or +=?
+1750552445606:cat(i)
+1750552445606:}
+1750552445606:}
+1750552640834:tcc <- numeric(length(colors)) * 3
+1750552640834:tcc
+1750552660441:tccr <- length(tcc)
+1750552662037:tccr
+1750552677324:tccr = numeric(tccr)
+1750552678805:tccr
+1750552808300:tccr <- r(1:18)
+1750552886354:## type-color-count (interesting that numeric sets it to a vector...)
+1750552886354:tcc <- numeric(length(colors)) * 3
+1750552886355:i = 1
+1750552886355:for(clr in colors)
+1750552886355:{
+1750552886355:for(kind in types)
+1750552886356:{
+1750552886356:## set the (row)column-vector to hold
+1750552886356:tcc[i] <- sum(mnm$color == clr & mnm$type == kind)
+1750552886356:i <- i + 1 ## really, for all R has, it doesn't have ++ or +=?
+1750552886356:}
+1750552886356:}
+1750552886365:barplot(counts, names.arg = colors, main = "Colors on Types", xlab = "Colors", ylab = "Counts", col = "darkorange")
+1750552909461:tcc
+1750552932786:barplot(tcc, names.arg = colors, main = "Colors on Types", xlab = "Colors", ylab = "Counts", col = "darkorange")
+1750552980083:barplot(tcc, names.arg = type+colors, main = "Colors on Types", xlab = "Colors", ylab = "Counts", col = "darkorange")
+1750553065436:for(kind in types)
+1750553065437:{
+1750553065437:i = 1
+1750553065437:for(clr in colors)
+1750553065437:{
+1750553065437:## set the (row)column-vector to hold, reusing counts
+1750553065437:counts[i] <- sum(mnm$color == clr & mnm$type == kind)
+1750553065437:i <- i + 1 ## really, for all R has, it doesn't have ++ or +=?
+1750553065437:}
+1750553065437:barplot(tcc, names.arg = colors, main = "Colors on Types", xlab = "Colors", ylab = "Counts", col = "darkorange")
+1750553065438:}
+1750553077602:for(kind in types)
+1750553077602:{
+1750553077602:i = 1
+1750553077602:for(clr in colors)
+1750553077602:{
+1750553077603:## set the (row)column-vector to hold, reusing counts
+1750553077603:counts[i] <- sum(mnm$color == clr & mnm$type == kind)
+1750553077603:i <- i + 1 ## really, for all R has, it doesn't have ++ or +=?
+1750553077603:}
+1750553077604:barplot(counts, names.arg = colors, main = "Colors on Types", xlab = "Colors", ylab = "Counts", col = "darkorange")
+1750553077604:}
+1750553098396:or(kind in types)
+1750553118994:for(kind in types)
+1750553118994:{
+1750553118994:i = 1
+1750553118994:for(clr in colors)
+1750553118994:{
+1750553118995:## set the (row)column-vector to hold, reusing counts
+1750553118995:counts[i] <- sum(mnm$color == clr & mnm$type == kind)
+1750553118995:i <- i + 1 ## really, for all R has, it doesn't have ++ or +=?
+1750553118995:}
+1750553118995:barplot(counts, names.arg = colors, main = "Colors on Types", xlab = "Colors", ylab = "Counts", col = "pink")
+1750553118995:}
