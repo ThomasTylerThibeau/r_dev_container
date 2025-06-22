@@ -194,6 +194,6 @@ if (!is.null(result_combination)) {
 
 ## the smallest we can make is .72, (2) .73, .74, (2) .76
 plain
-plainOver <- 399.55 - 369.9 # (29.65, wow, over an ounce extra!)
+plainOver <- 399.55 - 369.9 # (29.65, wow, over an ounce extra!)d
 
 
