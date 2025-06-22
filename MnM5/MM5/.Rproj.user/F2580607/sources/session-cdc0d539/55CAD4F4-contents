@@ -6,6 +6,7 @@ colors
 
 types <- unique(mnm$type)
 
+## # 1
 ## find the mean and standard deviation for diameter and mass using
 ## type, type+color
 
@@ -18,9 +19,23 @@ for(kind in types)
   cat(kind)
   for(clr in colors)
   {
-    tcw <- mean(mnm$mass[mnm$type == kind, mnm$color == clr])
-    tcs <- mean(mnm$diameter[mnm$type == kind, mnm$color == clr])
+    tcw <- mean(mnm$mass[mnm$type == kind & mnm$color == clr])
+    tcs <- mean(mnm$diameter[mnm$type == kind & mnm$color == clr])
     cat(clr, "\nmean weight is:\t", avgw, "\nmean size is:\t", avgs, "\n\n")
   }
   
+}
+
+## # 2
+## proportion of each type of color
+## I don't need to subtract for the header, right?
+mnm
+## nope.. okay
+total = nrow(mnm)
+total
+
+for(clr in colors)
+{
+  clrcnt = sum(mnm$color == clr)
+  cat(clr, "appears",100 * clrcnt/total, "% of the time.\n")
 }

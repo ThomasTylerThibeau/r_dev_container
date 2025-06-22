@@ -4311,3 +4311,47 @@
 1750549817220:cat(clr, "\nmean weight is:\t", avgw, "\nmean size is:\t", avgs, "\n\n")
 1750549817220:}
 1750549817221:}
+1750549889036:for(kind in types)
+1750549889036:{
+1750549889037:avgw <- mean(mnm$mass[mnm$type == kind])
+1750549889037:avgs <- mean(mnm$diameter[mnm$type == kind])
+1750549889037:cat(kind, "\nmean weight is:\t", avgw, "\nmean size is:\t", avgs, "\n\n")
+1750549889038:cat(kind)
+1750549889038:for(clr in colors)
+1750549889038:{
+1750549889038:tcw <- mean(mnm$mass[mnm$type == kind & mnm$color == clr])
+1750549889038:tcs <- mean(mnm$diameter[mnm$type == kind & mnm$color == clr])
+1750549889038:cat(clr, "\nmean weight is:\t", avgw, "\nmean size is:\t", avgs, "\n\n")
+1750549889038:}
+1750549889039:}
+1750550202950:total = length(mnm)
+1750550202951:total
+1750550220795:total = nrow(mnm)
+1750550220795:total
+1750550255473:## # 2
+1750550255473:## proportion of each type of color
+1750550255473:## I don't need to subtract for the header, right?
+1750550255473:mnm
+1750550397757:## nope.. okay
+1750550397757:total = nrow(mnm)
+1750550397757:total
+1750550397758:for(clr in colors)
+1750550397759:{
+1750550397759:clrcnt = count(mnm$color[mnm$color == clr])
+1750550397759:cat("{clr}: appears {100 * clrcnt/total}% of the time.\n")
+1750550397760:}
+1750550455098:for(clr in colors)
+1750550455098:{
+1750550455098:clrcnt = sum(mnm$color[mnm$color == clr])
+1750550455098:cat("{clr}: appears {100 * clrcnt/total}% of the time.\n")
+1750550455098:}
+1750550484427:for(clr in colors)
+1750550484427:{
+1750550484427:clrcnt = sum(mnm$color == clr)
+1750550484427:cat("{clr}: appears {100 * clrcnt/total}% of the time.\n")
+1750550484427:}
+1750550521440:for(clr in colors)
+1750550521440:{
+1750550521440:clrcnt = sum(mnm$color == clr)
+1750550521440:cat(clr, "appears",100 * clrcnt/total, "% of the time.\n")
+1750550521440:}
