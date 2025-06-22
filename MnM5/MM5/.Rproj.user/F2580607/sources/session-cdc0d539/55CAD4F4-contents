@@ -194,6 +194,21 @@ if (!is.null(result_combination)) {
 
 ## the smallest we can make is .72, (2) .73, .74, (2) .76
 plain
-plainOver <- 399.55 - 369.9 # (29.65, wow, over an ounce extra!)d
+plainOver <- 399.55 - 369.9 # (29.65, wow, over an ounce extra!)
+## okay... well, I say we just add up a bunch from the vectors and make it even
 
+x = sum(plain[1:419])
+x
+369.9 - x ## 3.98 (3.98 / 5 = .796)
+.8 + .8 + .8 + .79 + .79
+
+## SOLUTION TO PLAIN ##
+## sort them by weight, descending. Take the first 419 M&Ms then numbers 430-434
+## AND VIOLA, you have EXACT Weight. Don't worry about the profits or the customer...
+
+## and since this is actually a cheap question that I've over-killed to not even find the desired solutions for
+## (one answer that covers 2, and an algorithm that I didn't write which could solve all of them) I'm moving on
+
+
+## #8
 

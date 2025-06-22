@@ -4727,3 +4727,160 @@
 1750556772649:}
 1750556907609:plainOver <- 399.55 - 369.9
 1750556913010:plainOver
+1750601882846:## okay... well, I say we just add up a bunch from the vectors and make it even
+1750601882847:plain
+1750601887408:setwd("/workspaces/r_dev_container/MnM5")
+1750601887409:mnm <- read.csv("mms.csv")
+1750601887412:colors <- unique(mnm$color)
+1750601887412:colors
+1750601887413:types <- unique(mnm$type)
+1750601887413:## #1
+1750601887413:## find the mean and standard deviation for diameter and mass using
+1750601887413:## type, type+color
+1750601887414:for(kind in types)
+1750601887414:{
+1750601887414:avgw <- mean(mnm$mass[mnm$type == kind])
+1750601887414:avgs <- mean(mnm$diameter[mnm$type == kind])
+1750601887414:stdw <- sd(mnm$mass[mnm$type == kind])
+1750601887414:stds <- sd(mnm$diameter[mnm$type == kind])
+1750601887414:cat(kind, "\nmean weight:\t", avgw, "\nmean size:\t", avgs,
+1750601887415:"\nstd weight:", stdw, "\nstd size:", stds,"\n")
+1750601887415:cat("\n\n",kind,"color breakdown:\n")
+1750601887415:for(clr in colors)
+1750601887415:{
+1750601887415:tcaw <- mean(mnm$mass[mnm$type == kind & mnm$color == clr])
+1750601887415:tcas <- mean(mnm$diameter[mnm$type == kind & mnm$color == clr])
+1750601887415:tcstdw <- sd(mnm$mass[mnm$type == kind & mnm$color == clr])
+1750601887416:tcstds <- sd(mnm$diameter[mnm$type == kind & mnm$color == clr])
+1750601887416:cat(clr, "\nmean weight is:\t", tcaw, "\nmean size is:\t", tcas,
+1750601887416:"\nstd weight:", tcstdw,"\nstd size:", tcstds,"\n\n")
+1750601887416:}
+1750601887416:}
+1750601887447:## #2
+1750601887447:## proportion of each type of color
+1750601887447:## I don't need to subtract for the header, right?
+1750601887447:mnm
+1750601887461:## nope.. okay
+1750601887461:total = nrow(mnm)
+1750601887461:total
+1750601887461:for(clr in colors)
+1750601887461:{
+1750601887461:clrcnt = sum(mnm$color == clr)
+1750601887461:cat(clr, "appears",100 * clrcnt/total, "% of the time. (", clrcnt, "/", total, ")\n")
+1750601887461:}
+1750601887465:## #3 bar chart of #2
+1750601887465:## some extra fuckery to get the height to accept it
+1750601887465:counts <- numeric(length(colors))
+1750601887465:## could have just gone back and modified 2, sure...
+1750601887465:for(i in seq_along(colors))
+1750601887466:{
+1750601887466:clr <- colors[i]
+1750601887466:counts[i] <- sum(mnm$color == clr)
+1750601887466:}
+1750601887468:barplot(counts, names.arg = colors, main = "Count of Colors", xlab = "Colors", ylab = "Counts", col = "darkorange")
+1750601887620:## orange because it's the only color that doesn't get spelled out, so it seems fair...
+1750601887620:## #4
+1750601887620:## no, they're not. Oh, you want more... okay.. shit (where's tableau when I need it?!) [kidding, of course]
+1750601887621:## type-color-count (interesting that numeric sets it to a vector...)
+1750601887621:for(kind in types)
+1750601887621:{
+1750601887621:i = 1
+1750601887621:for(clr in colors)
+1750601887622:{
+1750601887622:## set the (row)column-vector to hold, reusing counts
+1750601887622:counts[i] <- sum(mnm$color == clr & mnm$type == kind)
+1750601887622:i <- i + 1 ## really, for all R has, it doesn't have ++ or +=?
+1750601887622:}
+1750601887622:barplot(counts, names.arg = colors, main = "Colors on Types", xlab = "Colors", ylab = "Counts", col = "pink")
+1750601887622:}
+1750601887676:## as I suspected, no... (I had an 18-bar plot, but, the counts on the different sizes fucked it up and the labeling
+1750601887676:## was too difficult for me to figure out)
+1750601887676:## #5 && #6
+1750601887676:## are mnms of different type the same weight, hard no (recall #1)
+1750601887676:for(kind in types)
+1750601887676:{
+1750601887676:stdw <- sd(mnm$mass[mnm$type == kind])
+1750601887677:stds <- sd(mnm$diameter[mnm$type == kind])
+1750601887677:avg <- mean(mnm$mass[mnm$type == kind])
+1750601887677:imprint <- mean(mnm$diameter[mnm$type == kind])
+1750601887677:cat(kind, "\nweight:", stdw, "\nstd size:", stds,"\naverage weight:\t",avg,
+1750601887677:"\naverage size:", imprint,
+1750601887677:"\nstd weight / avg weight", stdw / avg,
+1750601887677:"\nstd size / average size", stds / imprint,
+1750601887677:"\n\n")
+1750601887677:}
+1750601887685:## fairly consistent plain M&Ms, but the other two vary quite a bit (should I have used variance?)
+1750601887685:## #6 see above
+1750601887685:## #7
+1750601887685:## ... what?? are we using average or literally picking m&ms from the pile?
+1750601887685:## plain          369.9 G
+1750601887685:## peanut         369.9 G
+1750601887685:## peanut butter  360   G
+1750601887685:for(kind in types)
+1750601887685:{
+1750601887685:cat(kind, sum(mnm$mass[mnm$type == kind]), "\n")
+1750601887685:}
+1750601887688:## damn, all over... okay
+1750601887688:plain <- sort(mnm$mass[mnm$type == "plain"], decreasing = T)
+1750601887688:pnut <- sort(mnm$mass[mnm$type == "peanut"], decreasing = T)
+1750601887688:pb <- sort(mnm$mass[mnm$type == "peanut butter"], decreasing = T)
+1750601887688:## wow, the smallest is less than half the largest...
+1750601887688:pb
+1750601887690:pnut ## close here, too
+1750601887691:## let's see what AI says...
+1750601887691:# Function to find if there is a subset with a given sum
+1750601887692:subset_sum <- function(weights, target) {
+1750601887692:n <- length(weights)
+1750601887692:dp <- matrix(FALSE, n + 1, target + 1)
+1750601887692:dp[1, 1] <- TRUE
+1750601887692:for (i in 1:n) {
+1750601887692:for (j in 1:(target + 1)) {
+1750601887692:if (j < weights[i]) {
+1750601887692:dp[i + 1, j] <- dp[i, j]
+1750601887692:} else {
+1750601887692:dp[i + 1, j] <- dp[i, j] || dp[i, j - weights[i]]
+1750601887692:}
+1750601887692:}
+1750601887692:}
+1750601887692:return(dp[n + 1, target + 1])
+1750601887692:}
+1750601887692:# Example usage
+1750601887693:target_weight <- 369.9
+1750601887693:result <- subset_sum(pnut, target_weight)
+1750601887709:if (result) {
+1750601887709:print("There is a subset of weights that sums to the target weight.")
+1750601887710:} else {
+1750601887710:print("No subset of weights sums to the target weight.")
+1750601887710:}
+1750601887710:## above, dynamic programming approach.
+1750601887710:###################################################
+1750601887710:## below, simpler break point approach.
+1750601887710:## (this would work, for valued customers, set condition at the end, for valued pockets, set break point at beginning)
+1750601887710:find_subset <- function(weights, target, current = c(), index = 1) {
+1750601887710:if (target == 0) {
+1750601887710:return(current)
+1750601887710:}
+1750601887710:if (target < 0 || index > length(weights)) {
+1750601887710:return(NULL)
+1750601887710:}
+1750601887710:# Include the current weight
+1750601887710:with_current <- find_subset(weights, target - weights[index], c(current, weights[index]), index + 1)
+1750601887710:# Exclude the current weight
+1750601887711:without_current <- find_subset(weights, target, current, index + 1)
+1750601887711:return(if (!is.null(with_current)) with_current else without_current)
+1750601887711:}
+1750601887711:# Example usage
+1750601887711:result_combination <- find_subset(pnut, target_weight)
+1750601917609:## the smallest we can make is .72, (2) .73, .74, (2) .76
+1750601917610:plain
+1750602035735:cat(sum(plain[1:409]))
+1750602059804:x = sum(plain[1:409])
+1750602059804:x
+1750602072180:x = sum(plain[1:419])
+1750602072180:x
+1750602084770:369.9 - x
+1750602118503:.74 + .73 + .73 + .72
+1750602143878:.74 + .73 + .73 + .72 + .76 + .76
+1750602150367:.74 + .73 + .73 + .72 + .76
+1750602184062:3.98 / 5
+1750602256189:.8 + .8 + .8 + .79 + .79
