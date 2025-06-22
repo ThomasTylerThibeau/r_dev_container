@@ -14,14 +14,20 @@ for(kind in types)
 {
   avgw <- mean(mnm$mass[mnm$type == kind])
   avgs <- mean(mnm$diameter[mnm$type == kind])
-  cat(kind, "\nmean weight is:\t", avgw, "\nmean size is:\t", avgs, "\n\n")
+  stdw <- sd(mnm$mass[mnm$type == kind])
+  stds <- sd(mnm$diameter[mnm$type == kind])
+  cat(kind, "\nmean weight:\t", avgw, "\nmean size:\t", avgs,
+      "\nstd weight:", stdw, "\nstd size:", stds,"\n")
 
-  cat(kind)
+  cat("\n\n",kind,"color breakdown:\n")
   for(clr in colors)
   {
-    tcw <- mean(mnm$mass[mnm$type == kind & mnm$color == clr])
-    tcs <- mean(mnm$diameter[mnm$type == kind & mnm$color == clr])
-    cat(clr, "\nmean weight is:\t", avgw, "\nmean size is:\t", avgs, "\n\n")
+    tcaw <- mean(mnm$mass[mnm$type == kind & mnm$color == clr])
+    tcas <- mean(mnm$diameter[mnm$type == kind & mnm$color == clr])
+    tcstdw <- sd(mnm$mass[mnm$type == kind & mnm$color == clr])
+    tcstds <- sd(mnm$diameter[mnm$type == kind & mnm$color == clr])
+    cat(clr, "\nmean weight is:\t", tcaw, "\nmean size is:\t", tcas,
+        "\nstd weight:", tcstdw,"\nstd size:", tcstds,"\n\n")
   }
 
 }
@@ -79,4 +85,25 @@ for(kind in types)
 ## was too difficult for me to figure out)
 
 
-## #5
+## #5 && #6
+## are mnms of different type the same weight, hard no (recall #1)
+
+for(kind in types)
+{
+  stdw <- sd(mnm$mass[mnm$type == kind])
+  stds <- sd(mnm$diameter[mnm$type == kind])
+  avg <- mean(mnm$mass[mnm$type == kind])
+  imprint <- mean(mnm$diameter[mnm$type == kind])
+  cat(kind, "\nweight:", stdw, "\nstd size:", stds,"\naverage weight:\t",avg,
+      "\naverage size:", imprint,
+      "\nstd weight / avg weight", stdw / avg,
+      "\nstd size / average size", stds / imprint,
+      "\n\n")
+}
+
+## fairly consistent plain M&Ms, but the other two vary quite a bit (should I have used variance?)
+
+
+## #6 see above
+
+## #7

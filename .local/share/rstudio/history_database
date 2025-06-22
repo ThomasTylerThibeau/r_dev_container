@@ -4536,3 +4536,92 @@
 1750553118995:}
 1750553118995:barplot(counts, names.arg = colors, main = "Colors on Types", xlab = "Colors", ylab = "Counts", col = "pink")
 1750553118995:}
+1750553300313:## #5
+1750553300313:## are mnms of different type the same weight, hard no (recall #1)
+1750553300314:for(kind in types)
+1750553300314:{
+1750553300314:avgw <- mean(mnm$mass[mnm$type == kind])
+1750553300314:avgs <- mean(mnm$diameter[mnm$type == kind])
+1750553300314:cat(kind, "\nmean weight is:\t", avgw, "\nmean size is:\t", avgs, "\n\n")
+1750553300314:}
+1750553547813:for(kind in types)
+1750553547813:{
+1750553547813:avgw <- mean(mnm$mass[mnm$type == kind])
+1750553547813:avgs <- mean(mnm$diameter[mnm$type == kind])
+1750553547813:stdw <- sd(mnm$mass[mnm$type == kind])
+1750553547813:stds <- sd(mnm$diameter[mnm$type == kind])
+1750553547813:cat(kind, "\nmean weight:\t", avgw, "\nmean size:\t", avgs,
+1750553547814:"\nstd weight:", stdw, "\nstd size:", stds,"\n\n")
+1750553547814:cat(kind)
+1750553547814:for(clr in colors)
+1750553547814:{
+1750553547814:tcaw <- mean(mnm$mass[mnm$type == kind & mnm$color == clr])
+1750553547814:tcas <- mean(mnm$diameter[mnm$type == kind & mnm$color == clr])
+1750553547815:tcstdw <- sd(mnm$mass[mnm$type == kind & mnm$color == clr])
+1750553547815:tcstds <- sd(mnm$diameter[mnm$type == kind & mnm$color == clr])
+1750553547815:cat(clr, "\nmean weight is:\t", tcaw, "\nmean size is:\t", tcas,
+1750553547815:"\nstd weight:", tcstdw,"\nstd size:", tcstds,"\n\n")
+1750553547815:}
+1750553547816:}
+1750553604749:for(kind in types)
+1750553604749:{
+1750553604749:avgw <- mean(mnm$mass[mnm$type == kind])
+1750553604749:avgs <- mean(mnm$diameter[mnm$type == kind])
+1750553604749:stdw <- sd(mnm$mass[mnm$type == kind])
+1750553604749:stds <- sd(mnm$diameter[mnm$type == kind])
+1750553604749:cat(kind, "\nmean weight:\t", avgw, "\nmean size:\t", avgs,
+1750553604749:"\nstd weight:", stdw, "\nstd size:", stds,"\n")
+1750553604750:cat("\n\n",kind,"\n")
+1750553604750:for(clr in colors)
+1750553604750:{
+1750553604751:tcaw <- mean(mnm$mass[mnm$type == kind & mnm$color == clr])
+1750553604751:tcas <- mean(mnm$diameter[mnm$type == kind & mnm$color == clr])
+1750553604751:tcstdw <- sd(mnm$mass[mnm$type == kind & mnm$color == clr])
+1750553604751:tcstds <- sd(mnm$diameter[mnm$type == kind & mnm$color == clr])
+1750553604752:cat(clr, "\nmean weight is:\t", tcaw, "\nmean size is:\t", tcas,
+1750553604752:"\nstd weight:", tcstdw,"\nstd size:", tcstds,"\n\n")
+1750553604752:}
+1750553604752:}
+1750553709324:for(kind in types)
+1750553709324:{
+1750553709324:stdw <- sd(mnm$mass[mnm$type == kind])
+1750553709324:stds <- sd(mnm$diameter[mnm$type == kind])
+1750553709324:cat(kind, "nstd weight:", stdw, "\nstd size:", stds,"\n")
+1750553709324:}
+1750553821630:for(kind in types)
+1750553821630:{
+1750553821630:stdw <- sd(mnm$mass[mnm$type == kind])
+1750553821630:stds <- sd(mnm$diameter[mnm$type == kind])
+1750553821630:avg <- mean(mnm$mass[mnm$type == kind])
+1750553821631:cat(kind, "weight:", stdw, "\nstd size:", stds,"\naverage weight:\t",avg,"\n")
+1750553821631:}
+1750553838920:for(kind in types)
+1750553838920:{
+1750553838920:stdw <- sd(mnm$mass[mnm$type == kind])
+1750553838921:stds <- sd(mnm$diameter[mnm$type == kind])
+1750553838921:avg <- mean(mnm$mass[mnm$type == kind])
+1750553838921:cat(kind, "\nweight:", stdw, "\nstd size:", stds,"\naverage weight:\t",avg,"\n\n")
+1750553838921:}
+1750553993759:for(kind in types)
+1750553993760:{
+1750553993760:stdw <- sd(mnm$mass[mnm$type == kind])
+1750553993760:stds <- sd(mnm$diameter[mnm$type == kind])
+1750553993760:avg <- mean(mnm$mass[mnm$type == kind])
+1750553993760:imprint <- mean(mnm$diameter[mnm$type == kind])
+1750553993760:cat(kind, "\nweight:", stdw, "\nstd size:", stds,"\naverage weight:\t",avg,
+1750553993760:"\naverage size:", imprint, "\n\n")
+1750553993760:}
+1750553993773:##
+1750554131123:for(kind in types)
+1750554131123:{
+1750554131124:stdw <- sd(mnm$mass[mnm$type == kind])
+1750554131124:stds <- sd(mnm$diameter[mnm$type == kind])
+1750554131124:avg <- mean(mnm$mass[mnm$type == kind])
+1750554131124:imprint <- mean(mnm$diameter[mnm$type == kind])
+1750554131124:cat(kind, "\nweight:", stdw, "\nstd size:", stds,"\naverage weight:\t",avg,
+1750554131124:"\naverage size:", imprint,
+1750554131124:"\nstd weight / avg weight", stdw / avg,
+1750554131124:"\nstd size / average size", stds / imprint,
+1750554131124:"\n\n")
+1750554131125:}
+1750554131137:##
