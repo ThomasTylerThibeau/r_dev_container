@@ -106,4 +106,94 @@ for(kind in types)
 
 ## #6 see above
 
+
 ## #7
+## ... what?? are we using average or literally picking m&ms from the pile?
+## plain          369.9 G
+## peanut         369.9 G
+## peanut butter  360   G
+
+
+for(kind in types)
+{
+  cat(kind, sum(mnm$mass[mnm$type == kind]), "\n")
+}
+
+## damn, all over... okay
+plain <- sort(mnm$mass[mnm$type == "plain"], decreasing = T)
+pnut <- sort(mnm$mass[mnm$type == "peanut"], decreasing = T)
+pb <- sort(mnm$mass[mnm$type == "peanut butter"], decreasing = T)
+## wow, the smallest is less than half the largest...
+pb
+pnut ## close here, too
+
+## let's see what AI says...
+# Function to find if there is a subset with a given sum
+subset_sum <- function(weights, target) {
+  n <- length(weights)
+  dp <- matrix(FALSE, n + 1, target + 1)
+  dp[1, 1] <- TRUE
+
+  for (i in 1:n) {
+    for (j in 1:(target + 1)) {
+      if (j < weights[i]) {
+        dp[i + 1, j] <- dp[i, j]
+      } else {
+        dp[i + 1, j] <- dp[i, j] || dp[i, j - weights[i]]
+      }
+    }
+  }
+
+  return(dp[n + 1, target + 1])
+}
+
+# Example usage
+target_weight <- 369.9
+result <- subset_sum(pnut, target_weight)
+
+if (result) {
+  print("There is a subset of weights that sums to the target weight.")
+} else {
+  print("No subset of weights sums to the target weight.")
+}
+## above, dynamic programming approach.
+###################################################
+## below, simpler break point approach.
+## (this would work, for valued customers, set condition at the end, for valued pockets, set break point at beginning)
+find_subset <- function(weights, target, current = c(), index = 1) {
+  if (target == 0) {
+    return(current)
+  }
+  if (target < 0 || index > length(weights)) {
+    return(NULL)
+  }
+
+  # Include the current weight
+  with_current <- find_subset(weights, target - weights[index], c(current, weights[index]), index + 1)
+
+  # Exclude the current weight
+  without_current <- find_subset(weights, target, current, index + 1)
+
+  return(if (!is.null(with_current)) with_current else without_current)
+}
+
+# Example usage
+result_combination <- find_subset(pnut, target_weight)
+
+if (!is.null(result_combination)) {
+  print(paste("Combination found:", toString(result_combination)))
+} else {
+  print("No combination of weights sums to the target weight.")
+}
+#############################################################
+#############################################################
+## still #7
+## plain          369.9 G (actual 399.55)
+## peanut         369.9 G (actual 397.45)
+## peanut butter  360   G (actual 361.42)
+
+## the smallest we can make is .72, (2) .73, .74, (2) .76
+plain
+plainOver <- 399.55 - 369.9 # (29.65, wow, over an ounce extra!)
+
+

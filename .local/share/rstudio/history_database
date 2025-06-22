@@ -4625,3 +4625,105 @@
 1750554131124:"\n\n")
 1750554131125:}
 1750554131137:##
+1750554645329:types
+1750554650011:sum(mnm$mass[mnm$type == "plain"])
+1750554677637:for(kind in types)
+1750554677637:{sum(mnm$mass[mnm$type == kind])}
+1750554692379:for(kind in types)
+1750554692379:{sum(mnm$mass[mnm$type == kind])}
+1750554725963:for(kind in types)
+1750554725963:{
+1750554725963:cat(kind, sum(mnm$mass[mnm$type == kind]), "\n")
+1750554725963:}
+1750555185910:plain <- sort(mm_data$weight[mm_data$type == "plain"])
+1750555202219:plain <- sort(mnm$weight[mm_data$type == "plain"])
+1750555218518:plain <- sort(mnm$weight[mnm$type == "plain"])
+1750555218518:peanut <- sort(mnm$weight[mnm$type == "peanut"])
+1750555218518:pb <- sort(mnm$weight[mnm$type == "peanut butter"])
+1750555226521:plain
+1750555230199:plain
+1750555284874:print(plain)
+1750555830774:pvec = mnm$weight[mnm$type == "plain"]
+1750555835849:pvev
+1750555841677:pvec
+1750555866491:## damn, all over... okay
+1750555866491:mnm
+1750555926151:plain <- sort(mnm$mass[mnm$type == "plain"])
+1750555926151:plain
+1750555970055:## damn, all over... okay
+1750555970055:plain <- sort(mnm$mass[mnm$type == "plain"])
+1750555970056:pnut <- sort(mnm$mass[mnm$type == "peanut"])
+1750555970056:pb <- sort(mnm$mass[mnm$type == "peanut butter"])
+1750556011888:plain <- sort(mnm$mass[mnm$type == "plain"], decreasing = T)
+1750556011888:pnut <- sort(mnm$mass[mnm$type == "peanut"], decreasing = T)
+1750556011889:pb <- sort(mnm$mass[mnm$type == "peanut butter"], decreasing = T)
+1750556016680:pb
+1750556048397:pnut
+1750556275994:# Function to find if there is a subset with a given sum
+1750556275994:subset_sum <- function(weights, target) {
+1750556275994:n <- length(weights)
+1750556275995:dp <- matrix(FALSE, n + 1, target + 1)
+1750556275995:dp[1, 1] <- TRUE
+1750556275995:for (i in 1:n) {
+1750556275995:for (j in 1:(target + 1)) {
+1750556275995:if (j < weights[i]) {
+1750556275995:dp[i + 1, j] <- dp[i, j]
+1750556275995:} else {
+1750556275996:dp[i + 1, j] <- dp[i, j] || dp[i, j - weights[i]]
+1750556275996:}
+1750556275996:}
+1750556275997:}
+1750556275997:return(dp[n + 1, target + 1])
+1750556275998:}
+1750556275998:# Example usage
+1750556275998:target_weight <- 369.9
+1750556275998:result <- subset_sum(peanut_weights, target_weight)
+1750556298807:# Function to find if there is a subset with a given sum
+1750556298808:subset_sum <- function(weights, target) {
+1750556298808:n <- length(weights)
+1750556298808:dp <- matrix(FALSE, n + 1, target + 1)
+1750556298808:dp[1, 1] <- TRUE
+1750556298808:for (i in 1:n) {
+1750556298808:for (j in 1:(target + 1)) {
+1750556298808:if (j < weights[i]) {
+1750556298808:dp[i + 1, j] <- dp[i, j]
+1750556298808:} else {
+1750556298809:dp[i + 1, j] <- dp[i, j] || dp[i, j - weights[i]]
+1750556298809:}
+1750556298809:}
+1750556298809:}
+1750556298809:return(dp[n + 1, target + 1])
+1750556298809:}
+1750556298810:# Example usage
+1750556298810:target_weight <- 369.9
+1750556298810:result <- subset_sum(pnut, target_weight)
+1750556298833:if (result) {
+1750556298833:print("There is a subset of weights that sums to the target weight.")
+1750556298833:} else {
+1750556298833:print("No subset of weights sums to the target weight.")
+1750556298833:}
+1750556399973:find_subset <- function(weights, target, current = c(), index = 1) {
+1750556399974:if (target == 0) {
+1750556399974:return(current)
+1750556399974:}
+1750556399974:if (target < 0 || index > length(weights)) {
+1750556399974:return(NULL)
+1750556399974:}
+1750556399974:# Include the current weight
+1750556399974:with_current <- find_subset(weights, target - weights[index], c(current, weights[index]), index + 1)
+1750556399975:# Exclude the current weight
+1750556399975:without_current <- find_subset(weights, target, current, index + 1)
+1750556399975:return(if (!is.null(with_current)) with_current else without_current)
+1750556399975:}
+1750556399976:# Example usage
+1750556399976:result_combination <- find_subset(pnut, target_weight)
+1750556721637:#############################################################
+1750556721637:#############################################################
+1750556721637:## still #7
+1750556721637:plain
+1750556772649:for(kind in types)
+1750556772649:{
+1750556772649:cat(kind, sum(mnm$mass[mnm$type == kind]), "\n")
+1750556772649:}
+1750556907609:plainOver <- 399.55 - 369.9
+1750556913010:plainOver
