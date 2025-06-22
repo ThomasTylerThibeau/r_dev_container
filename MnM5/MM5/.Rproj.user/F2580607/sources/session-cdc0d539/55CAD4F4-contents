@@ -160,31 +160,33 @@ if (result) {
 ###################################################
 ## below, simpler break point approach.
 ## (this would work, for valued customers, set condition at the end, for valued pockets, set break point at beginning)
-find_subset <- function(weights, target, current = c(), index = 1) {
-  if (target == 0) {
-    return(current)
-  }
-  if (target < 0 || index > length(weights)) {
-    return(NULL)
-  }
+#find_subset <- function(weights, target, current = c(), index = 1) {
+#  if (target == 0) {
+#    return(current)
+#  }
+#  if (target < 0 || index > length(weights)) {
+#    return(NULL)
+#  }
+#
+#  # Include the current weight
+#  with_current <- find_subset(weights, target - weights[index], c(current, weights[index]), index + 1)
+#
+#  # Exclude the current weight
+#  without_current <- find_subset(weights, target, current, index + 1)
+#
+#  return(if (!is.null(with_current)) with_current else without_current)
+#}
 
-  # Include the current weight
-  with_current <- find_subset(weights, target - weights[index], c(current, weights[index]), index + 1)
-
-  # Exclude the current weight
-  without_current <- find_subset(weights, target, current, index + 1)
-
-  return(if (!is.null(with_current)) with_current else without_current)
-}
+## gotta rerun my shell a lot and this is super slow...
 
 # Example usage
-result_combination <- find_subset(pnut, target_weight)
+#result_combination <- find_subset(pnut, target_weight)
 
-if (!is.null(result_combination)) {
-  print(paste("Combination found:", toString(result_combination)))
-} else {
-  print("No combination of weights sums to the target weight.")
-}
+#if (!is.null(result_combination)) {
+#  print(paste("Combination found:", toString(result_combination)))
+#} else {
+#  print("No combination of weights sums to the target weight.")
+#}
 #############################################################
 #############################################################
 ## still #7
@@ -226,5 +228,57 @@ x
 colors <- sort(colors)
 colors
 
+## plain color weights
+pcw <- c(0.86023, 0.87058, 0.86989, 0.86480, 0.85448, 0.86547)
+## pnut color weights
+pncw <- c(2.57593, 2.57130, 2.68074, 2.57035, 2.62650, 2.56704)
+## pnut butter color weights
+pbcw <- c(1.85250, 1.80310, 1.92029, 1.73000, 1.47048, 1.73962)
 
+## wait a minute... but the color distribution isn't flat...
+makeOver <- function(weightVector, colorOrder, weight)
+{
+  ## initialize weight, blank color tally, total tally (redundant but easy and inexpensive)
+  weight <- 0
+  colorDist <- rep(0, 6)
+  total <- 0
+  ## repeat while under, this should execute once more bringing it over
+  while(weight < 369.9)
+  {
+    m <- sample(1:6, 1)
+    weight <- weight + weightVector[m]
+    colorDist[m] <- colorDist[m] + 1
+    total <- total + 1
+  }
+  cat(total, "M&M's for a weight of", weight, "\n")
+  for(x in 1:6)
+  {
+    cat("Color", colorOrder[x], "was picked", colorDist[x], "times\n")
+  }
+}
 
+makeOver(pcw, colors, 369.9)
+makeOver(pncw, colors, 369.9)
+makeOver(pbcw, colors, 360)
+
+makeUnder <- function(weightVector, colorOrder, weight)
+{
+  ## initialize weight, blank color tally, total tally (redundant but easy and inexpensive)
+  weight <- 0
+  colorDist <- rep(0, 6)
+  total <- 0
+  ## repeat while under, this should execute once more bringing it over
+  while(weight < 369.9)
+  {
+    m <- sample(1:6, 1)
+    weight <- weight + weightVector[m]
+    colorDist[m] <- colorDist[m] + 1
+    total <- total + 1
+  }
+
+  cat(total, "M&M's for a weight of", weight, "\n")
+  for(x in 1:6)
+  {
+    cat("Color", colorOrder[x], "was picked", colorDist[x], "times\n")
+  }
+}
