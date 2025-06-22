@@ -4355,3 +4355,41 @@
 1750550521440:clrcnt = sum(mnm$color == clr)
 1750550521440:cat(clr, "appears",100 * clrcnt/total, "% of the time.\n")
 1750550521440:}
+1750550665591:for(clr in colors)
+1750550665591:{
+1750550665591:clrcnt = sum(mnm$color == clr)
+1750550665591:cat(clr, "appears",100 * clrcnt/total, "% of the time. (", clrcnt, "/", total, ")\n")
+1750550665591:}
+1750550765029:## #3 bar chart of #2
+1750550765029:barplot(mnm$color)
+1750550792392:## #3 bar chart of #2
+1750550792392:barplot(sum(mnm$color))
+1750550815251:## #3 bar chart of #2
+1750550815252:help(barplot)
+1750550923289:counts
+1750550927006:counts
+1750550930373:counts <- c(colors)
+1750550930373:counts
+1750551041820:counts <- c(colors)
+1750551041820:counts
+1750551041821:## could have just gone back and modified 2, sure...
+1750551041821:i = 1
+1750551041821:for(clr in colors)
+1750551041821:{
+1750551041821:counts[i] = sum(mnm$color == clr)
+1750551041821:i <- i + 1
+1750551041821:}
+1750551041827:counts
+1750551106978:barplot(counts, names.arg=colors)
+1750551191536:barplot(counts, names.arg = colors, main = "Count of Each Color", xlab = "Colors", ylab = "Counts", col = "lightblue")
+1750551209800:# Assuming colors is a character vector containing the unique colors
+1750551209800:colors <- c("blue", "brown", "orange", "yellow", "green", "red")
+1750551209800:# Initialize counts as a numeric vector of the same length as colors
+1750551209800:counts <- numeric(length(colors))
+1750551209801:# Loop through each color and count occurrences
+1750551209801:for(i in seq_along(colors)) {
+1750551209801:clr <- colors[i]
+1750551209801:counts[i] <- sum(mnm$color == clr)
+1750551209801:}
+1750551209808:# Create a bar plot
+1750551209808:barplot(counts, names.arg = colors, main = "Count of Each Color", xlab = "Colors", ylab = "Counts", col = "lightblue")

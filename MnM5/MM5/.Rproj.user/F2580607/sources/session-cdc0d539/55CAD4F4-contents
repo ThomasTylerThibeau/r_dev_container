@@ -6,7 +6,7 @@ colors
 
 types <- unique(mnm$type)
 
-## # 1
+## #1
 ## find the mean and standard deviation for diameter and mass using
 ## type, type+color
 
@@ -26,8 +26,9 @@ for(kind in types)
   
 }
 
-## # 2
+## #2
 ## proportion of each type of color
+
 ## I don't need to subtract for the header, right?
 mnm
 ## nope.. okay
@@ -37,5 +38,37 @@ total
 for(clr in colors)
 {
   clrcnt = sum(mnm$color == clr)
-  cat(clr, "appears",100 * clrcnt/total, "% of the time.\n")
+  cat(clr, "appears",100 * clrcnt/total, "% of the time. (", clrcnt, "/", total, ")\n")
 }
+
+## #3 bar chart of #2
+
+counts <- c(colors)
+counts
+## could have just gone back and modified 2, sure...
+i = 1
+for(clr in colors)
+{
+  counts[i] = sum(mnm$color == clr)
+  i <- i + 1
+}
+
+barplot(counts, names.arg=colors)
+
+
+# Assuming colors is a character vector containing the unique colors
+colors <- c("blue", "brown", "orange", "yellow", "green", "red")
+
+# Initialize counts as a numeric vector of the same length as colors
+counts <- numeric(length(colors))
+
+# Loop through each color and count occurrences
+for(i in seq_along(colors)) {
+  clr <- colors[i]
+  counts[i] <- sum(mnm$color == clr)
+}
+
+# Create a bar plot
+barplot(counts, names.arg = colors, main = "Count of Each Color", xlab = "Colors", ylab = "Counts", col = "lightblue")
+
+
