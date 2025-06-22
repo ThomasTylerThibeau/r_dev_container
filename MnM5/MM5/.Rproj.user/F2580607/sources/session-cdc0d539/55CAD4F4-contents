@@ -296,3 +296,14 @@ makeUnder(pbcw, colors, 360)
 
 
 ## #9
+## since I tallied the counts of each M&M, the over-under should differ by 1
+## plain    pnut    pb
+## 428      143     205
+## 427      142     206
+
+## the variance in the peanutbutter shows here, as they would save money by making
+## the bags over....
+
+## every 427-428 bags of slightly over M&M's (plain) creates a slightly under-over bag
+## 142-143 bags for peanut
+## and peanutbutter is actually costs negative money to make... they should invest more here
