@@ -25,14 +25,21 @@ for (col in columns)
         {  # Check if the second column is numeric and not the same as the first
         correlation_value <- cor(paint[[col]], paint[[col2]], use = "complete.obs")  # Calculate correlation
         print(paste("Correlation between", col, "and", col2, "is", correlation_value))
+
+        ## does this work up here?
+        k =  lm(paint[[col]]~paint[[col2]], data=paint)
+        k
+
       }
     }
   }
 }
 
+## ooh, I think he wants this, not ^^ that... shit this is gunna take more time than I got..
+k =  lm(paint$RA~paint$R1, data=paint)
+k
 
-
-
+summary(paint)
 
 #####################################################################
 led <- read.csv(file.choose(), header=T)
@@ -54,3 +61,5 @@ cor(led$R, led$R.Red.)
 cor(led$B, led$B.Blue.)
 cor(led$G,led$G.Green.)
 
+
+## I have no idea what this is asking me to do...

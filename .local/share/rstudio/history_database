@@ -5783,3 +5783,30 @@
 1750792115767:cor(led$R, led$R.Red.)
 1750792115767:cor(led$B, led$B.Blue.)
 1750792115767:cor(led$G,led$G.Green.)
+1750792252411:lr(paint$RA, paint$R1)
+1750792307449:k =  lm(paint$RA, paint$R1)
+1750792335182:k =  lm(paint$RA~paint$R1, data=paint)
+1750792335184:k
+1750792421896:## iterate over the columns
+1750792421896:for (col in columns)
+1750792421896:{
+1750792421896:if (is.numeric(paint[[col]]))
+1750792421896:{  # Check if the column is numeric
+1750792421896:for (col2 in columns)
+1750792421896:{
+1750792421896:if (is.numeric(paint[[col2]]) && col != col2)
+1750792421896:{  # Check if the second column is numeric and not the same as the first
+1750792421897:correlation_value <- cor(paint[[col]], paint[[col2]], use = "complete.obs")  # Calculate correlation
+1750792421897:print(paste("Correlation between", col, "and", col2, "is", correlation_value))
+1750792421897:k =  lm(paint[[col]]~paint[[col2]], data=paint)
+1750792421897:k
+1750792421897:}
+1750792421897:}
+1750792421897:}
+1750792421897:}
+1750792532474:## ooh, I think he wants this, not ^^ that... shit this is gunna take more time than I got..
+1750792532474:k =  lm(paint$RA~paint$R1, data=paint)
+1750792532475:k
+1750792595770:survey(paint)
+1750792610385:print(paste("Correlation between", col, "and", col2, "is", correlation_value))
+1750792613132:summary(paint)
