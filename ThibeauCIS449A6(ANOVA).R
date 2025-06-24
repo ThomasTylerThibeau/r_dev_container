@@ -30,3 +30,27 @@ for (col in columns)
   }
 }
 
+
+
+
+
+#####################################################################
+led <- read.csv(file.choose(), header=T)
+
+plot(led$R, led$R.LED.on.)
+plot(led$B, led$B.LED.on.)
+plot(led$G, led$G.LED.on.)
+
+plot(led$R, led$R.Red.)
+plot(led$B, led$B.Blue.)
+plot(led$G, led$G.Green.)
+
+
+cor(led$R, led$R.LED.on.)
+cor(led$B, led$B.LED.on.)
+cor(led$G, led$G.LED.on.)
+
+cor(led$R, led$R.Red.)
+cor(led$B, led$B.Blue.)
+cor(led$G,led$G.Green.)
+

@@ -5753,3 +5753,33 @@
 1750791485448:}
 1750791485448:}
 1750791485448:}
+1750791729185:#####################################################################
+1750791729185:led <- read.csv(file.choose(), header=T)
+1750791763977:names(led)
+1750792006870:plot(led$R, led$R.LED.on.)
+1750792006889:plot(led$B, led$B.LED.on.)
+1750792006908:plot(led$g, led$G.LED.on.)
+1750792056367:cor(led$R, led$R.LED.on.)
+1750792056367:cor(led$B, led$B.LED.on.)
+1750792056367:cor(led$g, led$G.LED.on.)
+1750792069582:cor(led$g, led$G.LED.on.)
+1750792092744:cor(led$R, led$R.LED.on.)
+1750792092744:cor(led$B, led$B.LED.on.)
+1750792092745:cor(led$G, led$G.LED.on.)
+1750792092745:cor(led$R, led$R.Red.)
+1750792092745:cor(led$B, led$B.Blue.)
+1750792092745:cor(led$G,led$G.Green.)
+1750792109001:##################################################################
+1750792109001:led <- read.csv(file.choose(), header=T)
+1750792115653:plot(led$R, led$R.LED.on.)
+1750792115672:plot(led$B, led$B.LED.on.)
+1750792115691:plot(led$G, led$G.LED.on.)
+1750792115710:plot(led$R, led$R.Red.)
+1750792115728:plot(led$B, led$B.Blue.)
+1750792115748:plot(led$G, led$G.Green.)
+1750792115766:cor(led$R, led$R.LED.on.)
+1750792115767:cor(led$B, led$B.LED.on.)
+1750792115767:cor(led$G, led$G.LED.on.)
+1750792115767:cor(led$R, led$R.Red.)
+1750792115767:cor(led$B, led$B.Blue.)
+1750792115767:cor(led$G,led$G.Green.)
