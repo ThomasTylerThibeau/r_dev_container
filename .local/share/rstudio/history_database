@@ -5546,3 +5546,59 @@
 1750789758716:incp = which(is.na(paint$RA) |is.na(paint$R1))
 1750789762507:incp
 1750789847076:attach(paint) ## make it easier to work with here
+1750789965860:colnames
+1750789980476:colnames = c(names(paint))
+1750789980477:colnames
+1750790023565:for(c in colnames)
+1750790023565:{
+1750790023565:for(c2 in colnames)
+1750790023565:cor(c,c2)
+1750790023565:}
+1750790078747:for(c in colnames)
+1750790078747:{
+1750790078747:for(c2 in colnames)
+1750790078748:{
+1750790078748:if(is.numeric(c) & is.numeric(c2))
+1750790078748:{cor(c,c2)}
+1750790078748:}
+1750790078748:}
+1750790113925:for(c in colnames)
+1750790113925:{
+1750790113925:for(c2 in colnames)
+1750790113925:{
+1750790113925:if(is.numeric(c) & is.numeric(c2))
+1750790113925:{cor(paint$c,paint$c2)}
+1750790113925:}
+1750790113925:}
+1750790352622:cols <- colnames(data)
+1750790352622:# Iterate over column names
+1750790352623:for (i in 1:length(cols))
+1750790352623:{
+1750790352623:for (j in (i+1):length(cols))
+1750790352623:{
+1750790352623:cor(cols[i], cols[j])
+1750790352623:# Store the result in the correlations data frame
+1750790352623:correlations <- rbind(correlations, data.frame(Column1 = col1, Column2 = col2, Correlation = cor_value))
+1750790352623:}
+1750790352624:}
+1750790373406:# Iterate over column names
+1750790373407:for (i in 1:length(cols))
+1750790373407:{
+1750790373407:for (j in (i+1):length(cols))
+1750790373407:{
+1750790373407:cor(cols[i], cols[j])
+1750790373407:}
+1750790373407:}
+1750790386615:cols <- colnames(data)
+1750790386615:# Iterate over column names
+1750790386615:for (i in 1:length(cols))
+1750790386615:{
+1750790386615:for (j in (i+1):length(cols))
+1750790386615:{
+1750790386616:cor(cols[i], cols[j])
+1750790386616:}
+1750790386616:}
+1750790403839:detatch(paint)
+1750790429527:detatch("paint", unload=T)
+1750790438118:detach("paint", unload=T)
+1750790449530:paint$RA

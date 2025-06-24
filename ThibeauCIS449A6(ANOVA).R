@@ -8,4 +8,3 @@ plot(paint$RA, paint$R1)
 
 cor(paint$RA, paint$R1)
 
-attach(paint) ## make it easier to work with here
