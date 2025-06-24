@@ -5541,3 +5541,8 @@
 1750789121391:paint
 1750789285575:plot(paint)
 1750789356043:names(paint)
+1750789604278:plot(paint$RA, paint$R1)
+1750789713941:cor(paint$RA, paint$R1)
+1750789758716:incp = which(is.na(paint$RA) |is.na(paint$R1))
+1750789762507:incp
+1750789847076:attach(paint) ## make it easier to work with here
