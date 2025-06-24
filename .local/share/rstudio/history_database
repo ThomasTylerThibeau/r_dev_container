@@ -5675,3 +5675,81 @@
 1750791017054:}
 1750791017054:}
 1750791017054:}
+1750791112082:library(MASS)
+1750791121470:library(MASS)
+1750791146876:plot(paint$RA~paint$R1)
+1750791269052:cor(columns,columns)
+1750791327603:for(col in columns)
+1750791327603:{
+1750791327603:if(is.numeric(col))
+1750791327603:{
+1750791327603:for(col2 in columns)
+1750791327603:{
+1750791327603:if(is.numeric(col2))
+1750791327603:{
+1750791327604:cor(col,col2)
+1750791327604:}
+1750791327604:}
+1750791327604:}
+1750791327604:}
+1750791337622:print(cor(col,col2))
+1750791345620:columns <- colnames(paint)
+1750791345620:for(col in columns)
+1750791345620:{
+1750791345620:if(is.numeric(col))
+1750791345620:{
+1750791345620:for(col2 in columns)
+1750791345620:{
+1750791345620:if(is.numeric(col2))
+1750791345621:{
+1750791345621:print(cor(col,col2))
+1750791345621:}
+1750791345621:}
+1750791345621:}
+1750791345621:}
+1750791381334:for (col in columns) {
+1750791381334:if (is.numeric(data[[col]])) {  # Check if the column is numeric
+1750791381334:for (col2 in columns) {
+1750791381334:if (is.numeric(data[[col2]]) && col != col2) {  # Check if the second column is numeric and not the same as the first
+1750791381334:correlation_value <- cor(data[[col]], data[[col2]], use = "complete.obs")  # Calculate correlation
+1750791381335:print(paste("Correlation between", col, "and", col2, "is", correlation_value))
+1750791381335:}
+1750791381335:}
+1750791381335:}
+1750791381335:}
+1750791462844:# Assuming 'data' is your data frame
+1750791462844:# Ensure that 'data' is a data frame
+1750791462844:if (!exists("paint") || !is.data.frame(paint)) {
+1750791462844:stop("The 'data' object does not exist or is not a data frame.")
+1750791462845:}
+1750791462845:# Get the column names of your data frame
+1750791462845:columns <- colnames(paint)
+1750791462845:# Iterate over the columns
+1750791462845:for (col in columns) {
+1750791462845:if (is.numeric(data[[col]])) {  # Check if the column is numeric
+1750791462845:for (col2 in columns) {
+1750791462845:if (is.numeric(data[[col2]]) && col != col2) {  # Check if the second column is numeric and not the same as the first
+1750791462845:correlation_value <- cor(data[[col]], data[[col2]], use = "complete.obs")  # Calculate correlation
+1750791462846:print(paste("Correlation between", col, "and", col2, "is", correlation_value))
+1750791462846:}
+1750791462846:}
+1750791462846:}
+1750791462846:}
+1750791485446:# Assuming 'data' is your data frame
+1750791485446:# Ensure that 'data' is a data frame
+1750791485446:if (!exists("paint") || !is.data.frame(paint)) {
+1750791485447:stop("The 'data' object does not exist or is not a data frame.")
+1750791485447:}
+1750791485447:# Get the column names of your data frame
+1750791485447:columns <- colnames(paint)
+1750791485447:# Iterate over the columns
+1750791485447:for (col in columns) {
+1750791485448:if (is.numeric(paint[[col]])) {  # Check if the column is numeric
+1750791485448:for (col2 in columns) {
+1750791485448:if (is.numeric(paint[[col2]]) && col != col2) {  # Check if the second column is numeric and not the same as the first
+1750791485448:correlation_value <- cor(paint[[col]], paint[[col2]], use = "complete.obs")  # Calculate correlation
+1750791485448:print(paste("Correlation between", col, "and", col2, "is", correlation_value))
+1750791485448:}
+1750791485448:}
+1750791485448:}
+1750791485448:}
