@@ -5602,3 +5602,76 @@
 1750790429527:detatch("paint", unload=T)
 1750790438118:detach("paint", unload=T)
 1750790449530:paint$RA
+1750790551982:names(paint)
+1750790652208:detach("paint")
+1750790668547:detach("paint", unload=T)
+1750790672366:attach(paint)
+1750790672368:detach("paint", unload=T)
+1750790693471:paint$RA
+1750790719285:plot(paint$RA, paint$R1)
+1750790809904:col_names <- colnames(paint)
+1750790809904:# Create an empty data frame to store correlations
+1750790809905:correlations <- data.frame()
+1750790809905:# Iterate over column names
+1750790809905:for (i in 1:length(col_names)) {
+1750790809905:for (j in (i+1):length(col_names)) {
+1750790809905:col1 <- col_names[i]
+1750790809905:col2 <- col_names[j]
+1750790809905:cor_value <- cor(data[[col1]], data[[col2]], use = "complete.obs")
+1750790809905:# Store the result in the correlations data frame
+1750790809906:correlations <- rbind(correlations, data.frame(Column1 = col1, Column2 = col2, Correlation = cor_value))
+1750790809906:}
+1750790809906:}
+1750790943577:for(col in columns)
+1750790943577:{
+1750790943577:for(col2 in columns)
+1750790943577:{
+1750790943577:if(is.numeric(col) & is.numeric(col2))
+1750790943577:{
+1750790943578:cor(col, col2)
+1750790943578:}
+1750790943578:}
+1750790943578:}
+1750790948371:columns <- colnames(paint)
+1750790948371:for(col in columns)
+1750790948371:{
+1750790948371:for(col2 in columns)
+1750790948371:{
+1750790948372:if(is.numeric(col) & is.numeric(col2))
+1750790948372:{
+1750790948372:cor(col, col2)
+1750790948372:}
+1750790948372:}
+1750790948372:}
+1750790956776:columns <- colnames(paint)
+1750790956776:for(col in columns)
+1750790956776:{
+1750790956777:for(col2 in columns)
+1750790956777:{
+1750790956777:if(is.numeric(col) & is.numeric(col2))
+1750790956777:{
+1750790956777:cor(col, col2)
+1750790956777:}
+1750790956777:}
+1750790956777:}
+1750790995913:columns <- colnames(paint)
+1750790995914:for(col in columns)
+1750790995914:{
+1750790995914:for(col2 in columns)
+1750790995914:{
+1750790995914:if(is.numeric(col) & is.numeric(col2))
+1750790995914:{
+1750790995914:cat("Correlation between",col, "and", col2, "is: ",cor(col, col2), "\n")
+1750790995914:}
+1750790995914:}
+1750790995914:}
+1750791017052:for(col in columns)
+1750791017053:{
+1750791017053:for(col2 in columns)
+1750791017053:{
+1750791017053:if(is.numeric(col) & is.numeric(col2))
+1750791017053:{
+1750791017053:print("Correlation between",col, "and", col2, "is: ",cor(col, col2), "\n")
+1750791017054:}
+1750791017054:}
+1750791017054:}
