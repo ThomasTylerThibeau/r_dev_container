@@ -5536,3 +5536,8 @@
 1750606209035:makeUnder(pcw, colors, 369.9)
 1750606209049:makeUnder(pncw, colors, 369.9)
 1750606209051:makeUnder(pbcw, colors, 360)
+1750789089154:paint <- read.csv(file.choose(), header=T)
+1750789116511:paint <- read.csv(file.choose(), header=T)
+1750789121391:paint
+1750789285575:plot(paint)
+1750789356043:names(paint)
