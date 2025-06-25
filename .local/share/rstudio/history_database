@@ -5855,3 +5855,63 @@
 1750857320694:abline(rr1, col = "red")
 1750857330262:abline(rr1, col = "blue")
 1750857344798:abline(rr1, col = "red")
+1750857414630:## lm for the linear regression
+1750857414631:rr2 <- lm(rgb$RA~rgb$R2, data = rgb)
+1750857414634:summary(rr1)
+1750857414640:## see what it looks like
+1750857414640:plot(rgb$RA,rgb$R2)
+1750857414659:abline(rr1, col = "red")
+1750857440335:## lm for the linear regression
+1750857440335:rr1 <- lm(rgb$RA~rgb$R1, data = rgb)
+1750857440336:summary(rr1)
+1750857440342:## see what it looks like
+1750857440342:plot(rgb$RA,rgb$R1)
+1750857440364:abline(rr1, col = "red")
+1750857440365:## lm for the linear regression
+1750857440365:rr2 <- lm(rgb$RA~rgb$R2, data = rgb)
+1750857440366:summary(rr1)
+1750857440370:## see what it looks like
+1750857440371:plot(rgb$RA,rgb$R2)
+1750857440392:abline(rr1, col = "red")
+1750857440392:## lm for the linear regression
+1750857440392:rr1 <- lm(rgb$R1~rgb$R2, data = rgb)
+1750857440393:summary(rr1)
+1750857440395:## see what it looks like
+1750857440395:plot(rgb$R1,rgb$R2)
+1750857440421:abline(rr1, col = "red")
+1750857545887:## lm for the linear regression
+1750857545887:rr1 <- lm(rgb$RA~rgb$R1, data = rgb)
+1750857545889:summary(rr1)
+1750857545897:## see what it looks like
+1750857545897:plot(rgb$RA,rgb$R1)
+1750857545927:abline(rr1, col = "red")
+1750857545927:## lm for the linear regression
+1750857545927:rr2 <- lm(rgb$RA~rgb$R2, data = rgb)
+1750857545928:summary(rr1)
+1750857545930:## see what it looks like
+1750857545930:plot(rgb$RA,rgb$R2)
+1750857545950:abline(rr2, col = "red")
+1750857545950:## lm for the linear regression
+1750857545950:r1r2 <- lm(rgb$R1~rgb$R2, data = rgb)
+1750857545951:summary(rr1)
+1750857545953:## see what it looks like
+1750857545953:plot(rgb$R1,rgb$R2)
+1750857545975:abline(r1r2, col = "red")
+1750857693332:## lm for the linear regression
+1750857693332:gg1 <- lm(rgb$GA~rgb$G1, data = rgb)
+1750857693334:summary(gg1)
+1750857693341:## see what it looks like
+1750857693341:plot(rgb$GA,rgb$G1)
+1750857693361:abline(gg1, col = "green")
+1750857693361:## lm for the linear regression
+1750857693361:gg2 <- lm(rgb$GA~rgb$G2, data = rgb)
+1750857693362:summary(gg2)
+1750857693365:## see what it looks like
+1750857693365:plot(rgb$RA,rgb$R1)
+1750857693384:abline(rr1, col = "green")
+1750857693384:## lm for the linear regression
+1750857693384:g1g2 <- lm(rgb$G1~rgb$G2, data = rgb)
+1750857693385:summary(g1g2)
+1750857693392:## see what it looks like
+1750857693392:plot(rgb$G1,rgb$G2)
+1750857693412:abline(g1g2, col = "green")
