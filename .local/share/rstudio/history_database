@@ -5810,3 +5810,13 @@
 1750792595770:survey(paint)
 1750792610385:print(paste("Correlation between", col, "and", col2, "is", correlation_value))
 1750792613132:summary(paint)
+1750856446450:#####################################################################
+1750856446450:led <- read.csv(file.choose(), header=T)
+1750856511371:########################
+1750856511371:led <- read.csv(file.choose(), header=T)
+1750856525163:plot(led$R, led$R.LED.on.)
+1750856540730:library(MASS)
+1750856540748:## idk if I need the library line in here. I wish I had time to play around...
+1750856540749:paint <- read.csv(file.choose(), header=T)
+1750856778823:## first part, use the RGB file
+1750856778823:rgb = read.csv(file.choose(), header=T)
