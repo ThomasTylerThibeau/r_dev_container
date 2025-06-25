@@ -208,6 +208,8 @@ for(color_group in clrs) {
 ##################################################################################
 
 ## use color calibration file
+clrz = read.csv(file.choose())
 
+## correlate from R -> R.LED.On or R -> R.RED. or R.LED.on -> R.RED.?
 
 

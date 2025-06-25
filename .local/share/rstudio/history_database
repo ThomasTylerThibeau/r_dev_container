@@ -6196,3 +6196,6 @@
 1750860521512:lines(x_seq, predicted_probs, col = use, lwd = 2)
 1750860521513:}
 1750860521513:}
+1750861281058:## use color calibration file
+1750861281058:clrz = read.csv(file.choose())
+1750861297683:names(clrz)
