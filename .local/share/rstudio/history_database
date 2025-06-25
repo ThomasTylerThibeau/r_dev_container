@@ -5993,3 +5993,54 @@
 1750859031023:predicted_y <- predict(polyRR1, newdata = data.frame(RA = x_seq))
 1750859031024:# Add the polynomial fit to the plot
 1750859031024:lines(x_seq, predicted_y, col = "red", lwd = 2)
+1750859607883:## plot the points
+1750859607883:plot(rgb$RA, rgb$R1, main = "RA ~ R1", xlab = "RA", ylab = "R1", pch = 1)
+1750859614804:## plot the points
+1750859614805:plot(rgb$RA, rgb$R1, main = "RA ~ R1", xlab = "RA", ylab = "R1", pch = 2)
+1750859619410:## plot the points
+1750859619410:plot(rgb$RA, rgb$R1, main = "RA ~ R1", xlab = "RA", ylab = "R1", pch = 3)
+1750859623136:## plot the points
+1750859623136:plot(rgb$RA, rgb$R1, main = "RA ~ R1", xlab = "RA", ylab = "R1", pch = 4)
+1750859627426:## plot the points
+1750859627426:plot(rgb$RA, rgb$R1, main = "RA ~ R1", xlab = "RA", ylab = "R1", pch = 5)
+1750859631913:## plot the points
+1750859631913:plot(rgb$RA, rgb$R1, main = "RA ~ R1", xlab = "RA", ylab = "R1", pch = 6)
+1750859636022:## plot the points
+1750859636023:plot(rgb$RA, rgb$R1, main = "RA ~ R1", xlab = "RA", ylab = "R1", pch = 7)
+1750859641354:## plot the points
+1750859641357:plot(rgb$RA, rgb$R1, main = "RA ~ R1", xlab = "RA", ylab = "R1", pch = 8)
+1750859646273:## plot the points
+1750859646273:plot(rgb$RA, rgb$R1, main = "RA ~ R1", xlab = "RA", ylab = "R1", pch = 9)
+1750859651555:## plot the points
+1750859651555:plot(rgb$RA, rgb$R1, main = "RA ~ R1", xlab = "RA", ylab = "R1", pch = 10)
+1750859655868:## plot the points
+1750859655868:plot(rgb$RA, rgb$R1, main = "RA ~ R1", xlab = "RA", ylab = "R1", pch = 11)
+1750859662037:## plot the points
+1750859662037:plot(rgb$RA, rgb$R1, main = "RA ~ R1", xlab = "RA", ylab = "R1", pch = 12)
+1750859666856:## plot the points
+1750859666856:plot(rgb$RA, rgb$R1, main = "RA ~ R1", xlab = "RA", ylab = "R1", pch = 13)
+1750859671165:## plot the points
+1750859671165:plot(rgb$RA, rgb$R1, main = "RA ~ R1", xlab = "RA", ylab = "R1", pch = 14)
+1750859680476:plot(rgb$RA, rgb$R1, main = "RA ~ R1", xlab = "RA", ylab = "R1", pch = 15)
+1750859684217:plot(rgb$RA, rgb$R1, main = "RA ~ R1", xlab = "RA", ylab = "R1", pch = 16)
+1750859690086:plot(rgb$RA, rgb$R1, main = "RA ~ R1", xlab = "RA", ylab = "R1", pch = 17)
+1750859694357:plot(rgb$RA, rgb$R1, main = "RA ~ R1", xlab = "RA", ylab = "R1", pch = 18)
+1750859895879:## loop over the vectors in the clrs matrix thingy
+1750859895880:for(color in clrs)
+1750859895880:{
+1750859895880:## set up the pairs of colors
+1750859895880:one = c(color[1], color[2])
+1750859895880:two = c(color[1], color[3])
+1750859895880:thr = c(color[2], color[3])
+1750859895880:pairs = c(one, two, thr) ## I feel like I'm going too many levels deep here
+1750859895880:for(pair in pairs)
+1750859895880:{
+1750859895880:## do the poly-fit
+1750859895880:poly <- lm(pair[1] ~ poly(pair[2], 2), data = rgb)
+1750859895881:## plot the poitns
+1750859895881:plot(rgb[[pair[1]]], rgb[[pair[2]]], main = cat(pair[1], " ~ ", pair[2]),
+1750859895881:xlab = pair[1], ylab = pair[2], pch = 18)
+1750859895881:## sequence a bunch of points along the x
+1750859895882:x_seq <- seq(min(rgb[[pair[1]]]), max(rgb[[pair[1]]]), length.out = 100)
+1750859895882:## fit the curve
+1750859895882:predicted_y <- predict(poly, newdata = data.frame(pair[2] = x_seq))

@@ -80,7 +80,7 @@ abline(b1b2, col = "blue")
 polyRR1 <- lm(R1 ~ poly(RA, 2), data = rgb)
 
 ## plot the points
-plot(rgb$RA, rgb$R1, main = "RA ~ R1", xlab = "RA", ylab = "R1", pch = 19)
+plot(rgb$RA, rgb$R1, main = "RA ~ R1", xlab = "RA", ylab = "R1", pch = 14)
 
 # Create a sequence of values for R1 to predict RA
 x_seq <- seq(min(rgb$RA), max(rgb$RA), length.out = 100)
@@ -104,8 +104,26 @@ for(color in clrs)
   one = c(color[1], color[2])
   two = c(color[1], color[3])
   thr = c(color[2], color[3])
+  pairs = c(one, two, thr) ## I feel like I'm going too many levels deep here
+  for(pair in pairs)
+  {
+    ## do the poly-fit
+    poly <- lm(pair[1] ~ poly(pair[2], 2), data = rgb)
+    ## plot the poitns
+    plot(rgb[[pair[1]]], rgb[[pair[2]]], main = cat(pair[1], " ~ ", pair[2]),
+         xlab = pair[1], ylab = pair[2], pch = 18)
 
+    ## sequence a bunch of points along the x
+    x_seq <- seq(min(rgb[[pair[1]]]), max(rgb[[pair[1]]]), length.out = 100)
+    ## fit the curve
+    predicted_y <- predict(poly, newdata = data.frame(pair[2] = x_seq))
 
+    if(color == reds){use <- "red"}
+    else if (color == grns){use <- "green"}
+    else {use <- "blue"}
+    lines(x_seq, predicted_y, col = use, lwd = 2)
+
+  }
 
 
 }
