@@ -76,24 +76,43 @@ plot(rgb$B1,rgb$B2)
 abline(b1b2, col = "blue")
 
 ## polynomial regressions
-## model <- lm(dependent_variable ~ poly(independent_variable, degree), data = your_data)
-# Fit a polynomial regression model
-polyRR1 <- lm(RA ~ poly(R1, 2), data = rgb)
+## model <- lm(y ~ poly(x, degree), data)
+polyRR1 <- lm(R1 ~ poly(RA, 2), data = rgb)
 
-# Plot the data points
-plot(rgb$R1, rgb$RA, main = "Polynomial Regression Fit", xlab = "R1", ylab = "RA", pch = 19)
+## plot the points
+plot(rgb$RA, rgb$R1, main = "RA ~ R1", xlab = "RA", ylab = "R1", pch = 19)
 
 # Create a sequence of values for R1 to predict RA
-x_seq <- seq(min(rgb$R1), max(rgb$R1), length.out = 100)
+x_seq <- seq(min(rgb$RA), max(rgb$RA), length.out = 100)
 
 # Predict RA values using the polynomial regression model
-predicted_y <- predict(polyRR1, newdata = data.frame(R1 = x_seq))
+predicted_y <- predict(polyRR1, newdata = data.frame(RA = x_seq))
 
 # Add the polynomial fit to the plot
 lines(x_seq, predicted_y, col = "red", lwd = 2)
 
+## set the colors and make a vector to iterate over those vectors
+reds = c('RA', 'R1', 'R2')
+grns = c('GA', 'G1', 'G2')
+blus = c('BA', 'B1', 'B2')
+clrs = c(reds, grns, blus)
 
-## logistic regressions
+## loop over the vectors in the clrs matrix thingy
+for(color in clrs)
+{
+  ## set up the pairs of colors
+  one = c(color[1], color[2])
+  two = c(color[1], color[3])
+  thr = c(color[2], color[3])
+
+
+
+
+}
+
+
+
+## logistic regressions (this doesn't look logrithmic but we'll try it out)
 ## model <- lm(dependent_variable ~ poly(independent_variable, degree), data = your_data)
 
 

@@ -5963,3 +5963,33 @@
 1750858708089:predicted_y <- predict(polyRR1, newdata = data.frame(R1 = x_seq))
 1750858708090:# Add the polynomial fit to the plot
 1750858708090:lines(x_seq, predicted_y, col = "blue", lwd = 2)
+1750858920283:## polynomial regressions
+1750858920283:## model <- lm(y ~ poly(x, degree), data)
+1750858920283:polyRR1 <- lm(R1 ~ poly(RA, 2), data = rgb)
+1750858920286:## plot the points
+1750858920286:plot(rgb$RA, rgb$R1, main = "RA ~ R1", xlab = "RA", ylab = "R1", pch = 19)
+1750858920308:# Create a sequence of values for R1 to predict RA
+1750858920308:x_seq <- seq(min(rgb$RA), max(rgb$RA), length.out = 100)
+1750858920308:# Predict RA values using the polynomial regression model
+1750858920308:predicted_y <- predict(polyRR1, newdata = data.frame(R1 = x_seq))
+1750858966495:polyRR1 <- lm(R1 ~ poly(RA, 2), data = rgb)
+1750858973020:plot(rgb$RA, rgb$R1, main = "RA ~ R1", xlab = "RA", ylab = "R1", pch = 19)
+1750858976576:x_seq <- seq(min(rgb$RA), max(rgb$RA), length.out = 100)
+1750858983762:# Predict RA values using the polynomial regression model
+1750858983762:predicted_y <- predict(polyRR1, newdata = data.frame(R1 = x_seq)
+1750858988950:predicted_y <- predict(polyRR1, newdata = data.frame(R1 = x_seq))
+1750859001031:# Predict RA values using the polynomial regression model
+1750859001031:predicted_y <- predict(polyRR1, newdata = data.frame(R1 = x_seq))
+1750859014206:x_seq <- seq(min(rgb$RA), max(rgb$RA), length.out = 100)
+1750859018338:predicted_y <- predict(polyRR1, newdata = data.frame(R1 = x_seq))
+1750859030995:## polynomial regressions
+1750859030995:## model <- lm(y ~ poly(x, degree), data)
+1750859030996:polyRR1 <- lm(R1 ~ poly(RA, 2), data = rgb)
+1750859030998:## plot the points
+1750859030998:plot(rgb$RA, rgb$R1, main = "RA ~ R1", xlab = "RA", ylab = "R1", pch = 19)
+1750859031022:# Create a sequence of values for R1 to predict RA
+1750859031022:x_seq <- seq(min(rgb$RA), max(rgb$RA), length.out = 100)
+1750859031023:# Predict RA values using the polynomial regression model
+1750859031023:predicted_y <- predict(polyRR1, newdata = data.frame(RA = x_seq))
+1750859031024:# Add the polynomial fit to the plot
+1750859031024:lines(x_seq, predicted_y, col = "red", lwd = 2)
