@@ -5820,3 +5820,38 @@
 1750856540749:paint <- read.csv(file.choose(), header=T)
 1750856778823:## first part, use the RGB file
 1750856778823:rgb = read.csv(file.choose(), header=T)
+1750856942612:names(rgb
+1750856942613:)
+1750856965215:columns = names(rgb)
+1750856965216:columns
+1750857100351:rr1 <- lm(rgb$RA~rgb$R1, data = rgb)
+1750857105493:rr1
+1750857168012:rr1 <- lm(rgb$RA~rgb$R1, data = rgb)
+1750857168014:summary(rr1)
+1750857168027:plot(rgb$RA,rgb$R1)
+1750857168084:abline(rr1, col = "red")
+1750857241773:abline(rr1, col = "red")
+1750857257054:## lm for the linear regression
+1750857257054:rr1 <- lm(rgb$RA~rgb$R1, data = rgb)
+1750857257055:summary(rr1)
+1750857257060:## see what it looks like
+1750857257060:plot(rgb$RA,rgb$R1)
+1750857257082:abline(rr1, col = "red")
+1750857280765:# Sample data
+1750857280765:your_data <- data.frame(x = c(1, 2, 3, 4, 5), y = c(2, 3, 5, 7, 11))
+1750857280766:# Fit the model
+1750857280766:model <- lm(y ~ x, data = your_data)
+1750857280769:# Summary of the model
+1750857280769:summary(model)
+1750857280777:# Plot
+1750857280777:plot(your_data$x, your_data$y)
+1750857280809:abline(model, col = "red")
+1750857297317:## lm for the linear regression
+1750857297317:rr1 <- lm(rgb$RA~rgb$R1, data = rgb)
+1750857297319:summary(rr1)
+1750857297324:## see what it looks like
+1750857297325:plot(rgb$RA,rgb$R1)
+1750857297346:abline(rr1, col = "red")
+1750857320694:abline(rr1, col = "red")
+1750857330262:abline(rr1, col = "blue")
+1750857344798:abline(rr1, col = "red")
