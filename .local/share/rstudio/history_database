@@ -5915,3 +5915,51 @@
 1750857693392:## see what it looks like
 1750857693392:plot(rgb$G1,rgb$G2)
 1750857693412:abline(g1g2, col = "green")
+1750857860441:## lm for the linear regression
+1750857860441:bb1 <- lm(rgb$BA~rgb$B1, data = rgb)
+1750857860443:summary(bb1)
+1750857860451:## see what it looks like
+1750857860451:plot(rgb$BA,rgb$B1)
+1750857860473:abline(bb1, col = "blue")
+1750857860473:## lm for the linear regression
+1750857860473:bb2 <- lm(rgb$BA~rgb$B2, data = rgb)
+1750857860475:summary(bb2)
+1750857860479:## see what it looks like
+1750857860479:plot(rgb$BA,rgb$B2)
+1750857860499:abline(bb2, col = "blue")
+1750857860499:## lm for the linear regression
+1750857860499:b1b2 <- lm(rgb$B1~rgb$B2, data = rgb)
+1750857860500:summary(b1b2)
+1750857860502:## see what it looks like
+1750857860502:plot(rgb$B1,rgb$B2)
+1750857860525:abline(b1b2, col = "red")
+1750857871591:## lm for the linear regression
+1750857871591:bb1 <- lm(rgb$BA~rgb$B1, data = rgb)
+1750857871593:summary(bb1)
+1750857871599:## see what it looks like
+1750857871599:plot(rgb$BA,rgb$B1)
+1750857871617:abline(bb1, col = "blue")
+1750857871618:## lm for the linear regression
+1750857871618:bb2 <- lm(rgb$BA~rgb$B2, data = rgb)
+1750857871618:summary(bb2)
+1750857871622:## see what it looks like
+1750857871622:plot(rgb$BA,rgb$B2)
+1750857871641:abline(bb2, col = "blue")
+1750857871641:## lm for the linear regression
+1750857871641:b1b2 <- lm(rgb$B1~rgb$B2, data = rgb)
+1750857871642:summary(b1b2)
+1750857871645:## see what it looks like
+1750857871645:plot(rgb$B1,rgb$B2)
+1750857871664:abline(b1b2, col = "blue")
+1750858505140:polyRR1 <- lm(rgb$RA~poly(rgb$R1, 2), data = rgb)
+1750858519761:plot(polyRR1)
+1750858670497:lines(x_seq, predicted_y, col = "blue", lwd = 2)
+1750858708061:polyRR1 <- lm(RA ~ poly(R1, 2), data = rgb)
+1750858708063:# Plot the data points
+1750858708063:plot(rgb$R1, rgb$RA, main = "Polynomial Regression Fit", xlab = "R1", ylab = "RA", pch = 19)
+1750858708088:# Create a sequence of values for R1 to predict RA
+1750858708088:x_seq <- seq(min(rgb$R1), max(rgb$R1), length.out = 100)
+1750858708089:# Predict RA values using the polynomial regression model
+1750858708089:predicted_y <- predict(polyRR1, newdata = data.frame(R1 = x_seq))
+1750858708090:# Add the polynomial fit to the plot
+1750858708090:lines(x_seq, predicted_y, col = "blue", lwd = 2)

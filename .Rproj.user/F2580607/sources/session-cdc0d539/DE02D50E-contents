@@ -54,7 +54,6 @@ plot(rgb$G1,rgb$G2)
 abline(g1g2, col = "green")
 
 
-
 ## lm for the linear regression
 bb1 <- lm(rgb$BA~rgb$B1, data = rgb)
 summary(bb1)
@@ -63,15 +62,56 @@ plot(rgb$BA,rgb$B1)
 abline(bb1, col = "blue")
 
 ## lm for the linear regression
-bb2 <- lm(rgb$BA~rgb$B1, data = rgb)
-summary(bb23)
+bb2 <- lm(rgb$BA~rgb$B2, data = rgb)
+summary(bb2)
 ## see what it looks like
-plot(rgb$RA,rgb$R1)
-abline(rr1, col = "red")
+plot(rgb$BA,rgb$B2)
+abline(bb2, col = "blue")
 
 ## lm for the linear regression
-rr1 <- lm(rgb$RA~rgb$R1, data = rgb)
-summary(rr1)
+b1b2 <- lm(rgb$B1~rgb$B2, data = rgb)
+summary(b1b2)
 ## see what it looks like
-plot(rgb$RA,rgb$R1)
-abline(rr1, col = "red")
+plot(rgb$B1,rgb$B2)
+abline(b1b2, col = "blue")
+
+## polynomial regressions
+## model <- lm(dependent_variable ~ poly(independent_variable, degree), data = your_data)
+# Fit a polynomial regression model
+polyRR1 <- lm(RA ~ poly(R1, 2), data = rgb)
+
+# Plot the data points
+plot(rgb$R1, rgb$RA, main = "Polynomial Regression Fit", xlab = "R1", ylab = "RA", pch = 19)
+
+# Create a sequence of values for R1 to predict RA
+x_seq <- seq(min(rgb$R1), max(rgb$R1), length.out = 100)
+
+# Predict RA values using the polynomial regression model
+predicted_y <- predict(polyRR1, newdata = data.frame(R1 = x_seq))
+
+# Add the polynomial fit to the plot
+lines(x_seq, predicted_y, col = "red", lwd = 2)
+
+
+## logistic regressions
+## model <- lm(dependent_variable ~ poly(independent_variable, degree), data = your_data)
+
+
+
+## all of these require other libraries and it feels like more work than this is worth
+## ridge regression
+#library(glmnet)
+#model <- glmnet(as.matrix(your_data[, -1]), your_data$dependent_variable, alpha = 0)
+## lasso regression
+#model <- glmnet(as.matrix(your_data[, -1]), your_data$dependent_variable, alpha = 1)
+## elastic net
+#model <- glmnet(as.matrix(your_data[, -1]), your_data$dependent_variable, alpha = 0.5)
+## generalized additive models (GAM)
+#library(mgcv)
+#model <- gam(dependent_variable ~ s(independent_variable), data = your_data)
+## survival regression
+#library(mgcv)
+#model <- gam(dependent_variable ~ s(independent_variable), data = your_data)
+## quantile regression
+#library(quantreg)
+#model <- rq(dependent_variable ~ independent_variable, data = your_data)
