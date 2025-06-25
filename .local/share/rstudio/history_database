@@ -6044,3 +6044,155 @@
 1750859895882:x_seq <- seq(min(rgb[[pair[1]]]), max(rgb[[pair[1]]]), length.out = 100)
 1750859895882:## fit the curve
 1750859895882:predicted_y <- predict(poly, newdata = data.frame(pair[2] = x_seq))
+1750859988444:## Set the colors and make a vector to iterate over those vectors
+1750859988444:reds = c('RA', 'R1', 'R2')
+1750859988444:grns = c('GA', 'G1', 'G2')
+1750859988444:blus = c('BA', 'B1', 'B2')
+1750859988444:clrs = list(reds, grns, blus)  # Use a list to hold color groups
+1750859988444:## Loop over the vectors in the clrs list
+1750859988445:for(color_group in clrs) {
+1750859988445:## Set up the pairs of colors
+1750859988445:one = c(color_group[1], color_group[2])
+1750859988445:two = c(color_group[1], color_group[3])
+1750859988445:thr = c(color_group[2], color_group[3])
+1750859988445:pairs = list(one, two, thr)  # Use a list to store pairs
+1750859988445:for(pair in pairs) {
+1750859988445:## Do the polynomial fit
+1750859988445:poly <- lm(as.formula(paste(pair[1], "~ poly(", pair[2], ", 2)")), data = rgb)
+1750859988446:## Plot the points
+1750859988446:plot(rgb[[pair[2]]], rgb[[pair[1]]], main = paste(pair[1], " ~ ", pair[2]),
+1750859988446:xlab = pair[2], ylab = pair[1], pch = 18)
+1750859988447:## Sequence a bunch of points along the x
+1750859988447:x_seq <- seq(min(rgb[[pair[2]]]), max(rgb[[pair[2]]]), length.out = 100)
+1750859988447:## Fit the curve
+1750859988447:predicted_y <- predict(poly, newdata = data.frame(pair[2] = x_seq))
+1750860056698:# Define color groups
+1750860056698:reds = c('RA', 'R1', 'R2')
+1750860056698:grns = c('GA', 'G1', 'G2')
+1750860056698:blus = c('BA', 'B1', 'B2')
+1750860056698:clrs = list(reds, grns, blus)  # List to hold color groups
+1750860056698:# Loop over the color groups
+1750860056699:for(color_group in clrs) {
+1750860056699:# Set up pairs of colors
+1750860056699:one = c(color_group[1], color_group[2])
+1750860056699:two = c(color_group[1], color_group[3])
+1750860056699:thr = c(color_group[2], color_group[3])
+1750860056699:pairs = list(one, two, thr)  # Store pairs in a list
+1750860056700:for(pair in pairs) {
+1750860056700:# Perform polynomial fit
+1750860056700:poly <- lm(as.formula(paste(pair[1], "~ poly(", pair[2], ", 2)")), data = rgb)
+1750860056700:# Plot the points
+1750860056700:plot(rgb[[pair[2]]], rgb[[pair[1]]], main = paste(pair[1], " ~ ", pair[2]),
+1750860056701:xlab = pair[2], ylab = pair[1], pch = 18)
+1750860056701:# Generate sequence of x values for prediction
+1750860056701:x_seq <- seq(min(rgb[[pair[2]]]), max(rgb[[pair[2]]]), length.out = 100)
+1750860056701:# Predict y values based on polynomial fit
+1750860056701:predicted_y <- predict(poly, newdata = data.frame(pair[2] = x_seq))
+1750860102014:# Define color groups
+1750860102014:reds = c('RA', 'R1', 'R2')
+1750860102014:grns = c('GA', 'G1', 'G2')
+1750860102014:blus = c('BA', 'B1', 'B2')
+1750860102015:clrs = list(reds, grns, blus)  # List to hold color groups
+1750860102015:# Loop over the color groups
+1750860102015:for(color_group in clrs) {
+1750860102016:# Set up pairs of colors
+1750860102016:one = c(color_group[1], color_group[2])
+1750860102016:two = c(color_group[1], color_group[3])
+1750860102016:thr = c(color_group[2], color_group[3])
+1750860102016:pairs = list(one, two, thr)  # Store pairs in a list
+1750860102017:for(pair in pairs) {
+1750860102017:# Perform polynomial fit
+1750860102017:poly <- lm(as.formula(paste(pair[1], "~ poly(", pair[2], ", 2)")), data = rgb)
+1750860102018:# Plot the points
+1750860102018:plot(rgb[[pair[2]]], rgb[[pair[1]]], main = paste(pair[1], " ~ ", pair[2]),
+1750860102018:xlab = pair[2], ylab = pair[1], pch = 18)
+1750860102018:# Generate sequence of x values for prediction
+1750860102019:x_seq <- seq(min(rgb[[pair[2]]]), max(rgb[[pair[2]]]), length.out = 100)
+1750860102019:# Create a data frame for prediction with named columns
+1750860102019:new_data <- data.frame(setNames(list(x_seq), pair[2]))
+1750860102019:# Predict y values based on polynomial fit
+1750860102019:predicted_y <- predict(poly, newdata = new_data)
+1750860102020:# Set color based on the group
+1750860102020:if (all(color_group == reds)) {
+1750860102020:use <- "red"
+1750860102020:} else if (all(color_group == grns)) {
+1750860102020:use <- "green"
+1750860102021:} else {
+1750860102021:use <- "blue"
+1750860102021:}
+1750860102021:# Add polynomial line to the plot
+1750860102021:lines(x_seq, predicted_y, col = use, lwd = 2)
+1750860102022:}
+1750860102022:}
+1750860451225:# Define color groups
+1750860451225:reds = c('RA', 'R1', 'R2')
+1750860451225:grns = c('GA', 'G1', 'G2')
+1750860451226:blus = c('BA', 'B1', 'B2')
+1750860451226:clrs = list(reds, grns, blus)  # List to hold color groups
+1750860451226:# Loop over the color groups
+1750860451226:for(color_group in clrs) {
+1750860451226:# Set up pairs of colors
+1750860451226:one = c(color_group[1], color_group[2])
+1750860451226:two = c(color_group[1], color_group[3])
+1750860451226:thr = c(color_group[2], color_group[3])
+1750860451227:pairs = list(one, two, thr)  # Store pairs in a list
+1750860451227:for(pair in pairs) {
+1750860451227:# Perform logistic regression
+1750860451227:logit_model <- glm(as.formula(paste(pair[1], "~", pair[2])), data = rgb, family = binomial)
+1750860451228:# Plot the points
+1750860451228:plot(rgb[[pair[2]]], rgb[[pair[1]]], main = paste(pair[1], " ~ ", pair[2]),
+1750860451228:xlab = pair[2], ylab = pair[1], pch = 18)
+1750860451228:# Generate a sequence of x values for prediction
+1750860451228:x_seq <- seq(min(rgb[[pair[2]]]), max(rgb[[pair[2]]]), length.out = 100)
+1750860451228:# Create a data frame for prediction
+1750860451229:new_data <- data.frame(setNames(list(x_seq), pair[2]))
+1750860451229:# Predict probabilities using the logistic model
+1750860451229:predicted_probs <- predict(logit_model, newdata = new_data, type = "response")
+1750860451229:# Set color based on the group
+1750860451230:if (all(color_group == reds)) {
+1750860451230:use <- "red"
+1750860451230:} else if (all(color_group == grns)) {
+1750860451230:use <- "green"
+1750860451230:} else {
+1750860451230:use <- "blue"
+1750860451231:}
+1750860451231:# Add predicted probabilities as a line to the plot
+1750860451231:lines(x_seq, predicted_probs, col = use, lwd = 2)
+1750860451231:}
+1750860451231:}
+1750860521505:# Define color groups
+1750860521505:reds = c('RA_binary', 'R1', 'R2')  # Ensure RA is binary
+1750860521505:grns = c('GA_binary', 'G1', 'G2')   # Ensure GA is binary
+1750860521505:blus = c('BA_binary', 'B1', 'B2')   # Ensure BA is binary
+1750860521505:clrs = list(reds, grns, blus)  # List to hold color groups
+1750860521506:# Loop over the color groups
+1750860521506:for(color_group in clrs) {
+1750860521506:# Set up pairs of colors
+1750860521506:one = c(color_group[1], color_group[2])
+1750860521506:two = c(color_group[1], color_group[3])
+1750860521506:thr = c(color_group[2], color_group[3])
+1750860521506:pairs = list(one, two, thr)  # Store pairs in a list
+1750860521506:for(pair in pairs) {
+1750860521507:# Perform logistic regression
+1750860521507:logit_model <- glm(as.formula(paste(pair[1], "~", pair[2])), data = rgb, family = binomial)
+1750860521507:# Plot the points
+1750860521507:plot(rgb[[pair[2]]], rgb[[pair[1]]], main = paste(pair[1], " ~ ", pair[2]),
+1750860521508:xlab = pair[2], ylab = pair[1], pch = 18)
+1750860521508:# Generate a sequence of x values for prediction
+1750860521508:x_seq <- seq(min(rgb[[pair[2]]]), max(rgb[[pair[2]]]), length.out = 100)
+1750860521509:# Create a data frame for prediction
+1750860521509:new_data <- data.frame(setNames(list(x_seq), pair[2]))
+1750860521509:# Predict probabilities using the logistic model
+1750860521509:predicted_probs <- predict(logit_model, newdata = new_data, type = "response")
+1750860521510:# Set color based on the group
+1750860521510:if (all(color_group == reds)) {
+1750860521510:use <- "red"
+1750860521511:} else if (all(color_group == grns)) {
+1750860521511:use <- "green"
+1750860521511:} else {
+1750860521511:use <- "blue"
+1750860521512:}
+1750860521512:# Add predicted probabilities as a line to the plot
+1750860521512:lines(x_seq, predicted_probs, col = use, lwd = 2)
+1750860521513:}
+1750860521513:}
