@@ -337,7 +337,19 @@ B$BenignMalignant <- factor(B$BenignMalignant, levels = c(2,4))
 str(B)
 
 
+for(col in columns)
+{
+  ben <- B$BenignMalignant
+  ## create the plots
+  lin <- lm(ben ~ B[[col]], data = B)
+  ply <- lm(ben ~ poly(B[[col]], 2), data = B)
 
+  xseq <- seq( min(B[[col]]), max(B[[col]]), length.out = 100)
+  newD <- data.frame(setNames(list(xseq), col))
+  prdy <- predict(poly, newdata = newD)
+
+  lines(xseq, prdy, col = "magenta", lwd = 2)
+}
 
 
 ## (noting that my color pairing has "for pair in pairs"... seems like a harbinger)
@@ -380,3 +392,5 @@ for(color_group in clrs) {
     lines(x_seq, predicted_y, col = use, lwd = 2)
   }
 }
+
+

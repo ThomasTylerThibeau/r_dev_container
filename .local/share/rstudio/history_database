@@ -6345,3 +6345,15 @@
 1750947777537:columns[-c(1,11)]
 1750948005029:B$BenignMalignant <- factor(B$BenignMalignant, levels = c(2,4))
 1750948015862:str(B)
+1750948607641:str(B)
+1750948607655:for(col in columns)
+1750948607655:{
+1750948607656:ben <- B$BenignMalignant
+1750948607656:## create the plots
+1750948607656:lin <- lm(ben ~ B[[col]], data = B)
+1750948607656:ply <- lm(ben ~ poly(B[[col]], 2), data = B)
+1750948607656:xseq <- seq( min(B[[col]]), max(B[[col]]), length.out = 100)
+1750948607657:newD <- data.frame(setNames(list(xseq), col))
+1750948607657:prdy <- predict(poly, newdata = newD)
+1750948607657:lines(xseq, prdy, col = "magenta", lwd = 2)
+1750948607657:}
