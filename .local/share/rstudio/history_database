@@ -6199,3 +6199,10 @@
 1750861281058:## use color calibration file
 1750861281058:clrz = read.csv(file.choose())
 1750861297683:names(clrz)
+1750944793336:#################################################################################
+1750944793336:## use color calibration file
+1750944793336:clrz = read.csv(file.choose())
+1750944802765:## correlate from R -> R.LED.On or R -> R.RED. or R.LED.on -> R.RED.?
+1750944809171:names(clrz)
+1750944826121:clr = clrz
+1750944831360:names(clr)

@@ -1,8 +1,8 @@
 library(MASS)
 ## first part, use the RGB file
-rgb = read.csv(file.choose(), header=T)
+rgb <- read.csv(file.choose(), header=T)
 
-columns = names(rgb)
+columns <- names(rgb)
 columns
 ## [1] "ColorID"   "ColorName" "RA"        "GA"        "BA"        "R1"        "G1"        "B1"
 ## [9] "R2"        "G2"        "B2"
@@ -208,8 +208,12 @@ for(color_group in clrs) {
 ##################################################################################
 
 ## use color calibration file
-clrz = read.csv(file.choose())
+clr <- read.csv(file.choose())
 
-## correlate from R -> R.LED.On or R -> R.RED. or R.LED.on -> R.RED.?
+## correlate from C.LED.on. -> C.CLR.
+## from ACTUAL to the COLORED light, and from LED to the appropriate color...
+## ... (hardest part in this is figuring out what that means)
+
+
 
 
