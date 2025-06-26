@@ -3,9 +3,9 @@
     "path": "/workspaces/r_dev_container/ThibeauCIS449A6(ANOVA).R",
     "project_path": "ThibeauCIS449A6(ANOVA).R",
     "type": "r_source",
-    "hash": "0",
+    "hash": "4103680968",
     "contents": "",
-    "dirty": true,
+    "dirty": false,
     "created": 1750788613793.0,
     "source_on_save": false,
     "relative_order": 1,
@@ -13,15 +13,15 @@
         "tempName": "Untitled1",
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "340,0",
-        "scrollLine": "304"
+        "cursorPosition": "349,0",
+        "scrollLine": "311"
     },
     "folds": "",
-    "lastKnownWriteTime": 1750948679,
+    "lastKnownWriteTime": 1750961571,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1750960921488,
+    "last_content_update": 1750961571839,
     "read_only": false,
     "read_only_alternatives": []
 }

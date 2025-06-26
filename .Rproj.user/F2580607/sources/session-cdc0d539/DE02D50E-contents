@@ -336,7 +336,22 @@ B$BenignMalignant <- factor(B$BenignMalignant, levels = c(2,4))
 ## doublecheck the structure took
 str(B)
 
+correlation_matrix <- cor(B[,-1], use = "complete.obs")  # Exclude ID column
+print(correlation_matrix)
 
-install.packages("ggplot2")
+model <- glm(BenignMalignant ~ ., data = B, family = binomial)
+summary(model)
+
+install.packages("randomForest")
+library(randomForest)
+# Fit the Random Forest model
+rf_model <- randomForest(BenignMalignant ~ ., data = data, importance = TRUE)
+print(importance(rf_model))
 
 
+## oh this one is kinda neat looking... but not exactly helpful
+install.packages("party")
+library(party)
+# Fit a conditional inference tree
+ctree_model <- ctree(BenignMalignant ~ ., data = B)
+plot(ctree_model)

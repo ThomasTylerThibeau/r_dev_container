@@ -6488,3 +6488,36 @@
 1750960526195:library(dplyr)
 1750960917124:install.packages(ggplot2)
 1750960922509:install.packages("ggplot2")
+1750961270977:# Summary statistics
+1750961270977:B %>%
+1750961270978:group_by(BenignMalignant) %>%
+1750961270978:summarise(across(everything(), list(mean = mean, sd = sd), na.rm = TRUE))
+1750961283905:# Summary statistics
+1750961283905:data %>%
+1750961283905:group_by(BenignMalignant) %>%
+1750961283905:summarise(across(everything(), list(mean = mean, sd = sd), na.rm = TRUE))
+1750961305699:install.packages("dplyr")
+1750961325332:# Summary statistics
+1750961325332:data %>%
+1750961325333:group_by(BenignMalignant) %>%
+1750961325333:summarise(across(everything(), list(mean = mean, sd = sd), na.rm = TRUE))
+1750961340168:# Summary statistics
+1750961340168:B %>%
+1750961340168:group_by(BenignMalignant) %>%
+1750961340168:summarise(across(everything(), list(mean = mean, sd = sd), na.rm = TRUE))
+1750961367815:correlation_matrix <- cor(B[,-1], use = "complete.obs")  # Exclude ID column
+1750961367816:print(correlation_matrix)
+1750961414027:model <- glm(BenignMalignant ~ ., data = data, family = binomial)
+1750961424155:model <- glm(BenignMalignant ~ ., data = B, family = binomial)
+1750961460908:library(party)
+1750961478969:install.packages("party")
+1750961483413:library(party)
+1750961484728:# Fit a conditional inference tree
+1750961484728:ctree_model <- ctree(BenignMalignant ~ ., data = data)
+1750961498556:# Fit a conditional inference tree
+1750961498556:ctree_model <- ctree(BenignMalignant ~ ., data = B)
+1750961498846:plot(ctree_model)
+1750961570343:install.packages("randomForest")
+1750961571223:library(randomForest)
+1750961571234:# Fit the Random Forest model
+1750961571235:rf_model <- randomForest(BenignMalignant ~ ., data = data, importance = TRUE)

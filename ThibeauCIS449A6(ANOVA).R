@@ -336,61 +336,22 @@ B$BenignMalignant <- factor(B$BenignMalignant, levels = c(2,4))
 ## doublecheck the structure took
 str(B)
 
+correlation_matrix <- cor(B[,-1], use = "complete.obs")  # Exclude ID column
+print(correlation_matrix)
 
-for(col in columns)
-{
-  ben <- B$BenignMalignant
-  ## create the plots
-  lin <- lm(ben ~ B[[col]], data = B)
-  ply <- lm(ben ~ poly(B[[col]], 2), data = B)
+model <- glm(BenignMalignant ~ ., data = B, family = binomial)
+summary(model)
 
-  xseq <- seq( min(B[[col]]), max(B[[col]]), length.out = 100)
-  newD <- data.frame(setNames(list(xseq), col))
-  prdy <- predict(poly, newdata = newD)
-
-  lines(xseq, prdy, col = "magenta", lwd = 2)
-}
+install.packages("randomForest")
+library(randomForest)
+# Fit the Random Forest model
+rf_model <- randomForest(BenignMalignant ~ ., data = data, importance = TRUE)
+print(importance(rf_model))
 
 
-## (noting that my color pairing has "for pair in pairs"... seems like a harbinger)
-
-# Loop over the columns
-for(color_group in clrs) {
-  # Set up pairs of colors
-  one = c(color_group[1], color_group[2])
-  two = c(color_group[1], color_group[3])
-  thr = c(color_group[2], color_group[3])
-  pairs = list(one, two, thr)  # Store pairs in a list
-
-  for(pair in pairs) {
-    # Perform polynomial fit
-    poly <- lm(as.formula(paste(pair[1], "~ poly(", pair[2], ", 2)")), data = clr)
-
-    # Plot the points
-    plot(clr[[pair[2]]], clr[[pair[1]]], main = paste(pair[1], " ~ ", pair[2]),
-         xlab = pair[2], ylab = pair[1], pch = 18)
-
-    # Generate sequence of x values for prediction
-    x_seq <- seq(min(clr[[pair[2]]]), max(clr[[pair[2]]]), length.out = 100)
-
-    # Create a data frame for prediction with named columns
-    new_data <- data.frame(setNames(list(x_seq), pair[2]))
-
-    # Predict y values based on polynomial fit
-    predicted_y <- predict(poly, newdata = new_data)
-
-    # Set color based on the group
-    if (all(color_group == reds)) {
-      use <- "red"
-    } else if (all(color_group == grns)) {
-      use <- "green"
-    } else {
-      use <- "blue"
-    }
-
-    # Add polynomial line to the plot
-    lines(x_seq, predicted_y, col = use, lwd = 2)
-  }
-}
-
-
+## oh this one is kinda neat looking... but not exactly helpful
+install.packages("party")
+library(party)
+# Fit a conditional inference tree
+ctree_model <- ctree(BenignMalignant ~ ., data = B)
+plot(ctree_model)
