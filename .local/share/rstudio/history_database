@@ -6357,3 +6357,132 @@
 1750948607657:prdy <- predict(poly, newdata = newD)
 1750948607657:lines(xseq, prdy, col = "magenta", lwd = 2)
 1750948607657:}
+1750959383742:## used boob-cancer thingy
+1750959383742:B <- read.csv(file.choose()) ## (cause B looks like uneven, sideways boobs)
+1750959389540:names(B)
+1750959389541:## [1] "ID"                   "ClumpThickness"       "CellSizeUniformity"   "CellShapeUniformity"
+1750959389541:## [5] "MarginalAdhesion"     "SingleEpithelialCell" "BareNuclei"           "BlandChromatin"
+1750959389541:## [9] "NormalNucleoli"       "Mitoses"              "BenignMalignant"
+1750959389541:## BenignMalignant has two values, 2 & 4
+1750959389541:## (perhaps it's better for unbiased analysis if we don't know what the numbers mean)
+1750959389541:columns <- names(B)
+1750959389542:## a little syntax help from ecosia chat
+1750959389542:columns[-c(1,11)]
+1750959389543:## says we'll need to treat this as factors... I don't imagine this makes much difference, ultimately
+1750959389543:B$BenignMalignant <- factor(B$BenignMalignant, levels = c(2,4))
+1750959389543:## doublecheck the structure took
+1750959389544:str(B)
+1750959389566:for(col in columns)
+1750959389566:{
+1750959389566:ben <- B$BenignMalignant
+1750959389566:## create the plots
+1750959389567:lin <- lm(ben ~ B[[col]], data = B)
+1750959389567:ply <- lm(ben ~ poly(B[[col]], 2), data = B)
+1750959389567:xseq <- seq( min(B[[col]]), max(B[[col]]), length.out = 100)
+1750959389567:newD <- data.frame(setNames(list(xseq), col))
+1750959389567:prdy <- predict(poly, newdata = newD)
+1750959389567:lines(xseq, prdy, col = "magenta", lwd = 2)
+1750959389567:}
+1750959424561:## BenignMalignant has two values, 2 & 4
+1750959424562:## (perhaps it's better for unbiased analysis if we don't know what the numbers mean)
+1750959424562:columns <- names(B)
+1750959424562:## a little syntax help from ecosia chat
+1750959424562:columns[-c(1,11)]
+1750959424563:## says we'll need to treat this as factors... I don't imagine this makes much difference, ultimately
+1750959424563:#B$BenignMalignant <- factor(B$BenignMalignant, levels = c(2,4))
+1750959424563:## doublecheck the structure took
+1750959424564:#str(B)
+1750959424564:for(col in columns)
+1750959424565:{
+1750959424565:ben <- B$BenignMalignant
+1750959424565:## create the plots
+1750959424568:lin <- lm(ben ~ B[[col]], data = B)
+1750959424569:ply <- lm(ben ~ poly(B[[col]], 2), data = B)
+1750959424569:xseq <- seq( min(B[[col]]), max(B[[col]]), length.out = 100)
+1750959424569:newD <- data.frame(setNames(list(xseq), col))
+1750959424569:prdy <- predict(poly, newdata = newD)
+1750959424570:lines(xseq, prdy, col = "magenta", lwd = 2)
+1750959424570:}
+1750959426990:## BenignMalignant has two values, 2 & 4
+1750959426990:## (perhaps it's better for unbiased analysis if we don't know what the numbers mean)
+1750959426990:columns <- names(B)
+1750959426990:## a little syntax help from ecosia chat
+1750959426991:columns[-c(1,11)]
+1750959426992:## says we'll need to treat this as factors... I don't imagine this makes much difference, ultimately
+1750959426992:#B$BenignMalignant <- factor(B$BenignMalignant, levels = c(2,4))
+1750959426993:## doublecheck the structure took
+1750959426993:#str(B)
+1750959426994:for(col in columns)
+1750959426994:{
+1750959426994:ben <- B$BenignMalignant
+1750959426994:## create the plots
+1750959426995:lin <- lm(ben ~ B[[col]], data = B)
+1750959426995:ply <- lm(ben ~ poly(B[[col]], 2), data = B)
+1750959426995:xseq <- seq( min(B[[col]]), max(B[[col]]), length.out = 100)
+1750959426995:newD <- data.frame(setNames(list(xseq), col))
+1750959426996:prdy <- predict(poly, newdata = newD)
+1750959426996:lines(xseq, prdy, col = "magenta", lwd = 2)
+1750959426996:}
+1750959432671:# used boob-cancer thingy
+1750959432671:B <- read.csv(file.choose()) ## (cause B looks like uneven, sideways boobs)
+1750959436494:names(B)
+1750959436494:##
+1750959442356:## BenignMalignant has two values, 2 & 4
+1750959442357:## (perhaps it's better for unbiased analysis if we don't know what the numbers mean)
+1750959442357:columns <- names(B)
+1750959442357:## a little syntax help from ecosia chat
+1750959442357:columns[-c(1,11)]
+1750959442359:## says we'll need to treat this as factors... I don't imagine this makes much difference, ultimately
+1750959442361:#B$BenignMalignant <- factor(B$BenignMalignant, levels = c(2,4))
+1750959442361:## doublecheck the structure took
+1750959442363:#str(B)
+1750959442364:for(col in columns)
+1750959442364:{
+1750959442364:ben <- B$BenignMalignant
+1750959442365:## create the plots
+1750959442365:lin <- lm(ben ~ B[[col]], data = B)
+1750959442365:ply <- lm(ben ~ poly(B[[col]], 2), data = B)
+1750959442365:xseq <- seq( min(B[[col]]), max(B[[col]]), length.out = 100)
+1750959442366:newD <- data.frame(setNames(list(xseq), col))
+1750959442366:prdy <- predict(poly, newdata = newD)
+1750959442367:lines(xseq, prdy, col = "magenta", lwd = 2)
+1750959442367:}
+1750959476956:for(col in columns)
+1750959476956:{
+1750959476956:ben <- B$BenignMalignant
+1750959476956:## create the plots
+1750959476956:lin <- lm(ben ~ B[[col]], data = B)
+1750959476956:ply <- lm(ben ~ poly(B[[col]], 2), data = B)
+1750959476957:xseq <- seq( min(B[[col]]), max(B[[col]]), length.out = 100)
+1750959476957:newD <- data.frame(setNames(list(xseq), col))
+1750959476957:#prdy <- predict(poly, newdata = newD)
+1750959476959:lines(xseq, prdy, col = "magenta", lwd = 2)
+1750959476959:}
+1750959490455:#lines(xseq, prdy, col = "magenta", lwd = 2)
+1750959490455:}
+1750959498493:for(col in columns)
+1750959498493:{
+1750959498493:ben <- B$BenignMalignant
+1750959498493:## create the plots
+1750959498493:lin <- lm(ben ~ B[[col]], data = B)
+1750959498493:ply <- lm(ben ~ poly(B[[col]], 2), data = B)
+1750959498494:xseq <- seq( min(B[[col]]), max(B[[col]]), length.out = 100)
+1750959498494:newD <- data.frame(setNames(list(xseq), col))
+1750959498494:#prdy <- predict(poly, newdata = newD)
+1750959498494:#lines(xseq, prdy, col = "magenta", lwd = 2)
+1750959498494:}
+1750959532904:for(col in columns)
+1750959532904:{
+1750959532904:ben <- B$BenignMalignant
+1750959532904:## create the plots
+1750959532904:lin <- lm(ben ~ B[[col]], data = B)
+1750959532904:#ply <- lm(ben ~ poly(B[[col]], 2), data = B)
+1750959532905:xseq <- seq( min(B[[col]]), max(B[[col]]), length.out = 100)
+1750959532905:newD <- data.frame(setNames(list(xseq), col))
+1750959532905:#prdy <- predict(poly, newdata = newD)
+1750959532905:#lines(xseq, prdy, col = "magenta", lwd = 2)
+1750959532906:}
+1750960346113:names(B)
+1750960503494:library(ggplot)
+1750960510786:library(ggplot2)
+1750960526195:library(dplyr)
