@@ -9,26 +9,27 @@ columns
 
 ## so the regression line is there on one of them, but it looks WAY off, and
 ## thus it's out of frame for most of the plots
+## (actually, turns out I forgot that the LM takes y, x and the plot takes x, y)
 
 ## lm for the linear regression
 rr1 <- lm(rgb$RA~rgb$R1, data = rgb)
 summary(rr1)
 ## see what it looks like
-plot(rgb$RA,rgb$R1)
+plot(rgb$R1, rgb$RA)
 abline(rr1, col = "red")
 
 ## lm for the linear regression
 rr2 <- lm(rgb$RA~rgb$R2, data = rgb)
 summary(rr2)
 ## see what it looks like
-plot(rgb$RA,rgb$R2)
+plot(rgb$R2,  rgb$RA)
 abline(rr2, col = "red")
 
 ## lm for the linear regression
 r1r2 <- lm(rgb$R1~rgb$R2, data = rgb)
 summary(r1r2)
 ## see what it looks like
-plot(rgb$R1,rgb$R2)
+plot(y=rgb$R1,x=rgb$R2)
 abline(r1r2, col = "red")
 
 
@@ -36,21 +37,21 @@ abline(r1r2, col = "red")
 gg1 <- lm(rgb$GA~rgb$G1, data = rgb)
 summary(gg1)
 ## see what it looks like
-plot(rgb$GA,rgb$G1)
+plot(y=rgb$GA,x=rgb$G1)
 abline(gg1, col = "green")
 
 ## lm for the linear regression
 gg2 <- lm(rgb$GA~rgb$G2, data = rgb)
 summary(gg2)
 ## see what it looks like
-plot(rgb$RA,rgb$R1)
+plot(y=rgb$RA,x=rgb$R1)
 abline(rr1, col = "green")
 
 ## lm for the linear regression
 g1g2 <- lm(rgb$G1~rgb$G2, data = rgb)
 summary(g1g2)
 ## see what it looks like
-plot(rgb$G1,rgb$G2)
+plot(y=rgb$G1,x=rgb$G2)
 abline(g1g2, col = "green")
 
 
@@ -58,21 +59,21 @@ abline(g1g2, col = "green")
 bb1 <- lm(rgb$BA~rgb$B1, data = rgb)
 summary(bb1)
 ## see what it looks like
-plot(rgb$BA,rgb$B1)
+plot(y=rgb$BA,x=rgb$B1)
 abline(bb1, col = "blue")
 
 ## lm for the linear regression
 bb2 <- lm(rgb$BA~rgb$B2, data = rgb)
 summary(bb2)
 ## see what it looks like
-plot(rgb$BA,rgb$B2)
+plot(y=rgb$BA,x=rgb$B2)
 abline(bb2, col = "blue")
 
 ## lm for the linear regression
 b1b2 <- lm(rgb$B1~rgb$B2, data = rgb)
 summary(b1b2)
 ## see what it looks like
-plot(rgb$B1,rgb$B2)
+plot(y=rgb$B1,x=rgb$B2)
 abline(b1b2, col = "blue")
 
 ## polynomial regressions
@@ -213,7 +214,39 @@ clr <- read.csv(file.choose())
 ## correlate from C.LED.on. -> C.CLR.
 ## from ACTUAL to the COLORED light, and from LED to the appropriate color...
 ## ... (hardest part in this is figuring out what that means)
+## R ~ R.RED. && R ~ R.LED.on.
 
 
+## same as above, really
+rred <- lm(clr$R~clr$R.Red., data = clr)
+summary(rred)
+plot(clr$R.Red., clr$R)
+abline(rred,col = "red")
 
 
+bblu <- lm(clr$B~clr$B.Blue., data = clr)
+summary(bblu)
+plot(clr$B.Blue., clr$B)
+abline(bblu, col = "blue")
+
+ggrn <- lm(clr$G~clr$G.Green., data = clr)
+summary(ggrn)
+plot(clr$G.Green., clr$G)
+abline(ggrn, col = 'green')
+
+## and the LED ~ color
+## same as above, really
+rled <- lm(clr$R~clr$R.LED.on., data = clr)
+summary(rled)
+plot(clr$R.LED.on., clr$R)
+abline(rled,col = "red")
+
+bled <- lm(clr$B~clr$B.LED.on., data = clr)
+summary(bled)
+plot(clr$B.LED.on., clr$B)
+abline(bled, col = "blue")
+
+gled <- lm(clr$G~clr$G.LED.on., data = clr)
+summary(gled)
+plot(clr$G.LED.on., clr$G)
+abline(gled, col = 'green')
