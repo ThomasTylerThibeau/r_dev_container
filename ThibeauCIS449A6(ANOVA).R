@@ -250,3 +250,20 @@ gled <- lm(clr$G~clr$G.LED.on., data = clr)
 summary(gled)
 plot(clr$G.LED.on., clr$G)
 abline(gled, col = 'green')
+
+
+## this plot makes no sense to me
+fitVals <- fitted(gled)
+residuals <- residuals(gled)
+plot( fitVals, residuals)
+abline(h = 0, col = "magenta")
+## and this is included in summary already...
+summary(gled)$r.squared
+
+## Compare the models, which model is bettter at predicting the separate color markers?
+## Comparing R~R.Red. leaves much more variance than R~R.LED.on.
+## and the R^2 value is much more reliable to me
+## I guess the residuals suggest if the model should include a higher degree polynomial?
+## I think the color plots would do better on a polynomial fit (degree 2 would work)
+## since all of the plots appear to have a majority of points under the line at the ends and
+## over the line in the middle

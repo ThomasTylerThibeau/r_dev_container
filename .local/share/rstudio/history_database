@@ -6288,3 +6288,9 @@
 1750946382851:summary(gled)
 1750946382855:plot(clr$G.LED.on., clr$G)
 1750946382877:abline(gled, col = 'green')
+1750946578646:fitVals <- fitted(gled)
+1750946578646:residuals <- residuals(gled)
+1750946578647:plot( fitVals, residuals)
+1750946578670:abline(h = 0, col = "magenta")
+1750946651193:summary(gled)$r.squared
+1750946659851:summary(gled)
