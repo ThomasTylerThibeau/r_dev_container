@@ -6486,3 +6486,5 @@
 1750960503494:library(ggplot)
 1750960510786:library(ggplot2)
 1750960526195:library(dplyr)
+1750960917124:install.packages(ggplot2)
+1750960922509:install.packages("ggplot2")

@@ -337,6 +337,6 @@ B$BenignMalignant <- factor(B$BenignMalignant, levels = c(2,4))
 str(B)
 
 
-
+install.packages("ggplot2")
 
 
