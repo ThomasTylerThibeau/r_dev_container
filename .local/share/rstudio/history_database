@@ -6330,3 +6330,18 @@
 1750947216427:lines(x_seq, predicted_y, col = use, lwd = 2)
 1750947216428:}
 1750947216428:}
+1750947397393:## used boob-cancer thingy
+1750947397393:B <- read.csv(file.choose())
+1750947431888:names(B)
+1750947550268:unique(B$BenignMalignant)
+1750947661128:## BenignMalignant has two values, 2 & 4
+1750947661128:## (perhaps it's better for unbiased analysis if we don't know what the numbers mean)
+1750947661128:columns <- names(B)
+1750947666145:## BenignMalignant has two values, 2 & 4
+1750947666145:## (perhaps it's better for unbiased analysis if we don't know what the numbers mean)
+1750947666145:columns <- names(B)
+1750947670463:columns <- names(B)
+1750947674707:columns[-1, -11]
+1750947777537:columns[-c(1,11)]
+1750948005029:B$BenignMalignant <- factor(B$BenignMalignant, levels = c(2,4))
+1750948015862:str(B)

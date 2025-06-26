@@ -313,3 +313,70 @@ for(color_group in clrs) {
 }
 
 ## (yay for object oriented programming!)
+
+###############################################################################
+#################   PART    TWO    (PART ONLY)   ##############################
+###############################################################################
+
+## used boob-cancer thingy
+B <- read.csv(file.choose()) ## (cause B looks like uneven, sideways boobs)
+names(B)
+## [1] "ID"                   "ClumpThickness"       "CellSizeUniformity"   "CellShapeUniformity"
+## [5] "MarginalAdhesion"     "SingleEpithelialCell" "BareNuclei"           "BlandChromatin"
+## [9] "NormalNucleoli"       "Mitoses"              "BenignMalignant"
+
+## BenignMalignant has two values, 2 & 4
+## (perhaps it's better for unbiased analysis if we don't know what the numbers mean)
+columns <- names(B)
+## a little syntax help from ecosia chat
+columns[-c(1,11)]
+
+## says we'll need to treat this as factors... I don't imagine this makes much difference, ultimately
+B$BenignMalignant <- factor(B$BenignMalignant, levels = c(2,4))
+## doublecheck the structure took
+str(B)
+
+
+
+
+
+## (noting that my color pairing has "for pair in pairs"... seems like a harbinger)
+
+# Loop over the columns
+for(color_group in clrs) {
+  # Set up pairs of colors
+  one = c(color_group[1], color_group[2])
+  two = c(color_group[1], color_group[3])
+  thr = c(color_group[2], color_group[3])
+  pairs = list(one, two, thr)  # Store pairs in a list
+
+  for(pair in pairs) {
+    # Perform polynomial fit
+    poly <- lm(as.formula(paste(pair[1], "~ poly(", pair[2], ", 2)")), data = clr)
+
+    # Plot the points
+    plot(clr[[pair[2]]], clr[[pair[1]]], main = paste(pair[1], " ~ ", pair[2]),
+         xlab = pair[2], ylab = pair[1], pch = 18)
+
+    # Generate sequence of x values for prediction
+    x_seq <- seq(min(clr[[pair[2]]]), max(clr[[pair[2]]]), length.out = 100)
+
+    # Create a data frame for prediction with named columns
+    new_data <- data.frame(setNames(list(x_seq), pair[2]))
+
+    # Predict y values based on polynomial fit
+    predicted_y <- predict(poly, newdata = new_data)
+
+    # Set color based on the group
+    if (all(color_group == reds)) {
+      use <- "red"
+    } else if (all(color_group == grns)) {
+      use <- "green"
+    } else {
+      use <- "blue"
+    }
+
+    # Add polynomial line to the plot
+    lines(x_seq, predicted_y, col = use, lwd = 2)
+  }
+}
