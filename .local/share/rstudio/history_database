@@ -6294,3 +6294,39 @@
 1750946578670:abline(h = 0, col = "magenta")
 1750946651193:summary(gled)$r.squared
 1750946659851:summary(gled)
+1750947216421:# Define color groups
+1750947216421:reds = c('R', 'R.LED.on.', 'R.Red.')
+1750947216421:grns = c('G', 'G.LED.on.', 'G.Green.')
+1750947216421:blus = c('B', 'B.LED.on.', 'B.Blue.')
+1750947216421:clrs = list(reds, grns, blus)  # List to hold color groups
+1750947216422:# Loop over the color groups
+1750947216422:for(color_group in clrs) {
+1750947216422:# Set up pairs of colors
+1750947216422:one = c(color_group[1], color_group[2])
+1750947216422:two = c(color_group[1], color_group[3])
+1750947216422:thr = c(color_group[2], color_group[3])
+1750947216422:pairs = list(one, two, thr)  # Store pairs in a list
+1750947216422:for(pair in pairs) {
+1750947216422:# Perform polynomial fit
+1750947216423:poly <- lm(as.formula(paste(pair[1], "~ poly(", pair[2], ", 2)")), data = clr)
+1750947216423:# Plot the points
+1750947216423:plot(clr[[pair[2]]], clr[[pair[1]]], main = paste(pair[1], " ~ ", pair[2]),
+1750947216423:xlab = pair[2], ylab = pair[1], pch = 18)
+1750947216424:# Generate sequence of x values for prediction
+1750947216424:x_seq <- seq(min(clr[[pair[2]]]), max(clr[[pair[2]]]), length.out = 100)
+1750947216424:# Create a data frame for prediction with named columns
+1750947216424:new_data <- data.frame(setNames(list(x_seq), pair[2]))
+1750947216425:# Predict y values based on polynomial fit
+1750947216425:predicted_y <- predict(poly, newdata = new_data)
+1750947216425:# Set color based on the group
+1750947216425:if (all(color_group == reds)) {
+1750947216425:use <- "red"
+1750947216426:} else if (all(color_group == grns)) {
+1750947216426:use <- "green"
+1750947216426:} else {
+1750947216426:use <- "blue"
+1750947216427:}
+1750947216427:# Add polynomial line to the plot
+1750947216427:lines(x_seq, predicted_y, col = use, lwd = 2)
+1750947216428:}
+1750947216428:}
