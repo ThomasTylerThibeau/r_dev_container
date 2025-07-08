@@ -6536,3 +6536,9 @@
 1751981406659:library(igraph)
 1751981462593:ldconfig -p | grep libglpk
 1751981476496:install.packages("igraph")
+1751981510024:library(igraph)
+1751981556056:igraph
+1751981561407:help(igraph)
+1751981567615:??igraph
+1751981653650:system("ldconfig -p | grep libglpk")
+1751981723914:install.packages("Rcpp")

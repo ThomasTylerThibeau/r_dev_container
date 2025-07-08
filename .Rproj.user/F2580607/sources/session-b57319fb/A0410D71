@@ -1,11 +1,11 @@
 {
     "id": "A0410D71",
-    "path": null,
-    "project_path": null,
+    "path": "/workspaces/r_dev_container/iNoGraph.R",
+    "project_path": "iNoGraph.R",
     "type": "r_source",
     "hash": "0",
     "contents": "",
-    "dirty": true,
+    "dirty": false,
     "created": 1751981124264.0,
     "source_on_save": false,
     "relative_order": 1,
@@ -17,11 +17,11 @@
         "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1751980648,
-    "encoding": "",
+    "lastKnownWriteTime": 1751982057,
+    "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1751981134180,
+    "last_content_update": 1751982057208,
     "read_only": false,
     "read_only_alternatives": []
 }
