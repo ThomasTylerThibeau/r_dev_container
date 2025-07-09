@@ -1,0 +1,6 @@
+install.packages("igraph")
+library(igraph)
+
+flights <- read.csv(file.choose(), header=TRUE)
+
+g <- graph_from_data_frame(flights, directed = TRUE)
