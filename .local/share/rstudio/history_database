@@ -6556,3 +6556,7 @@
 1752088477992:g <- graph_from_data_frame(flights, directed = TRUE)
 1752088501651:View(flights)
 1752088565264:install.packages(c("raster", "rgdal", "rasterVis", "profvis"))
+1752088618753:library(raster)
+1752088629889:library(rgdal)
+1752088637042:library(rasterVis)
+1752156701464:install.packages(c("ggmap", "sp", "randomcoloR", "sf", "shapefiles", "lwgeom"))
