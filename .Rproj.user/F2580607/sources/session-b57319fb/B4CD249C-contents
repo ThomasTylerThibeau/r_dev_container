@@ -25,8 +25,15 @@ names(hscsv)                                          ## use "Mailing.Address"
 ## let's look at one of them
 hscsv[1,'Mailing.Address']                            ## should I append ",USA" to each?
 
+## pretend I have access to this, or substitute your own
+register_google(key = "P-p-p-ppleaaase! Google! You KNOW ME! Just lemme get one, I PROMISE I'll pay you (Tuesday!)")
 
+## add the ",USA" just in case?
+hscsv$Geo.Code.This <- paste(hscsv$Mailing.Address, ", USA", sep = "")
+hscsv[1,'Geo.Code.This']    ## test checks out
 
+hsll <- geocode(hscsv$Mailing.Address)
+hsll <- geocode(hscsv$Geo.Code.This)
 
 addresses = c("2200 Sunport Blvd, Albuquerque, NM 87106, USA", "7401 Paseo De Colcan Northwest Albuquerque, NM 87121, USA", "121 Aviation Dr, Santa Fe, NM 87507, USA")
 longlat = c(-69.7221706, 44.5424265)

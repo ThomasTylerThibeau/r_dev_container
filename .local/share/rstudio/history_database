@@ -6595,3 +6595,8 @@
 1752761700681:hscsv['Mailing.Address'][1]
 1752761716745:hscsv['Mailing.Address'][2]
 1752761773206:hscsv[1,'Mailing.Address']
+1752762193259:for (i in 1:length(hscsv))
+1752762193259:{ hscsv[i, "Geo.Code.This"] <- cat(hscsv[i,"Mailing.Address"],", USA", sep="") }
+1752762324662:## add the ",USA" just in case?
+1752762324662:hscsv$Geo.Code.This <- paste(hscsv$Mailing.Address, ", USA", sep = "")
+1752762344060:hscsv[1,'Geo.Code.This']
