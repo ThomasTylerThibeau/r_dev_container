@@ -3,25 +3,28 @@
 ## Public School Districts of Maine         | "tl_2017_us_county.shp"
 ## csv file of the High School Addresses    | "MaineHighSchools.csv"
 
-install.packages("ggmap")       # check
-install.packages("sp")          # check
-install.packages("sf")          # check
-install.packages("randomcoloR") # check
-install.packages("shapefiles")  # check
-install.packages("lwgeom")      # check
+install.packages("ggmap")                             ## check
+install.packages("sp")                                ## check
+install.packages("sf")                                ## check
+install.packages("randomcoloR")                       ## check
+install.packages("shapefiles")                        ## check
+install.packages("lwgeom")                            ## check
 
-library(ggmap)        ## google says 'please site'
-library(sp)           ## good
-library(sf)           ## not so good
-library(randomcoloR)  ## good
-library(shapefiles)   ## maybe not so good?
-library(lwgeom)       ## not so good... 3/6, 4/6, I've seen worse
+library(ggmap)                                        ## google says 'please site'
+library(sp)                                           ## good
+library(sf)                                           ## not so good
+library(randomcoloR)                                  ## good
+library(shapefiles)                                   ## maybe not so good?
+library(lwgeom)                                       ## not so good... 3/6, 4/6, I've seen worse
 
 
 ## 1.) Geocode the addresses
 
 hscsv <- read.csv("Data Files/MaineHighSchools.csv")  ## header = TRUE default
 names(hscsv)                                          ## use "Mailing.Address"
+## returns:
+## School.Name, County Mailing.Address Location Class Region
+
 ## let's look at one of them
 hscsv[1,'Mailing.Address']                            ## should I append ",USA" to each?
 
@@ -32,12 +35,12 @@ register_google(key = "P-p-p-ppleaaase! Google! You KNOW ME! Just lemme get one,
 hscsv$Geo.Code.This <- paste(hscsv$Mailing.Address, ", USA", sep = "")
 hscsv[1,'Geo.Code.This']    ## test checks out
 
-hsll <- geocode(hscsv$Mailing.Address)
-hsll <- geocode(hscsv$Geo.Code.This)
+hsll <- geocode(hscsv$Mailing.Address)                ## not sure
+llhs <- geocode(hscsv$Geo.Code.This)                  ## which to use
 
-addresses = c("2200 Sunport Blvd, Albuquerque, NM 87106, USA", "7401 Paseo De Colcan Northwest Albuquerque, NM 87121, USA", "121 Aviation Dr, Santa Fe, NM 87507, USA")
-longlat = c(-69.7221706, 44.5424265)
 
-register_google(key = "ENTER MY KEY HERE FROM THE GEOCODE SITE")
+## 2.) Find which county each school belongs to (csv file contains county. overlay school districts and counties)
 
-airports = geogode(addresses)
+## create spatial of the hsll/llhs (again, I can't really test it)
+coordinates(hsll) <- ~ lon + lat
+coordinates(llhs) <- ~ lon + lat
