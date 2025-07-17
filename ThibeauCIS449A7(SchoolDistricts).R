@@ -44,3 +44,19 @@ llhs <- geocode(hscsv$Geo.Code.This)                  ## which to use
 ## create spatial of the hsll/llhs (again, I can't really test it)
 coordinates(hsll) <- ~ lon + lat
 coordinates(llhs) <- ~ lon + lat
+
+## why do I spell things like this? it's not kewl
+skewlz <- hscsv$School.Name
+
+proj4string(hsll) <- CRS("+proj=longlat+datum=WGS84") ## because the video did this?
+
+## create the spatial file
+hs.shp <- SpatialPointsDataFrame(coordinates(hsll), data<-as.data.frame(skewlz))
+## wait, no this, right?
+hs.shape <- st_as_sf(hs.shp)
+
+## where are we? okay. so, hopefully we have a spatial file for the high schools
+## the question suggests overlaying hs.shp & Maine Counties shape (non-existent atm)
+## (even though hscsv$Region likely tells me everything I need to know, right?)
+
+
