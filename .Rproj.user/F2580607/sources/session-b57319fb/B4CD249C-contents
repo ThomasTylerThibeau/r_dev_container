@@ -42,5 +42,7 @@ llhs <- geocode(hscsv$Geo.Code.This)                  ## which to use
 ## 2.) Find which county each school belongs to (csv file contains county. overlay school districts and counties)
 
 ## create spatial of the hsll/llhs (again, I can't really test it)
-coordinates(hsll) <- ~ lon + lat
+coordinates(hsll) <- ~ lon + lat 
 coordinates(llhs) <- ~ lon + lat
+
+
