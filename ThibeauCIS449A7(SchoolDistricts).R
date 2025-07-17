@@ -16,3 +16,19 @@ library(sf)           ## not so good
 library(randomcoloR)  ## good
 library(shapefiles)   ## maybe not so good?
 library(lwgeom)       ## not so good... 3/6, 4/6, I've seen worse
+
+
+## 1.) Geocode the addresses
+
+hscsv <- read.csv("Data Files/MaineHighSchools.csv") ## header = TRUE default
+names(hscsv) ## use "Mailing.Address"
+hscsv[1,'Mailing.Address']
+
+
+
+addresses = c("2200 Sunport Blvd, Albuquerque, NM 87106, USA", "7401 Paseo De Colcan Northwest Albuquerque, NM 87121, USA", "121 Aviation Dr, Santa Fe, NM 87507, USA")
+longlat = c(-69.7221706, 44.5424265)
+
+register_google(key = "ENTER MY KEY HERE FROM THE GEOCODE SITE")
+
+airports = geogode(addresses)

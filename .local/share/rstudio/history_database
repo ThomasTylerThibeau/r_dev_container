@@ -6589,3 +6589,9 @@
 1752761015898:library(randomcoloR)
 1752761017195:library(shapefiles)
 1752761028789:library(lwgeom)
+1752761606956:hscsv <- read.csv("Data Files/MaineHighSchools.csv") ## header = TRUE default
+1752761620345:names(hscsv)
+1752761689368:hscsv[1]['Mailing.Address']
+1752761700681:hscsv['Mailing.Address'][1]
+1752761716745:hscsv['Mailing.Address'][2]
+1752761773206:hscsv[1,'Mailing.Address']
