@@ -3,7 +3,7 @@
     "path": "/workspaces/r_dev_container/ThibeauCIS449A7(SchoolDistricts).R",
     "project_path": "ThibeauCIS449A7(SchoolDistricts).R",
     "type": "r_source",
-    "hash": "3169813240",
+    "hash": "0",
     "contents": "",
     "dirty": true,
     "created": 1752760223154.0,
@@ -13,15 +13,15 @@
         "source_window_id": "",
         "Source": "Source",
         "tempName": "Untitled1",
-        "cursorPosition": "47,0",
-        "scrollLine": "7"
+        "cursorPosition": "58,0",
+        "scrollLine": "19"
     },
     "folds": "",
     "lastKnownWriteTime": 1752762875,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1752776872604,
+    "last_content_update": 1752777222241,
     "read_only": false,
     "read_only_alternatives": []
 }
