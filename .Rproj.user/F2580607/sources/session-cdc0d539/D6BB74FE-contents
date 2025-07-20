@@ -212,5 +212,11 @@ homes.codes <- geocode(homes)
 coordinates(homes.codes) = ~ lon + lat ## long + lat or lon + lat?!
 
 ## AI says I been doing it wrong bad?
-address.sf <- st_as_sf(data.frame(lon=homes.codes$lon, lat=homes.codes$lat))
+address.sf <- st_as_sf(data.frame(lon=homes.codes$lon, lat=homes.codes$lat),
+                       coords=c("lon","lat"), crs=4326) ## why not 4327?
+
+deStrictAddDuress <- st_join(adress.sf, sdMap)
+
+print(deStrictAddDuress) ## and that's it? w/e please don't fail me
+## (too bad, anyway. I can recover from some loss but, clearly not willing to accept 0's)
 
