@@ -1,16 +1,9 @@
 {
     "rightpanesize": {
-<<<<<<< HEAD
-        "panelwidth": 1903,
-        "windowwidth": 1919,
-        "splitterpos": [
-            644
-=======
         "panelwidth": 2544,
         "windowwidth": 2560,
         "splitterpos": [
-            229
->>>>>>> e3b0892 (A7?)
+            608
         ]
     }
 }

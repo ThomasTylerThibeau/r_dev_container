@@ -6652,3 +6652,13 @@
 1750962586124:ctree_model <- ctree(BenignMalignant ~ ., data = B)
 1750962586138:plot(ctree_model)
 >>>>>>> e3b0892 (A7?)
+1753035938234:install.packages("rgdal")                             ## fail
+1753035943820:library(ggmap)                                        ## google says 'please site'
+1753035945030:library(sp)                                           ## good
+1753035947537:library(sf)                                           ## not so good
+1753035951403:library(randomcoloR)                                  ## good
+1753035953145:library(shapefiles)                                   ## maybe not so good?
+1753035954545:library(lwgeom)                                       ## not so good... 3/6, 4/6, I've seen worse
+1753035957226:library(purrr)                                        ## no
+1753035971421:library(purrr)                                        ## yes?
+1753035973209:library(rgdal)                                        ## nooo 3/8... =[

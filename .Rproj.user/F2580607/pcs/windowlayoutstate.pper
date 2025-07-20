@@ -1,17 +1,5 @@
 {
     "left": {
-<<<<<<< HEAD
-        "splitterpos": 462,
-        "topwindowstate": "NORMAL",
-        "panelheight": 1237,
-        "windowheight": 1311
-    },
-    "right": {
-        "splitterpos": 793,
-        "topwindowstate": "NORMAL",
-        "panelheight": 1237,
-        "windowheight": 1311
-=======
         "splitterpos": 480,
         "topwindowstate": "NORMAL",
         "panelheight": 1239,
@@ -22,6 +10,5 @@
         "topwindowstate": "NORMAL",
         "panelheight": 1239,
         "windowheight": 1313
->>>>>>> e3b0892 (A7?)
     }
 }
