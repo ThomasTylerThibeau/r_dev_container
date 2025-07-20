@@ -152,3 +152,42 @@ someNewDF <- left_join(hscsv, centers, by = "District")#... wait a minute isn't 
 ## no but seriously...
 
 ## 6.) find the closest centroid, WITHOUT using a ruler and measuring tape!
+
+## sweet, the better one (Ecosia chat) appears to back... says I dplyr
+# Convert to sf object
+# high_schools_sf <- st_as_sf(high_schools, coords = c("longitude", "latitude"), crs = 4326)
+## mm, I think I have this already as hsMap
+
+# Assuming districts_sf has a geometry column for centroids
+# centroids_sf <- st_centroid(districts_sf)
+## okay, centers fits this bill
+
+# Join high schools with their district centroids
+# high_schools_with_centroids <- st_join(high_schools_sf, centroids_sf, join = st_within)
+
+hsMap.distCentses <- st_join(hsMap, centers, join=st_within) ## definitely will work...
+
+# Calculate distance to the centroid of their district
+# high_schools_with_centroids <- high_schools_with_centroids %>%
+#   mutate(distance_to_centroid = st_distance(geometry, geometry_centroid, by_element = TRUE))
+
+hsMap.distCentses <- hsMap.distCentses %>%
+    mutate(distCentse = st_distance(geometry, geometry, algebra, calculus_centroid, by_element=TRUE))
+## just math it out!
+
+
+# Calculate distance to the closest centroid
+# distances_matrix <- st_distance(high_schools_sf, centroids_sf)
+# closest_centroid_indices <- apply(distances_matrix, 1, which.min)
+# closest_centroid_distances <- apply(distances_matrix, 1, min)
+
+high_schools_with_centroids <- high_schools_with_centroids %>%
+  mutate(closest_centroid_distance = closest_centroid_distances)
+
+print(high_schools_with_centroids)
+
+
+
+
+
+
