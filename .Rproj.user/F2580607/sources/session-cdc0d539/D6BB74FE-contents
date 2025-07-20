@@ -181,13 +181,36 @@ hsMap.distCentses <- hsMap.distCentses %>%
 # closest_centroid_indices <- apply(distances_matrix, 1, which.min)
 # closest_centroid_distances <- apply(distances_matrix, 1, min)
 
-high_schools_with_centroids <- high_schools_with_centroids %>%
-  mutate(closest_centroid_distance = closest_centroid_distances)
+distCent.mtrx <- st_distance(hsMap, centers)
+closestDist <- apply(distCent.mtrx, 1, which.min)
+closestDist.maybe <- apply(distCent.mtrx, 1, min)
 
-print(high_schools_with_centroids)
+# high_schools_with_centroids <- high_schools_with_centroids %>%
+#   mutate(closest_centroid_distance = closest_centroid_distances)
+# print(high_schools_with_centroids)
+
+## uhh.... mmm
+hsMap.distCentses <- hsMap.distCentses %>%
+  mutate(closestDist.maybe = closestDist.maybe)
+print(hsMap.distCentses)                    ## plz lmk if this works, I'm sure it willn't
 
 
+## 7.) ah, finally, pick some addresses and find out what hs they go to
+# 55 Hermon Hts, Hermon ME 04401 -> Hermon High School
+# 78 Birch St, Bangor ME 04401 -> Bangor High School
+# 76 Church St/123 Water St/89 Church St Oakland ME 04963 -> Messalongname High School
 
+## no? haha?
 
+aOne <- "" # put some address here
+aTwo <- "" # and here
+aThr <- "" # and here
 
+homes <- c(aOne, aTwo, aThr)
+
+homes.codes <- geocode(homes)
+coordinates(homes.codes) = ~ lon + lat ## long + lat or lon + lat?!
+
+## AI says I been doing it wrong bad?
+address.sf <- st_as_sf(data.frame(lon=homes.codes$lon, lat=homes.codes$lat))
 
