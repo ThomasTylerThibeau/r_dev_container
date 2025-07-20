@@ -6521,6 +6521,7 @@
 1750961571223:library(randomForest)
 1750961571234:# Fit the Random Forest model
 1750961571235:rf_model <- randomForest(BenignMalignant ~ ., data = data, importance = TRUE)
+<<<<<<< HEAD
 1751981137122:q()
 1751981194616:library(igraph)
 1751981201871:install.packages(igraph)
@@ -6600,3 +6601,54 @@
 1752762324662:## add the ",USA" just in case?
 1752762324662:hscsv$Geo.Code.This <- paste(hscsv$Mailing.Address, ", USA", sep = "")
 1752762344060:hscsv[1,'Geo.Code.This']
+=======
+1750961614876:# Fit the Random Forest model
+1750961614876:rf_model <- randomForest(BenignMalignant ~ ., data = B, importance = TRUE)
+1750961615653:print(importance(rf_model))
+1750961662854:install.packages("dplyr", "ggplot2")
+1750961735504:# Convert BenignMalignant to a factor for better visualization
+1750961735504:B$BenignMalignant <- as.factor(B$BenignMalignant)
+1750961735505:# Summary statistics
+1750961735505:B %>%
+1750961735505:group_by(BenignMalignant) %>%
+1750961735505:summarise(across(everything(), list(mean = mean, sd = sd), na.rm = TRUE))
+1750961781214:# Summary statistics
+1750961781214:summary_stats <- B %>%
+1750961781214:group_by(BenignMalignant) %>%
+1750961781214:summarise(across(everything(), list(mean = mean, sd = sd), na.rm = TRUE))
+1750961799878:install.packages("dplyr")
+1750961819121:# Summary statistics
+1750961819121:summary_stats <- B %>%
+1750961819121:group_by(BenignMalignant) %>%
+1750961819121:summarise(across(everything(), list(mean = mean, sd = sd), na.rm = TRUE))
+1750961864653:library(magrittr)  # Explicitly load magrittr for the pipe operator
+1750961886976:# Summary statistics
+1750961886976:summary_stats <- B %>%
+1750961886976:group_by(BenignMalignant) %>%
+1750961886976:summarise(across(everything(), list(mean = mean, sd = sd), na.rm = TRUE))
+1750961901417:# Summary statistics
+1750961901417:summary_stats <- B %>%
+1750961901417:group_by(BenignMalignant) %>%
+1750961901417:summarise(across(everything(), list(mean = mean, sd = sd), na.rm = TRUE))
+1750961996651:# Load required libraries
+1750961996651:library(dplyr)
+1750961997331:library(magrittr)  # Load magrittr for the pipe operator
+1750961997331:library(ggplot2)   # Load ggplot2 for visualization
+1750961997477:# Convert BenignMalignant to a factor for better visualization
+1750961997477:B$BenignMalignant <- as.factor(B$BenignMalignant)
+1750961997478:# Summary statistics
+1750961997478:summary_stats <- B %>%
+1750961997478:group_by(BenignMalignant) %>%
+1750961997478:summarise(across(everything(), list(mean = mean, sd = sd), na.rm = TRUE))
+1750961997618:print(summary_stats)
+1750961997649:# Boxplots for visual comparison
+1750961997649:ggplot(B, aes(x = BenignMalignant, y = ClumpThickness)) +
+1750961997649:geom_boxplot() +
+1750961997649:labs(title = "Clump Thickness by Tumor Type")
+1750962574069:library(party)
+1750962578035:# Fit a conditional inference tree
+1750962578035:ctree_model <- ctree(BenignMalignant ~ ., data = data)
+1750962586124:# Fit a conditional inference tree
+1750962586124:ctree_model <- ctree(BenignMalignant ~ ., data = B)
+1750962586138:plot(ctree_model)
+>>>>>>> e3b0892 (A7?)

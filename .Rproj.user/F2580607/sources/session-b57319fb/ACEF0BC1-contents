@@ -1,0 +1,118 @@
+## using 3 files:
+## Counties of Maine                        | "tl_2017_23_unsd.shp"
+## Public School Districts of Maine         | "tl_2017_us_county.shp"
+## csv file of the High School Addresses    | "MaineHighSchools.csv"
+
+install.packages("ggmap")                             ## check
+install.packages("sp")                                ## check
+install.packages("sf")                                ## check
+install.packages("randomcoloR")                       ## check
+install.packages("shapefiles")                        ## check
+install.packages("lwgeom")                            ## check
+install.packages("purrr")                             ## check
+install.packages("rgdal")                             ## fail
+
+library(ggmap)                                        ## google says 'please site'
+library(sp)                                           ## good
+library(sf)                                           ## not so good
+library(randomcoloR)                                  ## good
+library(shapefiles)                                   ## maybe not so good?
+library(lwgeom)                                       ## not so good... 3/6, 4/6, I've seen worse
+library(purrr)                                        ## no
+library(rgdal)                                        ## nooo 3/8... =[
+
+## 1.) Geocode the addresses
+
+hscsv <- read.csv("Data Files/MaineHighSchools.csv")  ## header = TRUE default
+names(hscsv)                                          ## use "Mailing.Address"
+## returns:
+## School.Name, County Mailing.Address Location Class Region
+
+## let's look at one of them
+hscsv[1,'Mailing.Address']                            ## should I append ",USA" to each?
+
+## pretend I have access to this, or substitute your own
+register_google(key = "P-p-p-ppleaaase! Google! You KNOW ME! Just lemme get one, I PROMISE I'll pay you (Tuesday!)")
+
+## add the ",USA" just in case?
+hscsv$Geo.Code.This <- paste(hscsv$Mailing.Address, ", USA", sep = "")
+hscsv[1,'Geo.Code.This']    ## test checks out
+
+hsll <- geocode(hscsv$Mailing.Address)                ## not sure
+llhs <- geocode(hscsv$Geo.Code.This)                  ## which to use
+
+
+## 2.) Find which county each school belongs to (csv file contains county. overlay school districts and counties)
+
+## create spatial of the hsll/llhs (again, I can't really test it)
+coordinates(hsll) <- ~ lon + lat
+coordinates(llhs) <- ~ lon + lat
+
+## why do I spell things like this? it's not kewl
+skewlz <- c(hscsv$School.Name)
+## this creates the spatial points... okay
+proj4string(hsll) <- CRS("+proj=longlat+datum=WGS84") ## because the video did this?
+
+## create the spatial file
+hs.shp <- SpatialPointsDataFrame(coordinates(hsll), data<-as.data.frame(skewlz))
+## wait, no this, right?
+hs.shape <- st_as_sf(hs.shp)
+
+## where are we? okay. so, hopefully we have a spatial file for the high schools
+## the question suggests overlaying hs.shp & Maine Counties shape (non-existent atm)
+## (even though hscsv$Region likely tells me everything I need to know, right?)
+
+st_write(hs.shape, "HighSchoolShapes.shp", driver = "ESRI Shapefile")
+
+hsMap <- st_read("HighSchoolShapes.shp")              ## pretend computer can read
+sdMap <- st_read("Data Files/tl_2017_23_unsd.shp")    ## mine can't... yay DOC restrictions (5 more weeks)
+scMap <- st_read("Data Files/tl_2017_us_county.shp")  ## similar names, I know
+
+## see what's in the HS-shape, state district shape, and state counties shape
+names(hsMap)                                          ## oh, nothing... need the libraries to do this stuff
+names(sdMap)                                          ## oh, nothing... need the libraries to do this stuff
+names(scMap)                                          ## oh, nothing... need the libraries to do this stuff
+
+## at this point, I should see something about state fips code (STATEFP)
+mcMap <- subset(scMap, scMap$STATEFP = 23)                           ## will it work?
+## (can't touch this, da duh na na, da na, da naaa) (get it? mc? hammer? maine counties?)
+
+## uhh, plot them now? (this is so difficult trying to find out where I was when I get an hour,
+## maybe two at a time and I have to stop and come back in a day, maybe two [lather, rinse, repeat])
+plot(hsMap)
+plot(sdMap, add=TRUE, col="blue")
+plot(mcMap, add=TRUE, col="limegreen")                ## see the maps over each other
+
+## maybe the districts are the same as the counties? nah, that'd be too easy...
+
+
+## 3.) append the school address to the district it resides in
+## Idek, this is what AI suggests, but it's on thge assumption that hsll is some data table including district names
+## or that I have a file of district names. and I have NO idea what's in the shapefile, or any other file for that matter
+
+hsMap.sf <- st_as_sf(hsMap)
+sdMap.sf <- st_as_sf(sdMap)
+mcMap.sf <- st_as_sf(mcMap) ## McLovin'
+
+layers <- st_join(hsMap.sf, sdMap.sf)
+## summarize the results?
+
+## shit. I'm outta guesses. I have no idea what table I'd even be on...
+## I FEEL like school column is well beyond Schools.Names/Mailing.Address... I think we're onto
+## the ~ long + lat table, since that went into the shapefile... And I can't see the district columns
+## not that I'm really confident they exist (the lecture leads me to believe they would, the state FP codes are there)
+inDisTable <- layers[,c("column-representing-schools","column-representing-districts")]
+
+## (append school address to district it resides in)
+inDisTable$School.Address <- hscsv$Mailing.Address
+
+
+
+## 4.) Calculate the centroid of the school districts
+
+  
+  
+  
+  
+  
+  
