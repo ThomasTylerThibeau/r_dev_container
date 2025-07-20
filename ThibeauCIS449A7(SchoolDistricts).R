@@ -115,9 +115,40 @@ plot(st_geometry(sdMap), cd="transparent", border="blue", add=TRUE)
 sdCen <- st_centroid(sdMap, byid=TRUE)
 sdCen.map <- st_transform(sdCen, CRS("+proj= longlat +datum=WSG84"))
 
-centers <- st_coordinates(seCen.map)
+centers <- st_coordinates(sdCen.map)
 plot(st_geometry(centers), add=TRUE, pch=4, col=2) ## since 42 is the answer (life, the universe, and everything)
 
 
 ## 5.) find distance from HS to center of district... oh yay
+st_distance(centers, hsll, byid=MAYBE)
 
+## I know this would never work. I'm assuming there are more schools than districts
+## Without being able to see it, work with it, load it, I really don't even know where I would
+## start guessing... And my usual source of AI help is on the fritters...
+
+## GOOGLE suggests doing something like:
+
+# Transform to a projected CRS (e.g., UTM Zone 18N) if needed
+# district_centroids <- st_transform(district_centroids, crs = 26918)
+# schools <- st_transform(schools, crs = 26918)
+sdCen <- left_join(hscsv, centers, by "District", suffix=c("_school", "_centroid"))
+hscsv <- st_transform(hscsv, crs=26918) ## ? no, this doesn't feel right
+
+# Join schools with their district centroids
+# schools_with_centroids <- left_join(schools, district_centroids, by = "district_id", suffix = c("_school", "_centroid"))
+someNewDF <- left_join(hscsv, centers, by = "District")#... wait a minute isn't this... didn't I just?
+
+# Calculate distance between each school and its assigned district centroid
+# schools_with_centroids$distance_to_centroid <- st_distance(
+#   schools_with_centroids$geometry_school,
+#   schools_with_centroids$geometry_centroid,
+#   by_element = TRUE # Calculates distance for each pair
+# )
+
+## sure sounds good
+
+## 6.) some other impossible task... (quit, this is ridiculous)
+
+## no but seriously...
+
+## 6.) find the closest centroid, WITHOUT using a ruler and measuring tape!
