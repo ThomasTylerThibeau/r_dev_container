@@ -6662,3 +6662,6 @@
 1753035957226:library(purrr)                                        ## no
 1753035971421:library(purrr)                                        ## yes?
 1753035973209:library(rgdal)                                        ## nooo 3/8... =[
+1753189229362:packageVersion("roxygen2")
+1753189239089:install.packages("roxygen2")
+1753189253135:packageVersion("roxygen2")

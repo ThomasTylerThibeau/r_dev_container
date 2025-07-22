@@ -1,16 +1,22 @@
 Package: HapaxLegomena
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Analyze Text and Word Distributions
 Version: 0.1.0
 Authors@R: c(
     person(
-      "Jane", "Doe",
-      email = "jane@example.com",
+      "T. Tyler Thibeau",
+      email = "thomas.thibeau@maine.edu",
       role = c("aut", "cre")
     )
   )
-Description: More about what it does (maybe more than one line).
-    Continuation lines should be indented.
-License: What license is it under?
+Description:  This package reads lines of text and creates a word distribution.
+              Analyze word choice trends visually by seeing distribution graphs.
+              Look at which words appear 5 or less times. Are there better words
+              that could be used in their stead?
+License: GPL-2
 Encoding: UTF-8
 LazyData: true
+
+Imports: (what packages will this rely on?)
+Depends: (ditto)
+RoxygenNote: 7.3.2
