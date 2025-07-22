@@ -3,7 +3,7 @@
     "path": "~/finalProject/HapaxLegomena/DESCRIPTION",
     "project_path": "DESCRIPTION",
     "type": "dcf",
-    "hash": "1943973068",
+    "hash": "0",
     "contents": "",
     "dirty": false,
     "created": 1753188669189.0,
@@ -16,11 +16,11 @@
         "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1753211622,
+    "lastKnownWriteTime": 1753212419,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1753211622218,
+    "last_content_update": 1753212419,
     "read_only": false,
     "read_only_alternatives": []
 }

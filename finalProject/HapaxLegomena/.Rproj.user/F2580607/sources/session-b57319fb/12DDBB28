@@ -1,0 +1,26 @@
+{
+    "id": "12DDBB28",
+    "path": "/workspaces/r_dev_container/finalProject/HapaxLegomena/vignettes/HapaxLegomena.Rmd",
+    "project_path": null,
+    "type": "r_markdown",
+    "hash": "1535355137",
+    "contents": "",
+    "dirty": false,
+    "created": 1753212420308.0,
+    "source_on_save": false,
+    "relative_order": 7,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "27,9",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1753212790,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1753212790145,
+    "read_only": false,
+    "read_only_alternatives": []
+}
