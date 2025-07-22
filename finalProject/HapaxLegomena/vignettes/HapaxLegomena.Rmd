@@ -26,3 +26,8 @@ library(HapaxLegomena)
 This package was created as a final project for a math/computer-science course
 at the Univeristy of Maine at Augusta by someone who holds interests in
 grandiose vernacular, programming and mathematics.
+
+```{r}
+# put youR code here
+
+```

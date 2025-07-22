@@ -3,8 +3,7 @@
 \docType{data}
 \name{TexTesT}
 \alias{TexTesT}
-\title{This is pretty much just a text file with a back story for the curious.
-It exists entirely to test the functions out and see how they behave.}
+\title{Example text to run functions with.}
 \format{
 text
 }
@@ -12,7 +11,9 @@ text
 TexTesT
 }
 \description{
-This is pretty much just a text file with a back story for the curious.
-It exists entirely to test the functions out and see how they behave.
+Example text to run functions with.
+}
+\examples{
+ data(TexTesT) # lazy load, 'cause, you know...
 }
 \keyword{datasets}
