@@ -1,3 +1,7 @@
+~/finalProject/HapaxLegomena/R/hello.R
+/workspaces/r_dev_container/CoordinateConversions/CoordinateConversions/R/cylToRec.R
+/workspaces/r_dev_container/CoordinateConversions/CoordinateConversions/R/ccTESTCALLS.R
+/workspaces/r_dev_container/CoordinateConversions/CoordinateConversions.Rcheck/R_check_bin/Rscript
 /workspaces/r_dev_container/ThibeauCIS449A7(SchoolDistricts).R
 /workspaces/r_dev_container/A7.R
 /workspaces/r_dev_container/shapefileProcessing(lecture).R
@@ -9,7 +13,3 @@
 /workspaces/r_dev_container/giffords/questions.R
 /workspaces/r_dev_container/giffords/loadFiles.R
 ~/Data Files/intersect.R
-~/Data Files/unionedSQL.R
-~/Data Files/confusingSQL.R
-~/Data Files/dataLoader.R
-~/CoordinateConversions/CoordinateConversions/R/sphereToRec.R
