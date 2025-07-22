@@ -6723,3 +6723,4 @@
 1753211062654:use_data(text)
 1753211096266:TexTesT <- file.choose()
 1753211110983:use_data(TexTesT)
+1753211289579:use_r('TexTesT')
