@@ -1,0 +1,26 @@
+{
+    "id": "B13DAF38",
+    "path": "~/finalProject/HapaxLegomena/textFiles/someText.txt",
+    "project_path": "textFiles/someText.txt",
+    "type": "text",
+    "hash": "2623474149",
+    "contents": "",
+    "dirty": false,
+    "created": 1753211130270.0,
+    "source_on_save": false,
+    "relative_order": 4,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "2,0",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1753211163,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1753211163,
+    "read_only": false,
+    "read_only_alternatives": []
+}

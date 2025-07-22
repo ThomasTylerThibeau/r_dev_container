@@ -6718,3 +6718,8 @@
 1753209274782:install.packages('qplot')
 1753209293726:use_packages('qplot')
 1753209305867:use_package('qplot')
+1753210952346:use_data(TestText.txt)
+1753211050723:text <- file.choose()
+1753211062654:use_data(text)
+1753211096266:TexTesT <- file.choose()
+1753211110983:use_data(TexTesT)
