@@ -6677,3 +6677,20 @@
 1753192297442:## read the file
 1753192297442:if(file.exists(path)){ redlines <- readLines(path) }
 1753192297442:else{ stop("Shit... something fucked up.") }
+1753192988617:path <- system.file("textFiles", "TestText.txt", package="HapaxLegomena")
+1753192988617:## read the file
+1753192988617:if(file.exists(path)){
+1753192988617:redlines <- readLines(path)
+1753192988617:} else {
+1753192988617:stop("Shit... something fucked up.")
+1753192988618:} ## gawdy... I hate the unaligned brackets. ugly ugly ugly
+1753192994683:## get the filepath from
+1753192994684:## HapaxLegomena/R/TestText.R -> HapaxLegomena/textFiles/TestText.txt
+1753192994684:path <- system.file("textFiles", "TestText.txt", package="HapaxLegomena")
+1753193007656:<- system.file("textFiles", "TestText.txt", package="HapaxLegomena")
+1753193016359:## read the file
+1753193016359:if(file.exists(path)){
+1753193016359:redlines = readLines(path)
+1753193016359:} else {
+1753193016359:stop("Shit... something fucked up.")
+1753193016359:} ## gawdy... I hate the unaligned brackets. ugly ugly ugly

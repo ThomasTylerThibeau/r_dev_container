@@ -13,7 +13,10 @@ NULL
 path <- system.file("textFiles", "TestText.txt", package="HapaxLegomena")
 
 ## read the file
-if(file.exists(path))
-{ redlines <- readLines(path) }
-else 
-{ stop("Shit... something fucked up.") }
+if(file.exists(path)){ 
+  redlines = readLines(path) 
+} else { 
+  stop("Shit... something fucked up.") 
+} ## gawdy... I hate the unaligned brackets. ugly ugly ugly
+
+## 
