@@ -1,4 +1,6 @@
 %2Fworkspaces%2Fr_dev_container%2FfinalProject%2FHapaxLegomena%2FR%2FTexTesT.R="6EEF4A5E"
+%2Fworkspaces%2Fr_dev_container%2FfinalProject%2FHapaxLegomena%2FR%2FbasicButDependedOn.R="5E911148"
+%2Fworkspaces%2Fr_dev_container%2FfinalProject%2FHapaxLegomena%2Ftests%2Ftestthat%2Ftest-basicButDependedOn.R="D84227BD"
 %2Fworkspaces%2Fr_dev_container%2FfinalProject%2FHapaxLegomena%2Fvignettes%2FHapaxLegomena.Rmd="C5093F54"
 ~%2FfinalProject%2FHapaxLegomena%2FDESCRIPTION="782E3F73"
 ~%2FfinalProject%2FHapaxLegomena%2FNAMESPACE="490E9C98"
@@ -10,5 +12,6 @@
 ~%2FfinalProject%2FHapaxLegomena%2FR%2FtestFunctions.R="5B1C7DF6"
 ~%2FfinalProject%2FHapaxLegomena%2FTestText.txt="8D1D9A6C"
 ~%2FfinalProject%2FHapaxLegomena%2Fman%2Fhello.Rd="07305842"
+~%2FfinalProject%2FHapaxLegomena%2Ftests%2Ftestthat.R="DD9B9D9C"
 ~%2FfinalProject%2FHapaxLegomena%2FtextFiles%2FTestText.txt="0E18E932"
 ~%2FfinalProject%2FHapaxLegomena%2FtextFiles%2FsomeText.txt="37B0D4B8"

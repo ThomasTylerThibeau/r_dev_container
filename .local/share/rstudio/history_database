@@ -6735,3 +6735,9 @@
 1753211827417:?TexTesT
 1753211848196:??TexTesT’
 1753212419396:use_vignette("HapaxLegomena", title="Hapax Legomena")
+1753213437858:use_r(basicButDependedOn)
+1753213453746:use_r("basicButDependedOn")
+1753213517395:use_testthat()
+1753213570772:use_test()
+1753213779215:library(testthat)
+1753213816558:devtools::load_all("~/finalProject/HapaxLegomena")

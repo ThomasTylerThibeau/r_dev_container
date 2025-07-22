@@ -1,3 +1,6 @@
+/workspaces/r_dev_container/finalProject/HapaxLegomena/tests/testthat/test-basicButDependedOn.R
+~/finalProject/HapaxLegomena/tests/testthat.R
+/workspaces/r_dev_container/finalProject/HapaxLegomena/R/basicButDependedOn.R
 /workspaces/r_dev_container/finalProject/HapaxLegomena/vignettes/HapaxLegomena.Rmd
 ~/finalProject/HapaxLegomena/R/testFunctions.R
 ~/finalProject/HapaxLegomena/R/TestText.R
@@ -10,6 +13,3 @@
 ~/finalProject/HapaxLegomena/R/ctest.cpp
 ~/finalProject/HapaxLegomena/man/hello.Rd
 ~/finalProject/HapaxLegomena/TestText.txt
-~/finalProject/HapaxLegomena/R/testData.R
-~/finalProject/HapaxLegomena/R/hello.R
-/workspaces/r_dev_container/CoordinateConversions/CoordinateConversions/R/cylToRec.R

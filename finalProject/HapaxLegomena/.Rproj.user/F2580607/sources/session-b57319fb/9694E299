@@ -1,19 +1,17 @@
 {
-    "id": "42C87415",
-    "path": "~/finalProject/HapaxLegomena/DESCRIPTION",
-    "project_path": "DESCRIPTION",
-    "type": "dcf",
+    "id": "9694E299",
+    "path": "~/finalProject/HapaxLegomena/tests/testthat.R",
+    "project_path": "tests/testthat.R",
+    "type": "r_source",
     "hash": "0",
     "contents": "",
     "dirty": false,
-    "created": 1753188669189.0,
+    "created": 1753213536226.0,
     "source_on_save": false,
-    "relative_order": 2,
+    "relative_order": 9,
     "properties": {
         "source_window_id": "",
-        "Source": "Source",
-        "cursorPosition": "12,14",
-        "scrollLine": "0"
+        "Source": "Source"
     },
     "folds": "",
     "lastKnownWriteTime": 1753213517,
