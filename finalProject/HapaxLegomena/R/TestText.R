@@ -2,8 +2,11 @@
 #' @description Serves mostly to organize my thoughts and to try the app out
 #' @name TestText
 #' @docType .txt
-#' @usage
-#' @format
+#' @usage TestText
+#' @format text-file
 #' @keywords test
 
 NULL
+
+text <- readLines("../textFiles/TestText.txt")
+

@@ -6665,3 +6665,15 @@
 1753189229362:packageVersion("roxygen2")
 1753189239089:install.packages("roxygen2")
 1753189253135:packageVersion("roxygen2")
+1753191640692:text <- readLines("../textFiles/TestText.txt")
+1753191689447:text <-readLines(file.choose())
+1753191761250:text <-supressWarnings(readLines(file.choose()))
+1753191772835:text <-suppressWarnings(readLines(file.choose()))
+1753191781832:print(text)
+1753191871236:getwd()
+1753192291736:## read the file
+1753192291736:if(file.exists(path)){ redlines <- readLines(path) }
+1753192297442:path <- system.file("textFiles", "TestText.txt", package="HapaxLegomena")
+1753192297442:## read the file
+1753192297442:if(file.exists(path)){ redlines <- readLines(path) }
+1753192297442:else{ stop("Shit... something fucked up.") }
