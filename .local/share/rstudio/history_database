@@ -6699,3 +6699,11 @@
 1753193909132:library(HapaxLegomena)
 1753193919423:install.packages("HapaxLegomena")
 1753193944636:install.packages("finalProject")
+1753208012456:install.packages("HapaxLegomena")
+1753208025322:path <- system.file("textFiles", "TestText.txt", package="HapaxLegomena")
+1753208025322:## read the file
+1753208025323:if(file.exists(path)){
+1753208025323:redlines = readLines(path)
+1753208025323:} else {
+1753208025323:stop("Shit... something fucked up.")
+1753208025323:} ## gawdy... I hate the unaligned brackets. ugly ugly ugly
