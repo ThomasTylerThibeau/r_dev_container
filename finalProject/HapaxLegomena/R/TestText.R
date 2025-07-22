@@ -2,7 +2,7 @@
 ## when done -> code > insert roxygen skeleton (ctrl + alt + shift + r)
 ##
 ## add the shit up here
-##
+## for examples, just add a function call and show how to fill in the params
 
 
 
