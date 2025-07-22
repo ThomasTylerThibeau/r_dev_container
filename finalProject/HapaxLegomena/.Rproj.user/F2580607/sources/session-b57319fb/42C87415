@@ -1,19 +1,17 @@
 {
-    "id": "7C862835",
-    "path": "~/finalProject/HapaxLegomena/R/hello.R",
-    "project_path": "R/hello.R",
-    "type": "r_source",
+    "id": "42C87415",
+    "path": "~/finalProject/HapaxLegomena/DESCRIPTION",
+    "project_path": "DESCRIPTION",
+    "type": "dcf",
     "hash": "0",
     "contents": "",
     "dirty": false,
-    "created": 1753187745076.0,
+    "created": 1753188669189.0,
     "source_on_save": false,
-    "relative_order": 1,
+    "relative_order": 2,
     "properties": {
         "source_window_id": "",
-        "Source": "Source",
-        "cursorPosition": "18,0",
-        "scrollLine": "0"
+        "Source": "Source"
     },
     "folds": "",
     "lastKnownWriteTime": 1753187740,
