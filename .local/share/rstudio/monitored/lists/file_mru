@@ -1,3 +1,4 @@
+~/finalProject/HapaxLegomena/DESCRIPTION
 ~/finalProject/HapaxLegomena/NAMESPACE
 ~/finalProject/HapaxLegomena/textFiles/TestText.txt
 ~/finalProject/HapaxLegomena/R/ctest.cpp
@@ -5,7 +6,6 @@
 ~/finalProject/HapaxLegomena/TestText.txt
 ~/finalProject/HapaxLegomena/R/TestText.R
 ~/finalProject/HapaxLegomena/R/testData.R
-~/finalProject/HapaxLegomena/DESCRIPTION
 ~/finalProject/HapaxLegomena/R/hello.R
 /workspaces/r_dev_container/CoordinateConversions/CoordinateConversions/R/cylToRec.R
 /workspaces/r_dev_container/CoordinateConversions/CoordinateConversions/R/ccTESTCALLS.R

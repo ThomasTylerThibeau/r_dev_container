@@ -6707,3 +6707,14 @@
 1753208025323:} else {
 1753208025323:stop("Shit... something fucked up.")
 1753208025323:} ## gawdy... I hate the unaligned brackets. ugly ugly ugly
+1753209000465:library(devtools)
+1753209012927:install.packages("devtools")
+1753209042629:library(devtools)
+1753209100307:use_package("ggplot")
+1753209124881:use_package("ggplot")
+1753209138642:use_package("ggplot")
+1753209185277:use_package("ggplot")
+1753209226525:install.packages("qgplot")
+1753209274782:install.packages('qplot')
+1753209293726:use_packages('qplot')
+1753209305867:use_package('qplot')
