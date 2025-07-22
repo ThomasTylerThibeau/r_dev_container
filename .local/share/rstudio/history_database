@@ -6694,3 +6694,8 @@
 1753193016359:} else {
 1753193016359:stop("Shit... something fucked up.")
 1753193016359:} ## gawdy... I hate the unaligned brackets. ugly ugly ugly
+1753193597787:help(HapaxLegomena)
+1753193897439:timesTwo(c(3,4,23))
+1753193909132:library(HapaxLegomena)
+1753193919423:install.packages("HapaxLegomena")
+1753193944636:install.packages("finalProject")
