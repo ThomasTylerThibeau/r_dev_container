@@ -1,14 +1,10 @@
-#' @title Test Text to Try Thomas Tyler Thibeau's Thing
-#' @description Serves mostly to organize my thoughts and to try the app out
-#' @name TestText
-#' @docType .txt
-#' @usage TestText
-#' @format text-file
-#' @keywords test
-#' @param <none>
+##
+## when done -> code > insert roxygen skeleton (ctrl + alt + shift + r)
+##
+## add the shit up here
+##
 
 
-NULL
 
 ## get the filepath from
 ## HapaxLegomena/R/TestText.R -> HapaxLegomena/textFiles/TestText.txt
