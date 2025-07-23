@@ -6753,3 +6753,9 @@
 1753275725298:library(devtools)
 1753275737202:?devtools
 1753275944674:use_r("counter")
+1753276861956:3+4
+1753278239134:# Example text
+1753278239134:text <- "Hello, world! This is a test.  !  And here is a punctuated sentence. "
+1753278239134:# Remove punctuation preceded or followed by a space
+1753278239134:cleaned_text <- gsub("\\s[[:punct:]]|[[:punct:]]\\s", "", text)
+1753278239135:print(cleaned_text)  # Output: "Hello world This is a test. And here is a punctuated sentence."
