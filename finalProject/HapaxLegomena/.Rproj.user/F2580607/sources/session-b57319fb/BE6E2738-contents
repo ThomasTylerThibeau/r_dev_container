@@ -53,8 +53,14 @@ counter <- function(keepHyphens = TRUE, keepContractions = TRUE)
       if(onWord == numWords && countLast == FALSE){ break }
 
       ## check hyphen condition
-      if(!keepHyphens)
+      if(!keepHyphens && grepl("-", word))
       {
+        ## split the words at the hyphen
+        both <- strsplit(word, "-")[[1]]
+        first <- both[1]
+        second <- both[2]
+        ## now do all the dataframing for them
+
 
       }
 
