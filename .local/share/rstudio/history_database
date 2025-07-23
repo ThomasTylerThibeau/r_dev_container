@@ -6750,3 +6750,6 @@
 1753275350024:library(testthat)
 1753275350024:library(HapaxLegomena)
 1753275350025:test_check("HapaxLegomena")
+1753275725298:library(devtools)
+1753275737202:?devtools
+1753275944674:use_r("counter")

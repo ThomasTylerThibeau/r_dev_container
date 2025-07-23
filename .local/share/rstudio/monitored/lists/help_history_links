@@ -4,3 +4,4 @@ help/doc/html/Search?objects=1&port=8787,R: Search Results
 help/doc/html/Search?pattern=igraph&title=1&keyword=1&alias=1,R: Search Results
 help/doc/html/Search?pattern=graph&title=1&keyword=1&alias=1,R: Search Results
 help/library/methods/html/00Index.html,R: Formal Methods and Classes
+help/library/devtools/html/devtools-package.html,R: devtools: Tools to Make Developing R Packages Easier

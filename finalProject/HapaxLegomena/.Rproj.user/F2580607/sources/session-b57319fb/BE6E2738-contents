@@ -1,0 +1,12 @@
+counter <- function()
+{
+  print("Please select your text file.")
+  
+  file.path <- file.choose()
+  file.info <- file.info(file.path)
+  
+  ## 1 MB seems like an arbitrary
+  if (file.info$size < 1e6)
+  
+  
+}
