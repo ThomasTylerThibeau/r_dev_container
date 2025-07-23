@@ -24,8 +24,8 @@ counter <- function(textIn = chooseFile, keepHyphens = TRUE, keepContractions = 
     if(!keepContractions)
     { ln <- gsub("\\b\\w*'\\w\\b", "", ln)}
 
-    return ln
-  }
+    return (ln)
+  } ## end clean
 
   ####################### end helper functions #################################
 
@@ -60,8 +60,8 @@ counter <- function(textIn = chooseFile, keepHyphens = TRUE, keepContractions = 
     words <- unlist(strsplit(line,"\\s+"))
     last <- tail(words, n = 1)
 
+    ## does the line end in a hyphenated/truncated word?
     countLast <- TRUE
-    ## what if the string ends on a hyphen? well... fuck
     if (substring(last, nchar(last), nchar(last)) == "-")
     {
       last = substring(last, 0, nchar(last) - 1)
@@ -88,16 +88,9 @@ counter <- function(textIn = chooseFile, keepHyphens = TRUE, keepContractions = 
         both <- strsplit(word, "-")[[1]]
         ## now do all the dataframing for them
         for(word in both)
-        {
-          if(word %in% stats$word)
-          {
-            count(word)
-          } ## end update word
-        } ## end adding both words
-
+        { count(word) } ## end adding both words
       } ## end if no hyphenated words
-      else
-      { count(word) }
+      else { count(word) }
 
       onWord <- onWord + 1
 
