@@ -78,21 +78,23 @@ counter <- function(textIn = chooseFile, keepHyphens = TRUE, keepContractions = 
     ## it can check for hyphenated words and split or keep them
     for (word in words)
     {
+      ## track the word it's on (one-indexed language, intuitive yet a pain)
+      onWord <- onWord + 1
+
       ## skipping the last word? break out
       if(onWord == numWords && countLast == FALSE){ break }
 
-      ## check hyphen condition
+      ## if it needs to split hyphenated words (AND the word has a hyphen)
       if(!keepHyphens && grepl("-", word))
       {
         ## split the words at the hyphen
         both <- strsplit(word, "-")[[1]]
         ## now do all the dataframing for them
-        for(word in both)
-        { count(word) } ## end adding both words
-      } ## end if no hyphenated words
+        for(part in both)
+        { count(part) } ## add/update words (count can figure it out)
+      } ## otherwise, count the word as it is
       else { count(word) }
 
-      onWord <- onWord + 1
 
     } ## end reading input
 
