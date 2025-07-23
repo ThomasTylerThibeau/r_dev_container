@@ -6741,3 +6741,12 @@
 1753213570772:use_test()
 1753213779215:library(testthat)
 1753213816558:devtools::load_all("~/finalProject/HapaxLegomena")
+1753275230889:library(testthat)
+1753275230914:library(HapaxLegomena)
+1753275285558:library(testthat)
+1753275285558:library(HapaxLegomena)
+1753275301557:install.packages("HapaxLegomena")
+1753275344449:\
+1753275350024:library(testthat)
+1753275350024:library(HapaxLegomena)
+1753275350025:test_check("HapaxLegomena")
