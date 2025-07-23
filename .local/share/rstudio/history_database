@@ -6759,3 +6759,88 @@
 1753278239134:# Remove punctuation preceded or followed by a space
 1753278239134:cleaned_text <- gsub("\\s[[:punct:]]|[[:punct:]]\\s", "", text)
 1753278239135:print(cleaned_text)  # Output: "Hello world This is a test. And here is a punctuated sentence."
+1753292684336:install.packages("ggplot2")
+1753295408386:counter <- function(textIn = chooseFile, keepHyphens = TRUE, keepContractions = TRUE)
+1753295408386:{
+1753295408386:## initialize the named vector (c(word = #count#))
+1753295408386:stats = c()
+1753295408387:## internal helper function(s)
+1753295408387:count <- function(wrd)
+1753295408387:{
+1753295408387:if (wrd %in% names(stats)) ## update
+1753295408387:{ stats[wrd] <- stats[wrd] + 1 }
+1753295408387:else ## create
+1753295408388:{ stats[wrd] <- 1}
+1753295408388:} ## end count helper
+1753295408388:####################### end helper functions #################################
+1753295408389:## finding a file or using a string input?
+1753295408389:if(textIn == chooseFile)
+1753295408389:{
+1753295408389:print("Please select your text file.")
+1753295408389:## get the file path, open the file for reading
+1753295408391:file.path <- file.choose()
+1753295408391:file.info <- file.info(file.path)
+1753295408391:text <- file(file.path, "r")
+1753295408391:}
+1753295408392:else ## for readLines to work, textConnection the string input
+1753295408392:{ text <- textConnection(textIn) }
+1753295408392:## just in case a line ends in a hyphen (initialize var)
+1753295408392:last <- ""
+1753295408392:## go over the file line by line
+1753295408392:while(length(line <- readLines(text, warn = FALSE)) > 0)
+1753295408393:{
+1753295408393:## no capitals... i don't care. i am machine
+1753295408393:## add the last hyphenated word maybe
+1753295408393:line <- paste0(last, tolower(line))
+1753295408395:## any punctuation with a space on either side of it must go
+1753295408395:ouTxt <- gsub("\\s[[:punct:]]|[[:punct:]]\\s", " ", text)
+1753295408396:## well, what if it has double punctuation!?
+1753295408396:ouTxt <- gsub("\\s[[:punct:]]|[[:punct:]]\\s", " ", text)
+1753295408396:## extra whitespace?
+1753295408396:if(!keepContractions) ## out with ye contractions (an' what 'bout these?... an bout)
+1753295408396:{ ouTxt <- gsub("\\b\\w*'\\w\\b", "", text)}
+1753295408397:## split line into words by whitespace (hyphenated words still in tact)
+1753295408397:words <- unlist(strsplit(line,"\\s+"))
+1753295408397:last <- tail(words, n = 1)
+1753295408397:countLast <- TRUE
+1753295408398:## what if the string ends on a hyphen? well... fuck
+1753295408398:if (substring(last, nchar(last), nchar(last)) == "-")
+1753295408398:{
+1753295408398:last = substring(last, 0, nchar(last) - 1)
+1753295408398:countLast <- FALSE  ## not a whole word (could be a-hole word, though)
+1753295408398:}
+1753295408399:else
+1753295408399:{ last = "" }
+1753295408399:numWords <- length(words)
+1753295408399:onWord <- 0 ## reset the counter and limit each time... (hyphenated enders)
+1753295408400:## now it can add to the dictionary, and while it's looping these words
+1753295408400:## it can check for hyphenated words and split or keep them
+1753295408400:for (word in words)
+1753295408400:{
+1753295408400:## skipping the last word? break out
+1753295408401:if(onWord == numWords && countLast == FALSE){ break }
+1753295408402:## check hyphen condition
+1753295408402:if(!keepHyphens && grepl("-", word))
+1753295408402:{
+1753295408402:## split the words at the hyphen
+1753295408402:both <- strsplit(word, "-")[[1]]
+1753295408403:## now do all the dataframing for them
+1753295408403:for(word in both)
+1753295408403:{
+1753295408403:if(word %in% stats$word)
+1753295408403:{
+1753295408403:count(word)
+1753295408404:} ## end update word
+1753295408404:} ## end adding both words
+1753295408404:} ## end if no hyphenated words
+1753295408405:else
+1753295408405:{ count(word) }
+1753295408405:onWord <- onWord + 1
+1753295408406:} ## end reading input
+1753295408407:## close file if open
+1753295408407:if(textIn == chooseFile)
+1753295408407:{ close(file.path) }
+1753295408408:print(stats)
+1753295408408:}
+1753295425089:counter()
+1753295434319:3+4

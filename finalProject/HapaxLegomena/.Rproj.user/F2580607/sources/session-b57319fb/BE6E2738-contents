@@ -1,13 +1,49 @@
-counter <- function(keepHyphens = TRUE, keepContractions = TRUE)
+## text: defaults to chooseFile or input a string
+
+counter <- function(textIn = chooseFile, keepHyphens = TRUE, keepContractions = TRUE)
 {
-  print("Please select your text file.")
+  ## initialize the named vector (c(word = #count#))
+  stats = c()
 
-  file.path <- file.choose()
-  file.info <- file.info(file.path)
-  text <- file(file.path, "r")
+  ## internal helper function(s)
+  count <- function(wrd)
+  {
+    if (wrd %in% names(stats)) ## update
+    { stats[wrd] <- stats[wrd] + 1 }
+    else ## create
+    { stats[wrd] <- 1}
+  } ## end count helper
 
-  counts <- data.frame(word = c(), count=c(), length=c())
-  last <- "" ## just in case a line ends in a hyphen
+
+  clean <- function(ln)
+  {
+    ## any punctuation with a space on either side of it must go
+    ln <- gsub("\\s[[:punct:]]|[[:punct:]]\\s", " ", ln)
+
+    ## out with ye contractions (an' what 'bout these?... an bout)
+    if(!keepContractions)
+    { ln <- gsub("\\b\\w*'\\w\\b", "", ln)}
+
+    return ln
+  }
+
+  ####################### end helper functions #################################
+
+  ## finding a file or using a string input?
+  if(textIn == chooseFile)
+  {
+    print("Please select your text file.")
+    ## get the file path, open the file for reading
+    file.path <- file.choose()
+    file.info <- file.info(file.path)
+    text <- file(file.path, "r")
+  }
+  else ## for readLines to work, textConnection the string input
+  { text <- textConnection(textIn) }
+
+
+  ## just in case a line ends in a hyphen (initialize var)
+  last <- ""
 
   ## go over the file line by line
   while(length(line <- readLines(text, warn = FALSE)) > 0)
@@ -16,17 +52,11 @@ counter <- function(keepHyphens = TRUE, keepContractions = TRUE)
     ## add the last hyphenated word maybe
     line <- paste0(last, tolower(line))
 
+    ## wash, rinse, Repeat!
+    line <- clean(line)
+    line <- clean(line) ## because, what if it is double punctuated?!
 
-    ## any punctuation with a space on either side of it must go
-    ouTxt <- gsub("\\s[[:punct:]]|[[:punct:]]\\s", " ", text)
-    ## well, what if it has double punctuation!?
-    ouTxt <- gsub("\\s[[:punct:]]|[[:punct:]]\\s", " ", text)
-    ## extra whitespace?
-
-    if(!keepContractions) ## out with ye contractions (an' what 'bout these?... an bout)
-    { ouTxt <- gsub("\\b\\w*'\\w\\b", "", text)}
-
-    ## split line into words by whitespace (hyphenated words still in tact)
+    ## split line into words by white space (hyphenated words still in tact)
     words <- unlist(strsplit(line,"\\s+"))
     last <- tail(words, n = 1)
 
@@ -38,12 +68,11 @@ counter <- function(keepHyphens = TRUE, keepContractions = TRUE)
       countLast <- FALSE  ## not a whole word (could be a-hole word, though)
     }
     else
-    {
-      last = ""
-    }
+    { last = "" }
 
     numWords <- length(words)
     onWord <- 0 ## reset the counter and limit each time... (hyphenated enders)
+
 
     ## now it can add to the dictionary, and while it's looping these words
     ## it can check for hyphenated words and split or keep them
@@ -57,50 +86,26 @@ counter <- function(keepHyphens = TRUE, keepContractions = TRUE)
       {
         ## split the words at the hyphen
         both <- strsplit(word, "-")[[1]]
-        first <- both[1]
-        second <- both[2]
         ## now do all the dataframing for them
+        for(word in both)
+        {
+          if(word %in% stats$word)
+          {
+            count(word)
+          } ## end update word
+        } ## end adding both words
 
-
-      }
+      } ## end if no hyphenated words
+      else
+      { count(word) }
 
       onWord <- onWord + 1
-    }
+
+    } ## end reading input
 
 
-
-
-
-
-
-
-
-    ## and the trickier text cleaning
-    striPunc <- function(txt, hyphen, contraction)
-    {
-      ## any punctuation with a space on either side of it must go
-      ouTxt <- gsub("\\s[[:punct:]]|[[:punct:]]\\s", " ", text)
-      ## well, what if it has double punctuation!?
-      ouTxt <- gsub("\\s[[:punct:]]|[[:punct:]]\\s", " ", text)
-      ## extra whitespace?
-
-      if(!contraction) ## out with ye contractions (an' what 'bout these?... an bout)
-      { ouTxt <- gsub("\\b\\w*'\\w\\b", "", text)}
-
-
-
-      ## well, we need to stop this because if the last word ends in a long-
-      ## er word, then we'll have to do some extra shit to ensure that word
-      ## is preserved like some raspberry jambs, yo
-      ## what about hyphens?
-
-
-      ## okay
-    } ## end striPunc
-
-  } ## end while in text
-
+    ## close file if open
+    if(textIn == chooseFile)
+    { close(file.path) }
 
 }
-
-
