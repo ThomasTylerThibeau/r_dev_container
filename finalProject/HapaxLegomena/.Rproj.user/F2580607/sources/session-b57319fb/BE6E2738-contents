@@ -1,5 +1,20 @@
-## text: defaults to chooseFile or input a string
-
+## textIn:
+## keepHyphens:
+## keepContraction:
+#' Counter parses the text input and creates a simple named vector to hold
+#' int counts of words. Accepts string input but defaults to choose a file.
+#'
+#' @param textIn defaults to chooseFile or input a string
+#' @param keepHyphens  (TRUE: "single-file" += 1 |
+#'                      FALSE: "single" += 1, "file" += 1)
+#' note:  counter does not keep end-of-line hyphens; it recombines the word
+#'        Does not recognize double-hyphens; will falsely recombine single-hyphens
+#' @param keepContractions (TRUE:"can't" += 1 |FALSE: "can" += 1, "t" += 1)
+#'
+#' @returns named vector
+#' @export
+#'
+#' @examples
 counter <- function(textIn = chooseFile, keepHyphens = TRUE, keepContractions = TRUE)
 {
   ## initialize the named vector (c(word = #count#))
@@ -22,7 +37,7 @@ counter <- function(textIn = chooseFile, keepHyphens = TRUE, keepContractions = 
 
     ## out with ye contractions (an' what 'bout these?... an bout)
     if(!keepContractions)
-    { ln <- gsub("\\b\\w*'\\w\\b", "", ln)}
+    { ln <- gsub("\\b\\w*'\\w\\b", " ", ln)}
 
     return (ln)
   } ## end clean
