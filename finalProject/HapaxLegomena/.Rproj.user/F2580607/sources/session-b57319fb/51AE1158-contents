@@ -1,5 +1,5 @@
-analyze <- function(textIn = "file", 
-                    keepHyphens = TRUE, 
+analyze <- function(textIn = "file",
+                    keepHyphens = TRUE,
                     keepContractions = TRUE)
 {
 
@@ -8,30 +8,41 @@ analyze <- function(textIn = "file",
   {
     ## choose file or use path?
     path <- readline(prompt = "enter path or 'enter' to search")
-    
+
     if (path == "")
     { path <- file.choose() }
-    
+
     ## and spit it out
     return (path)
   }
-  
-  
+
+
   clean <- function(line, hyphens, contractions)
   {
     ## no proper nouns allowed
     line <- tolower(line)
-    
+
     ## apropros keep hyphy chars
     line <- gsub("[^a-z-']", " ", line)
-    
-    if
-    
+
+    if (!contractions) ## if no contractions, replace 'em with spaces
+    { line <- gsub("(?<=\\w)'(?=\\w)", " ", line, perl = TRUE)    }
+    else
+    { line <- gsub("(?<!\\w)'|'(?!\\w)", " ", your_string, perl = TRUE)}
+
+    if (!hyphens)
+    { line <- gsub("-", " ", line) }
+
     # Use gsub with regex to replace apostrophes between letters
     # The pattern "(?<=\\w)'(?=\\w)" matches an apostrophe between word characters
     modified_text <- gsub("(?<=\\w)'(?=\\w)", "", text, perl = TRUE)
-    
-    
+
+    ## does the line end in a hyphenated word? damn, work
+    partialWord <- FALSE
+    if (grepl("-$", line))
+    { partialWord <- TRUE }
+
+    return (c(line, partialWord)
   }
 
   ######################### end helper functions ##############################
@@ -55,17 +66,34 @@ analyze <- function(textIn = "file",
   } ## end if using file
   else ## for readLines to work, textConnection the string input
   { text <- textConnection(textIn) }
-  
+
   stats <- data.frame(word = )
-  
+
+  ## initialize the variable to hold hyphenated end-of-liners
+  last <- ""
   while(TRUE)
   {
     line <- readLines(text, n = 1)
 
+    ## if the last line ended with a hyphenated word, paste it on da start
+    line <- paste0(last, line)
+
     ## but how does it know there are no more lines? MAGIC
     if (length(line) == 0) { break }
 
-    
+    ## lines of code where line is on line as line for line (wanna line?)
+    wash <- clean(line, keepHyphens, keepContractions)
+
+    line <- wash[1]
+
+    words <- unlist(strsplit(line,"\\s+"))
+    if (wash[2])
+    {
+      last <- words[length(words)]
+    }
+
+
+
 
   } ## end while reading lines
 
