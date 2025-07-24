@@ -80,11 +80,11 @@ analyze <- function(textIn = "file",
   ## initialize the variable to hold hyphenated end-of-liners
   last <- ""
   ## initialize a vector to hold the counts
-  wordCount <- c()
+  wordCount <- c("word" = 0)
 
 
   ##while(TRUE)
-  for (i in 1:10)
+  for (i in 1:1)
   {
     line <- readLines(text, n = 1)
 
@@ -120,8 +120,8 @@ analyze <- function(textIn = "file",
 
       for (word in words) ## word
       {
-        if(wordCount[word] == NA)
-        { wordCount[word] <- 1}
+        if(word %in% names(wordCount))
+        { wordCount <- c(word, 1)}
         else ## wordCount[word]++, no? 'course not
         { wordCount[word] <- wordCount[word] + 1}
       }
@@ -134,10 +134,14 @@ analyze <- function(textIn = "file",
   ## close the file, if it was a file
   if (textIn == "file") { close(text) }
 
+  print(wordCount)
+
   return (wordCount)
 
 } ## end readTheText
 
 wordCnt <- analyze()
-## wordCnt -> NULL (FUCKaDUCK)
 
+
+
+####### final thoughts, c(word, 1) 1 != integer. fix that?
