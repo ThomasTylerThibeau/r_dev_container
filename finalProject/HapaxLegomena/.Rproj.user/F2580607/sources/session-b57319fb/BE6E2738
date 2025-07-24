@@ -3,7 +3,7 @@
     "path": "/workspaces/r_dev_container/finalProject/HapaxLegomena/R/counter.R",
     "project_path": null,
     "type": "r_source",
-    "hash": "970098773",
+    "hash": "0",
     "contents": "",
     "dirty": false,
     "created": 1753275945009.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "67,3",
-        "scrollLine": "61"
+        "cursorPosition": "96,34",
+        "scrollLine": "81"
     },
     "folds": "",
-    "lastKnownWriteTime": 1753363061,
+    "lastKnownWriteTime": 1753363761,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1753363061099,
+    "last_content_update": 1753363761689,
     "read_only": false,
     "read_only_alternatives": []
 }

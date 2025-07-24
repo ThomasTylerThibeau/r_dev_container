@@ -27,7 +27,7 @@ counter <- function(textIn = "chooseFile", keepHyphens = TRUE, keepContractions 
   count <- function(wrd)
   {
     if (wrd %in% names(stats)) ## update
-    { stats[wrd] <- stats[wrd] + 1)}
+    { stats[wrd] <- stats[wrd] + 1}
     else ## create
     { stats[wrd] <- 1}
   } ## end count helper
@@ -52,9 +52,9 @@ counter <- function(textIn = "chooseFile", keepHyphens = TRUE, keepContractions 
   {
     print("Please select your text file.")
     ## get the file path, open the file for reading
-    file.path <- file.choose()
-    file.info <- file.info(file.path)
-    text <- file(file.path, "r")
+    text <- file.choose()
+    #file.info <- file.info(file.path)
+    #text <- file(file.path, "r")
   }
   else ## for readLines to work, textConnection the string input
   { text <- textConnection(textIn) }
@@ -66,6 +66,8 @@ counter <- function(textIn = "chooseFile", keepHyphens = TRUE, keepContractions 
   ## go over the file line by line
   while(length(line <- readLines(text, warn = FALSE)) > 0)
   {
+
+    cat("STARTING WHILE:", line)
     ## no capitals... i don't care. i am machine
     ## add the last hyphenated word maybe
     line <- paste0(last, tolower(line))
