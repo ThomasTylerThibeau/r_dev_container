@@ -76,49 +76,68 @@ analyze <- function(textIn = "file",
   else ## for readLines to work, textConnection the string input
   { text <- textConnection(textIn) }
 
+
   ## initialize the variable to hold hyphenated end-of-liners
   last <- ""
   ## initialize a vector to hold the counts
   wordCount <- c()
 
-  while(TRUE)
+
+  ##while(TRUE)
+  for (i in 1:10)
   {
     line <- readLines(text, n = 1)
 
     ## if the last line ended with a hyphenated word, paste it on da start
     line <- paste0(last, line)
 
+    cat("\n")
+    cat("this is line:" , line)
+
     ## but how does it know there are no more lines? MAGIC
     if (length(line) == 0) { break }
-
-    ## lines of code where line is on line as line for line (wanna line?)
-    wash <- clean(line, keepHyphens, keepContractions)
-
-    line <- wash[1]
-
-    words <- unlist(strsplit(line,"\\s+"))
-
-    if (wash[2])
+    else
     {
-      ## store the last word frag
-      last <- words[length(words)]
-      ## reset the line to not hold that part
-      words <- words[-length(words)]
-    }
+      ## lines of code where line is on line as line for line (wanna line?)
+      wash <- clean(line, keepHyphens, keepContractions)
+
+    ## wtf
+      print(wash)
+
+      line <- wash[1]
+
+      words <- unlist(strsplit(line,"\\s+"))
+
+      if (wash[2])
+      {
+        ## store the last word frag
+        last <- words[length(words)]
+        ## reset the line to not hold that part
+        words <- words[-length(words)]
+
+      } ## partial word saved for next line
 
 
-    for (word in words) ## word
-    { wordCount[word] <- wordCount[word] + 1 }
+      for (word in words) ## word
+      {
+        if(wordCount[word] == NA)
+        { wordCount[word] <- 1}
+        else ## wordCount[word]++, no? 'course not
+        { wordCount[word] <- wordCount[word] + 1}
+      }
 
+
+    } ## end not empty line
 
   } ## end while reading lines
 
   ## close the file, if it was a file
   if (textIn == "file") { close(text) }
 
-  retrun (wordCount)
+  return (wordCount)
 
 } ## end readTheText
 
 wordCnt <- analyze()
+## wordCnt -> NULL (FUCKaDUCK)
 
