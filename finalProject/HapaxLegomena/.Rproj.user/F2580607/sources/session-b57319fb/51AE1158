@@ -1,26 +1,26 @@
 {
     "id": "51AE1158",
-    "path": "/workspaces/r_dev_container/finalProject/HapaxLegomena/R/readTheText.R",
+    "path": "/workspaces/r_dev_container/finalProject/HapaxLegomena/R/analyze.R",
     "project_path": null,
     "type": "r_source",
-    "hash": "3111809642",
+    "hash": "0",
     "contents": "",
-    "dirty": false,
+    "dirty": true,
     "created": 1753364047348.0,
     "source_on_save": false,
     "relative_order": 4,
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "115,23",
-        "scrollLine": "78"
+        "cursorPosition": "2,2",
+        "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1753367263,
+    "lastKnownWriteTime": 1753379279,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1753367263235,
+    "last_content_update": 1753379479551,
     "read_only": false,
     "read_only_alternatives": []
 }
