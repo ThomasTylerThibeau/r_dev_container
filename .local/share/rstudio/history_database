@@ -7117,3 +7117,1184 @@
 1753363766995:return (stats)
 1753363766995:}
 1753363771140:counter()
+1753363942722:counter <- function(textIn = "chooseFile", keepHyphens = TRUE, keepContractions = TRUE)
+1753363942722:{
+1753363942722:## initialize the named vector (c(word = #count#))
+1753363942722:stats = c()
+1753363942723:## internal helper function(s)
+1753363942723:count <- function(wrd)
+1753363942723:{
+1753363942723:if (wrd %in% names(stats)) ## update
+1753363942723:{ stats[wrd] <- stats[wrd] + 1}
+1753363942723:else ## create
+1753363942724:{ stats[wrd] <- 1}
+1753363942724:} ## end count helper
+1753363942725:clean <- function(ln)
+1753363942725:{
+1753363942725:## any punctuation with a space on either side of it must go
+1753363942726:ln <- gsub("\\s[[:punct:]]|[[:punct:]]\\s", " ", ln)
+1753363942726:## out with ye contractions (an' what 'bout these?... an bout)
+1753363942727:if(!keepContractions)
+1753363942727:{ ln <- gsub("\\b\\w*'\\w\\b", " ", ln)}
+1753363942728:return (ln)
+1753363942728:} ## end clean
+1753363942728:####################### end helper functions #################################
+1753363942729:## finding a file or using a string input?
+1753363942729:if(textIn == "chooseFile")
+1753363942729:{
+1753363942729:print("Please select your text file.")
+1753363942729:## get the file path, open the file for reading
+1753363942729:text <- file.choose()
+1753363942730:#file.info <- file.info(file.path)
+1753363942730:#text <- file(file.path, "r")
+1753363942730:}
+1753363942730:else ## for readLines to work, textConnection the string input
+1753363942731:{ text <- textConnection(textIn) }
+1753363942731:## just in case a line ends in a hyphen (initialize var)
+1753363942731:last <- ""
+1753363942731:lines <- readLines(text)
+1753363942731:## go over the file line by line
+1753363942732:for (line in lines)
+1753363942732:{
+1753363942732:## no capitals... i don't care. i am machine
+1753363942732:## add the last hyphenated word maybe
+1753363942732:line <- paste0(last, tolower(line))
+1753363942732:## wash, rinse, Repeat!
+1753363942733:line <- clean(line)
+1753363942733:line <- clean(line) ## because, what if it is double punctuated?!
+1753363942733:## split line into words by white space (hyphenated words still in tact)
+1753363942733:words <- unlist(strsplit(line,"\\s+"))
+1753363942733:last <- tail(words, n = 1)
+1753363942733:## does the line end in a hyphenated/truncated word?
+1753363942734:countLast <- TRUE
+1753363942734:if (substring(last, nchar(last), nchar(last)) == "-")
+1753363942734:{
+1753363942734:last = substring(last, 0, nchar(last) - 1)
+1753363942734:countLast <- FALSE  ## not a whole word (could be a-hole word, though)
+1753363942734:}
+1753363942734:else
+1753363942735:{ last = "" }
+1753363942735:numWords <- length(words)
+1753363942735:onWord <- 0 ## reset the counter and limit each time... (hyphenated enders)
+1753363942735:## now it can add to the dictionary, and while it's looping these words
+1753363942735:## it can check for hyphenated words and split or keep them
+1753363942736:for (word in words)
+1753363942736:{
+1753363942736:## track the word it's on (one-indexed language, intuitive yet a pain)
+1753363942736:onWord <- onWord + 1
+1753363942736:## skipping the last word? break out
+1753363942736:if(onWord == numWords && countLast == FALSE){ break }
+1753363942737:## if it needs to split hyphenated words (AND the word has a hyphen)
+1753363942737:if(!keepHyphens && grepl("-", word))
+1753363942737:{
+1753363942737:## split the words at the hyphen
+1753363942737:both <- strsplit(word, "-")[[1]]
+1753363942738:## now do all the dataframing for them
+1753363942738:for(part in both)
+1753363942738:{ count(part) } ## add/update words (count can figure it out)
+1753363942738:} ## otherwise, count the word as it is
+1753363942738:else { count(word) }
+1753363942739:} ## end add words
+1753363942739:} ## end reading file
+1753363942739:## close file if open
+1753363942739:on.exit(close(text))
+1753363942740:return (stats)
+1753363942740:}
+1753363950051:c <- counter()
+1753364032181:use_r("readTheText")
+1753364039118:library(devtools)
+1753364046966:use_r("readTheText")
+1753364125860:counter <- function(textIn = "chooseFile", keepHyphens = TRUE, keepContractions = TRUE)
+1753364125860:{
+1753364125860:## initialize the named vector (c(word = #count#))
+1753364125860:stats = c()
+1753364125861:## internal helper function(s)
+1753364125861:count <- function(wrd)
+1753364125861:{
+1753364125861:if (wrd %in% names(stats)) ## update
+1753364125861:{ stats[wrd] <- stats[wrd] + 1}
+1753364125861:else ## create
+1753364125862:{ stats[wrd] <- 1}
+1753364125862:} ## end count helper
+1753364125862:clean <- function(ln)
+1753364125863:{
+1753364125863:## any punctuation with a space on either side of it must go
+1753364125863:ln <- gsub("\\s[[:punct:]]|[[:punct:]]\\s", " ", ln)
+1753364125863:## out with ye contractions (an' what 'bout these?... an bout)
+1753364125864:if(!keepContractions)
+1753364125864:{ ln <- gsub("\\b\\w*'\\w\\b", " ", ln)}
+1753364125864:return (ln)
+1753364125864:} ## end clean
+1753364125865:####################### end helper functions #################################
+1753364125865:## finding a file or using a string input?
+1753364125865:if(textIn == "chooseFile")
+1753364125866:{
+1753364125866:print("Please select your text file.")
+1753364125866:## get the file path, open the file for reading
+1753364125866:text <- file.choose()
+1753364125867:#file.info <- file.info(file.path)
+1753364125867:#text <- file(file.path, "r")
+1753364125868:}
+1753364125868:else ## for readLines to work, textConnection the string input
+1753364125868:{ text <- textConnection(textIn) }
+1753364125869:## just in case a line ends in a hyphen (initialize var)
+1753364125869:last <- ""
+1753364125869:lines <- readLines(text)
+1753364125870:## go over the file line by line
+1753364125870:for (line in lines)
+1753364125870:{
+1753364125871:## no capitals... i don't care. i am machine
+1753364125871:## add the last hyphenated word maybe
+1753364125871:line <- paste0(last, tolower(line))
+1753364125871:## wash, rinse, Repeat!
+1753364125871:line <- clean(line)
+1753364125872:line <- clean(line) ## because, what if it is double punctuated?!
+1753364125872:## split line into words by white space (hyphenated words still in tact)
+1753364125872:words <- unlist(strsplit(line,"\\s+"))
+1753364125872:last <- tail(words, n = 1)
+1753364125872:## does the line end in a hyphenated/truncated word?
+1753364125872:countLast <- TRUE
+1753364125873:if (substring(last, nchar(last), nchar(last)) == "-")
+1753364125873:{
+1753364125873:last = substring(last, 0, nchar(last) - 1)
+1753364125873:countLast <- FALSE  ## not a whole word (could be a-hole word, though)
+1753364125873:}
+1753364125873:else
+1753364125873:{ last = "" }
+1753364125874:numWords <- length(words)
+1753364125874:onWord <- 0 ## reset the counter and limit each time... (hyphenated enders)
+1753364125874:## now it can add to the dictionary, and while it's looping these words
+1753364125874:## it can check for hyphenated words and split or keep them
+1753364125875:for (word in words)
+1753364125875:{
+1753364125875:## track the word it's on (one-indexed language, intuitive yet a pain)
+1753364125875:onWord <- onWord + 1
+1753364125875:## skipping the last word? break out
+1753364125875:if(onWord == numWords && countLast == FALSE){ break }
+1753364125876:## if it needs to split hyphenated words (AND the word has a hyphen)
+1753364125876:if(!keepHyphens && grepl("-", word))
+1753364125876:{
+1753364125876:## split the words at the hyphen
+1753364125876:both <- strsplit(word, "-")[[1]]
+1753364125876:## now do all the dataframing for them
+1753364125877:for(part in both)
+1753364125877:{ count(part) } ## add/update words (count can figure it out)
+1753364125877:} ## otherwise, count the word as it is
+1753364125877:else { count(word) }
+1753364125877:} ## end add words
+1753364125878:} ## end reading file
+1753364125878:## close file if open
+1753364125878:on.exit(close(text))
+1753364125879:return (c(stats)
+1753364125879:}
+1753364140520:counter <- function(textIn = "chooseFile", keepHyphens = TRUE, keepContractions = TRUE)
+1753364140520:{
+1753364140520:## initialize the named vector (c(word = #count#))
+1753364140520:stats = c()
+1753364140520:## internal helper function(s)
+1753364140520:count <- function(wrd)
+1753364140520:{
+1753364140521:if (wrd %in% names(stats)) ## update
+1753364140521:{ stats[wrd] <- stats[wrd] + 1}
+1753364140521:else ## create
+1753364140521:{ stats[wrd] <- 1}
+1753364140521:} ## end count helper
+1753364140522:clean <- function(ln)
+1753364140522:{
+1753364140522:## any punctuation with a space on either side of it must go
+1753364140522:ln <- gsub("\\s[[:punct:]]|[[:punct:]]\\s", " ", ln)
+1753364140523:## out with ye contractions (an' what 'bout these?... an bout)
+1753364140523:if(!keepContractions)
+1753364140523:{ ln <- gsub("\\b\\w*'\\w\\b", " ", ln)}
+1753364140524:return (ln)
+1753364140524:} ## end clean
+1753364140525:####################### end helper functions #################################
+1753364140526:## finding a file or using a string input?
+1753364140526:if(textIn == "chooseFile")
+1753364140526:{
+1753364140527:print("Please select your text file.")
+1753364140527:## get the file path, open the file for reading
+1753364140527:text <- file.choose()
+1753364140527:#file.info <- file.info(file.path)
+1753364140527:#text <- file(file.path, "r")
+1753364140527:}
+1753364140527:else ## for readLines to work, textConnection the string input
+1753364140528:{ text <- textConnection(textIn) }
+1753364140528:## just in case a line ends in a hyphen (initialize var)
+1753364140528:last <- ""
+1753364140529:lines <- readLines(text)
+1753364140529:## go over the file line by line
+1753364140529:for (line in lines)
+1753364140529:{
+1753364140529:## no capitals... i don't care. i am machine
+1753364140529:## add the last hyphenated word maybe
+1753364140530:line <- paste0(last, tolower(line))
+1753364140530:## wash, rinse, Repeat!
+1753364140530:line <- clean(line)
+1753364140530:line <- clean(line) ## because, what if it is double punctuated?!
+1753364140530:## split line into words by white space (hyphenated words still in tact)
+1753364140530:words <- unlist(strsplit(line,"\\s+"))
+1753364140531:last <- tail(words, n = 1)
+1753364140531:## does the line end in a hyphenated/truncated word?
+1753364140531:countLast <- TRUE
+1753364140531:if (substring(last, nchar(last), nchar(last)) == "-")
+1753364140531:{
+1753364140531:last = substring(last, 0, nchar(last) - 1)
+1753364140531:countLast <- FALSE  ## not a whole word (could be a-hole word, though)
+1753364140532:}
+1753364140532:else
+1753364140532:{ last = "" }
+1753364140532:numWords <- length(words)
+1753364140532:onWord <- 0 ## reset the counter and limit each time... (hyphenated enders)
+1753364140533:## now it can add to the dictionary, and while it's looping these words
+1753364140533:## it can check for hyphenated words and split or keep them
+1753364140533:for (word in words)
+1753364140533:{
+1753364140533:## track the word it's on (one-indexed language, intuitive yet a pain)
+1753364140533:onWord <- onWord + 1
+1753364140534:## skipping the last word? break out
+1753364140534:if(onWord == numWords && countLast == FALSE){ break }
+1753364140534:## if it needs to split hyphenated words (AND the word has a hyphen)
+1753364140534:if(!keepHyphens && grepl("-", word))
+1753364140534:{
+1753364140535:## split the words at the hyphen
+1753364140535:both <- strsplit(word, "-")[[1]]
+1753364140535:## now do all the dataframing for them
+1753364140535:for(part in both)
+1753364140535:{ count(part) } ## add/update words (count can figure it out)
+1753364140535:} ## otherwise, count the word as it is
+1753364140536:else { count(word) }
+1753364140536:} ## end add words
+1753364140536:} ## end reading file
+1753364140537:## close file if open
+1753364140537:on.exit(close(text))
+1753364140537:return (c(stats))
+1753364140537:}
+1753364149502:c <- count()
+1753364154774:c <- counter()
+1753364194506:counter("this is a line")
+1753364233521:readTheText <- function(textIn = "chooseFile", keepHyphens = TRUE, keepContractions = TRUE)
+1753364233521:{
+1753364233521:## finding a file or using a string input?
+1753364233521:if(textIn == "chooseFile")
+1753364233521:{
+1753364233521:print("Please select your text file.")
+1753364233522:## get the file path, open the file for reading
+1753364233522:text <- file.choose()
+1753364233522:#file.info <- file.info(file.path)
+1753364233522:#text <- file(file.path, "r")
+1753364233522:}
+1753364233522:else ## for readLines to work, textConnection the string input
+1753364233522:{ text <- textConnection(textIn) }
+1753364233524:## just in case a line ends in a hyphen (initialize var)
+1753364233524:last <- ""
+1753364233524:lines <- readLines(text)
+1753364233524:print(lines)
+1753364233525:} ## end readTheText
+1753364240069:readTheText()
+1753364273832:readTheText <- function(textIn = "chooseFile", keepHyphens = TRUE, keepContractions = TRUE)
+1753364273832:{
+1753364273833:## finding a file or using a string input?
+1753364273833:if(textIn == "chooseFile")
+1753364273833:{
+1753364273833:print("Please select your text file.")
+1753364273833:## get the file path, open the file for reading
+1753364273833:text <- file.choose()
+1753364273834:#file.info <- file.info(file.path)
+1753364273834:#text <- file(file.path, "r")
+1753364273834:}
+1753364273834:else ## for readLines to work, textConnection the string input
+1753364273834:{ text <- textConnection(textIn) }
+1753364273834:## just in case a line ends in a hyphen (initialize var)
+1753364273835:last <- ""
+1753364273835:lines <- readLines(text)
+1753364273835:for(line in lines)
+1753364273835:{
+1753364273835:print(line)
+1753364273835:}
+1753364273835:} ## end readTheText
+1753364278135:readTheText <- function(textIn = "chooseFile", keepHyphens = TRUE, keepContractions = TRUE)
+1753364278135:{
+1753364278135:## finding a file or using a string input?
+1753364278135:if(textIn == "chooseFile")
+1753364278135:{
+1753364278135:print("Please select your text file.")
+1753364278135:## get the file path, open the file for reading
+1753364278135:text <- file.choose()
+1753364278135:#file.info <- file.info(file.path)
+1753364278136:#text <- file(file.path, "r")
+1753364278136:}
+1753364278136:else ## for readLines to work, textConnection the string input
+1753364278136:{ text <- textConnection(textIn) }
+1753364278136:## just in case a line ends in a hyphen (initialize var)
+1753364278137:last <- ""
+1753364278137:lines <- readLines(text)
+1753364278137:for(line in lines)
+1753364278137:{
+1753364278138:print(line)
+1753364278138:}
+1753364278138:} ## end readTheText
+1753364284980:readTheText()
+1753364326183:readTheText <- function(textIn = "chooseFile", keepHyphens = TRUE, keepContractions = TRUE)
+1753364326183:{
+1753364326184:## finding a file or using a string input?
+1753364326184:if(textIn == "chooseFile")
+1753364326184:{
+1753364326184:print("Please select your text file.")
+1753364326184:## get the file path, open the file for reading
+1753364326184:file.path <- file.choose()
+1753364326185:print(file.path)
+1753364326185:file.info <- file.info(file.path)
+1753364326185:text <- file(file.path, "r")
+1753364326185:}
+1753364326185:else ## for readLines to work, textConnection the string input
+1753364326186:{ text <- textConnection(textIn) }
+1753364326186:## just in case a line ends in a hyphen (initialize var)
+1753364326186:last <- ""
+1753364326187:lines <- readLines(text)
+1753364326187:for(line in lines)
+1753364326187:{
+1753364326187:print(line)
+1753364326187:}
+1753364326188:} ## end readTheText
+1753364336938:readTheText()
+1753364370911:readTheText <- function(textIn = "chooseFile", keepHyphens = TRUE, keepContractions = TRUE)
+1753364370911:{
+1753364370911:## finding a file or using a string input?
+1753364370911:if(textIn == "chooseFile")
+1753364370911:{
+1753364370911:print("Please select your text file.")
+1753364370911:## get the file path, open the file for reading
+1753364370912:file.path <- file.choose()
+1753364370912:print(file.path)
+1753364370912:file.info <- file.info(file.path)
+1753364370912:text <- file(file.path, "r")
+1753364370912:}
+1753364370912:else ## for readLines to work, textConnection the string input
+1753364370912:{ text <- textConnection(textIn) }
+1753364370913:## just in case a line ends in a hyphen (initialize var)
+1753364370913:last <- ""
+1753364370913:lines <- readLines(text)
+1753364370914:for(line in lines)
+1753364370914:{
+1753364370914:print(line)
+1753364370914:}
+1753364370914:} ## end readTheText
+1753364370915:readTheText("Here is some text")
+1753364408079:file_path <- file.choose()
+1753364411146:# Read the file line by line
+1753364411146:lines <- readLines(file_path)
+1753364411147:# Print the lines
+1753364411147:for (line in lines) {
+1753364411147:print(line)
+1753364411147:}
+1753364435453:file_path <- "/workspaces/r_dev_container/finalProject/HapaxLegomena/data/TexTesT.rda"
+1753364435453:# Read the file line by line
+1753364435453:lines <- readLines(file_path)
+1753364435454:# Print the lines
+1753364435454:for (line in lines) {
+1753364435454:print(line)
+1753364435454:}
+1753364478520:load("~/finalProject/HapaxLegomena/data/TexTesT.rda")
+1753364486543:readTheText("Here is some text")
+1753364486543:file_path <- "/workspaces/r_dev_container/finalProject/HapaxLegomena/data/TexTesT.rda"
+1753364486543:# Read the file line by line
+1753364486544:lines <- readLines(file_path)
+1753364486545:# Print the lines
+1753364486545:for (line in lines) {
+1753364486545:print(line)
+1753364486546:}
+1753364493872:load("~/finalProject/HapaxLegomena/data/TexTesT.rda")
+1753364555819:counter <- function(textIn = "chooseFile", keepHyphens = TRUE, keepContractions = TRUE)
+1753364555819:{
+1753364555819:## initialize the named vector (c(word = #count#))
+1753364555819:stats = c()
+1753364555820:## internal helper function(s)
+1753364555820:count <- function(wrd)
+1753364555820:{
+1753364555820:if (wrd %in% names(stats)) ## update
+1753364555820:{ stats[wrd] <- stats[wrd] + 1}
+1753364555820:else ## create
+1753364555820:{ stats[wrd] <- 1}
+1753364555820:} ## end count helper
+1753364555820:clean <- function(ln)
+1753364555821:{
+1753364555821:## any punctuation with a space on either side of it must go
+1753364555821:ln <- gsub("\\s[[:punct:]]|[[:punct:]]\\s", " ", ln)
+1753364555821:## out with ye contractions (an' what 'bout these?... an bout)
+1753364555821:if(!keepContractions)
+1753364555822:{ ln <- gsub("\\b\\w*'\\w\\b", " ", ln)}
+1753364555822:return (ln)
+1753364555822:} ## end clean
+1753364555823:####################### end helper functions #################################
+1753364555823:## finding a file or using a string input?
+1753364555823:if(textIn == "chooseFile")
+1753364555824:{
+1753364555824:print("Please select your text file.")
+1753364555824:## get the file path, open the file for reading
+1753364555824:text <- file.choose()
+1753364555824:#file.info <- file.info(file.path)
+1753364555825:#text <- file(file.path, "r")
+1753364555825:}
+1753364555825:else ## for readLines to work, textConnection the string input
+1753364555825:{ text <- textConnection(textIn) }
+1753364555826:## just in case a line ends in a hyphen (initialize var)
+1753364555826:last <- ""
+1753364555826:lines <- readLines(text)
+1753364555827:## go over the file line by line
+1753364555827:for (line in lines)
+1753364555827:{
+1753364555828:## no capitals... i don't care. i am machine
+1753364555828:## add the last hyphenated word maybe
+1753364555828:line <- paste0(last, tolower(line))
+1753364555828:## wash, rinse, Repeat!
+1753364555829:line <- clean(line)
+1753364555829:line <- clean(line) ## because, what if it is double punctuated?!
+1753364555829:## split line into words by white space (hyphenated words still in tact)
+1753364555829:words <- unlist(strsplit(line,"\\s+"))
+1753364555829:last <- tail(words, n = 1)
+1753364555830:## does the line end in a hyphenated/truncated word?
+1753364555830:countLast <- TRUE
+1753364555830:if (substring(last, nchar(last), nchar(last)) == "-")
+1753364555831:{
+1753364555831:last = substring(last, 0, nchar(last) - 1)
+1753364555831:countLast <- FALSE  ## not a whole word (could be a-hole word, though)
+1753364555831:}
+1753364555831:else
+1753364555832:{ last = "" }
+1753364555832:numWords <- length(words)
+1753364555832:onWord <- 0 ## reset the counter and limit each time... (hyphenated enders)
+1753364555832:## now it can add to the dictionary, and while it's looping these words
+1753364555833:## it can check for hyphenated words and split or keep them
+1753364555833:for (word in words)
+1753364555833:{
+1753364555833:## track the word it's on (one-indexed language, intuitive yet a pain)
+1753364555833:onWord <- onWord + 1
+1753364555833:## skipping the last word? break out
+1753364555834:if(onWord == numWords && countLast == FALSE){ break }
+1753364555834:## if it needs to split hyphenated words (AND the word has a hyphen)
+1753364555834:if(!keepHyphens && grepl("-", word))
+1753364555834:{
+1753364555834:## split the words at the hyphen
+1753364555834:both <- strsplit(word, "-")[[1]]
+1753364555835:## now do all the dataframing for them
+1753364555835:for(part in both)
+1753364555835:{ count(part) } ## add/update words (count can figure it out)
+1753364555835:} ## otherwise, count the word as it is
+1753364555835:else { count(word) }
+1753364555836:} ## end add words
+1753364555836:} ## end reading file
+1753364555836:## close file if open
+1753364555836:on.exit(close(text))
+1753364555837:return (c(stats))
+1753364555837:}
+1753364559681:counter()
+1753364603612:counter <- function(textIn = "chooseFile", keepHyphens = TRUE, keepContractions = TRUE)
+1753364603612:{
+1753364603612:## initialize the named vector (c(word = #count#))
+1753364603613:stats = c()
+1753364603613:## internal helper function(s)
+1753364603613:count <- function(wrd)
+1753364603613:{
+1753364603613:if (wrd %in% names(stats)) ## update
+1753364603613:{ stats[wrd] <- stats[wrd] + 1}
+1753364603613:else ## create
+1753364603613:{ stats[wrd] <- 1}
+1753364603613:} ## end count helper
+1753364603614:clean <- function(ln)
+1753364603614:{
+1753364603614:## any punctuation with a space on either side of it must go
+1753364603614:ln <- gsub("\\s[[:punct:]]|[[:punct:]]\\s", " ", ln)
+1753364603614:## out with ye contractions (an' what 'bout these?... an bout)
+1753364603615:if(!keepContractions)
+1753364603615:{ ln <- gsub("\\b\\w*'\\w\\b", " ", ln)}
+1753364603615:## filter empty lines
+1753364603615:lines <- lines[nzchar(lines)]
+1753364603616:return (ln)
+1753364603616:} ## end clean
+1753364603616:####################### end helper functions #################################
+1753364603617:## finding a file or using a string input?
+1753364603617:if(textIn == "chooseFile")
+1753364603617:{
+1753364603617:print("Please select your text file.")
+1753364603618:## get the file path, open the file for reading
+1753364603618:text <- file.choose()
+1753364603618:#file.info <- file.info(file.path)
+1753364603618:#text <- file(file.path, "r")
+1753364603618:}
+1753364603619:else ## for readLines to work, textConnection the string input
+1753364603619:{ text <- textConnection(textIn) }
+1753364603619:## just in case a line ends in a hyphen (initialize var)
+1753364603620:last <- ""
+1753364603620:lines <- readLines(text)
+1753364603620:## go over the file line by line
+1753364603621:for (line in lines)
+1753364603621:{
+1753364603621:## no capitals... i don't care. i am machine
+1753364603621:## add the last hyphenated word maybe
+1753364603621:line <- paste0(last, tolower(line))
+1753364603622:## wash, rinse, Repeat!
+1753364603622:line <- clean(line)
+1753364603623:line <- clean(line) ## because, what if it is double punctuated?!
+1753364603624:## split line into words by white space (hyphenated words still in tact)
+1753364603624:words <- unlist(strsplit(line,"\\s+"))
+1753364603624:last <- tail(words, n = 1)
+1753364603624:## does the line end in a hyphenated/truncated word?
+1753364603624:countLast <- TRUE
+1753364603624:if (substring(last, nchar(last), nchar(last)) == "-")
+1753364603625:{
+1753364603625:last = substring(last, 0, nchar(last) - 1)
+1753364603625:countLast <- FALSE  ## not a whole word (could be a-hole word, though)
+1753364603625:}
+1753364603625:else
+1753364603625:{ last = "" }
+1753364603626:numWords <- length(words)
+1753364603626:onWord <- 0 ## reset the counter and limit each time... (hyphenated enders)
+1753364603626:## now it can add to the dictionary, and while it's looping these words
+1753364603626:## it can check for hyphenated words and split or keep them
+1753364603626:for (word in words)
+1753364603627:{
+1753364603627:## track the word it's on (one-indexed language, intuitive yet a pain)
+1753364603627:onWord <- onWord + 1
+1753364603627:## skipping the last word? break out
+1753364603627:if(onWord == numWords && countLast == FALSE){ break }
+1753364603628:## if it needs to split hyphenated words (AND the word has a hyphen)
+1753364603628:if(!keepHyphens && grepl("-", word))
+1753364603628:{
+1753364603628:## split the words at the hyphen
+1753364603628:both <- strsplit(word, "-")[[1]]
+1753364603628:## now do all the dataframing for them
+1753364603629:for(part in both)
+1753364603629:{ count(part) } ## add/update words (count can figure it out)
+1753364603629:} ## otherwise, count the word as it is
+1753364603629:else { count(word) }
+1753364603629:} ## end add words
+1753364603630:} ## end reading file
+1753364603630:## close file if open
+1753364603630:on.exit(close(text))
+1753364603631:return (c(stats))
+1753364603631:}
+1753364610816:c<- choose()
+1753364619016:c <- counter()
+1753364656287:file_path <- choose.file()
+1753364665366:file_path <- file.choose()
+1753364668364:# Read the file line by line
+1753364668364:lines <- readLines(file_path)
+1753364668364:# Print the lines
+1753364668364:for (line in lines) {
+1753364668364:print(line)
+1753364668364:}
+1753364831943:counter <- function(textIn = "chooseFile", keepHyphens = TRUE, keepContractions = TRUE)
+1753364831943:{
+1753364831943:## initialize the named vector (c(word = #count#))
+1753364831943:stats = c()
+1753364831943:## internal helper function(s)
+1753364831944:count <- function(wrd)
+1753364831944:{
+1753364831944:if (wrd %in% names(stats)) ## update
+1753364831944:{ stats[wrd] <- stats[wrd] + 1}
+1753364831944:else ## create
+1753364831944:{ stats[wrd] <- 1}
+1753364831944:} ## end count helper
+1753364831945:clean <- function(ln)
+1753364831945:{
+1753364831945:## any punctuation with a space on either side of it must go
+1753364831945:ln <- gsub("\\s[[:punct:]]|[[:punct:]]\\s", " ", ln)
+1753364831946:## out with ye contractions (an' what 'bout these?... an bout)
+1753364831946:if(!keepContractions)
+1753364831946:{ ln <- gsub("\\b\\w*'\\w\\b", " ", ln)}
+1753364831946:## filter empty lines
+1753364831947:lines <- lines[nzchar(lines)]
+1753364831947:return (ln)
+1753364831947:} ## end clean
+1753364831947:####################### end helper functions #################################
+1753364831948:## finding a file or using a string input?
+1753364831948:if(textIn == "chooseFile")
+1753364831948:{
+1753364831948:print("Please select your text file.")
+1753364831948:## get the file path, open the file for reading
+1753364831949:text <- file.choose()
+1753364831949:#file.info <- file.info(file.path)
+1753364831949:#text <- file(file.path, "r")
+1753364831949:}
+1753364831949:else ## for readLines to work, textConnection the string input
+1753364831949:{ text <- textConnection(textIn) }
+1753364831950:## just in case a line ends in a hyphen (initialize var)
+1753364831950:last <- ""
+1753364831950:lines <- readLines(text)
+1753364831950:## go over the file line by line
+1753364831950:for (line in lines)
+1753364831951:{
+1753364831951:## no capitals... i don't care. i am machine
+1753364831951:## add the last hyphenated word maybe
+1753364831951:line <- paste0(last, tolower(line))
+1753364831952:## wash, rinse, Repeat!
+1753364831952:line <- clean(line)
+1753364831952:line <- clean(line) ## because, what if it is double punctuated?!
+1753364831952:## split line into words by white space (hyphenated words still in tact)
+1753364831953:words <- unlist(strsplit(line,"\\s+"))
+1753364831953:last <- tail(words, n = 1)
+1753364831953:## does the line end in a hyphenated/truncated word?
+1753364831953:countLast <- TRUE
+1753364831953:if (nchar(last) > 0 && substring(last, nchar(last), nchar(last)) == "-")
+1753364831954:{
+1753364831954:last = substring(last, 0, nchar(last) - 1)
+1753364831954:countLast <- FALSE  ## not a whole word (could be a-hole word, though)
+1753364831954:}
+1753364831954:else
+1753364831954:{ last = "" }
+1753364831955:numWords <- length(words)
+1753364831955:onWord <- 0 ## reset the counter and limit each time... (hyphenated enders)
+1753364831955:## now it can add to the dictionary, and while it's looping these words
+1753364831955:## it can check for hyphenated words and split or keep them
+1753364831956:for (word in words)
+1753364831956:{
+1753364831956:## track the word it's on (one-indexed language, intuitive yet a pain)
+1753364831956:onWord <- onWord + 1
+1753364831957:## skipping the last word? break out
+1753364831957:if(onWord == numWords && countLast == FALSE){ break }
+1753364831957:## if it needs to split hyphenated words (AND the word has a hyphen)
+1753364831957:if(!keepHyphens && grepl("-", word))
+1753364831957:{
+1753364831957:## split the words at the hyphen
+1753364831958:both <- strsplit(word, "-")[[1]]
+1753364831958:## now do all the dataframing for them
+1753364831958:for(part in both)
+1753364831958:{ count(part) } ## add/update words (count can figure it out)
+1753364831958:} ## otherwise, count the word as it is
+1753364831958:else { count(word) }
+1753364831959:} ## end add words
+1753364831959:} ## end reading file
+1753364831960:## close file if open
+1753364831960:on.exit(close(text))
+1753364831960:return (c(stats))
+1753364831960:}
+1753364838262:c <- counter()
+1753364979332:counter <- function(textIn = "chooseFile", keepHyphens = TRUE, keepContractions = TRUE)
+1753364979333:{
+1753364979333:## initialize the named vector (c(word = #count#))
+1753364979333:stats = c()
+1753364979333:## internal helper function(s)
+1753364979333:count <- function(wrd)
+1753364979333:{
+1753364979334:if (wrd %in% names(stats)) ## update
+1753364979334:{ stats[wrd] <- stats[wrd] + 1}
+1753364979334:else ## create
+1753364979335:{ stats[wrd] <- 1}
+1753364979335:} ## end count helper
+1753364979335:clean <- function(ln)
+1753364979336:{
+1753364979336:## any punctuation with a space on either side of it must go
+1753364979336:ln <- gsub("\\s[[:punct:]]|[[:punct:]]\\s", " ", ln)
+1753364979336:## out with ye contractions (an' what 'bout these?... an bout)
+1753364979336:if(!keepContractions)
+1753364979337:{ ln <- gsub("\\b\\w*'\\w\\b", " ", ln)}
+1753364979337:## filter empty lines
+1753364979337:lines <- lines[nzchar(lines)]
+1753364979337:return (ln)
+1753364979337:} ## end clean
+1753364979338:####################### end helper functions #################################
+1753364979338:## finding a file or using a string input?
+1753364979338:if(textIn == "chooseFile")
+1753364979339:{
+1753364979339:print("Please select your text file.")
+1753364979339:## get the file path, open the file for reading
+1753364979339:text <- file.choose()
+1753364979340:#file.info <- file.info(file.path)
+1753364979340:#text <- file(file.path, "r")
+1753364979340:}
+1753364979341:else ## for readLines to work, textConnection the string input
+1753364979341:{ text <- textConnection(textIn) }
+1753364979341:## just in case a line ends in a hyphen (initialize var)
+1753364979342:last <- ""
+1753364979342:lines <- readLines(text)
+1753364979342:## go over the file line by line
+1753364979342:for (line in lines)
+1753364979342:{
+1753364979343:## no capitals... i don't care. i am machine
+1753364979343:## add the last hyphenated word maybe
+1753364979343:line <- paste0(last, tolower(line))
+1753364979344:## wash, rinse, Repeat!
+1753364979344:line <- clean(line)
+1753364979344:line <- clean(line) ## because, what if it is double punctuated?!
+1753364979345:## split line into words by white space (hyphenated words still in tact)
+1753364979345:words <- unlist(strsplit(line,"\\s+"))
+1753364979345:last <- tail(words, n = 1)
+1753364979346:## does the line end in a hyphenated/truncated word?
+1753364979346:countLast <- TRUE
+1753364979346:## such a pain in the ass
+1753364979346:if(nchar(last > 0))
+1753364979346:{ endsIn <- substring(last, nchar(last), nchar(last)) }
+1753364979346:else {endsIn == "nothing"}
+1753364979347:if (endsIn == "-")
+1753364979347:{
+1753364979347:last = substring(last, 0, nchar(last) - 1)
+1753364979347:countLast <- FALSE  ## not a whole word (could be a-hole word, though)
+1753364979347:}
+1753364979347:else
+1753364979347:{ last = "" }
+1753364979348:numWords <- length(words)
+1753364979348:onWord <- 0 ## reset the counter and limit each time... (hyphenated enders)
+1753364979348:## now it can add to the dictionary, and while it's looping these words
+1753364979348:## it can check for hyphenated words and split or keep them
+1753364979349:for (word in words)
+1753364979349:{
+1753364979350:## track the word it's on (one-indexed language, intuitive yet a pain)
+1753364979350:onWord <- onWord + 1
+1753364979350:## skipping the last word? break out
+1753364979351:if(onWord == numWords && countLast == FALSE){ break }
+1753364979351:## if it needs to split hyphenated words (AND the word has a hyphen)
+1753364979351:if(!keepHyphens && grepl("-", word))
+1753364979351:{
+1753364979351:## split the words at the hyphen
+1753364979352:both <- strsplit(word, "-")[[1]]
+1753364979352:## now do all the dataframing for them
+1753364979352:for(part in both)
+1753364979352:{ count(part) } ## add/update words (count can figure it out)
+1753364979352:} ## otherwise, count the word as it is
+1753364979352:else { count(word) }
+1753364979353:} ## end add words
+1753364979353:} ## end reading file
+1753364979354:## close file if open
+1753364979354:on.exit(close(text))
+1753364979354:return (c(stats))
+1753364979354:}
+1753364984518:c <- counter()
+1753365017426:counter <- function(textIn = "chooseFile", keepHyphens = TRUE, keepContractions = TRUE)
+1753365017427:{
+1753365017427:## initialize the named vector (c(word = #count#))
+1753365017427:stats = c()
+1753365017427:## internal helper function(s)
+1753365017428:count <- function(wrd)
+1753365017428:{
+1753365017428:if (wrd %in% names(stats)) ## update
+1753365017428:{ stats[wrd] <- stats[wrd] + 1}
+1753365017428:else ## create
+1753365017429:{ stats[wrd] <- 1}
+1753365017429:} ## end count helper
+1753365017429:clean <- function(ln)
+1753365017430:{
+1753365017430:## any punctuation with a space on either side of it must go
+1753365017430:ln <- gsub("\\s[[:punct:]]|[[:punct:]]\\s", " ", ln)
+1753365017430:## out with ye contractions (an' what 'bout these?... an bout)
+1753365017432:if(!keepContractions)
+1753365017432:{ ln <- gsub("\\b\\w*'\\w\\b", " ", ln)}
+1753365017433:## filter empty lines
+1753365017433:lines <- lines[nzchar(lines)]
+1753365017433:return (ln)
+1753365017433:} ## end clean
+1753365017434:####################### end helper functions #################################
+1753365017434:## finding a file or using a string input?
+1753365017434:if(textIn == "chooseFile")
+1753365017434:{
+1753365017434:print("Please select your text file.")
+1753365017434:## get the file path, open the file for reading
+1753365017435:text <- file.choose()
+1753365017435:#file.info <- file.info(file.path)
+1753365017435:#text <- file(file.path, "r")
+1753365017435:}
+1753365017435:else ## for readLines to work, textConnection the string input
+1753365017436:{ text <- textConnection(textIn) }
+1753365017436:## just in case a line ends in a hyphen (initialize var)
+1753365017436:last <- ""
+1753365017437:lines <- readLines(text)
+1753365017437:## go over the file line by line
+1753365017437:for (line in lines)
+1753365017438:{
+1753365017438:## no capitals... i don't care. i am machine
+1753365017438:## add the last hyphenated word maybe
+1753365017438:line <- paste0(last, tolower(line))
+1753365017438:## wash, rinse, Repeat!
+1753365017438:line <- clean(line)
+1753365017439:line <- clean(line) ## because, what if it is double punctuated?!
+1753365017439:## split line into words by white space (hyphenated words still in tact)
+1753365017439:words <- unlist(strsplit(line,"\\s+"))
+1753365017439:last <- tail(words, n = 1)
+1753365017439:## does the line end in a hyphenated/truncated word?
+1753365017439:countLast <- TRUE
+1753365017440:## such a pain in the ass
+1753365017440:if(nchar(last) > 0)
+1753365017440:{ endsIn <- substring(last, nchar(last), nchar(last)) }
+1753365017440:else {endsIn == "nothing"}
+1753365017440:if (endsIn == "-")
+1753365017440:{
+1753365017441:last = substring(last, 0, nchar(last) - 1)
+1753365017441:countLast <- FALSE  ## not a whole word (could be a-hole word, though)
+1753365017441:}
+1753365017441:else
+1753365017441:{ last = "" }
+1753365017441:numWords <- length(words)
+1753365017442:onWord <- 0 ## reset the counter and limit each time... (hyphenated enders)
+1753365017442:## now it can add to the dictionary, and while it's looping these words
+1753365017442:## it can check for hyphenated words and split or keep them
+1753365017442:for (word in words)
+1753365017442:{
+1753365017443:## track the word it's on (one-indexed language, intuitive yet a pain)
+1753365017443:onWord <- onWord + 1
+1753365017443:## skipping the last word? break out
+1753365017443:if(onWord == numWords && countLast == FALSE){ break }
+1753365017444:## if it needs to split hyphenated words (AND the word has a hyphen)
+1753365017444:if(!keepHyphens && grepl("-", word))
+1753365017444:{
+1753365017444:## split the words at the hyphen
+1753365017444:both <- strsplit(word, "-")[[1]]
+1753365017444:## now do all the dataframing for them
+1753365017445:for(part in both)
+1753365017445:{ count(part) } ## add/update words (count can figure it out)
+1753365017445:} ## otherwise, count the word as it is
+1753365017445:else { count(word) }
+1753365017445:} ## end add words
+1753365017446:} ## end reading file
+1753365017446:## close file if open
+1753365017446:on.exit(close(text))
+1753365017447:return (c(stats))
+1753365017447:}
+1753365020768:c <- counter()
+1753365034711:c
+1753365213219:counter <- function(textIn = "chooseFile", keepHyphens = TRUE, keepContractions = TRUE)
+1753365213219:{
+1753365213219:## initialize the named vector (c(word = #count#))
+1753365213219:stats = c()
+1753365213219:## internal helper function(s)
+1753365213219:count <- function(wrd)
+1753365213219:{
+1753365213219:if (wrd %in% names(stats)) ## update
+1753365213220:{ stats[wrd] <- stats[wrd] + 1}
+1753365213220:else ## create
+1753365213220:{ stats[wrd] <- 1}
+1753365213220:} ## end count helper
+1753365213220:clean <- function(ln)
+1753365213221:{
+1753365213221:## any punctuation with a space on either side of it must go
+1753365213221:ln <- gsub("\\s[[:punct:]]|[[:punct:]]\\s", " ", ln)
+1753365213222:## out with ye contractions (an' what 'bout these?... an bout)
+1753365213222:if(!keepContractions)
+1753365213222:{ ln <- gsub("\\b\\w*'\\w\\b", " ", ln)}
+1753365213223:## filter empty lines
+1753365213223:lines <- lines[nzchar(lines)]
+1753365213223:return (ln)
+1753365213223:} ## end clean
+1753365213223:####################### end helper functions #################################
+1753365213224:## finding a file or using a string input?
+1753365213224:if(textIn == "chooseFile")
+1753365213224:{
+1753365213224:print("Please select your text file.")
+1753365213224:## get the file path, open the file for reading
+1753365213224:text <- file.choose()
+1753365213224:#file.info <- file.info(file.path)
+1753365213225:#text <- file(file.path, "r")
+1753365213225:}
+1753365213225:else ## for readLines to work, textConnection the string input
+1753365213225:{ text <- textConnection(textIn) }
+1753365213225:## just in case a line ends in a hyphen (initialize var)
+1753365213226:last <- ""
+1753365213226:lines <- readLines(text)
+1753365213226:## go over the file line by line
+1753365213226:for (line in lines)
+1753365213226:{
+1753365213227:## no capitals... i don't care. i am machine
+1753365213227:## add the last hyphenated word maybe
+1753365213227:line <- paste0(last, tolower(line))
+1753365213227:## wash, rinse, Repeat!
+1753365213228:line <- clean(line)
+1753365213228:line <- clean(line) ## because, what if it is double punctuated?!
+1753365213228:## split line into words by white space (hyphenated words still in tact)
+1753365213228:words <- unlist(strsplit(line,"\\s+"))
+1753365213228:last <- tail(words, n = 1)
+1753365213228:## does the line end in a hyphenated/truncated word?
+1753365213229:countLast <- TRUE
+1753365213229:if (grep("-$", last, value = TRUE))
+1753365213229:{
+1753365213229:last = substring(last, 0, nchar(last) - 1)
+1753365213229:countLast <- FALSE  ## not a whole word (could be a-hole word, though)
+1753365213230:}
+1753365213230:else
+1753365213230:{ last = "" }
+1753365213230:numWords <- length(words)
+1753365213230:onWord <- 0 ## reset the counter and limit each time... (hyphenated enders)
+1753365213231:## now it can add to the dictionary, and while it's looping these words
+1753365213231:## it can check for hyphenated words and split or keep them
+1753365213231:for (word in words)
+1753365213231:{
+1753365213231:## track the word it's on (one-indexed language, intuitive yet a pain)
+1753365213231:onWord <- onWord + 1
+1753365213232:## skipping the last word? break out
+1753365213232:if(onWord == numWords && countLast == FALSE){ break }
+1753365213232:## if it needs to split hyphenated words (AND the word has a hyphen)
+1753365213232:if(!keepHyphens && grepl("-", word))
+1753365213232:{
+1753365213233:## split the words at the hyphen
+1753365213233:both <- strsplit(word, "-")[[1]]
+1753365213233:## now do all the dataframing for them
+1753365213233:for(part in both)
+1753365213233:{ count(part) } ## add/update words (count can figure it out)
+1753365213233:} ## otherwise, count the word as it is
+1753365213233:else { count(word) }
+1753365213234:} ## end add words
+1753365213234:} ## end reading file
+1753365213235:## close file if open
+1753365213235:on.exit(close(text))
+1753365213235:return (c(stats))
+1753365213235:}
+1753365217040:c <- counter()
+1753365308283:counter <- function(textIn = "chooseFile", keepHyphens = TRUE, keepContractions = TRUE)
+1753365308283:{
+1753365308283:## initialize the named vector (c(word = #count#))
+1753365308283:stats = c()
+1753365308284:## internal helper function(s)
+1753365308284:count <- function(wrd)
+1753365308284:{
+1753365308285:if (wrd %in% names(stats)) ## update
+1753365308285:{ stats[wrd] <- stats[wrd] + 1}
+1753365308285:else ## create
+1753365308285:{ stats[wrd] <- 1}
+1753365308286:} ## end count helper
+1753365308286:clean <- function(ln)
+1753365308286:{
+1753365308286:## any punctuation with a space on either side of it must go
+1753365308286:ln <- gsub("\\s[[:punct:]]|[[:punct:]]\\s", " ", ln)
+1753365308287:## out with ye contractions (an' what 'bout these?... an bout)
+1753365308287:if(!keepContractions)
+1753365308287:{ ln <- gsub("\\b\\w*'\\w\\b", " ", ln)}
+1753365308287:## filter empty lines
+1753365308287:lines <- lines[nzchar(lines)]
+1753365308287:return (ln)
+1753365308288:} ## end clean
+1753365308288:####################### end helper functions #################################
+1753365308288:## finding a file or using a string input?
+1753365308288:if(textIn == "chooseFile")
+1753365308288:{
+1753365308288:print("Please select your text file.")
+1753365308289:## get the file path, open the file for reading
+1753365308289:text <- file.choose()
+1753365308289:#file.info <- file.info(file.path)
+1753365308289:#text <- file(file.path, "r")
+1753365308289:}
+1753365308289:else ## for readLines to work, textConnection the string input
+1753365308289:{ text <- textConnection(textIn) }
+1753365308290:## just in case a line ends in a hyphen (initialize var)
+1753365308290:last <- ""
+1753365308290:lines <- readLines(text)
+1753365308291:## go over the file line by line
+1753365308291:for (line in lines)
+1753365308291:{
+1753365308291:## no capitals... i don't care. i am machine
+1753365308291:## add the last hyphenated word maybe
+1753365308292:line <- paste0(last, tolower(line))
+1753365308292:## wash, rinse, Repeat!
+1753365308292:line <- clean(line)
+1753365308292:line <- clean(line) ## because, what if it is double punctuated?!
+1753365308292:## split line into words by white space (hyphenated words still in tact)
+1753365308293:words <- unlist(strsplit(line,"\\s+"))
+1753365308293:last <- tail(words, n = 1)
+1753365308293:## does the line end in a hyphenated/truncated word?
+1753365308293:countLast <- TRUE
+1753365308293:if (grep("-$", last))
+1753365308294:{
+1753365308294:last = substring(last, 0, nchar(last) - 1)
+1753365308294:countLast <- FALSE  ## not a whole word (could be a-hole word, though)
+1753365308294:}
+1753365308294:else
+1753365308294:{ last = "" }
+1753365308295:numWords <- length(words)
+1753365308295:onWord <- 0 ## reset the counter and limit each time... (hyphenated enders)
+1753365308295:## now it can add to the dictionary, and while it's looping these words
+1753365308295:## it can check for hyphenated words and split or keep them
+1753365308295:for (word in words)
+1753365308295:{
+1753365308296:## track the word it's on (one-indexed language, intuitive yet a pain)
+1753365308296:onWord <- onWord + 1
+1753365308296:## skipping the last word? break out
+1753365308296:if(onWord == numWords && countLast == FALSE){ break }
+1753365308296:## if it needs to split hyphenated words (AND the word has a hyphen)
+1753365308297:if(!keepHyphens && grepl("-", word))
+1753365308297:{
+1753365308297:## split the words at the hyphen
+1753365308297:both <- strsplit(word, "-")[[1]]
+1753365308297:## now do all the dataframing for them
+1753365308297:for(part in both)
+1753365308298:{ count(part) } ## add/update words (count can figure it out)
+1753365308298:} ## otherwise, count the word as it is
+1753365308298:else { count(word) }
+1753365308298:} ## end add words
+1753365308299:} ## end reading file
+1753365308299:## close file if open
+1753365308299:on.exit(close(text))
+1753365308300:return (c(stats))
+1753365308300:}
+1753365311351:c <- counter()
+1753365395325:counter <- function(textIn = "chooseFile", keepHyphens = TRUE, keepContractions = TRUE)
+1753365395325:{
+1753365395325:## initialize the named vector (c(word = #count#))
+1753365395325:stats = c()
+1753365395325:## internal helper function(s)
+1753365395325:count <- function(wrd)
+1753365395325:{
+1753365395325:if (wrd %in% names(stats)) ## update
+1753365395326:{ stats[wrd] <- stats[wrd] + 1}
+1753365395326:else ## create
+1753365395326:{ stats[wrd] <- 1}
+1753365395326:} ## end count helper
+1753365395326:clean <- function(ln)
+1753365395326:{
+1753365395326:## any punctuation with a space on either side of it must go
+1753365395327:ln <- gsub("\\s[[:punct:]]|[[:punct:]]\\s", " ", ln)
+1753365395327:## out with ye contractions (an' what 'bout these?... an bout)
+1753365395327:if(!keepContractions)
+1753365395327:{ ln <- gsub("\\b\\w*'\\w\\b", " ", ln)}
+1753365395328:## filter empty lines
+1753365395328:lines <- lines[nzchar(lines)]
+1753365395328:return (ln)
+1753365395329:} ## end clean
+1753365395329:####################### end helper functions #################################
+1753365395329:## finding a file or using a string input?
+1753365395330:if(textIn == "chooseFile")
+1753365395330:{
+1753365395330:print("Please select your text file.")
+1753365395330:## get the file path, open the file for reading
+1753365395330:text <- file.choose()
+1753365395331:#file.info <- file.info(file.path)
+1753365395331:#text <- file(file.path, "r")
+1753365395331:}
+1753365395332:else ## for readLines to work, textConnection the string input
+1753365395332:{ text <- textConnection(textIn) }
+1753365395333:## just in case a line ends in a hyphen (initialize var)
+1753365395334:last <- ""
+1753365395335:lines <- readLines(text)
+1753365395335:## go over the file line by line
+1753365395335:for (line in lines)
+1753365395335:{
+1753365395336:## no capitals... i don't care. i am machine
+1753365395336:## add the last hyphenated word maybe
+1753365395336:line <- paste0(last, tolower(line))
+1753365395336:## wash, rinse, Repeat!
+1753365395337:line <- clean(line)
+1753365395337:line <- clean(line) ## because, what if it is double punctuated?!
+1753365395338:## split line into words by white space (hyphenated words still in tact)
+1753365395338:words <- unlist(strsplit(line,"\\s+"))
+1753365395339:last <- tail(words, n = 1)
+1753365395339:## does the line end in a hyphenated/truncated word?
+1753365395340:countLast <- TRUE
+1753365395341:if(nzchar(last))
+1753365395341:{
+1753365395341:if (grep("-$", last))
+1753365395342:{
+1753365395342:last = substring(last, 0, nchar(last) - 1)
+1753365395342:countLast <- FALSE  ## not a whole word (could be a-hole word, though)
+1753365395342:}
+1753365395343:}
+1753365395343:numWords <- length(words)
+1753365395343:onWord <- 0 ## reset the counter and limit each time... (hyphenated enders)
+1753365395344:## now it can add to the dictionary, and while it's looping these words
+1753365395344:## it can check for hyphenated words and split or keep them
+1753365395344:for (word in words)
+1753365395345:{
+1753365395345:## track the word it's on (one-indexed language, intuitive yet a pain)
+1753365395346:onWord <- onWord + 1
+1753365395346:## skipping the last word? break out
+1753365395346:if(onWord == numWords && countLast == FALSE){ break }
+1753365395347:## if it needs to split hyphenated words (AND the word has a hyphen)
+1753365395347:if(!keepHyphens && grepl("-", word))
+1753365395347:{
+1753365395348:## split the words at the hyphen
+1753365395348:both <- strsplit(word, "-")[[1]]
+1753365395348:## now do all the dataframing for them
+1753365395348:for(part in both)
+1753365395348:{ count(part) } ## add/update words (count can figure it out)
+1753365395349:} ## otherwise, count the word as it is
+1753365395349:else { count(word) }
+1753365395350:} ## end add words
+1753365395350:} ## end reading file
+1753365395351:## close file if open
+1753365395351:on.exit(close(text))
+1753365395352:return (c(stats))
+1753365395352:}
+1753365398129:c <- counter()
+1753365441185:counter <- function(textIn = "chooseFile", keepHyphens = TRUE, keepContractions = TRUE)
+1753365441185:{
+1753365441185:## initialize the named vector (c(word = #count#))
+1753365441185:stats = c()
+1753365441185:## internal helper function(s)
+1753365441186:count <- function(wrd)
+1753365441186:{
+1753365441186:if (wrd %in% names(stats)) ## update
+1753365441188:{ stats[wrd] <- stats[wrd] + 1}
+1753365441188:else ## create
+1753365441189:{ stats[wrd] <- 1}
+1753365441189:} ## end count helper
+1753365441189:clean <- function(ln)
+1753365441189:{
+1753365441189:## any punctuation with a space on either side of it must go
+1753365441190:ln <- gsub("\\s[[:punct:]]|[[:punct:]]\\s", " ", ln)
+1753365441190:## out with ye contractions (an' what 'bout these?... an bout)
+1753365441190:if(!keepContractions)
+1753365441191:{ ln <- gsub("\\b\\w*'\\w\\b", " ", ln)}
+1753365441191:## filter empty lines
+1753365441192:lines <- lines[nzchar(lines)]
+1753365441192:return (ln)
+1753365441193:} ## end clean
+1753365441193:####################### end helper functions #################################
+1753365441193:## finding a file or using a string input?
+1753365441194:if(textIn == "chooseFile")
+1753365441194:{
+1753365441194:print("Please select your text file.")
+1753365441194:## get the file path, open the file for reading
+1753365441194:text <- file.choose()
+1753365441195:#file.info <- file.info(file.path)
+1753365441195:#text <- file(file.path, "r")
+1753365441196:}
+1753365441196:else ## for readLines to work, textConnection the string input
+1753365441196:{ text <- textConnection(textIn) }
+1753365441197:## just in case a line ends in a hyphen (initialize var)
+1753365441197:last <- ""
+1753365441198:lines <- readLines(text)
+1753365441198:## go over the file line by line
+1753365441198:for (line in lines)
+1753365441198:{
+1753365441199:## no capitals... i don't care. i am machine
+1753365441199:## add the last hyphenated word maybe
+1753365441199:line <- paste0(last, tolower(line))
+1753365441199:## wash, rinse, Repeat!
+1753365441200:line <- clean(line)
+1753365441200:line <- clean(line) ## because, what if it is double punctuated?!
+1753365441200:## split line into words by white space (hyphenated words still in tact)
+1753365441200:words <- unlist(strsplit(line,"\\s+"))
+1753365441201:last <- tail(words, n = 1)
+1753365441201:## does the line end in a hyphenated/truncated word?
+1753365441201:countLast <- TRUE
+1753365441202:print(last)
+1753365441202:if(nzchar(last))
+1753365441202:{
+1753365441203:if (grep("-$", last))
+1753365441203:{
+1753365441203:last = substring(last, 0, nchar(last) - 1)
+1753365441203:countLast <- FALSE  ## not a whole word (could be a-hole word, though)
+1753365441203:}
+1753365441204:}
+1753365441204:numWords <- length(words)
+1753365441204:onWord <- 0 ## reset the counter and limit each time... (hyphenated enders)
+1753365441205:## now it can add to the dictionary, and while it's looping these words
+1753365441206:## it can check for hyphenated words and split or keep them
+1753365441206:for (word in words)
+1753365441206:{
+1753365441207:## track the word it's on (one-indexed language, intuitive yet a pain)
+1753365441207:onWord <- onWord + 1
+1753365441208:## skipping the last word? break out
+1753365441208:if(onWord == numWords && countLast == FALSE){ break }
+1753365441208:## if it needs to split hyphenated words (AND the word has a hyphen)
+1753365441209:if(!keepHyphens && grepl("-", word))
+1753365441209:{
+1753365441209:## split the words at the hyphen
+1753365441209:both <- strsplit(word, "-")[[1]]
+1753365441209:## now do all the dataframing for them
+1753365441210:for(part in both)
+1753365441210:{ count(part) } ## add/update words (count can figure it out)
+1753365441210:} ## otherwise, count the word as it is
+1753365441210:else { count(word) }
+1753365441211:} ## end add words
+1753365441212:} ## end reading file
+1753365441213:## close file if open
+1753365441213:on.exit(close(text))
+1753365441214:return (c(stats))
+1753365441214:}
+1753365448738:c <- counter()

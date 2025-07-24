@@ -42,6 +42,9 @@ counter <- function(textIn = "chooseFile", keepHyphens = TRUE, keepContractions 
     if(!keepContractions)
     { ln <- gsub("\\b\\w*'\\w\\b", " ", ln)}
 
+    ## filter empty lines
+    lines <- lines[nzchar(lines)]
+
     return (ln)
   } ## end clean
 
@@ -63,11 +66,11 @@ counter <- function(textIn = "chooseFile", keepHyphens = TRUE, keepContractions 
   ## just in case a line ends in a hyphen (initialize var)
   last <- ""
 
+  lines <- readLines(text)
   ## go over the file line by line
-  while(length(line <- readLines(text, warn = FALSE)) > 0)
+  for (line in lines)
   {
 
-    cat("STARTING WHILE:", line)
     ## no capitals... i don't care. i am machine
     ## add the last hyphenated word maybe
     line <- paste0(last, tolower(line))
@@ -82,13 +85,17 @@ counter <- function(textIn = "chooseFile", keepHyphens = TRUE, keepContractions 
 
     ## does the line end in a hyphenated/truncated word?
     countLast <- TRUE
-    if (substring(last, nchar(last), nchar(last)) == "-")
+
+    print(last)
+
+    if(nzchar(last))
     {
-      last = substring(last, 0, nchar(last) - 1)
-      countLast <- FALSE  ## not a whole word (could be a-hole word, though)
+      if (grep("-$", last))
+      {
+        last = substring(last, 0, nchar(last) - 1)
+        countLast <- FALSE  ## not a whole word (could be a-hole word, though)
+      }
     }
-    else
-    { last = "" }
 
     numWords <- length(words)
     onWord <- 0 ## reset the counter and limit each time... (hyphenated enders)
@@ -124,6 +131,6 @@ counter <- function(textIn = "chooseFile", keepHyphens = TRUE, keepContractions 
   ## close file if open
   on.exit(close(text))
 
-  return (stats)
+  return (c(stats))
 
 }
