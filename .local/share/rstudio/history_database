@@ -9366,3 +9366,126 @@
 1753367083179:}
 1753367097148:c = counter()
 1753367157895:c = counter(keepHyphens = FALSE)
+1753381471171:analyze <- function(textIn = "file", keepHyphens = TRUE, keepContractions = TRUE)
+1753381471171:{
+1753381471172:## pick the file if need be, pick your nose, too!
+1753381471172:chooseFile <- function()
+1753381471172:{
+1753381471172:## choose file or use path?
+1753381471172:path <- readline(prompt = "enter the file path if you know it\n
+1753381471172:or just hit enter to search")
+1753381471172:if (path == "")
+1753381471172:{ path <- file.choose() }
+1753381471172:## and spit it out
+1753381471172:return (path)
+1753381471172:}
+1753381471173:######################### end helper functions ##############################
+1753381471173:## finding a file or using a string input?
+1753381471173:if(textIn == "file")
+1753381471173:{
+1753381471174:## pick the file and verify
+1753381471174:path <- chooseFile()
+1753381471174:## no good?
+1753381471174:whlie(!file.exists(path))
+1753381471174:{
+1753381471174:print("try again! file not found 404 SOS")
+1753381471175:path <- chooseFile()
+1753381471175:} ## end while invalid file path
+1753381471175:## open the connection to the file
+1753381471175:text <- file(path, open = "r")
+1753381471175:} ## end if using file
+1753381471176:else ## for readLines to work, textConnection the string input
+1753381471176:{ text <- textConnection(textIn) }
+1753381471176:while(TRUE)
+1753381471176:{
+1753381471176:line <- readLines(text, n = 1)
+1753381471177:## but how does it know there are no more lines? MAGIC
+1753381471177:if (length(line) == 0) { break }
+1753381471177:print(line)
+1753381471177:} ## end while reading lines
+1753381471177:## close the file, if it was a file
+1753381471178:if (textIn == "file") { close(text) }
+1753381471178:} ## end readTheText
+1753381471178:analyze()
+1753381503389:analyze <- function(textIn = "file", keepHyphens = TRUE, keepContractions = TRUE)
+1753381503389:{
+1753381503389:## pick the file if need be, pick your nose, too!
+1753381503389:chooseFile <- function()
+1753381503389:{
+1753381503389:## choose file or use path?
+1753381503389:path <- readline(prompt = "enter the file path if you know it\n
+1753381503390:or just hit enter to search")
+1753381503390:if (path == "")
+1753381503390:{ path <- file.choose() }
+1753381503391:## and spit it out
+1753381503391:return (path)
+1753381503391:}
+1753381503391:######################### end helper functions ##############################
+1753381503392:## finding a file or using a string input?
+1753381503392:if(textIn == "file")
+1753381503392:{
+1753381503392:## pick the file and verify
+1753381503392:path <- chooseFile()
+1753381503393:## no good?
+1753381503393:while(!file.exists(path))
+1753381503393:{
+1753381503393:print("try again! file not found 404 SOS")
+1753381503393:path <- chooseFile()
+1753381503393:} ## end while invalid file path
+1753381503393:## open the connection to the file
+1753381503394:text <- file(path, open = "r")
+1753381503394:} ## end if using file
+1753381503394:else ## for readLines to work, textConnection the string input
+1753381503394:{ text <- textConnection(textIn) }
+1753381503394:while(TRUE)
+1753381503394:{
+1753381503395:line <- readLines(text, n = 1)
+1753381503395:## but how does it know there are no more lines? MAGIC
+1753381503395:if (length(line) == 0) { break }
+1753381503395:print(line)
+1753381503395:} ## end while reading lines
+1753381503396:## close the file, if it was a file
+1753381503396:if (textIn == "file") { close(text) }
+1753381503396:} ## end readTheText
+1753381503396:analyze()
+1753381619314:analyze <- function(textIn = "file", keepHyphens = TRUE, keepContractions = TRUE)
+1753381619315:{
+1753381619315:## pick the file if need be, pick your nose, too!
+1753381619315:chooseFile <- function()
+1753381619315:{
+1753381619315:## choose file or use path?
+1753381619315:path <- readline(prompt = "enter the file path if you know it
+1753381619315:(or hit enter to search): \n")
+1753381619315:if (path == "")
+1753381619315:{ path <- file.choose() }
+1753381619316:## and spit it out
+1753381619316:return (path)
+1753381619316:}
+1753381619316:######################### end helper functions ##############################
+1753381619316:## finding a file or using a string input?
+1753381619316:if(textIn == "file")
+1753381619317:{
+1753381619317:## pick the file and verify
+1753381619317:path <- chooseFile()
+1753381619317:## no good?
+1753381619317:while(!file.exists(path))
+1753381619317:{
+1753381619317:print("try again! file not found 404 SOS")
+1753381619317:path <- chooseFile()
+1753381619318:} ## end while invalid file path
+1753381619318:## open the connection to the file
+1753381619318:text <- file(path, open = "r")
+1753381619318:} ## end if using file
+1753381619318:else ## for readLines to work, textConnection the string input
+1753381619318:{ text <- textConnection(textIn) }
+1753381619318:while(TRUE)
+1753381619319:{
+1753381619319:line <- readLines(text, n = 1)
+1753381619319:## but how does it know there are no more lines? MAGIC
+1753381619319:if (length(line) == 0) { break }
+1753381619319:print(line)
+1753381619319:} ## end while reading lines
+1753381619320:## close the file, if it was a file
+1753381619320:if (textIn == "file") { close(text) }
+1753381619320:} ## end readTheText
+1753381619320:analyze()

@@ -1,3 +1,5 @@
+/home/rstudio/finalProject/HapaxLegomena/.Rbuildignore="7132A6CC"
+/home/rstudio/finalProject/HapaxLegomena/.gitignore="5ABF7002"
 /home/rstudio/finalProject/HapaxLegomena/DESCRIPTION="BA0882CD"
 /home/rstudio/finalProject/HapaxLegomena/NAMESPACE="D4ECCEC2"
 /home/rstudio/finalProject/HapaxLegomena/R/TexTesT.R="97D364B7"
@@ -9,5 +11,5 @@
 /workspaces/r_dev_container/finalProject/HapaxLegomena/R/TexTesT.R="9D67551B"
 /workspaces/r_dev_container/finalProject/HapaxLegomena/R/analyze.R="33512FBA"
 /workspaces/r_dev_container/finalProject/HapaxLegomena/R/basicButDependedOn.R="77293A4D"
-/workspaces/r_dev_container/finalProject/HapaxLegomena/R/readTheText.R="C3435DE8"
+/workspaces/r_dev_container/finalProject/HapaxLegomena/tests/testthat/test-basicButDependedOn.R="DF307C7E"
 /workspaces/r_dev_container/finalProject/HapaxLegomena/vignettes/HapaxLegomena.Rmd="D5571117"

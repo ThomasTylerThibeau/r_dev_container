@@ -1,6 +1,76 @@
-analyze <- function(textIn = "pick", keepHyphens = TRUE, keepContractions = TRUE)
+analyze <- function(textIn = "file", 
+                    keepHyphens = TRUE, 
+                    keepContractions = TRUE)
 {
+
+  ## pick the file if need be, pick your nose, too!
+  chooseFile <- function()
+  {
+    ## choose file or use path?
+    path <- readline(prompt = "enter path or 'enter' to search")
+    
+    if (path == "")
+    { path <- file.choose() }
+    
+    ## and spit it out
+    return (path)
+  }
   
+  
+  clean <- function(line, hyphens, contractions)
+  {
+    ## no proper nouns allowed
+    line <- tolower(line)
+    
+    ## apropros keep hyphy chars
+    line <- gsub("[^a-z-']", " ", line)
+    
+    if
+    
+    # Use gsub with regex to replace apostrophes between letters
+    # The pattern "(?<=\\w)'(?=\\w)" matches an apostrophe between word characters
+    modified_text <- gsub("(?<=\\w)'(?=\\w)", "", text, perl = TRUE)
+    
+    
+  }
+
+  ######################### end helper functions ##############################
+
+  ## finding a file or using a string input?
+  if(textIn == "file")
+  {
+    ## pick the file and verify
+    path <- chooseFile()
+
+    ## no good?
+    while(!file.exists(path))
+    {
+      print("try again! file not found 404 SOS")
+      path <- chooseFile()
+    } ## end while invalid file path
+
+    ## open the connection to the file
+    text <- file(path, open = "r")
+
+  } ## end if using file
+  else ## for readLines to work, textConnection the string input
+  { text <- textConnection(textIn) }
+  
+  stats <- data.frame(word = )
+  
+  while(TRUE)
+  {
+    line <- readLines(text, n = 1)
+
+    ## but how does it know there are no more lines? MAGIC
+    if (length(line) == 0) { break }
+
+    
+
+  } ## end while reading lines
+
+  ## close the file, if it was a file
+  if (textIn == "file") { close(text) }
 } ## end readTheText
 
-r = analyze()
+analyze()
