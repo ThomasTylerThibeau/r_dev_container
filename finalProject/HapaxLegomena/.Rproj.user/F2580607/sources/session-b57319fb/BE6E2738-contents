@@ -15,6 +15,9 @@
 #' @export
 #'
 #' @examples
+#' counter()
+#' counter("Here-here is some text, here!", keepHyphens = FALSE)
+#' counter("What isn't this doing to my text?! Don't do that!", keepContractions = FALSE)
 counter <- function(textIn = chooseFile, keepHyphens = TRUE, keepContractions = TRUE)
 {
   ## initialize the named vector (c(word = #count#))
@@ -111,11 +114,15 @@ counter <- function(textIn = chooseFile, keepHyphens = TRUE, keepContractions = 
       else { count(word) }
 
 
-    } ## end reading input
+    } ## end add words
+
+  } ## end reading file
 
 
-    ## close file if open
-    if(textIn == chooseFile)
-    { close(file.path) }
+  ## close file if open
+  if(textIn == chooseFile)
+  { close(file.path) }
+
+  return (stats)
 
 }

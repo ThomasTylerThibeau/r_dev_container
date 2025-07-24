@@ -1,3 +1,4 @@
+~/finalProject/HapaxLegomena/NAMESPACE
 /workspaces/r_dev_container/finalProject/HapaxLegomena/R/counter.R
 /workspaces/r_dev_container/finalProject/HapaxLegomena/tests/testthat/test-basicButDependedOn.R
 ~/finalProject/HapaxLegomena/tests/testthat.R
@@ -10,6 +11,5 @@
 ~/finalProject/HapaxLegomena/textFiles/someText.txt
 ~/finalProject/HapaxLegomena/textFiles/TestText.txt
 ~/finalProject/HapaxLegomena/DESCRIPTION
-~/finalProject/HapaxLegomena/NAMESPACE
 ~/finalProject/HapaxLegomena/R/ctest.cpp
 ~/finalProject/HapaxLegomena/man/hello.Rd
