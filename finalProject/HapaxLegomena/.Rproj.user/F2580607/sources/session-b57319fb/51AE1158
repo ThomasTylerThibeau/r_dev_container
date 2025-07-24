@@ -3,7 +3,7 @@
     "path": "/workspaces/r_dev_container/finalProject/HapaxLegomena/R/readTheText.R",
     "project_path": null,
     "type": "r_source",
-    "hash": "1429192125",
+    "hash": "3111809642",
     "contents": "",
     "dirty": false,
     "created": 1753364047348.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "30,0",
-        "scrollLine": "0"
+        "cursorPosition": "115,23",
+        "scrollLine": "78"
     },
     "folds": "",
-    "lastKnownWriteTime": 1753366136,
+    "lastKnownWriteTime": 1753367263,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1753366136403,
+    "last_content_update": 1753367263235,
     "read_only": false,
     "read_only_alternatives": []
 }

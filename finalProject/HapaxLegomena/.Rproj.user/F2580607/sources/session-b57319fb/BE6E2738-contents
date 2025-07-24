@@ -30,6 +30,8 @@ counter <- function(textIn = "chooseFile", keepHyphens = TRUE, keepContractions 
     { stats[wrd] <- stats[wrd] + 1}
     else ## create
     { stats[wrd] <- 1}
+
+    print(stats)
   } ## end count helper
 
 
@@ -81,16 +83,19 @@ counter <- function(textIn = "chooseFile", keepHyphens = TRUE, keepContractions 
 
     ## split line into words by white space (hyphenated words still in tact)
     words <- unlist(strsplit(line,"\\s+"))
-    last <- tail(words, n = 1)
+
+    if(length(words) > 0)
+    { last <- tail(words, n = 1) }
+    else { last <- "noHyphen"}
 
     ## does the line end in a hyphenated/truncated word?
     countLast <- TRUE
 
-    print(last)
+    ## print(last)
 
     if(nzchar(last))
     {
-      if (grep("-$", last))
+      if (grepl("-$", last))
       {
         last = substring(last, 0, nchar(last) - 1)
         countLast <- FALSE  ## not a whole word (could be a-hole word, though)
@@ -129,7 +134,8 @@ counter <- function(textIn = "chooseFile", keepHyphens = TRUE, keepContractions 
 
 
   ## close file if open
-  on.exit(close(text))
+  #if(textIn == "chooseFile")
+  #{ on.exit(close(text)) }
 
   return (c(stats))
 
