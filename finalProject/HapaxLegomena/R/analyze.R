@@ -3,6 +3,8 @@ analyze <- function(textIn = "file",
                     keepContractions = TRUE)
 {
 
+  ######################## start helper functions #############################
+
   ## pick the file if need be, pick your nose, too!
   chooseFile <- function()
   {
@@ -17,18 +19,19 @@ analyze <- function(textIn = "file",
   }
 
 
+  ## clean the line, keep or remove hyphens and contractions
   clean <- function(line, hyphens, contractions)
   {
     ## no proper nouns allowed
     line <- tolower(line)
 
     ## apropros keep hyphy chars
-    line <- gsub("[^a-z-']", " ", line)
+    line <- gsub("[^a-z'-]", " ", line)
 
     if (!contractions) ## if no contractions, replace 'em with spaces
     { line <- gsub("(?<=\\w)'(?=\\w)", " ", line, perl = TRUE)    }
     else
-    { line <- gsub("(?<!\\w)'|'(?!\\w)", " ", your_string, perl = TRUE)}
+    { line <- gsub("(?<!\\w)'|'(?!\\w)", " ", line, perl = TRUE)}
 
     if (!hyphens)
     { line <- gsub("-", " ", line) }
@@ -42,7 +45,7 @@ analyze <- function(textIn = "file",
     if (grepl("-$", line))
     { partialWord <- TRUE }
 
-    return (c(line, partialWord)
+    return (c(line, partialWord))
   }
 
   ######################### end helper functions ##############################
@@ -67,10 +70,11 @@ analyze <- function(textIn = "file",
   else ## for readLines to work, textConnection the string input
   { text <- textConnection(textIn) }
 
-  stats <- data.frame(word = )
-
   ## initialize the variable to hold hyphenated end-of-liners
   last <- ""
+  ## initialize a vector to hold the counts
+  wordCount <- c()
+
   while(TRUE)
   {
     line <- readLines(text, n = 1)
@@ -87,18 +91,28 @@ analyze <- function(textIn = "file",
     line <- wash[1]
 
     words <- unlist(strsplit(line,"\\s+"))
+
     if (wash[2])
     {
+      ## store the last word frag
       last <- words[length(words)]
+      ## reset the line to not hold that part
+      words <- words[-length(words)]
     }
 
 
+    for (word in words) ## word
+    { wordCount[word] <- wordCount[word] + 1 }
 
 
   } ## end while reading lines
 
   ## close the file, if it was a file
   if (textIn == "file") { close(text) }
+
+  retrun (wordCount)
+
 } ## end readTheText
 
-analyze()
+wordCnt <- analyze()
+
