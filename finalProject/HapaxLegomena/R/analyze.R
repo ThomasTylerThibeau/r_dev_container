@@ -14,6 +14,13 @@ analyze <- function(textIn = "file",
     if (path == "")
     { path <- file.choose() }
 
+    if(!file.exists(path))
+    {
+      print("try again! file not found 404 SOS")
+      ## try again
+      chooseFile()
+    } ## end while invalid file path
+
     ## and spit it out
     return (path)
   }
@@ -22,46 +29,45 @@ analyze <- function(textIn = "file",
   ## clean the line, keep or remove hyphens and contractions
   clean <- function(line, hyphens, contractions)
   {
-    ## no proper nouns allowed
-    line <- tolower(line)
-
-    ## apropros keep hyphy chars
-    line <- gsub("[^a-z'-]", " ", line)
-
-    if (!contractions) ## if no contractions, replace 'em with spaces
-    { line <- gsub("(?<=\\w)'(?=\\w)", " ", line, perl = TRUE)    }
-    else
-    { line <- gsub("(?<!\\w)'|'(?!\\w)", " ", line, perl = TRUE)}
-
-    if (!hyphens)
-    { line <- gsub("-", " ", line) }
-
-    # Use gsub with regex to replace apostrophes between letters
-    # The pattern "(?<=\\w)'(?=\\w)" matches an apostrophe between word characters
-    modified_text <- gsub("(?<=\\w)'(?=\\w)", "", text, perl = TRUE)
 
     ## does the line end in a hyphenated word? damn, work
     partialWord <- FALSE
     if (grepl("-$", line))
     { partialWord <- TRUE }
 
+    ## no proper nouns allowed
+    line <- tolower(line)
+
+    ## apropros keep hyphy chars
+    line <- gsub("[^a-z'-]", " ", line)
+
+## okay WTF is going on here?
+    print("removed punctuation?")
+    print(line)
+
+    if (!contractions)
+    { line <- gsub("'", " ", line) }
+    else
+    {
+      ## it'll kill quotes and weird contractions ('bout)
+      line <- gsub("' ", " ", line)
+      line <- gsub(" '", " ", line)
+    }
+
+    if (!hyphens)
+    { line <- gsub("-", " ", line) }
+
     return (c(line, partialWord))
   }
 
   ######################### end helper functions ##############################
+
 
   ## finding a file or using a string input?
   if(textIn == "file")
   {
     ## pick the file and verify
     path <- chooseFile()
-
-    ## no good?
-    while(!file.exists(path))
-    {
-      print("try again! file not found 404 SOS")
-      path <- chooseFile()
-    } ## end while invalid file path
 
     ## open the connection to the file
     text <- file(path, open = "r")
