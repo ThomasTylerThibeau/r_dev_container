@@ -1,5 +1,36 @@
 {
     "debugBreakpointsState": {
-        "breakpoints": []
+        "breakpoints": [
+            {
+                "id": 0,
+                "path": "~/finalProject/HapaxLegomena/R/fuckingRUN.R",
+                "line_number": 80,
+                "function_steps": "",
+                "function_name": "counter",
+                "state": 2,
+                "editor_state": 2,
+                "editor_line_number": 80,
+                "is_pending_debug_completion": false,
+                "needs_updated_steps": false,
+                "type": 0,
+                "is_package_breakpoint": true,
+                "package_name": "HapaxLegomena"
+            },
+            {
+                "id": 1,
+                "path": "~/finalProject/HapaxLegomena/R/fuckingRUN.R",
+                "line_number": 66,
+                "function_steps": "",
+                "function_name": "counter",
+                "state": 2,
+                "editor_state": 2,
+                "editor_line_number": 66,
+                "is_pending_debug_completion": false,
+                "needs_updated_steps": false,
+                "type": 0,
+                "is_package_breakpoint": true,
+                "package_name": "HapaxLegomena"
+            }
+        ]
     }
 }

@@ -26,3 +26,5 @@ readTheText <- function(textIn = "chooseFile", keepHyphens = TRUE, keepContracti
     print(line)
   }
 } ## end readTheText
+
+readTheText()
