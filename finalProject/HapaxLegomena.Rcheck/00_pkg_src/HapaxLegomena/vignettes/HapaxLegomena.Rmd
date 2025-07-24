@@ -1,0 +1,33 @@
+---
+title: "Hapax Legomena"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Hapax Legomena}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(HapaxLegomena)
+```
+* Why?
+** Hapax Legomena exists to track word usage.
+** Use it to find your own unique words
+*** (a hapax legomenon is a word that is only used once in a work,
+*** and hapax legomena is the plural, so the group of words whose count is one)
+
+This package was created as a final project for a math/computer-science course
+at the University of Maine at Augusta by someone who holds interests in
+grandiose vernacular, programming and mathematics.
+
+```{r}
+# put youR code here
+
+```

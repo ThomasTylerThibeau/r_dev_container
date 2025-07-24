@@ -4,7 +4,7 @@
 #' Counter parses the text input and creates a simple named vector to hold
 #' int counts of words. Accepts string input but defaults to choose a file.
 #'
-#' @param textIn defaults to chooseFile or input a string
+#' @param textIn defaults to "chooseFile" or input a string
 #' @param keepHyphens  (TRUE: "single-file" += 1 |
 #'                      FALSE: "single" += 1, "file" += 1)
 #' note:  counter does not keep end-of-line hyphens; it recombines the word
@@ -18,7 +18,7 @@
 #' counter()
 #' counter("Here-here is some text, here!", keepHyphens = FALSE)
 #' counter("What isn't this doing to my text?! Don't do that!", keepContractions = FALSE)
-counter <- function(textIn = chooseFile, keepHyphens = TRUE, keepContractions = TRUE)
+counter <- function(textIn = "chooseFile", keepHyphens = TRUE, keepContractions = TRUE)
 {
   ## initialize the named vector (c(word = #count#))
   stats = c()
@@ -27,7 +27,7 @@ counter <- function(textIn = chooseFile, keepHyphens = TRUE, keepContractions = 
   count <- function(wrd)
   {
     if (wrd %in% names(stats)) ## update
-    { stats[wrd] <- stats[wrd] + 1 }
+    { stats[wrd] <- stats[wrd] + 1)}
     else ## create
     { stats[wrd] <- 1}
   } ## end count helper
@@ -48,7 +48,7 @@ counter <- function(textIn = chooseFile, keepHyphens = TRUE, keepContractions = 
   ####################### end helper functions #################################
 
   ## finding a file or using a string input?
-  if(textIn == chooseFile)
+  if(textIn == "chooseFile")
   {
     print("Please select your text file.")
     ## get the file path, open the file for reading
@@ -120,8 +120,7 @@ counter <- function(textIn = chooseFile, keepHyphens = TRUE, keepContractions = 
 
 
   ## close file if open
-  if(textIn == chooseFile)
-  { close(file.path) }
+  on.exit(close(text))
 
   return (stats)
 

@@ -27,7 +27,7 @@ counter <- function(textIn = "chooseFile", keepHyphens = TRUE, keepContractions 
   count <- function(wrd)
   {
     if (wrd %in% names(stats)) ## update
-    { stats[wrd] <- stats[wrd] + 1)}
+    { stats[wrd] <- stats[wrd] + 1 }
     else ## create
     { stats[wrd] <- 1}
   } ## end count helper
@@ -120,7 +120,8 @@ counter <- function(textIn = "chooseFile", keepHyphens = TRUE, keepContractions 
 
 
   ## close file if open
-  on.exit(close(text))
+  #if(textIn == "chooseFile")
+  #{ close(file.path) }
 
   return (stats)
 

@@ -1,0 +1,5 @@
+TexTesT                 Example text to run functions with.
+counter                 Counter parses the text input and creates a
+                        simple named vector to hold int counts of
+                        words. Accepts string input but defaults to
+                        choose a file.
