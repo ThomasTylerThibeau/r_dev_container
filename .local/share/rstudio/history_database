@@ -15658,3 +15658,77 @@
 1753465959023:salient()
 1753466016700:analyze()
 1753467609424:use_r("viewStats")
+1753468744409:salient <- function(namedVector = analyze(), show = 10, common = FALSE)
+1753468744409:{
+1753468744409:## calls analyze for the all-in-one functionality
+1753468744409:namedVector
+1753468744409:## most/least frequently used words
+1753468744410:orderly <- sort(namedVector, decreasing = common)
+1753468744410:## and then alphabetize as a second sort
+1753468744410:orderly <- orderly[order(-orderly, names(orderly))]
+1753468744410:if(common)
+1753468744410:{ cat(show, "most commonly used words:") }
+1753468744410:else
+1753468744410:{ cat(show, "least frequently used words:")}
+1753468744411:## check your usage
+1753468744411:for(i in 1:show)
+1753468744411:{
+1753468744411:key <- names(orderly)[i]
+1753468744411:value <- orderly[i]
+1753468744412:cat("word ", i, ": ", key, "\n", sep = "")
+1753468744412:cat("count:", value, "\n")
+1753468744412:cat("\n")
+1753468744412:}
+1753468744412:}
+1753468747775:quotidian <- function(namedVector = analyze(), top = 10, bottom = 10, hapaxLegomena = TRUE)
+1753468747775:{
+1753468747775:## in case it needs to be established
+1753468747776:namedVector
+1753468747777:## show the most frequent words
+1753468747777:salient(namedVector, show = top, common = TRUE)
+1753468747777:cat("\n\n")
+1753468747777:salient(namedVector, show = bottom, common = FALSE)
+1753468747778:cat("\n\n")
+1753468747778:if (hapaxLegomena)
+1753468747779:{
+1753468747779:## most frequently used words
+1753468747779:orderly <- sort(namedVector, decreasing = FALSE)
+1753468747779:## and then alphabetize as a second sort
+1753468747779:orderly <- orderly[order(-orderly, names(orderly))]
+1753468747779:## check your usage
+1753468747780:for(i in 1:length(orderly))
+1753468747780:{
+1753468747780:key <- names(orderly)[i]
+1753468747780:value <- orderly[i]
+1753468747780:## done
+1753468747780:if(value > 1){break}
+1753468747780:cat("word ", i, ": ", key, "\n", sep = "")
+1753468747781:cat("count:", value, "\n")
+1753468747781:cat("\n")
+1753468747781:}
+1753468747781:} ## end show the hapax legomena
+1753468747781:}
+1753468754852:quotidian()
+1753468792304:salient <- function(namedVector = analyze(), show = 10, common = FALSE)
+1753468792304:{
+1753468792304:## calls analyze for the all-in-one functionality
+1753468792304:namedVector
+1753468792305:## most/least frequently used words
+1753468792305:orderly <- sort(namedVector, decreasing = common)
+1753468792305:## and then alphabetize as a second sort
+1753468792305:orderly <- orderly[order(-orderly, names(orderly))]
+1753468792305:if(common)
+1753468792305:{ cat(show, "most commonly used words:\n") }
+1753468792305:else
+1753468792306:{ cat(show, "least frequently used words:")}
+1753468792306:## check your usage
+1753468792306:for(i in 1:show)
+1753468792306:{
+1753468792307:key <- names(orderly)[i]
+1753468792307:value <- orderly[i]
+1753468792307:cat("word ", i, ": ", key, "\n", sep = "")
+1753468792307:cat("count:", value, "\n")
+1753468792307:cat("\n")
+1753468792307:}
+1753468792308:}
+1753468803778:quotidian()
