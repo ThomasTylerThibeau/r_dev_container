@@ -1,33 +1,4 @@
-#' quotidian - simple word-stat sorter
-#'
-#' @param namedVector named vector from analyze() (created by default vector)
-#' @param top number of entries to view
-#'
-#' @returns nothing, prints out a list
-#' @export nothing
-#'
-#' @examples
-#' quotidian()
-#' quotidian(vector, 20)
-
-quotidian <- function(namedVector = analyze(), top = 10)
+quotidian <- function(namedVector = analyze(), top = 10, hapaxLegomena = TRUE)
 {
-  ## calls analyze for the all-in-one functionality
-  namedVector
-
-  ## most frequently used words
-  orderly <- sort(namedVector, decreasing = TRUE)
-  ## and then alphebetize as a second sort
-  orderly <- orderly[order(-orderly, names(orderly))]
-
-  ## needs some formatting!
-  for(i in 1:top)
-  {
-    key <- names(orderly)[i]
-    value <- orderly[i]
-
-    cat("word ", i, ": ", key, "\n", sep = "")
-    cat("count:", value, "\n")
-    cat("\n")
-  }
+  salient(show = top, common = TRUE)
 }

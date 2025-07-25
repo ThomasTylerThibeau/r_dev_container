@@ -1,3 +1,6 @@
+~/finalProject/HapaxLegomena/man/analyze.Rd
+~/finalProject/HapaxLegomena/DESCRIPTION
+/workspaces/r_dev_container/finalProject/HapaxLegomena/R/viewStats.R
 ~/finalProject/HapaxLegomena/textFiles/TestText.txt
 ~/finalProject/HapaxLegomena/.gitignore
 /workspaces/r_dev_container/finalProject/HapaxLegomena/R/salient.R
@@ -10,6 +13,3 @@
 ~/finalProject/HapaxLegomena/textFiles/someText.txt
 ~/finalProject/HapaxLegomena/.Rbuildignore
 /workspaces/r_dev_container/finalProject/HapaxLegomena/R/analyze.R
-~/finalProject/HapaxLegomena/R/fuckingRUN.R
-/workspaces/r_dev_container/finalProject/HapaxLegomena/R/readTheText.R
-~/finalProject/HapaxLegomena/NAMESPACE
