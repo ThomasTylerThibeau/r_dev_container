@@ -93,19 +93,21 @@ analyze <- function(textIn = "file",
   wordCount <- c()
 
 
-  ##while(TRUE)
-  for (i in 1:1)
+  while(TRUE)
+  ##for (i in 1:10)
   {
     line <- readLines(text, n = 1)
+
+  ##
+    #cat("\n")
+    #cat("this is line:" , line)
+
+    ## but how does it know there are no more lines? MAGIC
+    if (length(line) == 0) { break }
 
     ## if the last line ended with a hyphenated word, paste it on da start
     line <- paste0(last, line)
 
-    cat("\n")
-    cat("this is line:" , line)
-
-    ## but how does it know there are no more lines? MAGIC
-    if (length(line) == 0) { break }
     else
     {
       ## lines of code where line is on line as line for line (wanna line?)
@@ -145,7 +147,8 @@ analyze <- function(textIn = "file",
   } ## end while reading lines
 
   ## close the file, if it was a file
-  if (textIn == "file") { close(text) }
+  #if (textIn == "file") { close(text) }
+  close(text)
 
 ## .... (turns out... I had "wordCount<- wordCount[word] + 1" replacing the entire vector....)
   ## cat("\n\nfinal vector", wordCount, "\n\n")
@@ -155,8 +158,3 @@ analyze <- function(textIn = "file",
 
 } ## end readTheText
 
-wordCnt <- analyze()
-
-
-
-####### final thoughts, c(word, 1) 1 != integer. fix that?
