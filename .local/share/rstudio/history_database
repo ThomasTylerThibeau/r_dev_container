@@ -16160,3 +16160,13 @@
 1753470706455:} ## end show the hapax legomena
 1753470706455:}
 1753470710663:quotidian()
+1753471219944:use_r("infoGraph")
+1753471518799:library(ggplot2)
+1753471544553:# Sample named vector
+1753471544553:word_vector <- c("apple" = 10, "banana" = 5, "cherry" = 8, "date" = 12, "elderberry" = 3)
+1753471544553:# Specify the number of top words you want
+1753471544554:n <- 3
+1753471544554:# Sort the vector in descending order and select the top n words
+1753471544554:top_words <- head(sort(word_vector, decreasing = TRUE), n)
+1753471544554:# Create a bar chart
+1753471544555:barplot(top_words, main = "Top N Words", xlab = "Words", ylab = "Frequency", col = "blue")

@@ -1,3 +1,5 @@
+/workspaces/r_dev_container/finalProject/HapaxLegomena/R/quotidian.R
+/workspaces/r_dev_container/finalProject/HapaxLegomena/R/infoGraph.R
 /workspaces/r_dev_container/finalProject/HapaxLegomena/R/factotum.R
 ~/finalProject/HapaxLegomena/man/analyze.Rd
 ~/finalProject/HapaxLegomena/DESCRIPTION
@@ -5,11 +7,9 @@
 ~/finalProject/HapaxLegomena/textFiles/TestText.txt
 ~/finalProject/HapaxLegomena/.gitignore
 /workspaces/r_dev_container/finalProject/HapaxLegomena/R/salient.R
-/workspaces/r_dev_container/finalProject/HapaxLegomena/R/quotidian.R
 /workspaces/r_dev_container/finalProject/HapaxLegomena/tests/testthat/test-analyze.R
 ~/finalProject/HapaxLegomena/tests/testthat/test-basicButDependedOn.R
 ~/finalProject/HapaxLegomena/tests/testthat.R
 ~/finalProject/HapaxLegomena/R/TexTesT.R
 ~/finalProject/HapaxLegomena/R/testFunctions.R
 ~/finalProject/HapaxLegomena/textFiles/someText.txt
-~/finalProject/HapaxLegomena/.Rbuildignore

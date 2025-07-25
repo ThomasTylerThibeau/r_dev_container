@@ -1,0 +1,26 @@
+{
+    "id": "7A1F3037",
+    "path": "/workspaces/r_dev_container/finalProject/HapaxLegomena/R/quotidian.R",
+    "project_path": null,
+    "type": "r_source",
+    "hash": "39880457",
+    "contents": "",
+    "dirty": true,
+    "created": 1753471220426.0,
+    "source_on_save": false,
+    "relative_order": 5,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "2,64",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1753471620,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1753471728219,
+    "read_only": false,
+    "read_only_alternatives": []
+}
