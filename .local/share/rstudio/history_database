@@ -15615,3 +15615,45 @@
 1753465188555:}
 1753465188555:}
 1753465191811:quotidian(top=20)
+1753465593115:library(devtools)
+1753465865867:use_r(salient)
+1753465872760:use_r("salient")
+1753465919522:salient <- function(namedVector = analyze(), bottom = 10)
+1753465919522:{
+1753465919522:## calls analyze for the all-in-one functionality
+1753465919522:namedVector
+1753465919522:## most frequently used words
+1753465919522:orderly <- sort(namedVector, decreasing = FALSE)
+1753465919522:## and then alphebetize as a second sort
+1753465919522:orderly <- orderly[order(-orderly, names(orderly))]
+1753465919522:## needs some formatting!
+1753465919523:for(i in 1:top)
+1753465919523:{
+1753465919523:key <- names(orderly)[i]
+1753465919524:value <- orderly[i]
+1753465919524:cat("word ", i, ": ", key, "\n", sep = "")
+1753465919524:cat("count:", value, "\n")
+1753465919524:cat("\n")
+1753465919524:}
+1753465919524:}
+1753465923345:salient()
+1753465950168:salient <- function(namedVector = analyze(), bottom = 10)
+1753465950168:{
+1753465950168:## calls analyze for the all-in-one functionality
+1753465950168:namedVector
+1753465950168:## most frequently used words
+1753465950169:orderly <- sort(namedVector, decreasing = FALSE)
+1753465950169:## and then alphebetize as a second sort
+1753465950169:orderly <- orderly[order(-orderly, names(orderly))]
+1753465950169:## needs some formatting!
+1753465950170:for(i in 1:bottom)
+1753465950170:{
+1753465950170:key <- names(orderly)[i]
+1753465950170:value <- orderly[i]
+1753465950171:cat("word ", i, ": ", key, "\n", sep = "")
+1753465950171:cat("count:", value, "\n")
+1753465950171:cat("\n")
+1753465950171:}
+1753465950171:}
+1753465959023:salient()
+1753466016700:analyze()

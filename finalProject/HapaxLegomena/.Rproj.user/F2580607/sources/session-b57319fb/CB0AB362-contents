@@ -1,3 +1,15 @@
+#' quotidian - simple word-stat sorter
+#'
+#' @param namedVector named vector from analyze() (created by default vector)
+#' @param top number of entries to view
+#'
+#' @returns nothing, prints out a list
+#' @export nothing
+#'
+#' @examples
+#' quotidian()
+#' quotidian(vector, 20)
+
 quotidian <- function(namedVector = analyze(), top = 10)
 {
   ## calls analyze for the all-in-one functionality
@@ -18,7 +30,4 @@ quotidian <- function(namedVector = analyze(), top = 10)
     cat("count:", value, "\n")
     cat("\n")
   }
-
 }
-
-quotidian(top=20)

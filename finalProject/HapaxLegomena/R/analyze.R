@@ -1,4 +1,4 @@
-#' Analyze - an over-the-top word frequency counter
+#' analyze - an over-the-top word frequency counter
 #'
 #' @param textIn
 #' @param keepHyphens

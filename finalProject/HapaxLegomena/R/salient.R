@@ -1,27 +1,28 @@
-#' quotidian - simple word-stat sorter
+#' salient - basically the opposite of quotidian
 #'
-#' @param namedVector named vector from analyze() (created by default vector)
-#' @param top number of entries to view
+#' @param namedVector defaults to analyze()
+#' @param bottom number of lest-used words to show
 #'
-#' @returns nothing, prints out a list
-#' @export nothing
+#' @returns nothing, prints a list
+#' @export
 #'
 #' @examples
-#' quotidian()
-#' quotidian(vector, 20)
+#' salient()
+#' salient(bottom = 15)
+#' salient(vector)
 
-quotidian <- function(namedVector = analyze(), top = 10)
+salient <- function(namedVector = analyze(), bottom = 10)
 {
   ## calls analyze for the all-in-one functionality
   namedVector
 
   ## most frequently used words
-  orderly <- sort(namedVector, decreasing = TRUE)
+  orderly <- sort(namedVector, decreasing = FALSE)
   ## and then alphebetize as a second sort
   orderly <- orderly[order(-orderly, names(orderly))]
 
   ## needs some formatting!
-  for(i in 1:top)
+  for(i in 1:bottom)
   {
     key <- names(orderly)[i]
     value <- orderly[i]
