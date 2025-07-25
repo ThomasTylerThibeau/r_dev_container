@@ -30,6 +30,11 @@ analyze <- function(textIn = "file",
   clean <- function(line, hyphens, contractions)
   {
 
+    cat("\n")
+    cat("into clean:", line)
+    cat("\n")
+
+
     ## does the line end in a hyphenated word? damn, work
     partialWord <- FALSE
     if (grepl("-$", line))
@@ -56,6 +61,11 @@ analyze <- function(textIn = "file",
 
     if (!hyphens)
     { line <- gsub("-", " ", line) }
+
+
+    cat("out of clean:", line)
+    cat("\n\n")
+
 
     return (c(line, partialWord))
   }
@@ -102,7 +112,8 @@ analyze <- function(textIn = "file",
       wash <- clean(line, keepHyphens, keepContractions)
 
     ## wtf
-      print(wash)
+      cat("wash[1]:", wash[1])
+      cat("\nwash[2]:", wash[2])
 
       line <- wash[1]
 
@@ -123,7 +134,9 @@ analyze <- function(textIn = "file",
         if(word %in% names(wordCount))
         { wordCount <- c(word, 1)}
         else ## wordCount[word]++, no? 'course not
-        { wordCount[word] <- wordCount[word] + 1}
+        { wordCount[word] <- as.numeric(wordCount[word]) + 1}
+
+        print("\nadded word\n")
       }
 
 
@@ -134,7 +147,9 @@ analyze <- function(textIn = "file",
   ## close the file, if it was a file
   if (textIn == "file") { close(text) }
 
-  print(wordCount)
+
+  cat("\n\nfinal vector", wordCount, "\n\n")
+
 
   return (wordCount)
 
