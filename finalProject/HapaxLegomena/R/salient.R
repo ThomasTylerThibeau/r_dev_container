@@ -15,23 +15,25 @@
 salient <- function(namedVector = analyze(), show = 10, common = TRUE)
 {
   ## calls analyze for the all-in-one functionality
-  use <- namedVector
+  namedVector
 
   if(common == TRUE)
   {
     cat(show, "most commonly used words:\n")
     ## most/least frequently used words
-    orderly <- sort(use, decreasing = TRUE)
+    orderly <- sort(namedVector, decreasing = TRUE)
+    ## and then alphabetize as a second sort
+    orderly <- orderly[order(-orderly, names(orderly))]
   }
   else
   {
     cat(show, "least frequently used words:\n")
     ## most/least frequently used words
-    orderly <- sort(use, decreasing = FALSE)
+    orderly <- sort(namedVector)
+    ## alphabetize (use 'orderly' not '-orderly' this time)
+    orderly <- orderly[order(orderly, names(orderly))]
   }
 
-  ## and then alphabetize as a second sort
-  orderly <- orderly[order(-orderly, names(orderly))]
 
   ## check usage for up to length of the vector
   for(i in 1:min(show, length(orderly)))

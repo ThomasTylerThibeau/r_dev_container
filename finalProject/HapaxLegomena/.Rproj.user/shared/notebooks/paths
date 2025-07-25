@@ -8,6 +8,8 @@
 /home/rstudio/finalProject/HapaxLegomena/textFiles/someText.txt="21D68BAF"
 /workspaces/r_dev_container/finalProject/HapaxLegomena/R/analyze.R="33512FBA"
 /workspaces/r_dev_container/finalProject/HapaxLegomena/R/basicButDependedOn.R="77293A4D"
+/workspaces/r_dev_container/finalProject/HapaxLegomena/R/factotum.R="4D47E8D7"
+/workspaces/r_dev_container/finalProject/HapaxLegomena/R/quotidian.R="55624111"
 /workspaces/r_dev_container/finalProject/HapaxLegomena/R/viewStats.R="EABDA0E5"
 /workspaces/r_dev_container/finalProject/HapaxLegomena/tests/testthat/test-analyze.R="12678A2B"
 /workspaces/r_dev_container/finalProject/HapaxLegomena/tests/testthat/test-basicButDependedOn.R="DF307C7E"

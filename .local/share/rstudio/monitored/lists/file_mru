@@ -1,3 +1,4 @@
+/workspaces/r_dev_container/finalProject/HapaxLegomena/R/factotum.R
 ~/finalProject/HapaxLegomena/man/analyze.Rd
 ~/finalProject/HapaxLegomena/DESCRIPTION
 /workspaces/r_dev_container/finalProject/HapaxLegomena/R/viewStats.R
@@ -12,4 +13,3 @@
 ~/finalProject/HapaxLegomena/R/testFunctions.R
 ~/finalProject/HapaxLegomena/textFiles/someText.txt
 ~/finalProject/HapaxLegomena/.Rbuildignore
-/workspaces/r_dev_container/finalProject/HapaxLegomena/R/analyze.R

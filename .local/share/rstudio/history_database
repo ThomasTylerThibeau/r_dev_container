@@ -16040,3 +16040,123 @@
 1753470237897:}
 1753470251720:salient(common = TRUE)
 1753470262504:salient(common = FALSE)
+1753470405153:salient(common = FALSE)
+1753470456529:salient <- function(namedVector = analyze(), show = 10, common = TRUE)
+1753470456529:{
+1753470456529:## calls analyze for the all-in-one functionality
+1753470456529:namedVector
+1753470456530:if(common == TRUE)
+1753470456530:{
+1753470456530:cat(show, "most commonly used words:\n")
+1753470456530:## most/least frequently used words
+1753470456530:orderly <- sort(namedVector, decreasing = TRUE)
+1753470456530:}
+1753470456530:else
+1753470456530:{
+1753470456530:cat(show, "least frequently used words:\n")
+1753470456530:## most/least frequently used words
+1753470456530:orderly <- sort(namedVector, decreasing = TRUE)
+1753470456531:}
+1753470456532:## and then alphabetize as a second sort
+1753470456532:#orderly <- orderly[order(-orderly, names(orderly))]
+1753470456532:## check usage for up to length of the vector
+1753470456532:for(i in 1:min(show, length(orderly)))
+1753470456532:{
+1753470456533:key <- names(orderly)[i]
+1753470456533:value <- orderly[i]
+1753470456533:cat("word ", i, ": ", key, "\n", sep = "")
+1753470456533:cat("count:", value, "\n")
+1753470456533:cat("\n")
+1753470456533:}
+1753470456533:}
+1753470459673:salient(common = FALSE)
+1753470489034:salient <- function(namedVector = analyze(), show = 10, common = TRUE)
+1753470489034:{
+1753470489034:## calls analyze for the all-in-one functionality
+1753470489034:namedVector
+1753470489035:if(common == TRUE)
+1753470489035:{
+1753470489035:cat(show, "most commonly used words:\n")
+1753470489035:## most/least frequently used words
+1753470489035:orderly <- sort(namedVector, decreasing = TRUE)
+1753470489035:}
+1753470489035:else
+1753470489035:{
+1753470489035:cat(show, "least frequently used words:\n")
+1753470489036:## most/least frequently used words
+1753470489036:orderly <- sort(namedVector)
+1753470489036:}
+1753470489036:## and then alphabetize as a second sort
+1753470489036:#orderly <- orderly[order(-orderly, names(orderly))]
+1753470489037:## check usage for up to length of the vector
+1753470489037:for(i in 1:min(show, length(orderly)))
+1753470489037:{
+1753470489037:key <- names(orderly)[i]
+1753470489037:value <- orderly[i]
+1753470489038:cat("word ", i, ": ", key, "\n", sep = "")
+1753470489038:cat("count:", value, "\n")
+1753470489038:cat("\n")
+1753470489038:}
+1753470489038:}
+1753470491705:salient(common = FALSE)
+1753470538787:salient <- function(namedVector = analyze(), show = 10, common = TRUE)
+1753470538787:{
+1753470538787:## calls analyze for the all-in-one functionality
+1753470538788:namedVector
+1753470538789:if(common == TRUE)
+1753470538789:{
+1753470538790:cat(show, "most commonly used words:\n")
+1753470538790:## most/least frequently used words
+1753470538790:orderly <- sort(namedVector, decreasing = TRUE)
+1753470538791:## and then alphabetize as a second sort
+1753470538791:orderly <- orderly[order(-orderly, names(orderly))]
+1753470538792:}
+1753470538792:else
+1753470538792:{
+1753470538792:cat(show, "least frequently used words:\n")
+1753470538792:## most/least frequently used words
+1753470538792:orderly <- sort(namedVector)
+1753470538792:## and then alphabetize as a second sort
+1753470538792:orderly <- orderly[order(orderly, names(orderly))]
+1753470538793:}
+1753470538793:## check usage for up to length of the vector
+1753470538793:for(i in 1:min(show, length(orderly)))
+1753470538793:{
+1753470538793:key <- names(orderly)[i]
+1753470538793:value <- orderly[i]
+1753470538793:cat("word ", i, ": ", key, "\n", sep = "")
+1753470538794:cat("count:", value, "\n")
+1753470538794:cat("\n")
+1753470538794:}
+1753470538794:}
+1753470541711:salient(common = FALSE)
+1753470571075:salient(common = TRUE)
+1753470706449:quotidian <- function(namedVector = analyze(), top = 10, bottom = 10, hapaxLegomena = TRUE)
+1753470706449:{
+1753470706450:## in case it needs to be established
+1753470706450:namedVector
+1753470706450:## show the most frequent words
+1753470706450:salient(namedVector, show = top, common = TRUE)
+1753470706450:cat("\n\n")
+1753470706450:salient(namedVector, show = bottom, common = FALSE)
+1753470706450:cat("\n\n")
+1753470706451:if (hapaxLegomena)
+1753470706451:{
+1753470706451:## most frequently used words
+1753470706451:orderly <- sort(namedVector, decreasing = FALSE)
+1753470706452:## and then alphabetize as a second sort
+1753470706452:orderly <- orderly[order(orderly, names(orderly))]
+1753470706452:## check your usage
+1753470706452:for(i in 1:length(orderly))
+1753470706453:{
+1753470706453:key <- names(orderly)[i]
+1753470706453:value <- orderly[i]
+1753470706453:## done
+1753470706454:if(value > 1){break}
+1753470706454:cat("word ", i, ": ", key, "\n", sep = "")
+1753470706454:cat("count:", value, "\n")
+1753470706454:cat("\n")
+1753470706455:}
+1753470706455:} ## end show the hapax legomena
+1753470706455:}
+1753470710663:quotidian()
