@@ -14427,3 +14427,811 @@
 1753449780764:analyze
 1753449789816:analyze()
 1753449908777:analyze()
+1753450250870:analyze <- function(textIn = "file",
+1753450250870:keepHyphens = TRUE,
+1753450250870:keepContractions = TRUE)
+1753450250870:{
+1753450250870:######################## start helper functions #############################
+1753450250870:## pick the file if need be, pick your nose, too!
+1753450250870:chooseFile <- function()
+1753450250871:{
+1753450250871:## choose file or use path?
+1753450250871:path <- readline(prompt = "enter path or 'enter' to search")
+1753450250871:if (path == "")
+1753450250872:{ path <- file.choose() }
+1753450250872:if(!file.exists(path))
+1753450250872:{
+1753450250872:print("try again! file not found 404 SOS")
+1753450250873:## try again
+1753450250873:chooseFile()
+1753450250873:} ## end while invalid file path
+1753450250873:## and spit it out
+1753450250873:return (path)
+1753450250874:}
+1753450250874:## clean the line, keep or remove hyphens and contractions
+1753450250874:clean <- function(line, hyphens, contractions)
+1753450250875:{
+1753450250875:## super annoying
+1753450250875:#cat("\n")
+1753450250875:#cat("into clean:", line)
+1753450250875:#cat("\n")
+1753450250876:## does the line end in a hyphenated word? damn, work
+1753450250876:partialWord <- FALSE
+1753450250876:if (grepl("-$", line))
+1753450250876:{
+1753450250876:## remove that hyphen
+1753450250877:sub("-$", "", line )
+1753450250877:## declare a partial word
+1753450250877:partialWord <- TRUE
+1753450250877:}
+1753450250878:## no proper nouns allowed
+1753450250878:line <- tolower(line)
+1753450250878:## apropros keep hyphy chars
+1753450250879:line <- gsub("[^a-z'-]", " ", line)
+1753450250879:## okay WTF is going on here?
+1753450250879:#print("removed punctuation?")
+1753450250879:#print(line)
+1753450250880:if (!contractions)
+1753450250880:{ line <- gsub("'", " ", line) }
+1753450250880:else
+1753450250880:{
+1753450250881:## it'll kill quotes and weird contractions ('bout)
+1753450250881:line <- gsub("' ", " ", line)
+1753450250881:line <- gsub(" '", " ", line)
+1753450250881:}
+1753450250881:if (!hyphens)
+1753450250881:{ line <- gsub("-", " ", line) }
+1753450250882:## this is annoying
+1753450250882:#cat("out of clean:", line)
+1753450250882:#cat("\n\n")
+1753450250882:return (c(line, partialWord))
+1753450250882:}
+1753450250883:######################### end helper functions ##############################
+1753450250883:## finding a file or using a string input?
+1753450250883:if(textIn == "file")
+1753450250883:{
+1753450250883:## pick the file and verify
+1753450250883:path <- chooseFile()
+1753450250884:## open the connection to the file
+1753450250884:text <- file(path, open = "r")
+1753450250884:} ## end if using file
+1753450250884:else ## for readLines to work, textConnection the string input
+1753450250884:{ text <- textConnection(textIn) }
+1753450250885:## initialize the variable to hold hyphenated end-of-liners
+1753450250885:last <- ""
+1753450250885:## initialize a vector to hold the counts
+1753450250885:wordCount <- c()
+1753450250886:while(TRUE)
+1753450250886:##for (i in 1:10)
+1753450250886:{
+1753450250886:line <- readLines(text, n = 1)
+1753450250886:##
+1753450250886:#cat("\n")
+1753450250887:#cat("this is line:" , line)
+1753450250887:## but how does it know there are no more lines? MAGIC
+1753450250887:if (length(line) == 0) { break }
+1753450250887:## if the last line ended with a hyphenated word, paste it on da start
+1753450250887:line <- paste0(last, line)
+1753450250888:else
+1753450346886:analyze <- function(textIn = "file",
+1753450346886:keepHyphens = TRUE,
+1753450346887:keepContractions = TRUE)
+1753450346887:{
+1753450346887:######################## start helper functions #############################
+1753450346887:## pick the file if need be, pick your nose, too!
+1753450346887:chooseFile <- function()
+1753450346887:{
+1753450346887:## choose file or use path?
+1753450346887:path <- readline(prompt = "enter path or 'enter' to search")
+1753450346888:if (path == "")
+1753450346888:{ path <- file.choose() }
+1753450346888:if(!file.exists(path))
+1753450346889:{
+1753450346889:print("try again! file not found 404 SOS")
+1753450346889:## try again
+1753450346889:chooseFile()
+1753450346889:} ## end while invalid file path
+1753450346889:## and spit it out
+1753450346889:return (path)
+1753450346890:}
+1753450346890:## clean the line, keep or remove hyphens and contractions
+1753450346890:clean <- function(line, hyphens, contractions)
+1753450346890:{
+1753450346890:## super annoying
+1753450346890:#cat("\n")
+1753450346891:#cat("into clean:", line)
+1753450346891:#cat("\n")
+1753450346891:## does the line end in a hyphenated word? damn, work
+1753450346891:partialWord <- FALSE
+1753450346892:if (grepl("-$", line))
+1753450346892:{
+1753450346892:## remove that hyphen
+1753450346892:sub("-$", "", line )
+1753450346893:## declare a partial word
+1753450346893:partialWord <- TRUE
+1753450346893:}
+1753450346893:## no proper nouns allowed
+1753450346894:line <- tolower(line)
+1753450346894:## apropros keep hyphy chars
+1753450346894:line <- gsub("[^a-z'-]", " ", line)
+1753450346895:## okay WTF is going on here?
+1753450346895:#print("removed punctuation?")
+1753450346895:#print(line)
+1753450346896:if (!contractions)
+1753450346896:{ line <- gsub("'", " ", line) }
+1753450346896:else
+1753450346896:{
+1753450346896:## it'll kill quotes and weird contractions ('bout)
+1753450346896:line <- gsub("' ", " ", line)
+1753450346896:line <- gsub(" '", " ", line)
+1753450346896:}
+1753450346897:if (!hyphens)
+1753450346897:{ line <- gsub("-", " ", line) }
+1753450346897:## this is annoying
+1753450346897:#cat("out of clean:", line)
+1753450346897:#cat("\n\n")
+1753450346898:return (c(line, partialWord))
+1753450346898:}
+1753450346898:######################### end helper functions ##############################
+1753450346898:## finding a file or using a string input?
+1753450346898:if(textIn == "file")
+1753450346899:{
+1753450346899:## pick the file and verify
+1753450346899:path <- chooseFile()
+1753450346899:## open the connection to the file
+1753450346899:text <- file(path, open = "r")
+1753450346900:} ## end if using file
+1753450346900:else ## for readLines to work, textConnection the string input
+1753450346900:{ text <- textConnection(textIn) }
+1753450346900:## initialize the variable to hold hyphenated end-of-liners
+1753450346900:last <- ""
+1753450346901:## initialize a vector to hold the counts
+1753450346901:wordCount <- c()
+1753450346901:while(TRUE)
+1753450346901:##for (i in 1:10)
+1753450346901:{
+1753450346901:line <- readLines(text, n = 1)
+1753450346902:##
+1753450346902:#cat("\n")
+1753450346902:#cat("this is line:" , line)
+1753450346902:## but how does it know there are no more lines? MAGIC
+1753450346902:if (length(line) == 0) { break }
+1753450346903:else
+1753450346903:{
+1753450346903:## if the last line ended with a hyphenated word, paste it on da start
+1753450346903:line <- paste0(last, line)
+1753450346903:## lines of code where line is on line as line for line (wanna line?)
+1753450346903:wash <- clean(line, keepHyphens, keepContractions)
+1753450346904:## wtf
+1753450346904:#cat("wash[1]:", wash[1])
+1753450346904:#cat("\nwash[2]:", wash[2])
+1753450346904:line <- wash[1]
+1753450346905:words <- unlist(strsplit(line,"\\s+"))
+1753450346905:if (wash[2])
+1753450346905:{
+1753450346905:## store the last word frag
+1753450346905:last <- words[length(words)]
+1753450346906:## reset the line to not hold that part
+1753450346906:words <- words[-length(words)]
+1753450346906:} ## partial word saved for next line
+1753450346907:for (word in words) ## word
+1753450346907:{
+1753450346907:if(word %in% names(wordCount))
+1753450346907:{ wordCount[word] <- as.numeric(wordCount[word]) + 1}
+1753450346907:else ## wordCount[word]++, no? 'course not
+1753450346907:{ wordCount[word] <- 1}
+1753450346908:## print("added word")
+1753450346908:}
+1753450346908:} ## end not empty line
+1753450346909:} ## end while reading lines
+1753450346909:## close the file, if it was a file
+1753450346909:#if (textIn == "file") { close(text) }
+1753450346909:close(text)
+1753450346910:## .... (turns out... I had "wordCount<- wordCount[word] + 1" replacing the entire vector....)
+1753450346910:## cat("\n\nfinal vector", wordCount, "\n\n")
+1753450346910:return (wordCount)
+1753450346911:} ## end readTheText
+1753450359831:words <- analyze()
+1753450369049:words
+1753450490521:analyze <- function(textIn = "file",
+1753450490521:keepHyphens = TRUE,
+1753450490521:keepContractions = TRUE)
+1753450490521:{
+1753450490521:######################## start helper functions #############################
+1753450490521:## pick the file if need be, pick your nose, too!
+1753450490522:chooseFile <- function()
+1753450490522:{
+1753450490522:## choose file or use path?
+1753450490522:path <- readline(prompt = "enter path or 'enter' to search")
+1753450490523:if (path == "")
+1753450490523:{ path <- file.choose() }
+1753450490523:if(!file.exists(path))
+1753450490523:{
+1753450490524:print("try again! file not found 404 SOS")
+1753450490524:## try again
+1753450490524:chooseFile()
+1753450490524:} ## end while invalid file path
+1753450490524:## and spit it out
+1753450490525:return (path)
+1753450490525:}
+1753450490525:## clean the line, keep or remove hyphens and contractions
+1753450490526:clean <- function(line, hyphens, contractions)
+1753450490526:{
+1753450490526:## super annoying
+1753450490526:#cat("\n")
+1753450490527:#cat("into clean:", line)
+1753450490527:#cat("\n")
+1753450490527:## does the line end in a hyphenated word? damn, work
+1753450490528:partialWord <- FALSE
+1753450490528:if (grepl("-$", line))
+1753450490528:{
+1753450490528:## remove that hyphen
+1753450490528:gsub("-$", "", line )
+1753450490529:## declare a partial word
+1753450490529:partialWord <- TRUE
+1753450490529:}
+1753450490529:## no proper nouns allowed
+1753450490529:line <- tolower(line)
+1753450490530:## apropros keep hyphy chars
+1753450490530:line <- gsub("[^a-z'-]", " ", line)
+1753450490530:## okay WTF is going on here?
+1753450490530:#print("removed punctuation?")
+1753450490530:#print(line)
+1753450490530:if (!contractions)
+1753450490531:{ line <- gsub("'", " ", line) }
+1753450490531:else
+1753450490531:{
+1753450490531:## it'll kill quotes and weird contractions ('bout)
+1753450490531:line <- gsub("' ", " ", line)
+1753450490531:line <- gsub(" '", " ", line)
+1753450490531:}
+1753450490532:if (!hyphens)
+1753450490532:{ line <- gsub("-", " ", line) }
+1753450490532:## this is annoying
+1753450490532:#cat("out of clean:", line)
+1753450490532:#cat("\n\n")
+1753450490532:return (c(line, partialWord))
+1753450490533:}
+1753450490533:######################### end helper functions ##############################
+1753450490533:## finding a file or using a string input?
+1753450490533:if(textIn == "file")
+1753450490533:{
+1753450490534:## pick the file and verify
+1753450490534:path <- chooseFile()
+1753450490534:## open the connection to the file
+1753450490534:text <- file(path, open = "r")
+1753450490534:} ## end if using file
+1753450490535:else ## for readLines to work, textConnection the string input
+1753450490535:{ text <- textConnection(textIn) }
+1753450490535:## initialize the variable to hold hyphenated end-of-liners
+1753450490535:last <- ""
+1753450490535:## initialize a vector to hold the counts
+1753450490535:wordCount <- c()
+1753450490536:while(TRUE)
+1753450490536:##for (i in 1:10)
+1753450490536:{
+1753450490536:line <- readLines(text, n = 1)
+1753450490537:##
+1753450490537:#cat("\n")
+1753450490537:#cat("this is line:" , line)
+1753450490537:## but how does it know there are no more lines? MAGIC
+1753450490537:if (length(line) == 0) { break }
+1753450490537:else
+1753450490538:{
+1753450490538:## if the last line ended with a hyphenated word, paste it on da start
+1753450490538:line <- paste0(last, line)
+1753450490538:## lines of code where line is on line as line for line (wanna line?)
+1753450490538:wash <- clean(line, keepHyphens, keepContractions)
+1753450490539:## wtf
+1753450490539:#cat("wash[1]:", wash[1])
+1753450490539:#cat("\nwash[2]:", wash[2])
+1753450490539:line <- wash[1]
+1753450490539:words <- unlist(strsplit(line,"\\s+"))
+1753450490540:if (wash[2])
+1753450490540:{
+1753450490540:## store the last word frag
+1753450490540:last <- words[length(words)]
+1753450490540:## reset the line to not hold that part
+1753450490541:words <- words[-length(words)]
+1753450490541:} ## partial word saved for next line
+1753450490541:for (word in words) ## word
+1753450490541:{
+1753450490542:if(word %in% names(wordCount))
+1753450490542:{ wordCount[word] <- as.numeric(wordCount[word]) + 1}
+1753450490542:else ## wordCount[word]++, no? 'course not
+1753450490542:{ wordCount[word] <- 1}
+1753450490542:## print("added word")
+1753450490543:}
+1753450490543:} ## end not empty line
+1753450490543:} ## end while reading lines
+1753450490544:## close the file, if it was a file
+1753450490544:#if (textIn == "file") { close(text) }
+1753450490544:close(text)
+1753450490544:## .... (turns out... I had "wordCount<- wordCount[word] + 1" replacing the entire vector....)
+1753450490545:## cat("\n\nfinal vector", wordCount, "\n\n")
+1753450490545:return (wordCount)
+1753450490545:} ## end readTheText
+1753450495379:words <- analyze()
+1753450504202:words
+1753450608697:analyze <- function(textIn = "file",
+1753450608697:keepHyphens = TRUE,
+1753450608697:keepContractions = TRUE)
+1753450608698:{
+1753450608698:######################## start helper functions #############################
+1753450608699:## pick the file if need be, pick your nose, too!
+1753450608699:chooseFile <- function()
+1753450608699:{
+1753450608699:## choose file or use path?
+1753450608699:path <- readline(prompt = "enter path or 'enter' to search")
+1753450608700:if (path == "")
+1753450608700:{ path <- file.choose() }
+1753450608700:if(!file.exists(path))
+1753450608700:{
+1753450608700:print("try again! file not found 404 SOS")
+1753450608700:## try again
+1753450608700:chooseFile()
+1753450608700:} ## end while invalid file path
+1753450608701:## and spit it out
+1753450608701:return (path)
+1753450608701:}
+1753450608701:## clean the line, keep or remove hyphens and contractions
+1753450608701:clean <- function(line, hyphens, contractions)
+1753450608702:{
+1753450608702:## super annoying
+1753450608702:#cat("\n")
+1753450608702:#cat("into clean:", line)
+1753450608702:#cat("\n")
+1753450608702:## does the line end in a hyphenated word? damn, work
+1753450608702:partialWord <- FALSE
+1753450608703:if (grepl("-$", line))
+1753450608703:{
+1753450608703:## remove that hyphen
+1753450608703:gsub("-$", " ", line )
+1753450608703:## declare a partial word
+1753450608703:partialWord <- TRUE
+1753450608704:}
+1753450608704:## no proper nouns allowed
+1753450608704:line <- tolower(line)
+1753450608704:## apropros keep hyphy chars
+1753450608705:line <- gsub("[^a-z'-]", " ", line)
+1753450608705:## okay WTF is going on here?
+1753450608705:#print("removed punctuation?")
+1753450608705:#print(line)
+1753450608706:if (!contractions)
+1753450608706:{ line <- gsub("'", " ", line) }
+1753450608706:else
+1753450608706:{
+1753450608706:## it'll kill quotes and weird contractions ('bout)
+1753450608706:line <- gsub("' ", " ", line)
+1753450608706:line <- gsub(" '", " ", line)
+1753450608707:}
+1753450608707:if (!hyphens)
+1753450608707:{ line <- gsub("-", " ", line) }
+1753450608707:## this is annoying
+1753450608707:#cat("out of clean:", line)
+1753450608707:#cat("\n\n")
+1753450608708:return (c(line, partialWord))
+1753450608708:}
+1753450608708:######################### end helper functions ##############################
+1753450608708:## finding a file or using a string input?
+1753450608709:if(textIn == "file")
+1753450608709:{
+1753450608709:## pick the file and verify
+1753450608709:path <- chooseFile()
+1753450608709:## open the connection to the file
+1753450608709:text <- file(path, open = "r")
+1753450608710:} ## end if using file
+1753450608710:else ## for readLines to work, textConnection the string input
+1753450608710:{ text <- textConnection(textIn) }
+1753450608710:## initialize the variable to hold hyphenated end-of-liners
+1753450608710:last <- ""
+1753450608710:## initialize a vector to hold the counts
+1753450608711:wordCount <- c()
+1753450608711:while(TRUE)
+1753450608711:##for (i in 1:10)
+1753450608711:{
+1753450608711:line <- readLines(text, n = 1)
+1753450608712:##
+1753450608712:#cat("\n")
+1753450608712:#cat("this is line:" , line)
+1753450608712:## but how does it know there are no more lines? MAGIC
+1753450608712:if (length(line) == 0) { break }
+1753450608713:else
+1753450608713:{
+1753450608713:## if the last line ended with a hyphenated word, paste it on da start
+1753450608713:line <- paste0(last, line)
+1753450608713:## lines of code where line is on line as line for line (wanna line?)
+1753450608713:wash <- clean(line, keepHyphens, keepContractions)
+1753450608714:## wtf
+1753450608714:#cat("wash[1]:", wash[1])
+1753450608714:#cat("\nwash[2]:", wash[2])
+1753450608714:line <- wash[1]
+1753450608715:words <- unlist(strsplit(line,"\\s+"))
+1753450608715:if (wash[2])
+1753450608715:{
+1753450608715:## store the last word frag
+1753450608715:last <- words[length(words)]
+1753450608715:## reset the line to not hold that part
+1753450608716:words <- words[-length(words)]
+1753450608716:} ## partial word saved for next line
+1753450608716:for (word in words) ## word
+1753450608717:{
+1753450608717:if(word %in% names(wordCount))
+1753450608717:{ wordCount[word] <- as.numeric(wordCount[word]) + 1}
+1753450608717:else ## wordCount[word]++, no? 'course not
+1753450608717:{ wordCount[word] <- 1}
+1753450608718:## print("added word")
+1753450608718:}
+1753450608718:} ## end not empty line
+1753450608719:} ## end while reading lines
+1753450608719:## close the file, if it was a file
+1753450608719:#if (textIn == "file") { close(text) }
+1753450608720:close(text)
+1753450608720:## .... (turns out... I had "wordCount<- wordCount[word] + 1" replacing the entire vector....)
+1753450608720:## cat("\n\nfinal vector", wordCount, "\n\n")
+1753450608720:return (wordCount)
+1753450608721:} ## end readTheText
+1753450612285:words <- analyze()
+1753450621717:words
+1753450671227:analyze <- function(textIn = "file",
+1753450671227:keepHyphens = TRUE,
+1753450671227:keepContractions = TRUE)
+1753450671227:{
+1753450671227:######################## start helper functions #############################
+1753450671227:## pick the file if need be, pick your nose, too!
+1753450671227:chooseFile <- function()
+1753450671228:{
+1753450671228:## choose file or use path?
+1753450671228:path <- readline(prompt = "enter path or 'enter' to search")
+1753450671229:if (path == "")
+1753450671229:{ path <- file.choose() }
+1753450671230:if(!file.exists(path))
+1753450671230:{
+1753450671230:print("try again! file not found 404 SOS")
+1753450671230:## try again
+1753450671230:chooseFile()
+1753450671230:} ## end while invalid file path
+1753450671231:## and spit it out
+1753450671231:return (path)
+1753450671231:}
+1753450671232:## clean the line, keep or remove hyphens and contractions
+1753450671232:clean <- function(line, hyphens, contractions)
+1753450671232:{
+1753450671232:## super annoying
+1753450671232:#cat("\n")
+1753450671232:#cat("into clean:", line)
+1753450671232:#cat("\n")
+1753450671233:## does the line end in a hyphenated word? damn, work
+1753450671233:partialWord <- FALSE
+1753450671233:if (grepl("-$", line))
+1753450671233:{
+1753450671233:## remove that hyphen
+1753450671233:line <- gsub("-$", "", line )
+1753450671234:## declare a partial word
+1753450671234:partialWord <- TRUE
+1753450671234:}
+1753450671234:## no proper nouns allowed
+1753450671235:line <- tolower(line)
+1753450671235:## apropros keep hyphy chars
+1753450671235:line <- gsub("[^a-z'-]", " ", line)
+1753450671236:## okay WTF is going on here?
+1753450671236:#print("removed punctuation?")
+1753450671236:#print(line)
+1753450671236:if (!contractions)
+1753450671236:{ line <- gsub("'", " ", line) }
+1753450671236:else
+1753450671237:{
+1753450671237:## it'll kill quotes and weird contractions ('bout)
+1753450671237:line <- gsub("' ", " ", line)
+1753450671237:line <- gsub(" '", " ", line)
+1753450671237:}
+1753450671237:if (!hyphens)
+1753450671237:{ line <- gsub("-", " ", line) }
+1753450671238:## this is annoying
+1753450671238:#cat("out of clean:", line)
+1753450671238:#cat("\n\n")
+1753450671238:return (c(line, partialWord))
+1753450671238:}
+1753450671239:######################### end helper functions ##############################
+1753450671239:## finding a file or using a string input?
+1753450671239:if(textIn == "file")
+1753450671239:{
+1753450671239:## pick the file and verify
+1753450671239:path <- chooseFile()
+1753450671240:## open the connection to the file
+1753450671240:text <- file(path, open = "r")
+1753450671240:} ## end if using file
+1753450671240:else ## for readLines to work, textConnection the string input
+1753450671240:{ text <- textConnection(textIn) }
+1753450671241:## initialize the variable to hold hyphenated end-of-liners
+1753450671241:last <- ""
+1753450671241:## initialize a vector to hold the counts
+1753450671241:wordCount <- c()
+1753450671242:while(TRUE)
+1753450671242:##for (i in 1:10)
+1753450671242:{
+1753450671242:line <- readLines(text, n = 1)
+1753450671242:##
+1753450671242:#cat("\n")
+1753450671243:#cat("this is line:" , line)
+1753450671243:## but how does it know there are no more lines? MAGIC
+1753450671243:if (length(line) == 0) { break }
+1753450671243:else
+1753450671243:{
+1753450671243:## if the last line ended with a hyphenated word, paste it on da start
+1753450671244:line <- paste0(last, line)
+1753450671244:## lines of code where line is on line as line for line (wanna line?)
+1753450671244:wash <- clean(line, keepHyphens, keepContractions)
+1753450671244:## wtf
+1753450671245:#cat("wash[1]:", wash[1])
+1753450671245:#cat("\nwash[2]:", wash[2])
+1753450671245:line <- wash[1]
+1753450671245:words <- unlist(strsplit(line,"\\s+"))
+1753450671246:if (wash[2])
+1753450671246:{
+1753450671246:## store the last word frag
+1753450671246:last <- words[length(words)]
+1753450671246:## reset the line to not hold that part
+1753450671246:words <- words[-length(words)]
+1753450671247:} ## partial word saved for next line
+1753450671247:for (word in words) ## word
+1753450671247:{
+1753450671247:if(word %in% names(wordCount))
+1753450671248:{ wordCount[word] <- as.numeric(wordCount[word]) + 1}
+1753450671248:else ## wordCount[word]++, no? 'course not
+1753450671248:{ wordCount[word] <- 1}
+1753450671248:## print("added word")
+1753450671248:}
+1753450671249:} ## end not empty line
+1753450671249:} ## end while reading lines
+1753450671249:## close the file, if it was a file
+1753450671250:#if (textIn == "file") { close(text) }
+1753450671250:close(text)
+1753450671250:## .... (turns out... I had "wordCount<- wordCount[word] + 1" replacing the entire vector....)
+1753450671250:## cat("\n\nfinal vector", wordCount, "\n\n")
+1753450671251:return (wordCount)
+1753450671251:} ## end readTheText
+1753450675654:words <- analyze()
+1753450681865:words
+1753450797649:analyze <- function(textIn = "file",
+1753450797649:keepHyphens = TRUE,
+1753450797649:keepContractions = TRUE)
+1753450797649:{
+1753450797649:######################## start helper functions #############################
+1753450797649:## pick the file if need be, pick your nose, too!
+1753450797649:chooseFile <- function()
+1753450797649:{
+1753450797649:## choose file or use path?
+1753450797650:path <- readline(prompt = "enter path or 'enter' to search")
+1753450797650:if (path == "")
+1753450797650:{ path <- file.choose() }
+1753450797651:if(!file.exists(path))
+1753450797651:{
+1753450797651:print("try again! file not found 404 SOS")
+1753450797651:## try again
+1753450797651:chooseFile()
+1753450797651:} ## end while invalid file path
+1753450797652:## and spit it out
+1753450797652:return (path)
+1753450797652:}
+1753450797653:## clean the line, keep or remove hyphens and contractions
+1753450797653:clean <- function(line, hyphens, contractions)
+1753450797653:{
+1753450797653:## super annoying
+1753450797654:#cat("\n")
+1753450797654:#cat("into clean:", line)
+1753450797654:#cat("\n")
+1753450797654:## does the line end in a hyphenated word? damn, work
+1753450797654:partialWord <- FALSE
+1753450797655:if (grepl("-$", line))
+1753450797655:{
+1753450797655:## remove that hyphen
+1753450797655:line <- gsub("-$", "", line )
+1753450797656:## declare a partial word
+1753450797656:partialWord <- TRUE
+1753450797656:}
+1753450797656:## no proper nouns allowed
+1753450797657:line <- tolower(line)
+1753450797657:## apropros keep hyphy chars
+1753450797657:line <- gsub("[^a-z'-]", " ", line)
+1753450797658:## okay WTF is going on here?
+1753450797658:#print("removed punctuation?")
+1753450797658:#print(line)
+1753450797659:if (!contractions)
+1753450797659:{ line <- gsub("'", " ", line) }
+1753450797659:else
+1753450797659:{
+1753450797659:## it'll kill quotes and weird contractions ('bout)
+1753450797659:line <- gsub("' ", " ", line)
+1753450797659:line <- gsub(" '", " ", line)
+1753450797659:}
+1753450797660:if (!hyphens)
+1753450797660:{ line <- gsub("-", " ", line) }
+1753450797660:## this is annoying
+1753450797660:#cat("out of clean:", line)
+1753450797660:#cat("\n\n")
+1753450797661:return (c(line, partialWord))
+1753450797661:}
+1753450797661:######################### end helper functions ##############################
+1753450797661:## finding a file or using a string input?
+1753450797661:if(textIn == "file")
+1753450797662:{
+1753450797662:## pick the file and verify
+1753450797662:path <- chooseFile()
+1753450797662:## open the connection to the file
+1753450797662:text <- file(path, open = "r")
+1753450797662:} ## end if using file
+1753450797663:else ## for readLines to work, textConnection the string input
+1753450797663:{ text <- textConnection(textIn) }
+1753450797663:## initialize the variable to hold hyphenated end-of-liners
+1753450797663:last <- ""
+1753450797663:## initialize a vector to hold the counts
+1753450797664:wordCount <- c()
+1753450797664:while(TRUE)
+1753450797664:##for (i in 1:10)
+1753450797664:{
+1753450797664:line <- readLines(text, n = 1)
+1753450797665:##
+1753450797665:#cat("\n")
+1753450797665:#cat("this is line:" , line)
+1753450797665:## but how does it know there are no more lines? MAGIC
+1753450797665:if (length(line) == 0) { break }
+1753450797665:else
+1753450797666:{
+1753450797666:## if the last line ended with a hyphenated word, paste it on da start
+1753450797666:line <- paste0(last, line)
+1753450797666:## lines of code where line is on line as line for line (wanna line?)
+1753450797666:wash <- clean(line, keepHyphens, keepContractions)
+1753450797667:## wtf
+1753450797667:#cat("wash[1]:", wash[1])
+1753450797667:#cat("\nwash[2]:", wash[2])
+1753450797667:line <- wash[1]
+1753450797668:words <- unlist(strsplit(line,"\\s+"))
+1753450797668:if (wash[2])
+1753450797668:{
+1753450797668:## store the last word frag
+1753450797668:last <- words[length(words)]
+1753450797668:## reset the line to not hold that part
+1753450797669:words <- words[-length(words)]
+1753450797669:} ## partial word saved for next line
+1753450797669:for (word in words) ## word
+1753450797670:{
+1753450797670:if(word %in% names(wordCount))
+1753450797670:{ wordCount[word] <- as.numeric(wordCount[word]) + 1}
+1753450797670:else ## wordCount[word]++, no? 'course not
+1753450797670:{ wordCount[word] <- 1}
+1753450797671:## print("added word")
+1753450797671:}
+1753450797671:} ## end not empty line
+1753450797672:} ## end while reading lines
+1753450797672:## close the file, if it was a file
+1753450797672:#if (textIn == "file") { close(text) }
+1753450797672:close(text)
+1753450797672:## .... (turns out... I had "wordCount<- wordCount[word] + 1" replacing the entire vector....)
+1753450797673:## cat("\n\nfinal vector", wordCount, "\n\n")
+1753450797673:return (wordCount)
+1753450797673:} ## end readTheText
+1753450800979:words <- analyze()
+1753450808279:words
+1753450918503:analyze <- function(textIn = "file",
+1753450918503:keepHyphens = TRUE,
+1753450918503:keepContractions = TRUE)
+1753450918503:{
+1753450918504:######################## start helper functions #############################
+1753450918504:## pick the file if need be, pick your nose, too!
+1753450918505:chooseFile <- function()
+1753450918505:{
+1753450918505:## choose file or use path?
+1753450918505:path <- readline(prompt = "enter path or 'enter' to search")
+1753450918506:if (path == "")
+1753450918506:{ path <- file.choose() }
+1753450918506:if(!file.exists(path))
+1753450918506:{
+1753450918506:print("try again! file not found 404 SOS")
+1753450918506:## try again
+1753450918506:chooseFile()
+1753450918507:} ## end while invalid file path
+1753450918507:## and spit it out
+1753450918507:return (path)
+1753450918508:}
+1753450918509:## clean the line, keep or remove hyphens and contractions
+1753450918509:clean <- function(line, hyphens, contractions)
+1753450918509:{
+1753450918510:## super annoying
+1753450918510:#cat("\n")
+1753450918510:#cat("into clean:", line)
+1753450918510:#cat("\n")
+1753450918510:## does the line end in a hyphenated word? damn, work
+1753450918511:partialWord <- FALSE
+1753450918511:if (grepl("-$", line))
+1753450918511:{
+1753450918511:## remove that hyphen
+1753450918511:line <- gsub("-$", "", line )
+1753450918511:## declare a partial word
+1753450918512:partialWord <- TRUE
+1753450918512:}
+1753450918512:## no proper nouns allowed
+1753450918512:line <- tolower(line)
+1753450918512:## apropros keep hyphy chars
+1753450918513:line <- gsub("[^a-z'-]", " ", line)
+1753450918513:## okay WTF is going on here?
+1753450918513:#print("removed punctuation?")
+1753450918513:#print(line)
+1753450918514:if (!contractions)
+1753450918514:{ line <- gsub("'", " ", line) }
+1753450918514:else
+1753450918514:{
+1753450918514:## it'll kill quotes and weird contractions ('bout)
+1753450918514:line <- gsub("' ", " ", line)
+1753450918514:line <- gsub(" '", " ", line)
+1753450918515:}
+1753450918515:if (!hyphens)
+1753450918515:{ line <- gsub("-", " ", line) }
+1753450918516:## this is annoying
+1753450918516:#cat("out of clean:", line)
+1753450918516:#cat("\n\n")
+1753450918516:return (c(line, partialWord))
+1753450918517:}
+1753450918517:######################### end helper functions ##############################
+1753450918517:## finding a file or using a string input?
+1753450918518:if(textIn == "file")
+1753450918518:{
+1753450918518:## pick the file and verify
+1753450918518:path <- chooseFile()
+1753450918518:## open the connection to the file
+1753450918518:text <- file(path, open = "r")
+1753450918519:} ## end if using file
+1753450918519:else ## for readLines to work, textConnection the string input
+1753450918519:{ text <- textConnection(textIn) }
+1753450918519:## initialize the variable to hold hyphenated end-of-liners
+1753450918519:last <- ""
+1753450918520:## initialize a vector to hold the counts
+1753450918520:wordCount <- c()
+1753450918520:while(TRUE)
+1753450918520:##for (i in 1:10)
+1753450918520:{
+1753450918521:line <- readLines(text, n = 1)
+1753450918521:##
+1753450918521:#cat("\n")
+1753450918521:#cat("this is line:" , line)
+1753450918521:## but how does it know there are no more lines? MAGIC
+1753450918522:if (length(line) == 0) { break }
+1753450918522:else
+1753450918522:{
+1753450918522:## if the last line ended with a hyphenated word, paste it on da start
+1753450918522:line <- paste0(last, line)
+1753450918522:## don't forget to reset
+1753450918522:last <- ""
+1753450918523:## lines of code where line is on line as line for line (wanna line?)
+1753450918523:wash <- clean(line, keepHyphens, keepContractions)
+1753450918523:## wtf
+1753450918523:#cat("wash[1]:", wash[1])
+1753450918523:#cat("\nwash[2]:", wash[2])
+1753450918524:line <- wash[1]
+1753450918524:words <- unlist(strsplit(line,"\\s+"))
+1753450918524:if (wash[2])
+1753450918524:{
+1753450918525:## store the last word frag
+1753450918525:last <- words[length(words)]
+1753450918525:## reset the line to not hold that part
+1753450918525:words <- words[-length(words)]
+1753450918525:} ## partial word saved for next line
+1753450918526:for (word in words) ## word
+1753450918526:{
+1753450918526:if(word %in% names(wordCount))
+1753450918526:{ wordCount[word] <- as.numeric(wordCount[word]) + 1}
+1753450918526:else ## wordCount[word]++, no? 'course not
+1753450918527:{ wordCount[word] <- 1}
+1753450918527:## print("added word")
+1753450918527:}
+1753450918527:} ## end not empty line
+1753450918528:} ## end while reading lines
+1753450918528:## close the file, if it was a file
+1753450918528:#if (textIn == "file") { close(text) }
+1753450918528:close(text)
+1753450918529:## .... (turns out... I had "wordCount<- wordCount[word] + 1" replacing the entire vector....)
+1753450918529:## cat("\n\nfinal vector", wordCount, "\n\n")
+1753450918529:return (wordCount)
+1753450918530:} ## end readTheText
+1753450922458:words <- analyze()
+1753450930049:words

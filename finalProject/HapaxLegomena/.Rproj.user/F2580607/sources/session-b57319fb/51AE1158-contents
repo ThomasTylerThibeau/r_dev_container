@@ -1,3 +1,19 @@
+#' Analyze - an over-the-top word frequency counter
+#'
+#' @param textIn
+#' @param keepHyphens
+#' @param keepContractions
+#'
+#' @returns your.variable <- c("word" = #count, "etc" = #, ...)
+#' @export
+#'
+#' @examples
+#' wordCounts <- analyze()
+#' wordCounts <- analyze("don't look at this text", keepContractions=FALSE)
+#' wordCounts <- analyze(textIn="don't enter file-paths yet", keepHyphens=FALSE)
+#'
+
+
 analyze <- function(textIn = "file",
                     keepHyphens = TRUE,
                     keepContractions = TRUE)
@@ -29,26 +45,22 @@ analyze <- function(textIn = "file",
   ## clean the line, keep or remove hyphens and contractions
   clean <- function(line, hyphens, contractions)
   {
- ## super annoying
-    #cat("\n")
-    #cat("into clean:", line)
-    #cat("\n")
-
-
     ## does the line end in a hyphenated word? damn, work
     partialWord <- FALSE
     if (grepl("-$", line))
-    { partialWord <- TRUE }
+    {
+      ## remove that hyphen
+      line <- gsub("-$", "", line )
+
+      ## declare a partial word
+      partialWord <- TRUE
+    }
 
     ## no proper nouns allowed
     line <- tolower(line)
 
     ## apropros keep hyphy chars
     line <- gsub("[^a-z'-]", " ", line)
-
- ## okay WTF is going on here?
-    #print("removed punctuation?")
-    #print(line)
 
     if (!contractions)
     { line <- gsub("'", " ", line) }
@@ -61,11 +73,6 @@ analyze <- function(textIn = "file",
 
     if (!hyphens)
     { line <- gsub("-", " ", line) }
-
- ## this is annoying
-    #cat("out of clean:", line)
-    #cat("\n\n")
-
 
     return (c(line, partialWord))
   }
@@ -98,36 +105,30 @@ analyze <- function(textIn = "file",
   {
     line <- readLines(text, n = 1)
 
-  ##
-    #cat("\n")
-    #cat("this is line:" , line)
-
     ## but how does it know there are no more lines? MAGIC
     if (length(line) == 0) { break }
-
-    ## if the last line ended with a hyphenated word, paste it on da start
-    line <- paste0(last, line)
-
     else
     {
+      ## if the last line ended with a hyphenated word, paste it on da start
+      line <- paste0(last, line)
+      ## don't forget to reset
+      last <- ""
+
       ## lines of code where line is on line as line for line (wanna line?)
       wash <- clean(line, keepHyphens, keepContractions)
-
-   ## wtf
-      #cat("wash[1]:", wash[1])
-      #cat("\nwash[2]:", wash[2])
-
+      ## line is now the first part of the vector
       line <- wash[1]
-
+      ## make that it's own thing
       words <- unlist(strsplit(line,"\\s+"))
 
+
+      ## the second part -> hyphenated end-of-line? T/F
       if (wash[2])
       {
         ## store the last word frag
         last <- words[length(words)]
         ## reset the line to not hold that part
         words <- words[-length(words)]
-
       } ## partial word saved for next line
 
 
@@ -137,24 +138,15 @@ analyze <- function(textIn = "file",
         { wordCount[word] <- as.numeric(wordCount[word]) + 1}
         else ## wordCount[word]++, no? 'course not
         { wordCount[word] <- 1}
-
-     ## print("added word")
-      }
-
+      } ## end add/update words
 
     } ## end not empty line
 
   } ## end while reading lines
 
-  ## close the file, if it was a file
-  #if (textIn == "file") { close(text) }
+  ## close the file (even text entry is considered a "file")
   close(text)
-
-## .... (turns out... I had "wordCount<- wordCount[word] + 1" replacing the entire vector....)
-  ## cat("\n\nfinal vector", wordCount, "\n\n")
-
 
   return (wordCount)
 
 } ## end readTheText
-
