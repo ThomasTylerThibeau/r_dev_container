@@ -15246,3 +15246,157 @@
 1753452647756:wrods
 1753452690897:d = analyze("here-\nforafter iS'nt some text", TRUE, FALSE)
 1753452692154:d
+1753452774284:library(devtools)
+1753452829787:use_r(quotidian)
+1753452837924:use_r("quotidian")
+1753452927988:quotidian <- funtion(namedVector = analyze(), top = 10)
+1753452937836:quotidian <- function(namedVector = analyze(), top = 10)
+1753452937836:{
+1753452937837:namedVector
+1753452937837:}
+1753452945471:quotidian()
+1753452994615:quotidian()
+1753453033032:analyze()
+1753453070223:analyze <- function(textIn = "file",
+1753453070223:keepHyphens = TRUE,
+1753453070223:keepContractions = TRUE)
+1753453070223:{
+1753453070223:######################## start helper functions #############################
+1753453070223:## pick the file if need be, pick your nose, too!
+1753453070223:chooseFile <- function()
+1753453070223:{
+1753453070223:## choose file or use path?
+1753453070224:path <- readline(prompt = "enter path or 'enter' to search: ")
+1753453070224:if (path == "")
+1753453070224:{ path <- file.choose() }
+1753453070226:if(!file.exists(path))
+1753453070226:{
+1753453070226:print("try again! file not found 404 SOS")
+1753453070227:## try again
+1753453070227:chooseFile()
+1753453070227:} ## end while invalid file path
+1753453070228:## and spit it out
+1753453070228:return (path)
+1753453070228:}
+1753453070229:## clean the line, keep or remove hyphens and contractions
+1753453070229:clean <- function(line, hyphens, contractions)
+1753453070229:{
+1753453070229:## does the line end in a hyphenated word? damn, work
+1753453070230:partialWord <- FALSE
+1753453070230:if (grepl("-$", line))
+1753453070230:{
+1753453070230:## remove that hyphen
+1753453070231:line <- gsub("-$", "", line )
+1753453070231:## declare a partial word
+1753453070231:partialWord <- TRUE
+1753453070231:}
+1753453070232:## no proper nouns allowed
+1753453070232:line <- tolower(line)
+1753453070232:## apropros keep hyphy chars
+1753453070232:line <- gsub("[^a-z'-]", " ", line)
+1753453070232:if (!contractions)
+1753453070232:{ line <- gsub("'", " ", line) }
+1753453070233:else
+1753453070233:{
+1753453070233:## it'll kill quotes and weird contractions ('bout)
+1753453070233:line <- gsub("' ", " ", line)
+1753453070233:line <- gsub(" '", " ", line)
+1753453070233:}
+1753453070233:if (!hyphens)
+1753453070234:{ line <- gsub("-", " ", line) }
+1753453070234:return (c(line, partialWord))
+1753453070234:}
+1753453070234:######################### end helper functions ##############################
+1753453070235:## finding a file or using a string input?
+1753453070235:if(textIn == "file")
+1753453070235:{
+1753453070235:## pick the file and verify
+1753453070235:path <- chooseFile()
+1753453070235:## open the connection to the file
+1753453070235:text <- file(path, open = "r")
+1753453070236:} ## end if using file
+1753453070236:else ## for readLines to work, textConnection the string input
+1753453070236:{ text <- textConnection(textIn) }
+1753453070236:## initialize the variable to hold hyphenated end-of-liners
+1753453070237:last <- ""
+1753453070237:## initialize a vector to hold the counts
+1753453070237:wordCount <- c()
+1753453070237:while(TRUE)
+1753453070237:##for (i in 1:10)
+1753453070237:{
+1753453070238:line <- readLines(text, n = 1)
+1753453070238:## but how does it know there are no more lines? MAGIC
+1753453070238:if (length(line) == 0) { break }
+1753453070238:else
+1753453070238:{
+1753453070238:## if the last line ended with a hyphenated word, paste it on da start
+1753453070239:line <- paste0(last, line)
+1753453070239:## don't forget to reset
+1753453070239:last <- ""
+1753453070239:## lines of code where line is on line as line for line (wanna line?)
+1753453070239:wash <- clean(line, keepHyphens, keepContractions)
+1753453070239:## line is now the first part of the vector
+1753453070240:line <- wash[1]
+1753453070240:## make that it's own thing
+1753453070240:words <- unlist(strsplit(line,"\\s+"))
+1753453070240:## the second part -> hyphenated end-of-line? T/F
+1753453070240:if (wash[2])
+1753453070241:{
+1753453070241:## store the last word frag
+1753453070241:last <- words[length(words)]
+1753453070241:## reset the line to not hold that part
+1753453070241:words <- words[-length(words)]
+1753453070241:} ## partial word saved for next line
+1753453070242:for (word in words) ## word
+1753453070242:{
+1753453070242:if(word %in% names(wordCount))
+1753453070242:{ wordCount[word] <- as.numeric(wordCount[word]) + 1}
+1753453070243:else ## wordCount[word]++, no? 'course not
+1753453070243:{ wordCount[word] <- 1}
+1753453070243:} ## end add/update words
+1753453070243:} ## end not empty line
+1753453070244:} ## end while reading lines
+1753453070244:## close the file (even text entry is considered a "file")
+1753453070244:close(text)
+1753453070244:return (wordCount)
+1753453070245:} ## end readTheText
+1753453074244:analyze()
+1753453193960:analyze()
+1753453502419:quotidian <- function(namedVector = analyze(), top = 10)
+1753453502419:{
+1753453502419:#namedVector
+1753453502419:print("dun")
+1753453502419:}
+1753453510276:quotidian
+1753453514553:quotidian()
+1753453548164:x = analyze("this is something that I wanna analyze")
+1753453553830:quotidian(x)
+1753453565344:quotidian(x, 3)
+1753453694992:x
+1753453700877:x['this']
+1753453703721:x[this\]
+1753453707253:x[this]
+1753453718284:x['this'] + 1
+1753453723750:x['this']
+1753453814909:quotidian <- function(namedVector = analyze(), top = 10)
+1753453814909:{
+1753453814909:## calls analyze for the all-in-one functionality
+1753453814909:namedVector
+1753453814909:orderly <- sort(namedVector, decreasing = TRUE)
+1753453814909:for(i in 1:top)
+1753453814909:{
+1753453814910:print(orderly[i])
+1753453814910:}
+1753453814910:}
+1753453818824:quotidian
+1753453825091:quotidian()
+1753453976420:quotidian <- function(namedVector = analyze(), top = 10)
+1753453976420:{
+1753453976420:## calls analyze for the all-in-one functionality
+1753453976420:namedVector
+1753453976421:orderly <- sort(namedVector, decreasing = TRUE)
+1753453976421:orderly <- orderly[order(-orderly, names(orderly))]
+1753453976422:for(i in 1:top)
+1753453976422:{ print(orderly[i]) }
+1753453976423:}
+1753453976424:quotidian(top=20)

@@ -1,3 +1,4 @@
+/workspaces/r_dev_container/finalProject/HapaxLegomena/R/quotidian.R
 /workspaces/r_dev_container/finalProject/HapaxLegomena/tests/testthat/test-analyze.R
 ~/finalProject/HapaxLegomena/tests/testthat/test-basicButDependedOn.R
 ~/finalProject/HapaxLegomena/tests/testthat.R
@@ -12,4 +13,3 @@
 ~/finalProject/HapaxLegomena/NAMESPACE
 /workspaces/r_dev_container/finalProject/HapaxLegomena/R/counter.R
 /workspaces/r_dev_container/finalProject/HapaxLegomena/tests/testthat/test-basicButDependedOn.R
-/workspaces/r_dev_container/finalProject/HapaxLegomena/R/basicButDependedOn.R

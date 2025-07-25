@@ -25,11 +25,12 @@ analyze <- function(textIn = "file",
   chooseFile <- function()
   {
     ## choose file or use path?
-    path <- readline(prompt = "enter path or 'enter' to search")
+    path <- readline(prompt = "enter path or 'enter' to search: ")
 
-    if (path == "")
+    if (path == "") ## else, give up.. never gotten the input line to work
     { path <- file.choose() }
 
+    ## should likely just use file.choose() and obviate error handling
     if(!file.exists(path))
     {
       print("try again! file not found 404 SOS")
