@@ -15400,3 +15400,218 @@
 1753453976422:{ print(orderly[i]) }
 1753453976423:}
 1753453976424:quotidian(top=20)
+1753464747132:quotidian <- function(namedVector = analyze(), top = 10)
+1753464747133:{
+1753464747133:## calls analyze for the all-in-one functionality
+1753464747133:namedVector
+1753464747133:## most frequently used words
+1753464747133:orderly <- sort(namedVector, decreasing = TRUE)
+1753464747133:## and then alphebetize as a second sort
+1753464747133:orderly <- orderly[order(-orderly, names(orderly))]
+1753464747133:## needs some formatting!
+1753464747133:for(i in 1:top)
+1753464747134:{
+1753464747134:cat("word:", orderly[i][key])
+1753464747134:cat("count:", orderly[i][value])
+1753464747135:cat("\n")
+1753464747135:}
+1753464747136:}
+1753464747136:quotidian(top=20)
+1753464839980:quotidian(top=20)
+1753464891694:analyze <- function(textIn = "file",
+1753464891694:keepHyphens = TRUE,
+1753464891694:keepContractions = TRUE)
+1753464891694:{
+1753464891695:######################## start helper functions #############################
+1753464891695:## pick the file if need be, pick your nose, too!
+1753464891695:chooseFile <- function()
+1753464891695:{
+1753464891695:## choose file or use path?
+1753464891695:path <- readline(prompt = "enter path or 'enter' to search: ")
+1753464891695:if (path == "") ## else, give up.. never gotten the input line to work
+1753464891695:{ path <- file.choose() }
+1753464891697:## should likely just use file.choose() and obviate error handling
+1753464891697:if(!file.exists(path))
+1753464891697:{
+1753464891697:print("try again! file not found 404 SOS")
+1753464891698:## try again
+1753464891698:chooseFile()
+1753464891698:} ## end while invalid file path
+1753464891699:## and spit it out
+1753464891699:return (path)
+1753464891699:}
+1753464891699:## clean the line, keep or remove hyphens and contractions
+1753464891700:clean <- function(line, hyphens, contractions)
+1753464891700:{
+1753464891700:## does the line end in a hyphenated word? damn, work
+1753464891700:partialWord <- FALSE
+1753464891700:if (grepl("-$", line))
+1753464891701:{
+1753464891701:## remove that hyphen
+1753464891701:line <- gsub("-$", "", line )
+1753464891702:## declare a partial word
+1753464891702:partialWord <- TRUE
+1753464891702:}
+1753464891702:## no proper nouns allowed
+1753464891703:line <- tolower(line)
+1753464891703:## apropros keep hyphy chars
+1753464891703:line <- gsub("[^a-z'-]", " ", line)
+1753464891703:if (!contractions)
+1753464891703:{ line <- gsub("'", " ", line) }
+1753464891703:else
+1753464891704:{
+1753464891704:## it'll kill quotes and weird contractions ('bout)
+1753464891704:line <- gsub("' ", " ", line)
+1753464891704:line <- gsub(" '", " ", line)
+1753464891705:}
+1753464891705:if (!hyphens)
+1753464891705:{ line <- gsub("-", " ", line) }
+1753464891706:return (c(line, partialWord))
+1753464891706:}
+1753464891707:######################### end helper functions ##############################
+1753464891707:## finding a file or using a string input?
+1753464891708:if(textIn == "file")
+1753464891708:{
+1753464891708:## pick the file and verify
+1753464891708:path <- chooseFile()
+1753464891708:## open the connection to the file
+1753464891708:text <- file(path, open = "r")
+1753464891709:} ## end if using file
+1753464891709:else ## for readLines to work, textConnection the string input
+1753464891709:{ text <- textConnection(textIn) }
+1753464891709:## initialize the variable to hold hyphenated end-of-liners
+1753464891709:last <- ""
+1753464891710:## initialize a vector to hold the counts
+1753464891710:wordCount <- c()
+1753464891710:while(TRUE)
+1753464891710:##for (i in 1:10)
+1753464891710:{
+1753464891710:line <- readLines(text, n = 1)
+1753464891711:## but how does it know there are no more lines? MAGIC
+1753464891711:if (length(line) == 0) { break }
+1753464891711:else
+1753464891711:{
+1753464891711:## if the last line ended with a hyphenated word, paste it on da start
+1753464891711:line <- paste0(last, line)
+1753464891712:## don't forget to reset
+1753464891712:last <- ""
+1753464891712:## lines of code where line is on line as line for line (wanna line?)
+1753464891712:wash <- clean(line, keepHyphens, keepContractions)
+1753464891712:## line is now the first part of the vector
+1753464891712:line <- wash[1]
+1753464891713:## make that it's own thing
+1753464891713:words <- unlist(strsplit(line,"\\s+"))
+1753464891713:## the second part -> hyphenated end-of-line? T/F
+1753464891713:if (wash[2])
+1753464891713:{
+1753464891714:## store the last word frag
+1753464891714:last <- words[length(words)]
+1753464891714:## reset the line to not hold that part
+1753464891714:words <- words[-length(words)]
+1753464891714:} ## partial word saved for next line
+1753464891715:for (word in words) ## word
+1753464891715:{
+1753464891715:if(word %in% names(wordCount))
+1753464891715:{ wordCount[word] <- as.numeric(wordCount[word]) + 1}
+1753464891715:else ## wordCount[word]++, no? 'course not
+1753464891715:{ wordCount[word] <- 1}
+1753464891716:} ## end add/update words
+1753464891716:} ## end not empty line
+1753464891716:} ## end while reading lines
+1753464891717:## close the file (even text entry is considered a "file")
+1753464891717:close(text)
+1753464891717:return (wordCount)
+1753464891717:} ## end readTheText
+1753464896413:quotidian <- function(namedVector = analyze(), top = 10)
+1753464896413:{
+1753464896413:## calls analyze for the all-in-one functionality
+1753464896413:namedVector
+1753464896413:## most frequently used words
+1753464896413:orderly <- sort(namedVector, decreasing = TRUE)
+1753464896413:## and then alphebetize as a second sort
+1753464896414:orderly <- orderly[order(-orderly, names(orderly))]
+1753464896414:## needs some formatting!
+1753464896414:for(i in 1:top)
+1753464896414:{
+1753464896414:cat("word:", orderly[i][key])
+1753464896414:cat("count:", orderly[i][value])
+1753464896414:cat("\n")
+1753464896415:}
+1753464896415:}
+1753464896415:quotidian(top=20)
+1753464926779:quotidian()
+1753465046142:quotidian <- function(namedVector = analyze(), top = 10)
+1753465046142:{
+1753465046142:## calls analyze for the all-in-one functionality
+1753465046142:namedVector
+1753465046142:## most frequently used words
+1753465046142:orderly <- sort(namedVector, decreasing = TRUE)
+1753465046143:## and then alphebetize as a second sort
+1753465046143:orderly <- orderly[order(-orderly, names(orderly))]
+1753465046143:## needs some formatting!
+1753465046143:for(i in 1:top)
+1753465046143:{
+1753465046143:key <- names(orderly)[i]
+1753465046144:value <- orderly[i]
+1753465046144:cat("word:", key, "\n")
+1753465046144:cat("count:", value, "\n")
+1753465046144:cat("\n")
+1753465046144:}
+1753465046145:}
+1753465056336:quotidian(top=20)
+1753465088925:quotidian <- function(namedVector = analyze(), top = 10)
+1753465088926:{
+1753465088926:## calls analyze for the all-in-one functionality
+1753465088926:namedVector
+1753465088926:## most frequently used words
+1753465088926:orderly <- sort(namedVector, decreasing = TRUE)
+1753465088927:## and then alphebetize as a second sort
+1753465088927:orderly <- orderly[order(-orderly, names(orderly))]
+1753465088927:## needs some formatting!
+1753465088927:for(i in 1:top)
+1753465088927:{
+1753465088927:key <- names(orderly)[i]
+1753465088928:value <- orderly[i]
+1753465088928:cat("word:", key, "\n")
+1753465088929:cat("count:", value, "\n")
+1753465088929:cat("\n")
+1753465088929:}
+1753465088929:}
+1753465096588:quotidian <- function(namedVector = analyze(), top = 10)
+1753465096588:{
+1753465096588:## calls analyze for the all-in-one functionality
+1753465096588:namedVector
+1753465096588:## most frequently used words
+1753465096588:orderly <- sort(namedVector, decreasing = TRUE)
+1753465096588:## and then alphebetize as a second sort
+1753465096588:orderly <- orderly[order(-orderly, names(orderly))]
+1753465096588:## needs some formatting!
+1753465096589:for(i in 1:top)
+1753465096589:{
+1753465096589:key <- names(orderly)[i]
+1753465096589:value <- orderly[i]
+1753465096589:cat("word:", key, "\n")
+1753465096589:cat("count:", value, "\n")
+1753465096589:cat("\n")
+1753465096589:}
+1753465096589:}
+1753465100570:quotidian(top=20)
+1753465188553:quotidian <- function(namedVector = analyze(), top = 10)
+1753465188553:{
+1753465188553:## calls analyze for the all-in-one functionality
+1753465188553:namedVector
+1753465188553:## most frequently used words
+1753465188553:orderly <- sort(namedVector, decreasing = TRUE)
+1753465188553:## and then alphebetize as a second sort
+1753465188553:orderly <- orderly[order(-orderly, names(orderly))]
+1753465188554:## needs some formatting!
+1753465188554:for(i in 1:top)
+1753465188554:{
+1753465188554:key <- names(orderly)[i]
+1753465188554:value <- orderly[i]
+1753465188554:cat("word ", i, ": ", key, "\n", sep = "")
+1753465188554:cat("count:", value, "\n")
+1753465188555:cat("\n")
+1753465188555:}
+1753465188555:}
+1753465191811:quotidian(top=20)

@@ -10,7 +10,14 @@ quotidian <- function(namedVector = analyze(), top = 10)
 
   ## needs some formatting!
   for(i in 1:top)
-  { print(orderly[i]) }
+  {
+    key <- names(orderly)[i]
+    value <- orderly[i]
+
+    cat("word ", i, ": ", key, "\n", sep = "")
+    cat("count:", value, "\n")
+    cat("\n")
+  }
 
 }
 
