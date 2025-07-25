@@ -15235,3 +15235,14 @@
 1753450918530:} ## end readTheText
 1753450922458:words <- analyze()
 1753450930049:words
+1753451923615:library(devtools)
+1753451934158:use_testthat()
+1753452016898:use_test()
+1753452200252:length(words)
+1753452556353:length(analyze("../../textFiles/someText.txt"))
+1753452580118:words <- analyze("../../textFiles/someText.txt")
+1753452581789:words
+1753452645959:wrods <- analyze("here-\nforafter is some text")
+1753452647756:wrods
+1753452690897:d = analyze("here-\nforafter iS'nt some text", TRUE, FALSE)
+1753452692154:d

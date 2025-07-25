@@ -1,3 +1,8 @@
+/workspaces/r_dev_container/finalProject/HapaxLegomena/tests/testthat/test-analyze.R
+~/finalProject/HapaxLegomena/tests/testthat/test-basicButDependedOn.R
+~/finalProject/HapaxLegomena/tests/testthat.R
+~/finalProject/HapaxLegomena/R/TexTesT.R
+~/finalProject/HapaxLegomena/R/testFunctions.R
 ~/finalProject/HapaxLegomena/textFiles/someText.txt
 ~/finalProject/HapaxLegomena/.gitignore
 ~/finalProject/HapaxLegomena/.Rbuildignore
@@ -7,9 +12,4 @@
 ~/finalProject/HapaxLegomena/NAMESPACE
 /workspaces/r_dev_container/finalProject/HapaxLegomena/R/counter.R
 /workspaces/r_dev_container/finalProject/HapaxLegomena/tests/testthat/test-basicButDependedOn.R
-~/finalProject/HapaxLegomena/tests/testthat.R
 /workspaces/r_dev_container/finalProject/HapaxLegomena/R/basicButDependedOn.R
-/workspaces/r_dev_container/finalProject/HapaxLegomena/vignettes/HapaxLegomena.Rmd
-~/finalProject/HapaxLegomena/R/testFunctions.R
-~/finalProject/HapaxLegomena/R/TestText.R
-~/finalProject/HapaxLegomena/R/TexTesT.R
