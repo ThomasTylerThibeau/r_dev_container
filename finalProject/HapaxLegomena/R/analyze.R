@@ -29,10 +29,10 @@ analyze <- function(textIn = "file",
   ## clean the line, keep or remove hyphens and contractions
   clean <- function(line, hyphens, contractions)
   {
-
-    cat("\n")
-    cat("into clean:", line)
-    cat("\n")
+ ## super annoying
+    #cat("\n")
+    #cat("into clean:", line)
+    #cat("\n")
 
 
     ## does the line end in a hyphenated word? damn, work
@@ -46,9 +46,9 @@ analyze <- function(textIn = "file",
     ## apropros keep hyphy chars
     line <- gsub("[^a-z'-]", " ", line)
 
-## okay WTF is going on here?
-    print("removed punctuation?")
-    print(line)
+ ## okay WTF is going on here?
+    #print("removed punctuation?")
+    #print(line)
 
     if (!contractions)
     { line <- gsub("'", " ", line) }
@@ -62,9 +62,9 @@ analyze <- function(textIn = "file",
     if (!hyphens)
     { line <- gsub("-", " ", line) }
 
-
-    cat("out of clean:", line)
-    cat("\n\n")
+ ## this is annoying
+    #cat("out of clean:", line)
+    #cat("\n\n")
 
 
     return (c(line, partialWord))
@@ -90,7 +90,7 @@ analyze <- function(textIn = "file",
   ## initialize the variable to hold hyphenated end-of-liners
   last <- ""
   ## initialize a vector to hold the counts
-  wordCount <- c("word" = 0)
+  wordCount <- c()
 
 
   ##while(TRUE)
@@ -111,9 +111,9 @@ analyze <- function(textIn = "file",
       ## lines of code where line is on line as line for line (wanna line?)
       wash <- clean(line, keepHyphens, keepContractions)
 
-    ## wtf
-      cat("wash[1]:", wash[1])
-      cat("\nwash[2]:", wash[2])
+   ## wtf
+      #cat("wash[1]:", wash[1])
+      #cat("\nwash[2]:", wash[2])
 
       line <- wash[1]
 
@@ -132,11 +132,11 @@ analyze <- function(textIn = "file",
       for (word in words) ## word
       {
         if(word %in% names(wordCount))
-        { wordCount <- c(word, 1)}
-        else ## wordCount[word]++, no? 'course not
         { wordCount[word] <- as.numeric(wordCount[word]) + 1}
+        else ## wordCount[word]++, no? 'course not
+        { wordCount[word] <- 1}
 
-        print("\nadded word\n")
+     ## print("added word")
       }
 
 
@@ -147,8 +147,8 @@ analyze <- function(textIn = "file",
   ## close the file, if it was a file
   if (textIn == "file") { close(text) }
 
-
-  cat("\n\nfinal vector", wordCount, "\n\n")
+## .... (turns out... I had "wordCount<- wordCount[word] + 1" replacing the entire vector....)
+  ## cat("\n\nfinal vector", wordCount, "\n\n")
 
 
   return (wordCount)
