@@ -19,7 +19,7 @@ quotidian <- function(namedVector = analyze(), top = 10, bottom = 10, hapaxLegom
     ## and then alphabetize as a second sort
     orderly <- orderly[order(-orderly, names(orderly))]
 
-  
+
 
     ## check your usage
     for(i in 1:length(orderly))
