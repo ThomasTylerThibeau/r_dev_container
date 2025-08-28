@@ -1,6 +1,7 @@
-quotidian <- function(namedVector = analyze())
+quotidian <- function(namedVector = analyze(), top = 1/4)
 {
-
+  if (top < 1) ## see a fraction of the total, or set an integer
+  { top <- round(top * length(namedVector))}
 }
 
 # Sample named vector
