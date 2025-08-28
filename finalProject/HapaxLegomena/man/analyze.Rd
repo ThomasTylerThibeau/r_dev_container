@@ -7,7 +7,13 @@
 analyze(textIn = "file", keepHyphens = TRUE, keepContractions = TRUE)
 }
 \arguments{
-\item{keepContractions}{}
+\item{textIn}{is the text input}
+
+\item{keepHyphens}{TRUE{"new-age" => "newage"};
+FALSE{"new-age" => "new" & "age"}}
+
+\item{keepContractions}{TRUE{"shan't" => "shant"}
+FALSE{"shan't" => "shan" & "t"}}
 }
 \value{
 your.variable <- c("word" = #count, "etc" = #, ...)
