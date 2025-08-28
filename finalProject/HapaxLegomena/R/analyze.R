@@ -1,8 +1,10 @@
 #' analyze - an over-the-top word frequency counter
 #'
-#' @param textIn
-#' @param keepHyphens
-#' @param keepContractions
+#' @param textIn is the text input
+#' @param keepHyphens TRUE{"new-age" => "newage"};
+#'                    FALSE{"new-age" => "new" & "age"}
+#' @param keepContractions TRUE{"shan't" => "shant"}
+#'                         FALSE{"shan't" => "shan" & "t"}
 #'
 #' @returns your.variable <- c("word" = #count, "etc" = #, ...)
 #' @export
