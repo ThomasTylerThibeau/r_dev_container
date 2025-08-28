@@ -1,3 +1,5 @@
+/workspaces/r_dev_container/finalProject/HapaxLegomena/NAMESPACE
+/workspaces/r_dev_container/finalProject/HapaxLegomena/R/analyze.R
 /workspaces/r_dev_container/finalProject/HapaxLegomena/R/quotidian.R
 /workspaces/r_dev_container/finalProject/HapaxLegomena/R/infoGraph.R
 /workspaces/r_dev_container/finalProject/HapaxLegomena/R/factotum.R
@@ -11,5 +13,3 @@
 ~/finalProject/HapaxLegomena/tests/testthat/test-basicButDependedOn.R
 ~/finalProject/HapaxLegomena/tests/testthat.R
 ~/finalProject/HapaxLegomena/R/TexTesT.R
-~/finalProject/HapaxLegomena/R/testFunctions.R
-~/finalProject/HapaxLegomena/textFiles/someText.txt

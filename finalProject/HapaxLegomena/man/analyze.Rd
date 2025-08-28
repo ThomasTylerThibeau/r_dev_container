@@ -2,7 +2,7 @@
 % Please edit documentation in R/analyze.R
 \name{analyze}
 \alias{analyze}
-\title{Analyze - an over-the-top word frequency counter}
+\title{analyze - an over-the-top word frequency counter}
 \usage{
 analyze(textIn = "file", keepHyphens = TRUE, keepContractions = TRUE)
 }
@@ -13,7 +13,7 @@ analyze(textIn = "file", keepHyphens = TRUE, keepContractions = TRUE)
 your.variable <- c("word" = #count, "etc" = #, ...)
 }
 \description{
-Analyze - an over-the-top word frequency counter
+analyze - an over-the-top word frequency counter
 }
 \examples{
 wordCounts <- analyze()

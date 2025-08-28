@@ -1,0 +1,3 @@
+## this is a regex function that dictates how the functions will be exported
+## and called by outside users (e.g., "hello()" calls the hello-World function)
+exportPattern("^[[:alpha:]]+")
